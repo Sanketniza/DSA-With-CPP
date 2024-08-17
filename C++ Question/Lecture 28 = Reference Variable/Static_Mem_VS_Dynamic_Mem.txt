@@ -1,0 +1,10 @@
+
+static memory allocation.
+1) int a[3];
+ size = 4 * 3 = 12
+
+ Dynamic memory allocation
+ 1) int *a = new int[3];
+  size = 8 + (4 * 3) = 20;
+
+  

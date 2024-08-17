@@ -1,0 +1,12 @@
+{
+    "Codegeex.Comment.LanguagePreference": "English",
+    "Codegeex.SidebarUI.LanguagePreference": "English",
+    "Codegeex.Chat.LanguagePreference": "English",
+    "cSpell.words": [
+        "Oddkey"
+    ],
+    "files.associations": {
+        "ostream": "cpp",
+        "algorithm": "cpp"
+    }
+}
