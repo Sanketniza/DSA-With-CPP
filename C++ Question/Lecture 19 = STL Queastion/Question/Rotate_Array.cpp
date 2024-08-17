@@ -37,19 +37,24 @@ int main() {
     v.push_back(4);
     v.push_back(5);
 
+    cout << "size of v = " << v.size() << endl;
+
     int k = 3;
 
     vector<int> temp(v.size());
+    cout << "size of temp = " << temp.size() << endl;
 
     for(int i = 0; i < v.size(); i++) {
         
-        temp[(i + k ) %v.size()] = v[i];
+        temp[(i + k ) % v.size()] = v[i];
         cout << v[i]<< " ";
+        // cout << endl;
+
         // cout << temp[i] << " ";
-        cout << endl;
+        // cout << endl;
     }
 
-
+    cout << endl;
     v = temp;
 
     for(int i = 0; i < v.size(); i++) {
