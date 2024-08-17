@@ -19,6 +19,7 @@ char toLowwecase(char ch)
         temp = ch - 'A' + 'a';
         return temp;
     }
+    
 }
 
 bool valid(char ch)
@@ -27,6 +28,7 @@ bool valid(char ch)
     {
         return true;
     }
+    
     else
     {
         return false;
@@ -51,6 +53,7 @@ bool palindrome(char b[], int n)
         {
             return true;
         }
+
         else
         {
             s++;
