@@ -18,9 +18,10 @@ bool palindrome(string s , int i , int j){
     }
 }
  
+ 
 int main() { 
 
-    string s = "popa";
+    string s = "papa";
     int i = 0;
     int j = s.length() - 1;
 
