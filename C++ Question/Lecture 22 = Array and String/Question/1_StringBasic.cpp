@@ -10,6 +10,8 @@ void reverse(char name[], int n)
   while (s < e)
   {
     swap(name[s++], name[e--]);
+    // s++;
+    // e--;
   }
 }
 

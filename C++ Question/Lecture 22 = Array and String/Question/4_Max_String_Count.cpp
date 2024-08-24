@@ -5,12 +5,16 @@ char MaxCount(string s)
 {
 
     int arr[43] = {0};
+    //! we can not be find the array size like this --> arr.size()
 
     // check count of elements
+
     for (int i = 0; i < s.length(); i++)
     {
         char ch = s[i];
+        cout << "The value of ch is : " << ch << endl;
         int number = 0;
+        cout << "The value of number is : " << number << endl;
 
         if (ch >= 'A' && ch <= 'Z')
         {
@@ -21,8 +25,9 @@ char MaxCount(string s)
         {
             number = ch - 'a';
         }
-        
+
         arr[number]++;
+        cout << "The value of arr[number] is : " << arr[number] << endl;
     }
 
     // cout << number;
