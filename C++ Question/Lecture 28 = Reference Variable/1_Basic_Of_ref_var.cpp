@@ -11,9 +11,11 @@ int main() {
 
     x++;
     cout << x << endl;
+
     y++;
     cout << x << endl;
     cout << y << endl;
+    
     x--;
     cout << y << endl;
 
