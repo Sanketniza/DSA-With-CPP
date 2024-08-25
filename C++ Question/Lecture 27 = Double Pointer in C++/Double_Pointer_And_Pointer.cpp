@@ -25,6 +25,14 @@ int main() {
     cout << p << endl;
     cout << p1 << endl << endl;
 
+    (*p)++;  // value of n = 6
+    (**p1)++; // value of n = 7
+
+    cout << "After incrementing the value : " << endl;
+    cout << n << endl;
+    cout << *p << endl;
+    cout << **p1 << endl << endl;
+
     update(p1);
 
     cout << "After incrementing the value : " << endl;

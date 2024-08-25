@@ -19,9 +19,9 @@ int main() {
     cout << *p1 << endl << endl;
 
     cout << "Printing all the address of address :" << endl;
-    cout << &n << endl;
-    cout << &p1 << endl;
-    cout << &*p1 << endl << endl;
+    cout << &n << endl; // address of n
+    cout << &p1 << endl; // address of *p
+    cout << &*p1 << endl << endl; // address of **p
 
     return 0;
 }
