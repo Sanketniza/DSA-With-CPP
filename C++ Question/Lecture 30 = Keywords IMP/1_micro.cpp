@@ -11,7 +11,7 @@ using namespace std;
 
 #define LIMIT 5
 
-#define AREA(l, b) (l * b)
+#define AREA(length, width) (length * width)
 //          (a , b ) (a * b)
 //          (passing the argument) (what should we have to do here)
 
