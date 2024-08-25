@@ -1,4 +1,4 @@
-#include<iostream>
+/* #include<iostream>
 using namespace std;
  // bad method 
 
@@ -20,4 +20,4 @@ int main() {
    cout << ans;
 
     return 0;
-}
+} */
