@@ -36,7 +36,7 @@ void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
         insertArHead(head, d);
         return;
     }
-
+ 
    Node *temp = head;
    int cnt = 1;
 
@@ -63,7 +63,7 @@ void print(Node *head) {
     
     while (temp != NULL) {
         cout << temp -> data << " -> " ;
-        temp = temp -> next;
+        temp = temp -> next ;
     }
 
     cout << endl;
@@ -74,7 +74,7 @@ int main() {
 
     // dynamic allocation
 
-    Node *node1 = new Node(12); // first node with value 12
+    Node *node1 = new Node(12); // creating initial (first) node with value 12
     // cout << node1->data << endl;
     // cout << node1->next << endl;
 
