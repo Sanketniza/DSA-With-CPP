@@ -45,7 +45,7 @@ int getLength(Node *head) {
     
 }
 
-void insertArHead(Node *&head ,int data) {
+void insertAtHead(Node *&head ,int data) {
 
     Node *temp = new Node(data);
     temp -> next = head;
@@ -53,7 +53,7 @@ void insertArHead(Node *&head ,int data) {
     head = temp;
 }
 
-void insertArTail(Node *&tail ,int data) {
+void insertAtTail(Node *&tail ,int data) {
     
     Node *temp = new Node(data);
     tail -> next = temp;
@@ -61,40 +61,35 @@ void insertArTail(Node *&tail ,int data) {
     tail = temp;
 }
 
-void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
+void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
     
-  // inset at head or first
-    if (position == 1) {
-        insertArHead(head, d);
+    //insert at Start
+    if(position == 1) {
+        insertAtHead(head, d);
         return;
     }
- 
-   Node *temp = head;
-   int cnt = 1;
 
-    while (cnt < position -1)
-    {
-        temp = temp -> next;
+    Node* temp  = head;
+    int cnt = 1;
+
+    while(cnt < position-1) {
+        temp = temp->next;
         cnt++;
     }
 
-    // insert at tail
-    if(tail -> next == NULL) {
-        insertArTail(tail, d);
-        return;
+    //inserting at Last Position
+    if(temp -> next == NULL) {
+        insertAtTail(tail,d);
+        return ;
     }
 
-     // Creating node for d
-    Node *nodeToInsert = new Node(d);
+    //creating a node for d
+    Node* nodeToInsert = new Node(d);
 
-    // Update pointers
-    nodeToInsert -> next = temp -> next;
+    nodeToInsert ->next = temp -> next;
     temp -> next -> prev = nodeToInsert;
     temp -> next = nodeToInsert;
     nodeToInsert -> prev = temp;
-
-    
-
 }
 
 
@@ -113,18 +108,22 @@ int main() {
     print(head);
 
 // inserting at head or beginning
-    insertArHead(head, 11);
-    insertArHead(head, 10);
+    insertAtHead(head, 11);
+    insertAtHead(head, 10);
     print(head);
 
 
 // inserting at tail or end
-    insertArTail(tail, 14);
-    insertArTail(tail, 15);
+    insertAtTail(tail, 14);
+    insertAtTail(tail, 15);
     print(head);
 
 // inserting at position
-    insertAtPosition(tail , head, 2, 103);   
+    insertAtPosition(tail , head, 1, 103);   
+    print(head); 
+    insertAtPosition(tail , head, 7, 153);   
+    print(head); 
+    insertAtPosition(tail , head, 4, 3);   
     print(head); 
 
 
