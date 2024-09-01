@@ -13,6 +13,17 @@ class Node{
             this -> data = data;
             this -> next = NULL;
         }
+
+        ~Node() {
+            int value = this -> data;
+            if(this -> next != NULL) {
+                delete next;
+                this -> next = NULL;
+            }
+
+            cout << "Memory is free for node with data " << value << endl;
+
+        }
 }; 
 
 void insertArHead (Node* &head, int d) {
@@ -58,6 +69,44 @@ void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
     temp -> next = nodeTOInsert;
 }
 
+//deleting the node
+ void deleteNode (Node* &head,Node * &tail, int position) {
+     
+     //^ deleting first node or start
+     if(position ==  1) {
+        Node *temp = head;
+        head = head -> next;
+         //^ memory free of starting node
+        temp -> next = NULL;
+        delete temp;  
+
+    }
+
+    else {  //^ deleting any middle node or last
+
+     Node *curr = head;
+     Node *prev = NULL;
+     int cnt  = 1;
+
+        while (cnt < position) {
+
+            prev = curr;
+            curr = curr -> next;
+            cnt ++; // riced the position of node which is to be deleted
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+        if(curr == tail){
+            tail = prev;
+        }
+        
+        // tail = prev;
+
+        delete curr;
+    }
+}
+
 void print(Node *head) {
     Node *temp = head;
     
@@ -72,8 +121,7 @@ void print(Node *head) {
 
 int main() { 
 
-    // dynamic allocation
-
+    //? dynamic allocation
     Node *node1 = new Node(12); // creating initial (first) node with value 12
     // cout << node1->data << endl;
     // cout << node1->next << endl;
@@ -105,9 +153,28 @@ int main() {
     print(head);
     insertAtPosition(tail , head, 1, 105);
     print(head);
+    cout << endl;
 
 // value at head and tail
     cout << "value at head : " << head -> data << endl << "value at tail : " << tail -> data << endl;
+
+// deleting node
+
+    deleteNode(head,tail , 8); //* deleting middle any  node
+    print(head);
+    cout << endl;
+
+    deleteNode(head,tail , 9); //* deleting last node
+    print(head);
+    cout << endl;
+
+    deleteNode(head,tail , 1);  //* deleting first node
+    print(head);
+    cout << endl;
+
+// value at head and tail
+    cout << "value at head : " << head -> data << endl << "value at tail : " << tail -> data << endl;  
+    cout << endl;
 
     return 0;
 
