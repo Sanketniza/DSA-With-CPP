@@ -93,6 +93,12 @@ void DeleteNode (Node * &tail , int value) {
 
         prev -> next = curr -> next;
 
+        // single node is present in LL 
+        if(curr == prev) {
+            tail = NULL;
+        }
+
+        // more than 1 node is present in LL
         if(tail == curr) {
             tail = prev;
         }
