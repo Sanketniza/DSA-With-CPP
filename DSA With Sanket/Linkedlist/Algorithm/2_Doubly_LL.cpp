@@ -4,21 +4,30 @@ using namespace std;
 class Node{
   
 
-    public:
-     int data;
-     Node *next;
-     Node *prev;
+     public:
+        int data;
+        Node* prev;
+        Node* next;
 
-     // constructor creating first  node with value 12
-     Node (int d) {
-         this -> data = d;
-         this -> next = NULL;
-         this -> prev = NULL;
+    //constructor
+    Node(int d ) {
+        this-> data = d;
+        this->prev = NULL;
+        this->next = NULL;
+    }
+
+    ~Node() {
+        int val = this -> data;
+        if(next != NULL) {
+            delete next;
+            next = NULL;
+        }
+        cout << "memory free for node with data "<< val << endl;
     }
 }; 
 
 // Traversing the doubly linked list
-void print(Node *head) {
+void print(Node  *head , Node *tail) {
 
     Node *temp = head;
 
@@ -28,6 +37,9 @@ void print(Node *head) {
         temp = temp -> next;
     }
     cout << "Next NULL" << endl;
+
+    cout << "Head : " << head -> data << endl;
+    cout << "Tail : " << tail -> data << endl << endl;
 }
 
 int getLength(Node *head) {
@@ -45,27 +57,45 @@ int getLength(Node *head) {
     
 }
 
-void insertAtHead(Node *&head ,int data) {
+void insertAtHead(Node *&tail,Node *&head ,int data) {
 
-    Node *temp = new Node(data);
-    temp -> next = head;
-    head -> prev = temp;
-    head = temp;
+    if(head == NULL) {  //^  if list is empty . no any before node is present
+        Node *temp = new Node(data);
+        head = temp;
+        tail = temp;
+    }
+    else {    //^  if list is not empty . mean at least one node is present
+        Node *temp = new Node(data);
+        temp -> next = head;
+        head -> prev = temp;
+        head = temp;
+    }
 }
 
-void insertAtTail(Node *&tail ,int data) {
+void insertAtTail(Node *&tail , Node* &head ,int data) {
+
+    if ( tail == NULL)  // empty list , no any before node is present
+    {
+        Node *temp = new Node(data);
+        tail = temp;
+        head = temp;
+    }
+
+    else {  // if list is not empty . mean at least one node is present
+        Node *temp = new Node(data);
+        tail -> next = temp;
+        temp -> prev = tail;
+        tail = temp;
+    }
     
-    Node *temp = new Node(data);
-    tail -> next = temp;
-    temp -> prev = tail;
-    tail = temp;
+    
 }
 
 void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
     
     //insert at Start
     if(position == 1) {
-        insertAtHead(head, d);
+        insertAtHead(tail ,head, d);
         return;
     }
 
@@ -79,7 +109,7 @@ void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
 
     //inserting at Last Position
     if(temp -> next == NULL) {
-        insertAtTail(tail,d);
+        insertAtTail(tail,head ,d);
         return ;
     }
 
@@ -92,40 +122,85 @@ void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
     nodeToInsert -> prev = temp;
 }
 
+void deleteNode(int position, Node* & head , Node * & tail)  { 
+
+    //deleting first or start node
+    if(position == 1) {
+        Node* temp = head;
+        temp -> next -> prev = NULL;
+        head = temp ->next;
+        temp -> next = NULL;
+        delete temp;
+    }
+    else
+    {
+        //deleting any middle node or last node
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int cnt = 1;
+        while(cnt < position) {
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        curr -> prev = NULL;
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+
+        if(curr == tail) {
+            tail = prev;
+        }
+
+        delete curr;
+
+    }
+}
 
 int main() { 
 
 // dynamic allocation
-   // first node
+  /* 
+// first node
     Node *node1 = new Node(12);
 
 // pointer of nodes
     Node *head = node1;
     Node *tail = node1;
     // Node *prev = node1;
+ */
 
-
-    print(head);
+   Node *head = NULL;  // empty list
+   Node *tail = NULL;  // empty list
 
 // inserting at head or beginning
-    insertAtHead(head, 11);
-    insertAtHead(head, 10);
-    print(head);
+    insertAtHead(tail ,head, 11);
+    insertAtHead(tail ,head, 10);
+    print(head , tail);
 
 
 // inserting at tail or end
-    insertAtTail(tail, 14);
-    insertAtTail(tail, 15);
-    print(head);
+    insertAtTail(tail,head , 14);
+    insertAtTail(tail,head , 15);
+    print(head , tail);
 
 // inserting at position
-    insertAtPosition(tail , head, 1, 103);   
-    print(head); 
-    insertAtPosition(tail , head, 7, 153);   
-    print(head); 
-    insertAtPosition(tail , head, 4, 3);   
-    print(head); 
+    insertAtPosition(tail , head, 1, 103);   //* insert at start
+    print(head , tail); 
+    insertAtPosition(tail , head, 3, 153);    //* insert at middle
+    print(head , tail); 
+    insertAtPosition(tail , head, 7, 3);     //* insert at end
+    print(head , tail); 
 
+
+// delete node
+    deleteNode( 1 , head , tail);  //* delete at start
+    print(head , tail); 
+    deleteNode( 4 , head , tail);  //* delete at middle
+    print(head , tail); 
+    deleteNode(5 , head , tail);  //* delete at end
+    print(head , tail);
 
 // Length of doubly linked list
     cout << "Length : " << getLength(head) << endl;
