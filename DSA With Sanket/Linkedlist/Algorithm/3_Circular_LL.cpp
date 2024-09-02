@@ -60,6 +60,11 @@ void print (Node *tail) {
 
     Node *temp = tail;
 
+    if(tail == NULL) {
+        cout << "List is empty" << endl;
+        return;
+    }
+
     do
     {
         cout << tail -> data << " -> ";
