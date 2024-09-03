@@ -8,12 +8,12 @@ class Node{
         int data;
         Node *next;
 
-        Node(int data) {
-            this -> data = data;
+        Node(int d) {
+            this -> data = d;
             this -> next = NULL;
         }
 
-        ~Node() {
+        ~Node() { // destructor to free memory
             int value = this -> data;
             if(this -> next != NULL) {
                 delete next;
