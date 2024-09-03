@@ -9,8 +9,8 @@ class Node{
         Node *next;
 
         // constructor creating first  node with value 12
-        Node (int data) {
-            this -> data = data;
+        Node (int d) {
+            this -> data = d;
             this -> next = NULL;
         }
 
