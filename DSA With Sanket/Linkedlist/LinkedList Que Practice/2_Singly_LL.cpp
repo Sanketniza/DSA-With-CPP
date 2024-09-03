@@ -95,6 +95,39 @@ int length(Node *&head) {
     return len;
 }
 
+void deleteNode(Node *&head , Node *&tail , int position) {
+
+    if(position == 1) {
+        Node *temp = head;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+
+    else {
+        Node *curr = head;
+        Node *prev = NULL;
+
+        int cnt = 1;
+
+        while (cnt < position -1 ) {
+
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+
+        if(curr == tail) {
+            tail = prev;
+        }
+
+        delete curr;
+    }
+}
+
 int main() { 
  
     // Create a new Node
@@ -129,6 +162,17 @@ int main() {
     insertAtPosition( head , tail , 10 , 18 );
     print(head);
  
+
+ // delete operation
+
+    deleteNode(head , tail , 1);
+    print(head);
+    deleteNode(head , tail , 1);
+    print(head);
+    deleteNode(head , tail , 4);
+    print(head);
+    deleteNode(head , tail , 8);
+    print(head);
 
 
     // pointer 
