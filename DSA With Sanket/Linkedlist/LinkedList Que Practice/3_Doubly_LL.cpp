@@ -96,9 +96,44 @@ void print (Sanket *head , Sanket *tail) {
         temp = temp -> next;
     }
 
-    cout << endl;
+    cout << endl << endl;
 }
 
+
+void deleteAtPosition (Sanket * &tail , Sanket * &head , int position) {
+
+    if(position == 1) {
+        Sanket* temp = head;
+        temp -> next -> prev = NULL;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+
+    else {
+        
+        Sanket* temp = head;
+        Sanket* prev = NULL;
+        int cnt = 1;
+
+        while (cnt < position - 1) {
+
+            prev = temp;
+            temp = temp -> next;
+            cnt++;
+        }
+
+        if(temp == tail) {
+            tail = prev;
+        }
+
+        prev -> next = temp -> next;
+        temp -> next -> prev = prev;
+        temp -> next = NULL;
+        temp -> prev = NULL;
+        delete temp;
+    }
+}
 
 int main() { 
 
@@ -129,6 +164,12 @@ int main() {
     print(head , tail);   
     insertAtPosition(tail , head , 9 ,100 );
     print(head , tail);   
+
+
+// deletion operation..
+
+     deleteAtPosition(tail , head , 1);
+     print(head , tail);
 
 
     cout << "head " << head -> data << endl;
