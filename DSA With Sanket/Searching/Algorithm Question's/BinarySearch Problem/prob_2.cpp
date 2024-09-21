@@ -45,7 +45,7 @@ int BinarySearch(int arr[] , int n ) {
     int end  = n - 1; 
     int mid = start + (end - start) / 2;
 
-    while ( mid < end ) {
+    while ( start < end ) {  //* while (start <= end ) --> give an run time error .
 
         cout << "mid is :" << arr[mid] << endl;
         cout << "mid + 1 is : " << arr[mid + 1] << endl;

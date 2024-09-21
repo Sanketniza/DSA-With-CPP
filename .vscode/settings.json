@@ -10,5 +10,6 @@
         "Posible",
         "wala"
     ],
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "Codegeex.CommitMessage.LanguagePreference": "English"
 }
