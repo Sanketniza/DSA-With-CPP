@@ -66,7 +66,7 @@ double morePrecision(int n, int precision, int tempSol)
 
         for (double j = ans; j * j < n; j = j + factor)
         {
-            ans = j;
+            ans = j; 
         }
     }
 
