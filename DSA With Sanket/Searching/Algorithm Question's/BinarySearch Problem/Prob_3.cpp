@@ -120,6 +120,7 @@ int binarySearch(int arr[], int s, int e, int key)
         }
         mid = start + (end - start) / 2;
     }
+
     return -1;
 }
 
@@ -128,8 +129,10 @@ int binarySearch(int arr[], int s, int e, int key)
 int search(int arr[], int n, int k)
 {
     int pivot = findPivot(arr, n);
+
     cout << "The pivot index is :" << pivot << endl;
     cout << "The pivot element is :" << arr[pivot] << endl;
+    cout << "The value of arr[n - 1] is :" << arr[n - 1] << endl;
 
     if (k >= arr[pivot] && k <= arr[n - 1])
     {
@@ -145,7 +148,8 @@ int search(int arr[], int n, int k)
 int main()
 {
     // int arr[] = {7, 9, 1, 2, 3};
-    int arr[] = {7,8,2,4,5,6};
+    // int arr[] = {7,8,2,4,5,6};
+    int arr[] = {0,1,2,3,4,5,6};
     int n = sizeof(arr) / sizeof(arr[0]);
     int k = 6; // Example key to search for
 
