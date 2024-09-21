@@ -154,12 +154,13 @@ int main() {
 
 
      reverse(head);
-    print(head);
+     print(head);
 
 
 
    cout << "head is at :" << head -> data << endl;
    cout << "tail is at :" << tail -> data << endl;
+   cout << "Thank you so much " << endl;
 
     return 0;
 }
