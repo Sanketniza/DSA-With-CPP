@@ -1,7 +1,7 @@
 //!  find Pivot element in mounted array
 
 //^ Lecture No : 14
-//find the pivot element.
+//* find the pivot element.
 // todo : link ;-   - Search in a rotated & Sorted array:  https://bit.ly/3rEVSK7
 
 #include <iostream>

@@ -1,3 +1,4 @@
+
 /*
 ^    Problem statement
 ^    You are given a positive integer ‘n’.
@@ -20,12 +21,14 @@ using namespace std;
 long long int sqrtInteger(int n)
 {
 
-    int s = 0;
+    int s = 0; 
     int e = n;
     long long int mid = s + (e - s) / 2;
 
     long long int ans = -1;
-    while (s <= e)
+
+    while (s <= e)  // while (start < end) --> run time error
+
     {
 
         long long int square = mid * mid;
@@ -44,6 +47,7 @@ long long int sqrtInteger(int n)
         }
         mid = s + (e - s) / 2;
     }
+    
     return ans;
 }
 
@@ -52,29 +56,31 @@ double morePrecision(int n, int precision, int tempSol)
 
     double factor = 1;
     double ans = tempSol;
+    cout << "factor is " << factor << endl;
     cout << "tempSol is " << tempSol << endl;
     cout << "ans is " << ans << endl;
 
     for (int i = 0; i < precision; i++)
     {
-        factor = factor / 10;
+        factor = factor / 10;  // --> 0.1
 
         for (double j = ans; j * j < n; j = j + factor)
         {
             ans = j;
         }
     }
+
     return ans;
 }
 
 int main()
 {
     int n;
-    cout << " Enter the number " << endl;
+    cout << "Enter the number : ";
     cin >> n;
 
     int tempSol = sqrtInteger(n);
-    cout << " Answer is " << morePrecision(n, 3, tempSol) << endl;
+    cout << "Answer is " << morePrecision(n, 3, tempSol) << endl;
 
     return 0;
 }
