@@ -75,7 +75,7 @@ int BinarySearch(int arr[], int n, int k)
 
     for (int i = 0; i < n; i++)
     {
-        sum += arr[i];
+        sum += arr[i]; // sum of pages.
     }
 
     cout << "sum of painters is " << sum << endl;

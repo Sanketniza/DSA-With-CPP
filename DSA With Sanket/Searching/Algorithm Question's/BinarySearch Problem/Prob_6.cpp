@@ -47,9 +47,9 @@ bool isPossible(int time[], int n, int m, int mid)
         if (pageSum + time[i] <= mid)
         {
             pageSum += time[i];
-            cout << "pageSum is " << pageSum << endl;
+            cout << "pageSum is " << pageSum << endl; 
         }
-        
+         
         else
         {
             studentCount++;

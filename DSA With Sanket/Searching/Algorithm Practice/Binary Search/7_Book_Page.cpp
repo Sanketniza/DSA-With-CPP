@@ -5,23 +5,24 @@ using namespace std;
 
 bool isPossible(int arr[] , int n , int k , int mid) {
 
-    int studentCount = 1;
-    int pageSum = 0;
+    int studentCount = 1;  //? initial student count is 1.
+    int pageSum = 0;  //? initial page sum is 0.
 
 
-    for(int i = 0 ; i < n ; i++) {
-        if(pageSum + arr[i] <= mid) {
+    for(int i = 0 ; i < n ; i++) {  //? for loop for traversing the array.
+        if(pageSum + arr[i] <= mid) {  //? if the page sum is less than the mid then add the pages to the page sum.
 
-            pageSum += arr[i];
+            pageSum += arr[i];  // adding the pages to the page sum.
         }
 
         else {
 
-            studentCount++;
-            if(studentCount > k || arr[i] > mid) {
+            studentCount++;  //? incrementing the student count.
+            if(studentCount > k || arr[i] > mid) {  //? if the student count is greater than the number of students or the page sum is greater than the mid then return false.   
                 return false;
             }
-            pageSum = arr[i];
+            pageSum = arr[i];  //? if the page sum is greater than the mid then set the page sum to the current page.
+            cout << "pageSum is " << pageSum << endl;
         }
     }
 
@@ -30,9 +31,9 @@ bool isPossible(int arr[] , int n , int k , int mid) {
 
 int binary(int arr[] , int n , int k) {
 
-    int start = 0;
-    int sum = 0;
-    for(int i = 0; i < n ; i++) {
+    int start = 0;  //? initial start is 0.
+    int sum = 0;  //? initial sum is 0.
+    for(int i = 0; i < n ; i++) {  //? for loop for calculating the sum of the array.
         sum += arr[i];
     }
 
