@@ -3,7 +3,6 @@ using namespace std;
  
 class Node{
   
-
     public:
         int data;
         Node *next;
@@ -14,7 +13,7 @@ class Node{
             this -> next = NULL;
         }
 
-        ~Node() {
+        ~Node() {  //* destructor to delete node , memory free
             int value = this -> data;
             if(this -> next != NULL) {
                 delete next;

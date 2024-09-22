@@ -1,8 +1,7 @@
-#include<iostream>
-using namespace std;
-
 
 /* 
+lecture 45 : Reverse a Singly Linked List
+? https://www.naukri.com/code360/problems/reverse-the-singly-linked-list_799897?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan
 
     Problem statement
     ^ Given a singly linked list of integers. Your task is to return the head of the reversed linked list.
@@ -32,7 +31,11 @@ using namespace std;
     ^ 4 2 3 21 10 -1
  */
  
-class Node{
+
+#include<iostream>
+using namespace std;
+
+class Node {
     
     public:
         int data;
@@ -42,84 +45,10 @@ class Node{
             this -> data = data;
             this -> next = NULL;
         }
-
 }; 
 
-void insertAtHead(Node *&tail,Node *&head ,int data) {
-
-    if(head == NULL) {  //^  if list is empty . no any before node is present
-        Node *temp = new Node(data);
-        head = temp;
-        tail = temp;
-    }
-    else {    //^  if list is not empty . mean at least one node is present
-        Node *temp = new Node(data);
-        temp -> next = head;
-        head = temp;
-    }
-}
-
-void insertAtTail(Node *&tail,Node *&head ,int d) {
-
-      if ( tail == NULL)  // empty list , no any before node is present
-    {
-        Node *temp = new Node(d);
-        tail = temp;
-        head = temp;
-    }
-
-    else {  // if list is not empty . mean at least one node is present
-        Node *temp = new Node(d);
-        tail -> next = temp;
-        tail = temp;
-    }
-}
-
-
-void insertAtPosition(Node* &tail, Node *&head , int d , int position) {
-
-    if(position == 1) {
-        insertAtHead(tail , head , d);
-        return;
-    }
-
-    Node *temp = head;
-    int cnt = 1;
-
-    while (cnt < position - 1){
-        temp = temp -> next;
-        cnt++;
-    }
-
-    if(temp -> next == NULL) {
-        insertAtTail(tail , head , d);
-        return;
-    }
-
-    Node *nodeToInsert = new Node(d);
-    nodeToInsert -> next = temp -> next; 
-    temp -> next = nodeToInsert;
-}
-
-
-
-int reverse(Node *&head) {
-
-    Node *curr = head;
-    Node *prev = NULL;
-    Node *forword = NULL;
-
-      while (curr != NULL) {
-            forword = curr -> next;
-            curr -> next = prev;
-            prev = curr ;
-            curr = forword;
-        }
-        
-        return prev -> data;
-}
-
 void print(Node *head) {
+
     Node *temp = head;
     
     while (temp != NULL) {
@@ -128,39 +57,47 @@ void print(Node *head) {
     }
 
     cout << endl;
-
-    // cout << "hello";
 }
+
 
 int main() { 
 
-    // Node *node1 = new Node(10);
-    // Node *head = node1;  // empty list
-    // Node *tail = NULL;  // empty list
-
-
-    Node *head = NULL;  // empty list
-    Node *tail = NULL;  // empty list
-
-    insertAtHead(tail ,head , 10);
-    insertAtHead(tail ,head , 9);
-    insertAtHead(tail ,head , 8);
+// create nodes
+    Node *node1 = new Node(10);
+    Node *node2 = new Node(20);
+    Node *node3 = new Node(30);
+    Node *node4 = new Node(40);
+    Node *node5 = new Node(50);
+    
+ // link nodes , joining the node to each other
+    Node *head = node1;
+    node1->next = node2;
+    node2->next = node3;
+    node3->next = node4;
+    node4->next = node5;
+    
     print(head);
 
-    insertAtPosition(tail , head , 103 , 3);
-    insertAtPosition(tail , head , 23 , 1);
-    insertAtPosition(tail , head , 100 , 6);
+    // reverse the linked list
+    cout << "Reversing the linked list" << endl;
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *next = NULL;
+
+    while (curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    head = prev;
+
     print(head);
+    
 
-
-     reverse(head);
-     print(head);
-
-
-
+   cout << endl;
    cout << "head is at :" << head -> data << endl;
-   cout << "tail is at :" << tail -> data << endl;
-   cout << "Thank you so much " << endl;
 
     return 0;
 }
