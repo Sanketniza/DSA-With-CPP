@@ -1,5 +1,6 @@
 
 //!  Painter's Partition Problem
+//^ https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2
 
 //^ lecture No : 15
 
@@ -48,7 +49,6 @@ bool isPossible(int arr[], int size, int k, int mid)
 
         else
         {
-
             PaintersCount++;
             cout << "paintersCount is " << PaintersCount << endl;
 
