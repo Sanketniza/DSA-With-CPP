@@ -6,7 +6,7 @@
         - Circular linked lists can be singly or doubly linked.
         - Circular linked lists are useful for implementing data structures like circular buffers and for tasks requiring cyclic traversal.
         - The circular
-        
+
          nature of circular linked lists allows for efficient traversal in both directions and can simplify certain algorithms.
 
    ! lecture 46: check linked list is circular or not
@@ -21,44 +21,48 @@ Note :
 
 */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Node {
-    public:
-        int data;
-        Node *next;
+class Node
+{
+public:
+    int data;
+    Node *next;
 
-        Node(int data) {
-            this->data = data;
-            this->next = NULL;
-        }
-
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
 };
 
-bool isCircular(Node *head) {
-   
-   //* empty list
-   if(head == NULL) {
-    return true;
-   }
+bool isCircular(Node *head)
+{
 
-   //* non-empty list
+    //* empty list
+    if (head == NULL)
+    {
+        return true;
+    }
+
+    //* non-empty list
     Node *temp = head->next;
-    while (temp != NULL && temp != head) {
+    while (temp != NULL && temp != head)
+    {
         temp = temp->next;
     }
 
-    if(temp == head) {
+    if (temp == head)
+    {
         return true;
     }
 
     return false;
-   
-   
 }
 
-int main() {
+int main()
+{
 
     Node *head = new Node(10);
     Node *second = new Node(20);
@@ -67,17 +71,20 @@ int main() {
     Node *fifth = new Node(50);
 
     head->next = second;
-    second->next = third; 
+    second->next = third;
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = head;
     // fifth->next = NULL;
 
-    if(isCircular(head)) {
+    if (isCircular(head))
+    {
         cout << "Linked list is circular" << endl;
-    } else {
+    }
+    else
+    {
         cout << "Linked list is not circular" << endl;
     }
-    
- return 0;
+
+    return 0;
 }
