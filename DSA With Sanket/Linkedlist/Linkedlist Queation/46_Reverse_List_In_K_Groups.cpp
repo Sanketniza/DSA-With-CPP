@@ -90,10 +90,13 @@ class Node {
 };
 
 Node *reverseKGroup(Node *head, int k) {
+
+    //* base case
     if(head == NULL) {
         return NULL;
     }
 
+    //* reverse first k nodes
     Node *prev = NULL;
     Node *curr = head;
     Node *forward = NULL;
@@ -107,10 +110,12 @@ Node *reverseKGroup(Node *head, int k) {
         count++;
     }
 
+    //* reverse remaining nodes
     if(forward != NULL) {
         head->next = reverseKGroup(forward, k);
     }
 
+    //* return head
     return prev;
 }
 
@@ -144,11 +149,15 @@ int main() {
     print(head);
 
     //* reverse the linked list in k groups
-    // int k = 2;
-    int k = 3;
+    int k = 2;
+    // int k = 3;
     cout << "After reversing the linked list in k groups of " << k << " :" << endl;
     Node *newHead = reverseKGroup(head, k);
     print(newHead);
+
+
+    // reverseKGroup(head, k);
+    // print(head);
 
  return 0;
 }
