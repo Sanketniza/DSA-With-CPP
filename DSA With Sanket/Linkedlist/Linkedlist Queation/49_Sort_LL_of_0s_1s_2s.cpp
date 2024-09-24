@@ -73,6 +73,7 @@ class Node {
     Approach 1:-
     Count the number of 0s, 1s and 2s and then update the linked list
 */
+
 void sort(Node* &head) {
 
     int count0 = 0;
