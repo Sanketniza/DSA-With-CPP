@@ -53,7 +53,10 @@ Problem statement
 
  */
 
+
+
 #include<iostream>
+#include<map>
 using namespace std;
 
 class Node {
@@ -67,6 +70,7 @@ class Node {
     }
 };
 
+// todo: first approach --> using two pointer and hashmap
 void removeDuplicates(Node* &head) {
 
     if(head == NULL) {
@@ -101,6 +105,39 @@ void removeDuplicates(Node* &head) {
     }
 }
 
+// todo: second approach --> using sort LL and then remove duplicates
+
+void SortRemoveDuplicates(Node* &head) {
+ 
+ cout << "check how to sort the LL" << endl;
+}
+
+// todo: third approach -> using map
+void MapRemoveDuplicates(Node* &head) {
+
+    cout << "check how to remove duplicates using map" << endl;
+
+    map<int, bool> visited;
+
+    Node* curr = head;
+    Node* prev = NULL;
+
+    while (curr != NULL) {
+
+        if(visited[curr->data] == true) {
+            Node* nodeToDelete = curr;
+            curr = curr->next;
+            prev->next = curr;
+            delete(nodeToDelete);
+        } 
+        else {
+            visited[curr->data] = true;
+            prev = curr;
+            curr = curr->next;
+        }
+    } 
+}
+
 void print(Node* &head) {
     Node* temp = head;
     while(temp != NULL) {
@@ -128,11 +165,24 @@ int main() {
     sixth->next = seventh;
     seventh->next = NULL;
 
+    cout << "original LL" << endl;
     print(head);
+    cout << "----------------------------------------" << endl;
 
-
+// todo: first approach -> using two pointer and hashmap
     removeDuplicates(head);
     print(head);
+    cout << "----------------------------------------" << endl;
+
+// todo: second approach -> sort the LL and then remove duplicates
+    SortRemoveDuplicates(head);
+    // print(head);
+    cout << "----------------------------------------" << endl;
+
+// todo: third approach -> using map
+    MapRemoveDuplicates(head);
+    print(head);
+    cout << "----------------------------------------" << endl;
 
 
  return 0;
