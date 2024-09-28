@@ -84,13 +84,22 @@ Node *flattenLinkedList(Node *head)
         return head;
     }
 
-    // recurse for list on right
-    head->next = flattenLinkedList(head->next);
+    // cout << "Head data: " << head->data << endl;
 
-    // merge two list
-    head = mergeTwoList(head, head->next);
+    //todo: recurse for list on right
 
-    return head;
+    //? head->next = flattenLinkedList(head->next);
+     Node *right = flattenLinkedList(head->next);
+    // cout << "Head->next data: " << head->next->data << endl;
+
+    //todo: merge two list
+
+    //? head = mergeTwoList(head, head->next);
+    Node *ans = mergeTwoList(head, right);
+    // cout << "Head data after merge: " << head->data << endl;
+
+    //? return head;
+    return ans;
 }
 
 void print(Node *head)
@@ -126,13 +135,13 @@ int main()
     Node *seven = new Node(3);
 
     one->child = six;
-    six->next = seven;
+    six->child = seven;
 
     Node *eight = new Node(5);
     Node *nine = new Node(6);
 
     two->child = eight;
-    eight->next = nine;
+    eight->child = nine;
 
     Node *ten = new Node(8);
     three->child = ten;
