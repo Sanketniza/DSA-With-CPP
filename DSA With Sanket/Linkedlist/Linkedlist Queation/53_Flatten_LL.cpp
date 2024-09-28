@@ -99,10 +99,10 @@ void print(Node *head)
 
     while (temp != NULL)
     {
-        cout << temp->data << " ";
-        temp = temp->child;  // Change this line from temp = temp->next to temp = temp->child
+        cout << temp -> data << " -> ";
+        temp = temp -> child;  // Change this line from temp = temp->next to temp = temp->child
     }
-    cout << endl;
+    cout << "NULL" << endl;
 }
 
 int main()
