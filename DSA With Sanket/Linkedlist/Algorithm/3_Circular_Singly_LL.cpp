@@ -72,7 +72,7 @@ void print (Node *tail) {
 
     } while (tail != temp);
 
-    cout << endl;
+    cout << "Tail" << endl;
 }
 
 
@@ -86,12 +86,12 @@ void DeleteNode (Node * &tail , int value) {
 
     else {
         // non empty list
-        // assuming that the value is present in the list
+        // assuming at least one node present in the list
 
         Node * prev = tail;
         Node * curr = prev -> next;
 
-        while ( curr -> data != value ) {
+        while ( curr -> data != value ) {  //todo: deleting node on the basis of value not position.
             prev = curr;
             curr = curr -> next;
         }
@@ -124,25 +124,32 @@ int main() {
 
     InsertNode(tail , 5 , 3);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
     InsertNode(tail , 3 , 4);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
     InsertNode(tail , 4 , 6);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
     InsertNode(tail , 4 , 5);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
     InsertNode(tail , 3 , 15);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
 
     DeleteNode(tail , 15);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
     DeleteNode(tail , 3);
     print(tail);
+    cout << "tail : " << tail -> data << endl;
 
  
     return 0;

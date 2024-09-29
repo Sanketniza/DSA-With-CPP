@@ -1,4 +1,9 @@
 /*
+
+ ? https://www.geeksforgeeks.org/problems/circular-linked-list/1
+ ? https://leetcode.com/problems/linked-list-cycle/description/
+ ? https://www.naukri.com/code360/problems/detect-the-first-node-of-the-loop_1112628?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan&count=25&page=1&search=linked%20list%20is%20circular%20or%20not&sort_entity=order&sort_order=ASC&attempt_status=NOT_ATTEMPTED&leftPanelTabValue=PROBLEM&customSource=studio_nav
+
     Circular Linked List:
         - Last node is pointing to first node.
         - First node is pointing to last node.

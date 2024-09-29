@@ -1,6 +1,7 @@
 /* 
 !  lecture 45 :- Middle Of Linked List
  link :-https://www.naukri.com/code360/problems/middle-of-linked-list_973250?source=youtube&campaign=Lovebabbarcodestudio_24thJan&leftPanelTabValue=PROBLEM
+ link :- https://leetcode.com/problems/middle-of-the-linked-list/
 
         ^      Middle Of Linked List
         

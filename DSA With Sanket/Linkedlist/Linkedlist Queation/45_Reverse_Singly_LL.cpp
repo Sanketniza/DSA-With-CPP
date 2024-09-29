@@ -2,6 +2,8 @@
 /*
 lecture 45 : Reverse a Singly Linked List
 ? https://www.naukri.com/code360/problems/reverse-the-singly-linked-list_799897?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan
+? https://leetcode.com/problems/reverse-linked-list/submissions/1405821580/
+? https://www.geeksforgeeks.org/problems/reverse-a-linked-list/1
 
     Problem statement
     ^ Given a singly linked list of integers. Your task is to return the head of the reversed linked list.

@@ -15,18 +15,19 @@ class Node{
 
         ~Node() {  //* destructor to delete node , memory free
             int value = this -> data;
+            
             if(this -> next != NULL) {
                 delete next;
                 this -> next = NULL;
             }
 
             cout << "Memory is free for node with data " << value << endl;
-
         }
 }; 
 
 void insertArHead (Node* &head, int d) {
     
+    //todo: allready one node is present 
      Node *temp = new Node(d); // creating new node with value d 
      temp -> next = head;  // joining new node with first node 
      head = temp;

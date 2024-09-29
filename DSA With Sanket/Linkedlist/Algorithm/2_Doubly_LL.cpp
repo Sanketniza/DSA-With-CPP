@@ -3,7 +3,6 @@ using namespace std;
  
 class Node{
   
-
      public:
         int data;
         Node* prev;
@@ -16,12 +15,14 @@ class Node{
         this->next = NULL;
     }
 
-    ~Node() {
+    ~Node() {  //* destructor call to delete node , or to free the memory.
         int val = this -> data;
+        
         if(next != NULL) {
             delete next;
             next = NULL;
         }
+
         cout << "memory free for node with data "<< val << endl;
     }
 }; 
@@ -59,6 +60,7 @@ int getLength(Node *head) {
 
 void insertAtHead(Node *&tail,Node *&head ,int data) {
 
+ //todo: initialy no node is present .
     if(head == NULL) {  //^  if list is empty . no any before node is present
         Node *temp = new Node(data);
         head = temp;
