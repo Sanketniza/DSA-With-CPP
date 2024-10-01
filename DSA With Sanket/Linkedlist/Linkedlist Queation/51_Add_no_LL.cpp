@@ -98,6 +98,7 @@ Node *addTwoNumber(Node *head1, Node *head2)
 
         int val1 = 0;
         if (head1 != NULL)
+        
         {
             val1 = head1->data;
         }
