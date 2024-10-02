@@ -1,4 +1,4 @@
-/* 
+/*
     ? lecture 56 - Next Smaller Element
     ? link - https://www.naukri.com/code360/problems/next-smaller-element_1112581?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&leftPanelTabValue=PROBLEM
 
@@ -30,32 +30,44 @@ Sample Output 1:
 -1 2 -1
  */
 
-#include<iostream>
-#include<stack>
-#include<vector>
+#include <iostream>
+#include <stack>
+#include <vector>
 using namespace std;
 
-vector<int> nextSmallerElement(vector<int> &arr) {
+vector<int> nextSmallerElement(vector<int> &arr)
+{
     stack<int> s;
     s.push(-1);
+
     vector<int> ans(arr.size());
-    for(int i = arr.size() - 1; i >= 0; i--) {
+
+    for (int i = arr.size() - 1; i >= 0; i--)
+    {
         int curr = arr[i];
-        while(s.top() >= curr) {
+        while (s.top() >= curr)
+        {
             s.pop();
         }
+
         ans[i] = s.top();
         s.push(curr);
     }
+    
     return ans;
 }
 
-int main() {
+int main()
+{
     vector<int> arr = {2, 1, 4, 3};
     vector<int> ans = nextSmallerElement(arr);
-    for(auto i : ans) {
+
+    cout << "The next smaller element for each of the array elements is: ";
+    for (auto i : ans)
+    {
         cout << i << " ";
     }
     cout << endl;
- return 0;
+
+    return 0;
 }
