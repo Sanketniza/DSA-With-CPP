@@ -46,13 +46,7 @@ int main() {
     cout << "n is " << n << endl;
     cout << "m is " << m << endl;
 
-    // todo: find the maximum area of a rectangle formed only of 1s in the given matrix
-    // todo: we will use the stack to find the maximum area of a rectangle
-    // todo: we will use the stack to find the maximum area of a rectangle
-    // todo: we will use the stack to find the maximum area of a rectangle
-    // todo: we will use the stack to find the maximum area of a rectangle
-    // todo: we will use the stack to find the maximum area of a rectangle
-    // todo: we will use the stack to find the maximum area of a rectangle
+ 
 
 
     
