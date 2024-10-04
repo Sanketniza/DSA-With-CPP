@@ -56,20 +56,20 @@ class SpecialStack {
 
         void push(int data) {
 
-            if(s.empty()) {
+            if(s.empty()) {  // initial case when on any element is not present , so we will push the element and make it minimum , means this step is only for the first element , it excute only one time.
                 s.push(data);
                 mini = data;
             }
 
             else {
 
-                if( data < mini) {
+                if( data < mini) {  // if the data is less than mini , we will push the data in the stack and make it minimum , means this step is for the all the element except the first element.
                     int val = 2*data - mini;
                     s.push(val);
                     mini = data;
                 }
 
-                else {
+                else {  // if the data is not less than mini , we will push the data in the stack.
                     s.push(data);
                 }
             }
@@ -77,18 +77,18 @@ class SpecialStack {
 
         int pop() {
 
-            if(s.empty()) {
+            if(s.empty()) {  // if the stack is empty , we will return -1.
                 return -1;
             }
 
             int curr = s.top();
             s.pop();
 
-            if(curr > mini) {
+            if(curr > mini) {  // if the curr is greater than mini , we will return the curr.
                 return curr;
             }
 
-            else {
+            else {  // if the curr is less than mini , we will return the mini.
                 int prevMin = mini;
                 int val = 2*mini - curr;
                 mini = val;
@@ -98,25 +98,26 @@ class SpecialStack {
         }
 
         int top() {
-            if(s.empty()) {
+            if(s.empty()) {  // if the stack is empty , we will return -1.
                 return -1;
             }
 
             int curr = s.top();
-            if(curr < mini) {
+            if(curr < mini) {  // if the curr is less than mini , we will return the mini.
                 return mini;
             }
 
-            else {
+            else {  // if the curr is greater than mini , we will return the curr.
                 return curr;
             }
         }
 
         int getMin() {
-            if(s.empty()) {
+            if(s.empty()) {  // if the stack is empty , we will return -1.
                 return -1;
             }
-            else {
+            
+            else {  // if the stack is not empty , we will return the mini.
                 return mini;
             }
             
@@ -124,7 +125,7 @@ class SpecialStack {
 };
 
 int main() {
-    
+
     SpecialStack s;
 
     s.push(5);
