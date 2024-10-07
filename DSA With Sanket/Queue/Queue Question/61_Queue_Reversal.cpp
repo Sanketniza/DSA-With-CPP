@@ -55,9 +55,6 @@ int main() {
         cout << q.front() << " ";
         q.pop();
     }
-    
-
-    
 
  return 0;
 }
