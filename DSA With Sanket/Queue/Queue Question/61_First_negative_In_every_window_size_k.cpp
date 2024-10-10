@@ -18,6 +18,7 @@
     {2, 3} = 0 (does not contain a negative integer)
     {3, -6} = -6
     {-6, 10} = -6
+
  */
 
 #include<iostream>
@@ -100,3 +101,9 @@ int main() {
 
  return 0;
 }
+
+/* 
+ 
+
+
+ */
