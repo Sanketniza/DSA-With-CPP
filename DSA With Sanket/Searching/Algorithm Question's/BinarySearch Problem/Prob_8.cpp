@@ -42,7 +42,9 @@ bool isPossible(int arr[], int size, int k, int mid)
 
     int cows = 1;
     int prev = arr[0];
-
+    cout << "prev: " << prev << endl;
+    cout << "mid: " << mid << endl;
+    
     for (int i = 0; i < size; i++)
     {
 
@@ -67,6 +69,7 @@ int BinarySearch(int arr[], int size, int k)
 
     int start = 0;
     int end = arr[size - 1] - arr[0];
+    cout << "end: " << end << endl;
     int ans = -1;
     int mid = start + (end - start) / 2;
 
@@ -92,6 +95,7 @@ int main()
     int arr[] = {0, 3, 4, 7, 10, 9};
     int size = sizeof(arr) / sizeof(arr[0]);
     int k = 2;
+
     int result = BinarySearch(arr, size, k);
     cout << "The Minimum distance is " << result << endl;
 
