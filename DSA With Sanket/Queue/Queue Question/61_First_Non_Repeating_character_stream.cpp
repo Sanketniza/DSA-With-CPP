@@ -32,7 +32,7 @@ using namespace std;
 
 int main() {
 
-    string A = "aabbbc";
+    string A = "aabaabbcbcc";
     int n = A.length();
 
     unordered_map<char, int> count;
@@ -47,27 +47,36 @@ int main() {
         }
 
         char ch = A[i];
-        cout << "count of " << ch << " is " << count[ch] << endl;
+        cout << "count of '" << ch << "' is " << count[ch] << endl << endl;
         count[ch]++;
+        cout << "count of '" << ch << "' is " << count[ch] << endl << endl;
+
         q.push(ch);
-        cout << "element in queue is " << q.front() << endl;
+        cout << "element in queue is '" << q.front() << "'" << endl << endl;
+        cout << "size of queue is " << q.size() << endl << endl;
 
-        while (!q.empty()) {
+        while (!q.empty()) {  // when queue is not empty , 
+            cout << "while loop entered" << endl << endl;
 
-            if(count[q.front()] > 1) {
-                cout << "before pop count of " << q.front() << " is " << count[q.front()] << endl;
+            if(count[q.front()] > 1) { // if count of front element is greater than 1 , then pop it
+                cout << "if block entered"  << endl;
+                cout << "before pop count of '" << q.front() << "' is " << count[q.front()] << endl << endl;
                 q.pop();
-                cout << "after pop count of " << q.front() << " is " << count[q.front()] << endl;
+                cout << "after pop count of '" << q.front() << "' is " << count[q.front()] << endl << endl;
             }
 
-            else {
+            else { // if count of front element is 1 , then add it to ans and break
+                cout << "else block entered" << endl;
                 ans.push_back(q.front());
+                cout << "ans is '" << ans << "'" << endl << endl;
                 break;
             }
         }
 
-        if(q.empty()) {
+        if(q.empty()) { // if queue is empty , then add '#' to ans
+            cout << "if block entered" << endl;
             ans.push_back('#');
+            cout << "ans is '" << ans << "'" << endl << endl;
         }
 
         cout << "ans is " << ans << endl;
