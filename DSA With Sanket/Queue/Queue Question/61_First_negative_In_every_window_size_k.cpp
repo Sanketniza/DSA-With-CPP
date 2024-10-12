@@ -41,6 +41,7 @@ int main() {
 
         cout << "arr[i]: " << arr[i] << endl;
         cout << "i: " << i << endl;
+
         if(arr[i] < 0) {
             q.push_back(i);
             cout << "q.push_back: " << i << endl;  // index 0 = -8
@@ -67,7 +68,7 @@ int main() {
     for(int i = k; i < n; i++) {
 
         // remove the first element for the window or array
-         if(!q.empty() && i - q.front() >=k ) {
+         if(!q.empty() && i - q.front() >= k ) {
             q.pop_front();
          }
 
