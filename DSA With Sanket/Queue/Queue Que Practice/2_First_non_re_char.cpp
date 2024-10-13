@@ -16,6 +16,7 @@ int main() {
 
         char ch = A[i];
         c[ch]++;
+        // unordered_map<char , int> c = {{'a' , 1} , {'b' , 2}};
 
         q.push(ch);
 
