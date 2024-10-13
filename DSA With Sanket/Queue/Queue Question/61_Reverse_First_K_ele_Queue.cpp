@@ -59,7 +59,7 @@ int main() {
 
     // step 3: push the elements of the stack to the queue
     int t = q.size() - k;
-    while (t--) {
+    while (!q.empty() && t--) {
         int element = q.front();
         q.pop();
         q.push(element);

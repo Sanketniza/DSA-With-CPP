@@ -1,94 +1,82 @@
 #include <iostream>
 using namespace std;
 
-class CircularQueue {
-    int *arr;
-    int front;
-    int rear;
-    int size;
+class Queue {
+private:
+    int* arr;        // Array to store queue elements
+    int capacity;    // Maximum number of elements in the queue
+    int front;       // Index of the front element
+    int rear;        // Index of the rear element
+    int count;       // Current size of the queue
 
 public:
-    // Initialize your data structure.
-    CircularQueue(int n) {
-        size = n;
-        arr = new int[size];
-        front = rear = -1;
+    Queue(int size) {
+        arr = new int[size]; // Allocate memory for the queue
+        capacity = size;
+        front = 0;
+        rear = -1;
+        count = 0;
     }
 
-    // Enqueues 'X' into the queue. Returns true if it gets pushed into the queue, and false otherwise.
-    bool push(int value) {
-        // Check whether the queue is full
-        if ((rear + 1) % size == front) {
-            cout << "Queue is full" << endl;
-            return false; // Queue is full
-        }
-        else if (front == -1) { // First element to push
-            front = rear = 0;
-        }
-        else {
-            rear = (rear + 1) % size; // Maintain cyclic nature
-        }
-        // Push inside the queue
-        arr[rear] = value;
-        return true;
+    ~Queue() {
+        delete[] arr; // Free allocated memory
     }
 
-    // Dequeues top element from queue. Returns -1 if the queue is empty, otherwise returns the popped element.
-    int pop() {
-        if (front == -1) { // Check if the queue is empty
-            return -1; // Queue is empty
+    void push(int item) {
+        if (count == capacity) {
+            cout << "Queue is full!" << endl;
+            return;
         }
-        int ans = arr[front];
-        arr[front] = -1; // Optional: Clear the dequeued position
-        if (front == rear) { // Single element is present
-            front = rear = -1; // Reset the queue
-        }
-        else {
-            front = (front + 1) % size; // Maintain cyclic nature
-        }
-        return ans; // Return the dequeued element
+        rear++; // Increment rear
+        arr[rear] = item; // Add item to the rear
+        count++; // Increase the count
     }
 
-    // Optional: Function to print the queue for debugging
+    void pop() {
+        if (empty()) {
+            cout << "Queue is empty!" << endl;
+            return;
+        }
+        front++; // Increment front to remove the element
+        count--; // Decrease the count
+    }
+
+    bool empty() {
+        return (count == 0);
+    }
+
+    int size() {
+        return count;
+    }
+
     void print() {
-        if (front == -1) {
-            cout << "Queue is empty" << endl;
+        if (empty()) {
+            cout << "Queue is empty!" << endl;
             return;
         }
         cout << "Queue elements: ";
-        int i = front;
-        while (true) {
-            cout << arr[i] << " ";
-            if (i == rear) break;
-            i = (i + 1) % size;
+        for (int i = front; i <= rear; i++) {
+            cout << arr[i] << " "; // Print elements from front to rear
         }
         cout << endl;
     }
 };
 
+// Example usage
 int main() {
-    CircularQueue q(5); // Size of the queue is 5
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    
-    q.print(); // Print the queue
+    Queue q(5); // Create a queue of capacity 5
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.print(); // Output: Queue elements: 10 20 30
+
+    cout << "Size: " << q.size() << endl; // Output: Size: 3
 
     q.pop();
-    q.print(); // Print the queue after popping
+    q.print(); // Output: Queue elements: 20 30
 
-    q.push(4);
-    q.push(5);
-    q.push(5);
- 
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
- 
-    q.print(); // Print the queue
+    cout << "Is empty: " << (q.empty() ? "Yes" : "No") << endl; // Output: Is empty: No
 
     return 0;
 }
