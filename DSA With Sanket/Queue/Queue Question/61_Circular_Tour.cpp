@@ -30,7 +30,6 @@ Your task is to complete the function tour() which takes the required data as in
 
 #include<iostream>
 #include<vector>
-#include<queue>
 using namespace std;
 
 int main() {
@@ -38,23 +37,23 @@ int main() {
     vector<int> petrol = {4, 4, 7, 4};
     vector<int> distance = {6, 5, 3, 5};
 
-    int remPetrol = 0;
+    int deficiency = 0;
     int balancePetrol = 0;
     int start = 0;
 
     for(int i = 0; i < petrol.size(); i++) {
 
-        remPetrol += petrol[i] - distance[i];
+        balancePetrol += petrol[i] - distance[i];
 
-        if(remPetrol < 0) {
+        if(balancePetrol < 0) {
 
-            balancePetrol += remPetrol;
+            deficiency += balancePetrol;
             start = i + 1;
-            remPetrol = 0;
+            balancePetrol = 0;
         }
     }
 
-    if(remPetrol + balancePetrol >= 0) {
+    if(deficiency + balancePetrol >= 0) {
         cout << start << endl;
     }
 

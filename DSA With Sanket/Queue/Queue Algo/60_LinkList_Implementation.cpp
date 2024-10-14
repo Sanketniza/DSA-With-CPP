@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+/* 
 // Node structure for the linked list
 struct Node {
     int data;       // Data part of the node
@@ -106,6 +106,112 @@ int main() {
     }
 
     q.dequeue();
+
+    return 0;
+} */
+
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
+
+    ~Node() {
+        // Destructor to delete the next node
+        if (this->next != NULL) {
+            delete next;
+        }
+    }
+};
+
+class Queue {
+    Node* front;
+    Node* rear;
+
+public:
+    Queue() {
+        front = NULL;
+        rear = NULL;
+    }
+
+    void push(int data) {
+        Node* temp = new Node(data);
+        if (front == NULL) {  // Queue is empty
+            front = temp;
+            rear = temp;
+        } else {  // Queue is not empty
+            rear->next = temp;
+            rear = temp;
+        }
+    }
+
+    int pop() {
+        if (front == NULL) {  // Queue is empty
+            cout << "Queue is empty!" << endl;
+            return -1; // Return -1 to indicate empty queue
+        }
+
+        Node* temp = front;
+        front = front->next;
+        int poppedValue = temp->data; // Store the popped value
+        delete temp; // Free the memory
+        // If the queue becomes empty, set rear to NULL
+        if (front == NULL) {
+            rear = NULL;
+        }
+        return poppedValue; // Return the popped value
+    }
+
+    int peek() {
+        if (front == NULL) {  // Queue is empty
+            cout << "Queue is empty!" << endl;
+            return -1; // Return -1 to indicate empty queue
+        } else {
+            return front->data; // Return the front value
+        }
+    }
+
+    bool isEmpty() {
+        return front == NULL; // Return true if empty
+    }
+
+    void print() {
+        Node* temp = front;
+        if (temp == NULL) {
+            cout << "Queue is empty!" << endl;
+            return;
+        }
+        while (temp != NULL) {
+            cout << temp->data << " --> ";
+            temp = temp->next;
+        }
+        cout << "NULL" << endl;
+    }
+};
+
+int main() {
+    Queue q;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.print(); // Output: 10 --> 20 --> 30 --> NULL
+
+    cout << "Popped element: " << q.pop() << endl; // Output: Popped element: 10
+    q.print(); // Output: 20 --> 30 --> NULL
+
+    cout << "Peeked element: " << q.peek() << endl; // Output: Peeked element: 20
+    cout << "Is queue empty? " << (q.isEmpty() ? "Yes" : "No") << endl; // Output: No
+
+    // Additional test to ensure proper functionality
+    q.pop(); // Remove 20
+    q.pop(); // Remove 30
+    cout << "Is queue empty? " << (q.isEmpty() ? "Yes" : "No") << endl; // Output: Yes
 
     return 0;
 }
