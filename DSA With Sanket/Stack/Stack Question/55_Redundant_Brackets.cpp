@@ -1,4 +1,4 @@
-/* 
+/*
 ? lecture 55
 ? Redundant Brackets
 
@@ -11,8 +11,8 @@ Note :
 A pair of brackets is said to be redundant when a subexpression is surrounded by needless/ useless brackets.
 
 For Example :
-((a+b)) has a pair of redundant brackets. The pair of brackets on the first and last index is needless. 
-While (a + (b*c)) does not have any pair of redundant brackets. 
+((a+b)) has a pair of redundant brackets. The pair of brackets on the first and last index is needless.
+While (a + (b*c)) does not have any pair of redundant brackets.
 Detailed explanation ( Input/output format, Notes, Images )
 Constraints :
 1 <= T <= 50
@@ -27,7 +27,7 @@ Sample Output 1 :
 No
 Yes
 Explanation of Sample Input 1 :
-In the first test case, there are no redundant brackets. Hence, the output is “No”. 
+In the first test case, there are no redundant brackets. Hence, the output is “No”.
 
 
 In the second test case, the brackets around the alphabet ‘c’( index 8 and index 10) are redundant. Hence the output is “Yes”.
@@ -39,17 +39,52 @@ Sample Output 2 :
 No
 Yes
 Explanation of Sample Input 2 :
-In the first test case, there are no redundant brackets. Hence, the output is “No”. 
+In the first test case, there are no redundant brackets. Hence, the output is “No”.
 
 
 In the second test case, the brackets around the subexpression “(a+b)” ( index 0 and index 6) are redundant. Hence the output is “Yes”.
  */
-
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 using namespace std;
 
-int main() {
+int main()
+{
+    string s = "(a+b)*(c+d))"; // Example input
 
- return 0;
+     stack<char> st;
+
+    for(int i = 0; i < s.length(); i++) {
+
+        char ch = s[i];
+
+        if( ch == '(' || ch == '+' || ch == '-' || ch == '*' || ch == '/' ){
+            st.push(ch);
+        }
+
+        else { // closed brakes )
+
+            if( ch == ')') {
+                bool isRedundant = true;
+
+                while (st.top() != '(') {
+                    char top = st.top();
+
+                    if( top == '+' || top == '-' || top == '*' || top == '/' ) {
+                        isRedundant = false;
+                    }
+                    st.pop();
+                }
+
+                if(isRedundant == true) {
+                    return true;
+                }
+                    st.pop();
+
+            }  
+        }
+        return false;
+    }
+
+    return 0;
 }
