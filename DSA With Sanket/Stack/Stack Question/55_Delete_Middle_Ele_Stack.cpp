@@ -1,6 +1,7 @@
 /* 
    ? lecture 55: Delete Middle Element of Stack
    ? Link - https://www.naukri.com/code360/problems/delete-middle-element-from-stack_985246?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&leftPanelTabValue=SUBMISSION
+   ? link - https://www.geeksforgeeks.org/problems/reverse-a-stack/1
 
    Problem Statement:
 You are having a stack "ARR" of size 'N+1', your task is to delete the middlemost element so that the size of resulting stack is 'N'.
