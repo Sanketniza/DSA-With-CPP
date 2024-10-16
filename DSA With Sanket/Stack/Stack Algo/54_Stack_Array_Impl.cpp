@@ -34,6 +34,7 @@ public:
     {
         if (top >= 0)
         {
+            cout << "Popped value is " << arr[top] << endl;
             top--;
         }
         else
