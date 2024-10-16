@@ -1,6 +1,8 @@
 /*
     ? lecture 56 - Next Smaller Element
     ? link - https://www.naukri.com/code360/problems/next-smaller-element_1112581?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&leftPanelTabValue=PROBLEM
+    ? link - https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1
+    ? link - https://www.geeksforgeeks.org/problems/immediate-smaller-element1142/1
 
     Problem statement
 You are given an array 'ARR' of integers of length N. Your task is to find the next smaller element for each of the array elements.
