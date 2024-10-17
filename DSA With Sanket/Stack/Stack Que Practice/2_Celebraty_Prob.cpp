@@ -22,6 +22,7 @@ int main() {
 
     for(int i = 0; i < n; i++) {
         st.push(i);
+        // push = 2 1 0 -> 0 1 2
     }
 
     // cout << st.size() << endl;
