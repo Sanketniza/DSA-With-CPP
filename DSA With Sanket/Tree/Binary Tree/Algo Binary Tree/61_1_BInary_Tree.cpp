@@ -23,23 +23,28 @@ node *buildTree(node *root) {
     cin >> data;
     root = new node(data);
 
+
+    // base case
     if(data == -1) {
         return NULL;
     }
 
+    // recursive case
     cout << "Enter data for inserting in left of : " << data << endl;
     root -> left = buildTree(root -> left);
 
     cout << "Enter data for inserting in right of : " << data << endl;
     root -> right = buildTree(root -> right);
+    
     return root;
 }
 
 int main() {
 
-    node *root = NULL;
+    // node root = new node(1);
 
-    root = buildTree(root);
+     node *root = NULL;
+     root = buildTree(root);
 
  return 0;
 }

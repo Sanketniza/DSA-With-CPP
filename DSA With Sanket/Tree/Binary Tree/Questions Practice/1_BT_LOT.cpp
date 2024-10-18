@@ -2,69 +2,70 @@
 #include<queue>
 using namespace std;
 
-class node {
+class Node {
+
     public:
-        int data;
-        node *left;
-        node *right;
+    
+       int data;
+       Node *left;
+       Node *right;
 
-        node(int d) {
+        Node (int data) {
 
-            this -> data = d;
+            this -> data = data;
             this -> left = NULL;
             this -> right = NULL;
         }
 
 };
 
-node *buildTree(node *root) {
+Node *buildTree (Node *root) {
 
-    cout << "Enter the data : "  << endl;
+    cout << "Enter the data : " << endl;
     int data;
     cin >> data;
+    root = new Node (data);
 
-    root = new node (data);
-
+    //base case
     if(data == -1) {
         return NULL;
     }
+
+    // recursive case
 
     cout << "Enter data for inserting in left of : " << data << endl;
     root -> left = buildTree(root -> left);
 
     cout << "Enter data for inserting in right of : " << data << endl;
     root -> right = buildTree(root -> right);
-    return root;
 
+    return root;
 }
 
-void levelOrderTraversal(node *root) {
+void levelOrderTraversal(Node *root) {
 
-    queue<node*> q;
-    cout << "root : " << root -> data << endl;
+    queue<Node*> q;
     q.push(root);
     q.push(NULL);
 
     while (!q.empty()) {
 
-        node *temp = q.front();
-        // cout << "temp : " << temp -> data << endl;
+        Node *temp = q.front();
         q.pop();
 
         if(temp == NULL) {
-            //purana level complete traverse ho chuka hai
             cout << endl;
-              if(!q.empty()) {
-                //queue still has some child nodes
+
+            if(!q.empty()) {
                 q.push(NULL);
-              }
+            }
         }
 
         else {
 
             cout << temp -> data << " ";
 
-            if(temp -> left) {
+            if(temp -> left ) {
                 q.push(temp -> left);
             }
 
@@ -75,15 +76,14 @@ void levelOrderTraversal(node *root) {
     }
 }
 
+
 int main() {
 
-    node *root = NULL;
 
-    //creating a Tree
-    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1 
+    Node *root = NULL;
+
     root = buildTree(root);
 
-    cout << "Printing the level order traversal output " << endl;
     levelOrderTraversal(root);
 
     return 0;
