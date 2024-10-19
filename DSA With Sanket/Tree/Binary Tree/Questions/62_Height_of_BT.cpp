@@ -12,7 +12,7 @@
             1
            /  \
           2    3
-        utput: 2
+        Output: 2
  */
 
 #include<iostream>
