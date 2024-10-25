@@ -35,37 +35,38 @@ class Node {
         }
 };
 
-Node* lca(Node* root, int n1, int n2) {
-
-    if(root == NULL) {
-        return NULL;
+    Node* lca(Node* root ,int n1 ,int n2 )
+    {
+       // base case 
+       if(root == NULL) {
+           return NULL;
+       }
+       
+       if(root -> data == n1 || root -> data == n2) {
+           return root;
+       }
+       
+       //recursive call
+       Node *leftAns = lca(root -> left , n1 , n2);
+       Node *rightAns = lca(root -> right , n1 , n2);
+       
+       if(leftAns != NULL && rightAns != NULL){
+           return root;
+       }
+       
+       else if(leftAns != NULL && rightAns == NULL){
+           return leftAns;
+       }
+       
+       else if(leftAns == NULL && rightAns != NULL) {
+           return rightAns;
+       }
+       
+       else {
+           return NULL;
+       }
+       
     }
-
-    if(root -> data == n1 || root -> data == n2) {
-        return root;
-    }
-
-    Node* left = lca(root->left, n1, n2);
-    Node* right = lca(root->right, n1, n2);
-
-    if(left != NULL && right != NULL) {
-        return root;
-    }
-
-    else if(left != NULL && right != NULL) {
-        return right;
-    }
-
-    else if(left == NULL && right != NULL   ) {
-        return left;
-    }
-
-
-    else {
-        return NULL;
-    }
-
-}
 
 int main() {
 
@@ -79,7 +80,10 @@ int main() {
     root->right->right = new Node(7);
     root->right->right->right = new Node(17);
 
-    cout << "LCA of 2 and 3 is: " << lca(root, 2, 3) << endl;
+    Node *n1 = root -> left -> right;
+    Node *n2 = root -> right -> left;
+
+    cout << "LCA of 2 and 3 is: " << lca(root, n1 , n2) << endl;
 
  return 0;
 }

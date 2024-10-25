@@ -13,5 +13,7 @@
         "wala"
     ],
     "CodeGPT.apiKey": "CodeGPT Plus Beta",
-    "Codegeex.CommitMessage.LanguagePreference": "English"
+    "Codegeex.CommitMessage.LanguagePreference": "English",
+    "thunder-client.sidebar.defaultTab": "Activity",
+    "pdf-preview.default.sidebar": false
 }
