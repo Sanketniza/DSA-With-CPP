@@ -10,7 +10,8 @@
         "palindrom",
         "partitioon",
         "Posible",
-        "wala"
+        "wala",
+        "wapas"
     ],
     "CodeGPT.apiKey": "CodeGPT Plus Beta",
     "Codegeex.CommitMessage.LanguagePreference": "English",
