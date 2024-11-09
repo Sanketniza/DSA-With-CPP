@@ -16,7 +16,7 @@ class node {
 
 };
 
-node *buildTree(node *root) {
+node *buildTree(node *root) {  // here I return node to the int main function , that why node * i written 
 
     cout << "Enter the data: " << endl;
     int data;
@@ -41,7 +41,7 @@ node *buildTree(node *root) {
 
 int main() {
 
-    // node root = new node(1);
+    // node *root = new node(1);
 
      node *root = NULL;
      root = buildTree(root);

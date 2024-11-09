@@ -41,7 +41,7 @@ node *buildTree(node *root) {
 void levelOrderTraversal(node *root) {
 
     queue<node*> q;
-    cout << "root : " << root -> data << endl;
+    // cout << "root : " << root -> data << endl;
     q.push(root);
     q.push(NULL);
 
@@ -76,7 +76,9 @@ void levelOrderTraversal(node *root) {
 }
 
 int main() {
-
+ 
+    // node *root = new node (1);
+    
     node *root = NULL;
 
     //creating a Tree
