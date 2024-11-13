@@ -43,6 +43,21 @@ void Inorder (node *root , int &count) {
 
     // right
     Inorder(root -> right , count);
+
+
+    //   if (root == NULL) {
+    //     return 0;
+    // }
+    
+    // if(root -> left == NULL && root -> right == NULL) {
+    //     count++;
+    // }
+
+    // // Recursively count leaf Nodes in left and right subtrees
+    // int leftLeaves = countLeafNodes(root->left , count);
+    // int rightLeaves = countLeafNodes(root->right , count);
+    
+    // return count;
 }
 
 int main() {
