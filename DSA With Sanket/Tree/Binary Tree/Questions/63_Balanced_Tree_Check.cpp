@@ -10,10 +10,11 @@
           1
         /
        2
-        \
+        \ 
          3 
     Output: 0
     Explanation: The max difference in height of left subtree and right subtree is 2, which is greater than 1. Hence unbalanced
+
     Input:
            10
          /   \
@@ -29,7 +30,7 @@
 #include<iostream>
 using namespace std;
 
-//! First Approach with Time complexicity O(n * n)
+//! First Approach with Time Complexicity O(n * n)
 //! Second Approach with Time complexicity O(n)
 
 class node {
@@ -46,7 +47,7 @@ class node {
 
 };
 
-int height(node *root) {
+/* int height(node *root) {
 
     // base case 
     if(root == NULL) {
@@ -67,7 +68,7 @@ bool isBalanced(node *root) {
 
     //base case
     if(root == NULL){
-        return 0;
+        return true;
     }
 
     // recursive call
@@ -83,6 +84,41 @@ bool isBalanced(node *root) {
     else {
         return false;
     }
+}
+
+ */
+
+pair<bool,int> isBalancedFast(node *root) {
+
+    // base case 
+    if(root == NULL) {
+        pair<bool , int > p = make_pair(true , 0);
+        return p;
+    }
+
+    pair <int , int> left = isBalancedFast(root -> left);
+    pair <int , int > right = isBalancedFast(root -> right);
+
+    bool leftA = left.first;
+    bool rightA = right.first;
+
+    bool diff = abs(left.second - right.second ) <= 1;
+
+    pair<bool, int > ans;
+    ans.second = max(left.second , right.second) + 1;
+
+    if(leftA && rightA && diff) {
+        ans.first = true;
+    }
+
+    else {
+        ans.first = false;
+    }
+}
+
+bool isBalanced(node *root) {
+
+    return isBalancedFast(root).first;
 }
 
 int main() {
@@ -107,7 +143,7 @@ int main() {
     else {
         cout << "ans is false " << endl;
     }
-
-
+    
  return 0;
+
 }
