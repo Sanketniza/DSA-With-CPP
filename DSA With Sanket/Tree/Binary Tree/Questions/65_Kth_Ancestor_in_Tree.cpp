@@ -111,9 +111,8 @@ class Node {
         }
         return rightAns;
     }
-    return NULL;
     
-
+    return NULL;
 }
 
 
