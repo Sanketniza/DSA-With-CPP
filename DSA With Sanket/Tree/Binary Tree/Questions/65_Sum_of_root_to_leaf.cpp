@@ -70,15 +70,15 @@ void solve(Node* root, int l, int &ml, int sum, int &msum) {
 
 int sumOfLongRootToLeafPath(Node* root) {
 
-    int l = 0;
-    int ml = 0;
+    int len = 0;
+    int maxlen = 0;
 
     int sum = 0;
-    int msum = INT_MIN;
+    int maxsum = INT_MIN;
 
-    solve(root, l, ml, sum, msum);
+    solve(root, len, maxlen, sum, maxsum);
 
-    return msum;
+    return maxsum;
 }
 
 int main() {

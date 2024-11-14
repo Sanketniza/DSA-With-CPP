@@ -11,6 +11,7 @@
              /  \
             2    3
         Output: 3
+
         Example 2:
 
         Input:
@@ -58,7 +59,7 @@ int height(Node *root) {
         // recursive call
 
         int left = height (root -> left);
-        int right = height (root -> right );
+        int right = height (root -> right);
 
         int ans = max(left , right) + 1;
 

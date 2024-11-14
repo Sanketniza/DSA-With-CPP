@@ -15,6 +15,7 @@ Output: 2
 Explanation:
 Path 1 : 1 + 2 = 3
 Path 2 : only leaf node 3
+
 Input: Tree = 8  k = 7  
             /   \
           4      5
@@ -46,9 +47,9 @@ struct Node {
 
 void solve (Node *root , int k , vector<int> path , int &count) {
       
-      if(root == NULL) {
-          return;
-      }
+         if(root == NULL) {
+           return;
+        }
       
       path.push_back(root -> data);
       
@@ -66,7 +67,7 @@ void solve (Node *root , int k , vector<int> path , int &count) {
       }
       
       path.pop_back();
-  }
+}
 
 
 
