@@ -1,4 +1,4 @@
-/* 
+/*
    ? Lowest Common Ancestor in Binary Tree
    ? https://www.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1
 
@@ -9,9 +9,9 @@
     Example 1:
 
     Input:
-    n1 = 2 , n2 = 3  
-       1 
-      / \ 
+    n1 = 2 , n2 = 3
+       1
+      / \
      2   3
     Output: 1
     Explanation:
@@ -19,58 +19,65 @@
 
  */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Node {
-    public:
-        int data;
-        Node* left;
-        Node* right;
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
 
-        Node(int data) {
-            this->data = data;
-            this->left = NULL;
-            this->right = NULL;
-        }
+    Node(int data)
+    {
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
 };
 
-    Node* lca(Node* root ,int n1 ,int n2 )
+Node *lca(Node *root, int n1, int n2)
+{
+    // base case
+    if (root == NULL)
     {
-       // base case 
-       if(root == NULL) {
-           return NULL;
-       }
-       
-       if(root -> data == n1 || root -> data == n2) {
-           return root;
-       }
-       
-       //recursive call
-       Node *leftAns = lca(root -> left , n1 , n2);
-       Node *rightAns = lca(root -> right , n1 , n2);
-       
-       if(leftAns != NULL && rightAns != NULL){
-           return root;
-       }
-       
-       else if(leftAns != NULL && rightAns == NULL){
-           return leftAns;
-       }
-       
-       else if(leftAns == NULL && rightAns != NULL) {
-           return rightAns;
-       }
-       
-       else {
-           return NULL;
-       }
-       
+        return NULL;
     }
 
-int main() {
+    if (root->data == n1 || root->data == n2)
+    {
+        return root;
+    }
 
-    Node* root = new Node(1);
+    // recursive call
+    Node *leftAns = lca(root->left, n1, n2);
+    Node *rightAns = lca(root->right, n1, n2);
+
+    if (leftAns != NULL && rightAns != NULL)
+    {
+        return root;
+    }
+
+    else if (leftAns != NULL && rightAns == NULL)
+    {
+        return leftAns;
+    }
+
+    else if (leftAns == NULL && rightAns != NULL)
+    {
+        return rightAns;
+    }
+
+    else
+    {
+        return NULL;
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
     root->left = new Node(2);
     root->left->left = new Node(4);
     root->left->right = new Node(5);
@@ -80,10 +87,16 @@ int main() {
     root->right->right = new Node(7);
     root->right->right->right = new Node(17);
 
-    Node *n1 = root -> left -> right;
-    Node *n2 = root -> right -> left;
+    int n1 = 5;  // value of root->left->right
+    int n2 = 4;  // value of root->right->left
 
-    cout << "LCA of 2 and 3 is: " << lca(root, n1 , n2) << endl;
+    Node* lcaNode = lca(root, n1, n2);
 
- return 0;
+    if(lcaNode != NULL) {
+        cout << "LCA of " << n1 << " and " << n2 << " is: " << lcaNode->data << endl;
+    } else {
+        cout << "LCA not found" << endl;
+    }
+
+    return 0;
 }
