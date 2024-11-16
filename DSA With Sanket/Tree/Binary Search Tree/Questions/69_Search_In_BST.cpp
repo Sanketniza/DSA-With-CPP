@@ -37,6 +37,19 @@
     There is a left node, and it has data 1. Thus, we should print ‘True’. 
  */
 
+
+
+ // todo: Here are two ways to solve this problem
+
+ //* 1. Recursive way
+    //^ Time Complexity : O(N)
+    //^ Space Complexity : O(N)
+
+ //* 2. Iterative way
+    //^ Time Complexity : O(N)
+    //^ Space Complexity : O(1)
+
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -54,6 +67,7 @@ class Node {
     }
 };
 
+ //* 1. Recursive way
 bool SearchInBST(Node *root , int x) {
 
     if(root == NULL) {
@@ -72,6 +86,26 @@ bool SearchInBST(Node *root , int x) {
     }
 }
 
+ //* 2. Iterative way
+ void storeInorder(Node *root , vector<int> &v) {
+
+    if(root == NULL) {
+        return;
+    }
+
+    storeInorder(root -> left , v);
+    v.push_back(root -> data);
+    storeInorder(root -> right , v);
+ }
+
+ bool Iterativeway(Node *root , vector<int> &v , int x) {
+
+    
+ }
+
+
+
+
 int main() {
 
     Node *root = new Node(4);
@@ -84,6 +118,7 @@ int main() {
 
     int x = 5;
 
+    //* 1. Recursive way
     cout << "Search in BST : " << SearchInBST(root , x) << endl;
 
     if(SearchInBST(root , x)) {
@@ -91,6 +126,15 @@ int main() {
     } else {
         cout << "False" << endl;
     }
+
+    //* 2. Iterative way
+      // stored the into the vector
+      vector<int> v;
+      storeInorder(root , v);
+
+      bool Iterativeway(root , v , x);
+
+
 
  return 0;
 }
