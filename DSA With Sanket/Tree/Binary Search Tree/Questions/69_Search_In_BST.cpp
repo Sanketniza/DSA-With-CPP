@@ -98,13 +98,23 @@ bool SearchInBST(Node *root , int x) {
     storeInorder(root -> right , v);
  }
 
- bool Iterativeway(Node *root , vector<int> &v , int x) {
-
+bool Iterativeway(Node *root, vector<int> &v, int x) {
+    Node *temp = root;
     
- }
-
-
-
+    while (temp != NULL) {
+        if (temp->data == x) {
+            return true;    // Found the value
+        }
+        
+        if (x < temp->data) {
+            temp = temp->left;   // Go to left subtree
+        } else {
+            temp = temp->right;  // Go to right subtree
+        }
+    }
+    
+    return false;   // Value not found
+}
 
 int main() {
 
@@ -116,25 +126,18 @@ int main() {
     root->right->left = new Node(5);
     root->right->right = new Node(7);
 
-    int x = 5;
+    int x = 25;
 
     //* 1. Recursive way
-    cout << "Search in BST : " << SearchInBST(root , x) << endl;
-
-    if(SearchInBST(root , x)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << "Recursive Search in BST : " << SearchInBST(root, x) << endl;
 
     //* 2. Iterative way
-      // stored the into the vector
-      vector<int> v;
-      storeInorder(root , v);
+    vector<int> v;
+    storeInorder(root, v);
+    
+    // Call Iterativeway correctly
+    bool result = Iterativeway(root, v, x);
+    cout << "Iterative Search in BST : " << (result ? "True" : "False") << endl;
 
-      bool Iterativeway(root , v , x);
-
-
-
- return 0;
+    return 0;
 }
