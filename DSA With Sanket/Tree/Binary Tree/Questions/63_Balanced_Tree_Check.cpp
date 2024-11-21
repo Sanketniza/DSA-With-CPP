@@ -47,6 +47,8 @@ class node {
 
 };
 
+//* First Approach with Time Complexicity O(n * n)
+
 /* int height(node *root) {
 
     // base case 
@@ -88,6 +90,7 @@ bool isBalanced(node *root) {
 
  */
 
+//* Second Approach with Time complexicity O(n)
 pair<bool,int> isBalancedFast(node *root) {
 
     // base case 
