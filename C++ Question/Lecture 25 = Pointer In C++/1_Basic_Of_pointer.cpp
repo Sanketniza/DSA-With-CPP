@@ -18,12 +18,16 @@ int main()
 
     (*ptr)++;
     cout << "Value of a is : " << a << endl;
+    cout << "value of ptr is :" << *ptr << endl;
     cout << endl;
+
+    a++;
+    cout << "value of a is :" << a << endl;
+    cout << "value of ptr is : " << *ptr << endl << endl;
 
     cout << "Size of a is : " << sizeof(a) << endl;
     cout << "Size of ptr is : " << sizeof(*ptr) << endl;
-    cout << "Size of ptr is : " << sizeof(ptr) << endl;
-    cout << endl;
+    cout << "Size of ptr is : " << sizeof(ptr) << endl << endl;
 
     int *ptr2 = &a;
     cout << "Value of ptr2 is : " << *ptr2 << endl;
@@ -38,6 +42,7 @@ int main()
   int s = 24;
   int *k = &s;
   cout << "value of k is : " << *k << endl;
+  
   *k +=1;
   cout << "value of k is : " << *k << endl;
 

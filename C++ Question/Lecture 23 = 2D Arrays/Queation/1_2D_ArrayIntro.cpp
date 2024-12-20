@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+    // ^both are 2D array implementation way.........
 
     // int arr[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // this method can be put element in row wise
 
@@ -14,7 +15,7 @@ int main()
     /*
         row = i
         column = j
-     */
+    */
 
     // * Taking input - Row wise
     // for (int i = 0; i < 3; i++)

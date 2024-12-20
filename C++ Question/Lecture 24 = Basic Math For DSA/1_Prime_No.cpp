@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
     int n;
+    cout << "Enter n :";
     cin >> n;
 
     vector<bool> prime(n + 1, true);

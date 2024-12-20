@@ -20,7 +20,7 @@ int main() {
    
   //&   -----------------------------------------------
      
-  /*    int a = 7;
+  /*     int a = 7;
     int b = 17;
     int *c = &b;
     *c = 7;
@@ -28,44 +28,48 @@ int main() {
     cout << "value of a is " << a << endl;
     cout << "value of b is " << b << endl;
     cout << "value of c is " << *c << endl << endl; 
-   */
+     */
+   
   //&   -----------------------------------------------
-  /* 
-   int *ptr = 0;
-  int d = 10;
-  *ptr = d;
-  // *ptr = &d;
-  cout << *ptr << endl;
-   cout << "value of a is " << d << endl;  */
+   
+/*    int *ptr = 0;
+   int d = 10;
+   *ptr = d;  
+
+   cout << "value of ptr is " << "value of d is " << endl; */
+
+   //compiler time error........
   
   //&   -----------------------------------------------
   
-  /*  char ch = 'a';
+/*   char ch = 'a';
    char *ptr = &ch;
    cout << *ptr << endl;
    ch++;
-   cout << *ptr << endl; */
-  
+   cout << *ptr << endl; 
+   */
   //&   -----------------------------------------------
   
-  /*  int a = 7;
+/*    int a = 7;
    int *c = &a;
+   cout << a << " " << *c << endl;
    cout << "The address before " << &*c << endl;
-   c = c + 1;  // ^Next, it a dds 1 to the pointer c, which moves the pointer to   the next memory location after a.
+   c = c + 1;  // ^Next, it a dds 1 to the pointer c, which moves the pointer to the next memory location after a.
   
-  //   *c += 1;
+  //   *c += 1; this will increasing the value of *c ; and above statement increasing the the memory address....
   
    cout << "value of a is " << a << endl;
-   cout << "value of c is " << *c << endl;
+   cout << "value of c is " << *c << endl; // why this is not printing the value of c 
    cout << "address of c is " << &*c << endl;
   
     c = c + 1; 
-   cout << "address of c is " << &*c << endl; */
+   cout << "address of c is " << &*c << endl;  */
   
   //&   -----------------------------------------------
   
-  /* int a = 7;
+/*    int a = 7;
   cout << "memory of a is " << &a << endl;
+
   int *c = &a;
   cout << c << endl;
   cout << *c << endl;
@@ -73,7 +77,7 @@ int main() {
   c = c + 3;
   
   cout<< c << endl;
-  cout << *c << endl; */
+  cout << *c << endl;  */
   
   //&   -----------------------------------------------
   
@@ -83,13 +87,14 @@ int main() {
   
   //&   -----------------------------------------------
   
-/*   
-  int a[] = {1, 2, 3, 4};
+   
+/*   int a[] = {1, 2, 3, 4};
   cout << *(a) << " " 
        << *(a+1) << " " 
        << *(a+2) << " " 
-       << *(a+3) << endl;
-   */
+       << (a+2) << " " 
+       << (a+3) << endl;
+    */
   
   //&   -----------------------------------------------
   
@@ -98,26 +103,37 @@ int main() {
   int *p = a++;
   cout << *p << endl;
    */
+
   //&   -----------------------------------------------
   
-/*     int arr[] = {4, 5, 6, 7};
+ /*    int arr[] = {4, 5, 6, 7};
     int *p = (arr + 1);
     cout << *p << endl;
-    cout << *arr + 9; */
-  
+    cout << *arr + 9 << endl; 
+    cout << arr + 9; 
+   */
   //&   -----------------------------------------------
   
-  /* char b[] = "xyz";
+/*   char b[] = "xyz";
+  // char ab = "sanket";
   char *c = &b[0];
-  cout << c << endl; */
+  cout << c << endl; 
+
+  char *c = &b[1];
+  cout << c << endl;  */
   
   //&   -----------------------------------------------
   
   char s[]= "hello";
   char *p = s;
   // char *p = &s;  //^ not valid 
+  
   cout << *p << endl;
-  cout << s[0] << " " << p[0];
+  cout << s[1] << " " << p[0] << endl; 
+  
+  for(int i = 0 ; i < 6 ; i++ ) {
+    cout << p[i] ;
+  }
   
   //&   -----------------------------------------------
   //&   -----------------------------------------------
