@@ -45,28 +45,26 @@ struct Node {
 };
 
 
-void solve (Node *root , int k , vector<int> path , int &count) {
-      
-         if(root == NULL) {
-           return;
+void findPath(Node* root, int k, int &count, vector<int> &path) {
+    if (root == NULL) {
+        return;
+    }
+    
+    path.push_back(root->data);
+    
+    findPath(root->left, k, count, path);
+    findPath(root->right, k, count, path);
+    
+    // Check for all possible paths ending at current node
+    int sum = 0;
+    for (int i = path.size() - 1; i >= 0; i--) {
+        sum += path[i];
+        if (sum == k) {
+            count++;
         }
-      
-      path.push_back(root -> data);
-      
-      solve(root -> left , k , path , count);
-      solve(root -> right , k , path , count);
-      
-      int s = path.size();
-      int sum = 0;
-      
-      for(int i = s - 1; i>= 0; i--) {
-          sum += path[i];
-          if(sum == k) {
-               count++;
-          }
-      }
-      
-      path.pop_back();
+    }
+    
+    path.pop_back();
 }
 
 
@@ -87,7 +85,7 @@ int main() {
     int count = 0;
 
      vector<int> ans ;
-    solve (root , k  , ans , count);
+    findPath (root , k  , ans , count);
 
     cout << "Count is : " << count << endl;
 

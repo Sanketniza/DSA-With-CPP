@@ -15,21 +15,21 @@ class  Node{
         }
 };
 
-int countLeafNodes(Node* root ,int &count) {
+void countLeafNodes(Node* root, int &count) {
     // Base case
     if (root == NULL) {
-        return 0;
+        return;
     }
     
-    if(root -> left == NULL && root -> right == NULL) {
+    // If it's a leaf node
+    if(root->left == NULL && root->right == NULL) {
         count++;
+        return;
     }
 
-    // Recursively count leaf Nodes in left and right subtrees
-    int leftLeaves = countLeafNodes(root->left , count);
-    int rightLeaves = countLeafNodes(root->right , count);
-    
-    return count;
+    // Recursively count leaf nodes in left and right subtrees
+    countLeafNodes(root->left, count);
+    countLeafNodes(root->right, count);
 }
 
 int main() {

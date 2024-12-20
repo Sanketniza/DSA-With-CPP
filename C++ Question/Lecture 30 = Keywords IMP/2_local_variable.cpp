@@ -1,4 +1,4 @@
-/* #include<iostream>
+#include<iostream>
 using namespace std;
  // bad method 
 
@@ -8,7 +8,7 @@ using namespace std;
  void a(int id) {
 
     cout << id << endl;
-    cout << score << end;
+    cout << score << endl;
  }
 
 int main() { 
@@ -16,8 +16,8 @@ int main() {
     int i = 33;
     cout << "Testing the local variable "  << endl;
 
-   int ans = a(i);
-   cout << ans;
+    a(i);
+   cout << a;
 
     return 0;
-} */
+}

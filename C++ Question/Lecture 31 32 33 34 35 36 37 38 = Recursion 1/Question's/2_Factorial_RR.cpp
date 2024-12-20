@@ -27,7 +27,7 @@ int main() {
     cin >> n;
 
     int ans = print(n);
-    cout << ans << " ";
+    cout << endl << "ans : " << ans << " ";
 
     return 0;
 }

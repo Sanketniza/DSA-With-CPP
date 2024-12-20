@@ -22,8 +22,8 @@ int main() {
 
     cout << "Before incrementing the value : " << endl;
     cout << n << endl;
-    cout << p << endl;
-    cout << p1 << endl << endl;
+    cout << *p << endl;
+    cout << **p1 << endl << endl;
 
     (*p)++;  // value of n = 6
     (**p1)++; // value of n = 7
@@ -34,11 +34,12 @@ int main() {
     cout << **p1 << endl << endl;
 
     update(p1);
+    // update(p);
 
     cout << "After incrementing the value : " << endl;
     cout << n << endl;
-    cout << p << endl;
-    cout << p1 << endl << endl;
+    cout << *p << endl;
+    cout << **p1 << endl << endl;
 
     return 0;
 }

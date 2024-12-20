@@ -39,40 +39,30 @@ public:
 
 Node *lca(Node *root, int n1, int n2)
 {
-    // base case
+    // Base case
     if (root == NULL)
     {
         return NULL;
     }
 
+    // If either n1 or n2 matches with root's data
     if (root->data == n1 || root->data == n2)
     {
         return root;
     }
 
-    // recursive call
-    Node *leftAns = lca(root->left, n1, n2);
-    Node *rightAns = lca(root->right, n1, n2);
+    // Look for keys in left and right subtrees
+    Node *leftLCA = lca(root->left, n1, n2);
+    Node *rightLCA = lca(root->right, n1, n2);
 
-    if (leftAns != NULL && rightAns != NULL)
+    // If both left and right returned non-NULL, root is the LCA
+    if (leftLCA && rightLCA)
     {
         return root;
     }
 
-    else if (leftAns != NULL && rightAns == NULL)
-    {
-        return leftAns;
-    }
-
-    else if (leftAns == NULL && rightAns != NULL)
-    {
-        return rightAns;
-    }
-
-    else
-    {
-        return NULL;
-    }
+    // Otherwise return the non-NULL value
+    return (leftLCA != NULL) ? leftLCA : rightLCA;
 }
 
 int main()

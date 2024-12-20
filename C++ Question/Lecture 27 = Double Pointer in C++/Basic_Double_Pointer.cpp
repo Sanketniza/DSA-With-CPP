@@ -6,7 +6,7 @@ int main() {
 
     int n = 5;
     int *p = &n;
-    int **p1 = &p;
+    int **p1 = &p; // pointer storing pointer value.
 
     cout << "Printing all the value :"  << endl;
     cout << n << endl;

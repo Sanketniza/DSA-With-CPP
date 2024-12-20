@@ -5,17 +5,17 @@ using namespace std;
 
 void print(int n) {
 
-    //* base case
+    //* base case . were i have to stop
     if(n == 0) {
         return;
     }
 
-   cout << n << " ";
+//    cout << n << " ";
 
     //* recursive case
     print(n - 1);
 
-    // cout << n << " ";
+    cout << n << " ";
 }
  
 int main() { 

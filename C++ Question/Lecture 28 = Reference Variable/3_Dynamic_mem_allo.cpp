@@ -13,8 +13,18 @@ using namespace std;
     return sum;
  }
 
+ void sum(int *a , int n , int &add) {
+   
+
+    for(int i = 0; i < n ; i++) {
+        add += a[i];
+    }
+
+ }
+
 
 int main() { 
+
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
@@ -36,6 +46,13 @@ int main() {
     int ans = print(p, n);
     cout << "ans is: " << ans << endl;
 
- 
+
+    // -------------------------------------
+
+    int add = 0;
+    sum(p , n , add);
+    cout << "sum is : " << add << endl;
+
     return 0;
+    
 }
