@@ -24,7 +24,7 @@
 ^  Example:
 ^  Input: 'arr' = [0,1,1,5] , 'k' = 1
 ^
-^  Output: 1 2
+^  Output: 1 2 m
 ^
 ^  Explanation:
 ^  If 'arr' = [0, 1, 1, 5] and 'k' = 1, then the first and last occurrence of 1 will be 1(0 - indexed) and 2.
@@ -63,6 +63,8 @@
 ^  0 <= arr[i] <= 10^9
 
  */
+
+
 
 #include <iostream>
 using namespace std;
