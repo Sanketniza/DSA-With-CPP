@@ -27,6 +27,8 @@ int FirstOcc (int arr[] , int size , int target) {
         mid = s + ( e - s ) / 2;
     }
 
+    return ans;
+
 }
 
 int LastOcc(int arr[] , int size , int target) {
@@ -36,7 +38,7 @@ int LastOcc(int arr[] , int size , int target) {
     int mid = s + ( e - s  ) / 2;
     int ans = -1;
 
-    while ( s <= e) {
+   while( s <= e )  {
 
         if(arr[mid] == target) {
             ans = mid;
@@ -52,9 +54,9 @@ int LastOcc(int arr[] , int size , int target) {
         }
 
         mid = s + ( e - s ) / 2;
-    }    
-
+    }  
     
+    return ans;
 }
 
 int main() {
@@ -70,4 +72,5 @@ int main() {
     
 
  return 0;
+
 }
