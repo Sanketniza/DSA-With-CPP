@@ -36,6 +36,6 @@ int main()
     int key = 3;
 
     int result = Pivot(arr, size);
-    cout << "Index of pivot element in array is " << result << endl;
+    cout << "Index of pivot element in array is " << result << " the value is : " << arr[result] << endl;
     return 0;
 }

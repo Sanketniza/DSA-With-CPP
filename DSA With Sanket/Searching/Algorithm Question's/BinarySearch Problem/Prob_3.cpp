@@ -4,13 +4,7 @@
 //* https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554?source=youtube&campaign=love_babbar_codestudio2
 //^ Lecture No : 14
 
-/* 
-
-^   .  Search In Rotated Sorted Array
-^   Easy
-
-^   Average time to solve is 12m
-
+/*  
 ^   Problem statement
 ^   You have been given a sorted array/list 'arr' consisting of ‘n’ elements. You are also given an integer ‘k’.
   
@@ -143,6 +137,8 @@ int search(int arr[], int n, int k)
     {
         return binarySearch(arr, 0, pivot - 1, k);
     }
+
+
 }
 
 int main()
@@ -151,7 +147,7 @@ int main()
     // int arr[] = {7,8,2,4,5,6};
     int arr[] = {0,1,2,3,4,5,6};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 6; // Example key to search for
+    int k = 5; // Example key to search for
 
     int result = search(arr, n, k);
 
@@ -164,6 +160,8 @@ int main()
     {
         cout << "Element not found" << endl;
     }
+
+    
 
     return 0;
 }
