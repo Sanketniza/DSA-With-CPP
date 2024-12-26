@@ -39,9 +39,9 @@ using namespace std;
 
 bool isPossible(int arr[], int size, int k, int mid)
 {
-
     int cows = 1;
     int prev = arr[0];
+
     cout << "prev: " << prev << endl;
     cout << "mid: " << mid << endl;
     
@@ -69,7 +69,9 @@ int BinarySearch(int arr[], int size, int k)
 
     int start = 0;
     int end = arr[size - 1] - arr[0];
+
     cout << "end: " << end << endl;
+
     int ans = -1;
     int mid = start + (end - start) / 2;
 
