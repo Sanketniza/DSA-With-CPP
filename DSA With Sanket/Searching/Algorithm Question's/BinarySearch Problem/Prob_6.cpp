@@ -1,8 +1,7 @@
 
 //!  Book Allocation Problem:
 //^ lecture No : 15
-//*- https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2
-
+// https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2&leftPanelTabValue=SUBMISSION
 /* 
      problem statement
 ^   Ayush is studying for ninjatest which will be held after 'N' days, And to score good marks he has to study 'M' chapters and the ith chapter requires TIME[i] seconds to study. The day in Ayush’s world has 100^100 seconds. There are some rules that are followed by Ayush while studying.
@@ -112,7 +111,7 @@ long long BinarySearch(int time[], int n, int m)
 
 int main()
 {
-    int time[] = {10, 20, 30, 40, 50};
+    int time[] = {10, 20, 30, 40};
     int n = sizeof(time) / sizeof(time[0]);
     int m = 2; // Number of students
 
