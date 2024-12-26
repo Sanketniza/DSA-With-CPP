@@ -30,13 +30,13 @@ int main()
     {
 
         int temp = arr[i];
-         cout << arr[i] << endl;
+        cout << "i : " << arr[i] << endl;
 
         int j = i - 1;
 
         for(; j >= 0 ; j--)
         {
-            cout << arr[j] << endl;
+            cout << "j : " << arr[j] << endl;
             
             if(arr[j] > temp) {
                 arr[j + 1] = arr[j];
@@ -49,6 +49,8 @@ int main()
             }
         }
 
+        cout << "temp : " << temp << endl;
+        cout << "arr[j + 1] : " << arr[j + 1] << endl;
         arr[j + 1] = temp;
         cout <<"updated temp = " << temp << endl;
 
