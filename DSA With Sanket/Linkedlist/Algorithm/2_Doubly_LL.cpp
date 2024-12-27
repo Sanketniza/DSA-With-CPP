@@ -60,7 +60,7 @@ int getLength(Node *head) {
 
 void insertAtHead(Node *&tail,Node *&head ,int data) {
 
- //todo: initialy no node is present .
+ //todo: initially no node is present .
     if(head == NULL) {  //^  if list is empty . no any before node is present
         Node *temp = new Node(data);
         head = temp;
