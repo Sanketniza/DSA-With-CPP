@@ -30,7 +30,12 @@ void print(Node *&head ) {
     while (temp != NULL) {
         cout << temp -> data << " -> ";
         temp = temp -> next;
+
+        if(temp == NULL) {
+            cout << "NULL" << endl;
+        }
     }
+    
     cout << endl << endl;
 }
 
