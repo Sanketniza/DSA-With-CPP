@@ -73,14 +73,20 @@ void ans(Node *head , int middle) {
     cout << "Middle is :" << temp->data << endl;
 }
 
-void print(Node *head)
-{
+void print(Node *head , int mid) {
 
     Node *temp = head;
-    while (temp != 0)
+    int cnt = 0;
+
+    while (cnt < mid)
     {
-        cout << temp->data << "->";
-        temp = temp->next;
+        temp = temp -> next;
+        cnt++;
+    }
+
+    while(temp != NULL) {
+        cout << temp -> data << " -> ";
+        temp = temp -> next;
     }
     cout << "NULL" << endl;
 }
@@ -100,8 +106,8 @@ int main()
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = sixth;
+    sixth->next = NULL;
 
-    print(head);
     cout << endl << endl;
 
     //* find the middle of the linked list
@@ -109,6 +115,8 @@ int main()
     int middle = length / 2;
 
     ans(head , middle);
+
+    print(head , middle);
 
     return 0;
 }
