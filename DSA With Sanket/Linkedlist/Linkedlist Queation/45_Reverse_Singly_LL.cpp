@@ -60,7 +60,7 @@ void reverse(Node *&head, Node *curr, Node *prev)
         return;
     }
 
-    // recusrion call
+    // recursions call
     Node *forward = curr->next;
     reverse(head, forward, curr);
     curr->next = prev;
@@ -121,8 +121,8 @@ int main()
     cout << "head is at :" << head->data << endl
          << endl;
 
-    //^ reverse the linked list by recusrion
-    cout << "Reversing the linked list by recusrion" << endl;
+    //^ reverse the linked list by recursion
+    cout << "Reversing the linked list by recursion" << endl;
     // Node *prev = NULL;
     // Node *curr = head;
     // Node *forward = NULL;
