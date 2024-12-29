@@ -103,7 +103,16 @@ Node *reverseKGroup(Node *head, int k) {
     Node *forward = NULL;
     int count = 0;
 
-    while(curr != NULL && count < k) {
+       // Check if there are at least k nodes left
+    Node *temp = head;
+    for (int i = 0; i < k; i++) {
+        if (temp == NULL) {
+            return head; // Not enough nodes to reverse, return the head as is
+        }
+        temp = temp->next;
+    }
+
+    while(curr != NULL && count < k ) {
         forward = curr->next;
         curr->next = prev;
         prev = curr;
@@ -112,7 +121,7 @@ Node *reverseKGroup(Node *head, int k) {
     }
 
     //* reverse remaining nodes
-    if(forward != NULL) {
+    if(forward != NULL ) {
         head->next = reverseKGroup(forward, k);
     }
 
@@ -154,7 +163,7 @@ int main() {
     // int k = 3;
     cout << "After reversing the linked list in k groups of " << k << " :" << endl;
     Node *newHead = reverseKGroup(head, k);
-    // print(newHead);
+    print(newHead);
 
 
     // reverseKGroup(head, k);

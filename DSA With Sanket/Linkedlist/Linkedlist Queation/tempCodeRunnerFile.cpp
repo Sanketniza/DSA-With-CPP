@@ -1,0 +1,1 @@
+ while(curr != NULL && count < k) {
