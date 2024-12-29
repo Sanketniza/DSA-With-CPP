@@ -189,6 +189,13 @@ int main()
     fifth->next = sixth;
     sixth->next = second; // Creating a loop
 
+    /* 
+       1 -> 2 -> 3 -> 4 -> 5 -> 6
+            ^                   !
+            |                   !
+            |___________________!
+     */
+
     // Q Detect and Remove Loop
 
     // todo: Approach 1: Using Hashmap
