@@ -14,20 +14,43 @@ public:
         this->prev = NULL;
         this->next = NULL;
     }
-    ~Node()
-    {
-
-        int val = this->data;
-
-        if (next != NULL)
-        {
-            delete next;
-            next = NULL;
-        }
-
-        cout << "Memory free for node with data : " << val << endl;
-    }
+    
 };
+
+void remove(Node *&head) {
+
+    if (head == NULL)
+    {
+        return;
+    }
+    
+
+    Node *curr = head;
+
+    while (curr != NULL) {
+
+        Node *temp = curr->next;
+        Node *pre = curr;
+
+        while (temp != NULL) {
+
+            if (curr->data == temp->data) {
+                Node *nodeToDelete = temp;
+                temp = temp->next;
+                pre->next = temp;
+                temp -> prev = pre;
+                delete(nodeToDelete);
+            }
+
+            else {
+                pre = temp;
+                temp = temp->next;
+            }
+        }
+        curr = curr->next;
+    }
+    
+}
 
 void print(Node *head)
 {
@@ -76,6 +99,10 @@ int main()
     temp6->next = temp7;
     temp7->prev = temp6;
     temp7->next = NULL;
+
+    print(head);
+
+    remove(head);
 
     print(head);
 

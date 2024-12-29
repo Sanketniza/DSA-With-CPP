@@ -1,9 +1,9 @@
-
+/*
 #include <iostream>
 using namespace std;
 
-class Node
-{
+//^ given list of linked list is sorted
+class Node {
 public:
     int data;
     Node *next;
@@ -14,12 +14,12 @@ public:
         this->next = NULL;
     }
 
-    
+
 };
 Node *removeDuplicates(Node *head) {
 // void removeDuplicates(Node *head) {
 
-    // base case 
+    // base case
     if (head == NULL ) {
         return head;
         // return ;
@@ -90,6 +90,107 @@ int main()
 
     // removeDuplicates(head);
     // print(head);
+
+    return 0;
+} */
+
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
+Node *removeDuplicates(Node *head) {
+
+    // base case
+    if (head == NULL)
+    {
+        return head;
+    }
+
+    Node *curr = head;
+
+    while (curr != NULL)
+    {
+
+        Node *temp = curr->next;
+        Node *prev = curr;
+
+        while (temp != NULL) {
+
+            if(curr -> data == temp -> data) {
+                Node *nodeToDelete = temp;
+                temp = temp -> next;
+                prev -> next = temp;
+                delete(nodeToDelete);
+            }
+
+            else {
+                prev = temp;
+                temp = temp -> next;
+            }
+        }
+        curr = curr -> next;
+    }
+
+    return head;
+
+}
+
+void print(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+
+        if (temp != NULL)
+        {
+            cout << "-> ";
+        }
+
+        else
+        {
+            cout << " NULL";
+        }
+    }
+    cout << endl;
+}
+
+int main()
+{
+
+    Node *head = new Node(100);
+    Node *temp1 = new Node(30);
+    Node *temp2 = new Node(20);
+    Node *temp3 = new Node(30);
+    Node *temp4 = new Node(30);
+    Node *temp5 = new Node(20);
+    Node *temp6 = new Node(40);
+
+    head->next = temp1;
+    temp1->next = temp2;
+    temp2->next = temp3;
+    temp3->next = temp4;
+    temp4->next = temp5;
+    temp5->next = temp6;
+    temp6->next = NULL;
+
+    print(head);
+
+    Node *head2 = removeDuplicates(head);
+    print(head2);
 
     return 0;
 }
