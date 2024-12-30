@@ -103,8 +103,8 @@ int main()
     print(head);
 
     remove(head);
-
     print(head);
 
     return 0;
+    
 }
