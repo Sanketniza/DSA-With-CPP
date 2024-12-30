@@ -4,18 +4,16 @@
  * link:-https://www.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1
 
   Palindrome Linked List
-Difficulty: MediumAccuracy: 41.48%Submissions: 340K+Points: 4
-Given a singly linked list of integers. The task is to check if the given linked list is palindrome or not.
-
-Examples:
-
-Input: LinkedList: 1->2->1->1->2->1
-Output: true
-Explanation: The given linked list is 1->2->1->1->2->1 , which is a palindrome and Hence, the output is true.
+^ Difficulty: MediumAccuracy: 41.48%Submissions: 340K+Points: 4
+^ Given a singly linked list of integers. The task is to check if the given linked list ^ is  palindrome or not.
+^ 
+^ Examples:
+^ 
+^ Input: LinkedList: 1->2->1->1->2->1
+^ Output: true
+^ Explanation: The given linked list is 1->2->1->1->2->1 , which is a palindrome and ^ Hence, the output is true.
 
 */
-
-
 
 
 
