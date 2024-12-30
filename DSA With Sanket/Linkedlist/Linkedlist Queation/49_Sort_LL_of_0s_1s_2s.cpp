@@ -70,7 +70,7 @@ class Node {
 };
 
 /* 
-    Approach 1:-
+    todo: Approach 1:-
     Count the number of 0s, 1s and 2s and then update the linked list
 */
 
@@ -118,14 +118,14 @@ void sort(Node* &head) {
 }
 
 /* 
-    Approach 2:-
+    todo: Approach 2:-
     Create 3 dummy nodes and then update the linked list
 */
 
 void insertAtTail(Node* &tail, int data) {
 
     Node* temp = new Node(data);
-    tail->next = temp;
+    tail -> next = temp;
     tail = temp;
 }
 
@@ -178,6 +178,10 @@ void print(Node* &head) {
     while(temp != NULL) {
         cout << temp->data << " -> ";
         temp = temp->next;
+
+        if(temp == NULL) {
+            cout << "NULL" << endl;
+        }
     }
     cout << endl;
 }
