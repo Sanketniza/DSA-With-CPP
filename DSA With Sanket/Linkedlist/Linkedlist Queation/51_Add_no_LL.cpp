@@ -25,7 +25,7 @@ For the given two linked list (0 0 6 3) and (0 7), after adding the two linked l
 Expected Time Complexity: O(n+m)
 Expected Space Complexity: O(max(n,m)) for the resultant list.
 
-Constraints:
+Constraints: 
 1 <= size of both linked lists <= 106
 0 <= elements of both linked lists <= 99
 
@@ -97,15 +97,13 @@ Node *addTwoNumber(Node *head1, Node *head2)
     {
 
         int val1 = 0;
-        if (head1 != NULL)
-        
-        {
+        if (head1 != NULL) {
             val1 = head1->data;
         }
 
+
         int val2 = 0;
-        if (head2 != NULL)
-        {
+        if (head2 != NULL) {
             val2 = head2->data;
         }
 
@@ -158,8 +156,8 @@ int main()
     head2->next = second2;
     second2->next = NULL;
 
-    // before revesering the linked list
-    cout << "Before revesering the linked list" << endl;
+    // before reversering the linked list
+    cout << "Before reversering the linked list" << endl;
     print(head1);
     cout << endl;
     print(head2);
@@ -169,8 +167,8 @@ int main()
     head1 = reverse(head1);
     head2 = reverse(head2);
 
-    // after revesering the linked list
-    cout << "After revesering the linked list" << endl;
+    // after reversering the linked list
+    cout << "After reversering the linked list" << endl;
     print(head1);
     cout << endl;
     print(head2);
