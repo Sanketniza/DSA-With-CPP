@@ -1,79 +1,103 @@
 
 /* 
     ? Lecture : 75 Convert BST to Min Heap
+    ? link :     https://www.geeksforgeeks.org/convert-bst-min-heap/
 
-    Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min Heap with the condition that all the values in the left subtree of a node should be less than all the values in the right subtree of the node. This condition is applied to all the nodes, in the resultant converted Min Heap. 
+   ^ Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min Heap with the condition that all the values in the left subtree of a node should be less than all the values in the right subtree of the node. This condition is applied to all the nodes, in the resultant converted Min Heap. 
 
 
  */
-
-#include<iostream>
-#include<bits/stdc++.h>
+// C++ implementation to convert the given
+// BST to Min Heap
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
 
-    public:
-        int data;
-        Node *left;
-        Node *right;
-
-        Node (int data) {
-            this -> data = data;
-            this -> left = NULL;
-            this -> right = NULL;
-        }
+    Node(int x) {
+        data = x;
+        left = right = nullptr;
+    }
 };
 
-Node *InOrder (Node *root , vector<int> &v) { 
+// Function to perform inorder traversal of BST
+// and store the node values in a vector
+void inorderTraversal(Node* root, vector<int>& inorderArr) {
+    if (root == nullptr) {
+        return;
+    }
+  
+    // Traverse the left subtree Store the current 
+    // node value Traverse the right subtree
+    inorderTraversal(root->left, inorderArr);  
+    inorderArr.push_back(root->data);          
+    inorderTraversal(root->right, inorderArr); 
+}
 
-    // base case LNR
-    if (root == NULL) 
-        return NULL;
+// Function to perform preorder traversal of the tree
+// and copy the values from the inorder array to nodes
+void preorderFill(Node* root, vector<int>& inorderArr, int& index) {
+    if (root == nullptr) {
+        return;
+    }
 
-    // recursive call
+    // Copy the next element from the inorder array
+    root->data = inorderArr[index++];
 
-    InOrder(root -> left , v);
-    // cout << root -> data << " ";
-    v.push_back(root -> data);
-    InOrder(root -> right , v);
+    // Fill left and right subtree
+    preorderFill(root->left, inorderArr, index);  
+    preorderFill(root->right, inorderArr, index);
+}
 
+// Function to convert BST to Min Heap
+void convertBSTtoMinHeap(Node* root) {
+  
+    vector<int> inorderArr;
+
+    // Step 1: Perform inorder traversal 
+    // to store values in sorted order
+    inorderTraversal(root, inorderArr);
+
+    int index = 0;
+
+    // Step 2: Perform preorder traversal and 
+    // fill nodes with inorder values
+    preorderFill(root, inorderArr, index);
+}
+
+// Function to print preorder traversal of the tree
+void preorderPrint(Node* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    cout << root->data << " "; 
+    preorderPrint(root->left); 
+    preorderPrint(root->right); 
 }
 
 int main() {
+  
+    // Constructing the Binary Search Tree (BST)
+    //          4
+    //        /   \
+    //       2     6
+    //      / \   / \
+    //     1   3 5   7
+    Node* root = new Node(4);
+    root->left = new Node(2);
+    root->right = new Node(6);
+    root->left->left = new Node(1);
+    root->left->right = new Node(3);
+    root->right->left = new Node(5);
+    root->right->right = new Node(7);
 
-    Node *root = new Node (34);
-    root->left = new Node(17);
-    root->right = new Node(45);
-    root->left->left = new Node(13);
-    root->left->right = new Node(20);
-    root->right->left = new Node(40);
-    root->right->right = new Node(50);
+    convertBSTtoMinHeap(root);
+    preorderPrint(root);
 
-
-    // InOrder Traversal of the given BST
-
-    vector<int> v;
-
-    InOrder(root , v);
-
-    for(auto it : v) {
-        cout << it << " ";
-    }
-
-    // sort the vector
-
-    for(int i = 0; i < v.size() - 1; i++) {
-        for(int j = 0; j < v.size() - i - 1; j++) {
-            if(v[j] > v[j + 1]) {
-                swap(v[j], v[j + 1]);
-                }
-                }
-        }
-
-        // for(auto it : v) {
-        //     cout << it << " ";
-        //     }
-
- return 0;
+    return 0;
 }
