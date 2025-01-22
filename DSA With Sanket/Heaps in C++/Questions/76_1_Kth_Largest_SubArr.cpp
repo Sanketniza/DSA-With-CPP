@@ -1,4 +1,33 @@
+/* 
+	? lecture: 76 : kth largest subarray
+	? link: https://www.naukri.com/code360/problems/k-th-largest-sum-contiguous-subarray_920398?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar&leftPanelTabValue=SUBMISSION
 
+	Problem statement
+Given an array of integers, find the Kth largest sum subarray For example, given the array [1, -2, 3, -4, 5] and K = 2, the 2nd largest sum subarray would be [3, -4, 5], which has a sum of 4.
+
+Please note that a subarray is the sequence of consecutive elements of the array.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1 :
+2
+3 3
+3 -2 5
+2 2
+4 1
+Sample output 1 :
+3
+4
+Explanation of Sample output 1 :
+For the first test case, 
+Sum of [0, 0] = 3
+Sum of [0, 1] = 1
+Sum of [0, 2] = 6
+Sum of [1, 1] = -2
+Sum of [1, 2] = 3
+Sum of [2, 2] = 5
+All sum of subarrays are {6, 5, 3, 3, 1, -2} where the third largest element is 3.
+
+ */
 #include<iostream>
 #include<vector>
 #include<queue>
