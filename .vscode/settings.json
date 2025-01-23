@@ -24,5 +24,10 @@
     "thunder-client.sidebar.defaultTab": "Activity",
     "pdf-preview.default.sidebar": false,
     "editor.cursorStyle": "line",
-    "editor.renderWhitespace": "selection"
+    "editor.renderWhitespace": "selection",
+    "Codegeex.RepoIndex": true,
+    "Codegeex.GenerationPreference": "automatic",
+    "Codegeex.SidebarUI.LanguagePreference": "English",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "notebook.gotoSymbols.showAllSymbols": true
 }
