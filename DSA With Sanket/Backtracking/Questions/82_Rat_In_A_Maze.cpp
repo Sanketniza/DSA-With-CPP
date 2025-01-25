@@ -103,6 +103,7 @@ void solve(int x, int y, vector<vector<int>> &arr, int n, vector<string> &ans, v
 }
 
 vector<string> searchMaze(vector<vector<int>> &arr, int n) {
+    
     vector<string> ans;
     vector<vector<bool>> visited(n, vector<bool>(n, false));
     string path = "";
@@ -117,12 +118,14 @@ vector<string> searchMaze(vector<vector<int>> &arr, int n) {
 }
 
 int main() {
+
     vector<vector<int>> maze = {
         {1, 0, 0, 0},
         {1, 1, 0, 1},
         {0, 1, 0, 0},
         {1, 1, 1, 1}
     };
+
     int n = maze.size();
     vector<string> result = searchMaze(maze, n);
 
