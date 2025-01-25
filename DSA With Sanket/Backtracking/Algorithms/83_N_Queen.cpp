@@ -1,3 +1,9 @@
+/* 
+    Question Link: https://leetcode.com/problems/n-queens/
+    ? https://www.naukri.com/code360/problems/the-n-queens-puzzle_981286?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar&leftPanelTabValue=PROBLEM
+    
+ */
+
 #include <bits/stdc++.h> 
 using namespace std;
 
@@ -70,6 +76,7 @@ void solve(int col, vector<vector<int>> &board, vector<vector<int>> &ans, int n)
 }
 
 vector<vector<int>> nQueens(int n) {
+
     vector<vector<int>> board(n, vector<int>(n, 0));
     vector<vector<int>> ans;
 
@@ -86,6 +93,7 @@ int main() {
     vector<vector<int>> result = nQueens(n);
 
     cout << "Number of solutions: " << result.size() << endl;
+
     for (const auto &solution : result) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
