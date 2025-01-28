@@ -94,9 +94,11 @@ int main()
     
     cout << "path is : " ;
 
-    for(auto i: result) {
-        cout << i << " -> ";
+    for(int i = 0; i < result.size() - 1; i++) {
+        cout << result[i] << " -> ";
     }
+    
+    cout << result.back();
 
     return 0;
 }
