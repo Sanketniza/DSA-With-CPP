@@ -14,8 +14,89 @@ In the below map of Ninjaland let say you want to go from S=1 to T=8, the shorte
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<int> solve (vector<pair<int, int> > &edges , int n , int s , int t ) {
+
+   unordered_map<int , list<int> > adj;
+	for(int i = 0; i < edges.size(); i++) {
+		int u = edges[i].first;
+		int v = edges[i].second;
+
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+
+	// know do bfs for parent
+
+	unordered_map<int , bool > visited;
+	unordered_map<int , int> parent;
+	queue<int> q;
+
+	q.push(s);
+	parent[s] = -1;
+	visited[s] = true;
+
+	while (!q.empty()) {
+		int front = q.front();
+		q.pop();
+
+		for(auto i:adj[front]) {
+		if(!visited[i]) {
+				q.push(i);
+				parent[i] = front;
+				visited[i] = true;
+			}
+		}
+	}
+
+	// shortest path
+
+	vector<int> ans;
+	int currentNode = t;
+	ans.push_back(t);
+
+	while (currentNode != s) {
+		currentNode = parent[currentNode];
+		ans.push_back(currentNode);
+	}
+
+	// reverse the ans
+
+	reverse(ans.begin() , ans.end());
+
+	return ans;
+
+}
+
 int main()
 {
+    /* 
+            2 -- -- -----5
+        /                  \
+      1 - - - 3 - - -   - -  8
+        \                  /
+          4 -- 6 - - - -7
+    
+     */
+
+    vector<pair<int, int> > edges = {
+         {1, 2}, {1, 3}, {1, 4},
+         {2, 5}, {3, 5}, {3, 6},
+         {4, 6}, {5, 8}, {6, 7},
+         {7, 8}
+    };
+
+    int n = 8;
+    int source = 1;
+    int dest = 8;
+    int edge = 8;
+
+    vector<int> result = solve(edges, n ,source, dest );
+    
+    cout << "path is : " ;
+
+    for(auto i: result) {
+        cout << i << " -> ";
+    }
 
     return 0;
 }
