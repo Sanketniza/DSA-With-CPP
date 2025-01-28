@@ -62,12 +62,10 @@ int main() {
         {3, 4},
         {4, 5},
         {4, 8},
-        {7, 8}
-
-            
+        {7, 8}  
     };
 
-    vector<vector<int>> result = depthFirstSearch(V, E, edges);
+    vector<vector<int>> result = depthFirstSearch(v, E, edges);
 
     for (const auto &component : result) {
         for (int node : component) {

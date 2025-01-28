@@ -58,3 +58,60 @@ Constraints:
 Time limit: 1 sec
  */
 
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> printAdjacency (int node , int e , vector<vector<int> > &edges) {
+
+    // prepare the adjacency list
+
+     vector<vector<int>> ans(node);
+
+    for (int i = 0; i < e; i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+
+        ans[u].push_back(v);
+        ans[v].push_back(u);
+    }
+
+    vector<vector<int>> adj(node);
+
+    for (int i = 0; i < node; i++) {
+        adj[i].push_back(i);
+
+        for (int j = 0; j < ans[i].size(); j++) {
+            adj[i].push_back(ans[i][j]);
+        }
+    }
+
+    return adj;
+}
+ 
+int main() { 
+
+    int v = 5, E = 4;
+
+    vector<vector<int>> edges = {
+        {0, 3},
+        {3, 0},
+        {3, 2},
+        {2, 3},
+        {2, 1},
+        {1, 2},
+    };
+
+        vector<vector<int>> result = printAdjacency(v, E, edges);
+
+        for (int i = 0; i < result.size(); i++) {
+            cout << i << " -> ";
+            for (int j = 0; j < result[i].size(); j++) {
+                cout << result[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+
+    return 0;
+}
