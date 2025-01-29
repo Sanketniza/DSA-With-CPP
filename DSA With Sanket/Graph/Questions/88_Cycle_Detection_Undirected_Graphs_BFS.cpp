@@ -62,9 +62,88 @@ Yes
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
+
+bool bfs(int node , unordered_map<int , bool> &visited , unordered_map<int, list<int> > &adj) {
+
+    unordered_map<int , int > parent;
+    visited[node] = true;
+    parent[node] = -1;
+
+    queue<int> q;
+    q.push(node);
+
+    while (!q.empty()) {
+
+        int front = q.front();
+        q.pop();
+
+        for(auto i:adj[front]) {
+
+            if(visited[i] == true && i != parent[front]) {
+                return true;
+            }
+
+            else if(visited[i] == false) {
+                visited[i] = true;
+                parent[i] = front;
+                q.push(i);
+            }
+        }
+    }
+
+    return false;
+}
+
+string solve(int node , int m , vector<vector<int>> &edge) {
+
+    unordered_map<int, list<int> > adj;
+
+    for(int i = 0; i < edge.size(); i++) {
+        int u = edge[i][0];
+        int v = edge[i][1];
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    // 
+
+    unordered_map<int , bool> visited;
+
+    for(int i = 0; i < node; i++) {
+
+        if(!visited[i]) {
+
+            bool ans = bfs(i , visited , adj);
+
+            if(ans) {
+                return "Yes";
+            }
+        }
+    }
+
+    return "No";
+}
  
 int main() { 
 
+    /* 
+        1 - - - 2
+          \    /
+            3
+     */
+
+    int n = 3;
+    int m = 3;
+
+    vector<vector<int> > edge = {
+        {1, 2},
+        {2, 3},
+        {1, 3}
+    };
+
+    string reu = solve(n, m, edge);
+    cout << "Is there cycle in the graph : " << reu << endl;
     
 
     return 0;
