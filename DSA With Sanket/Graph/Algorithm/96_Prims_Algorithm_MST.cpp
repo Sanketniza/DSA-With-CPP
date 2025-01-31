@@ -43,6 +43,8 @@ The Minimum spanning tree for the given graph will contain the edges: (1,2) with
 // 2. Find all the edges that connect the tree to new vertices, find the minimum and add it to the tree.
 // 3. Keep repeating step 2 until we get a minimum spanning tree.
 
+
+
 #include <bits/stdc++.h> 
 using namespace std;
 
