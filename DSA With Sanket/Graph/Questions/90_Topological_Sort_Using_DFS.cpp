@@ -109,7 +109,7 @@ void dfs( int node , unordered_map<int, list<int> > &adj , stack<int> &s , vecto
         int u = graph[i][0];
         int v = graph[i][1];
 
-        adj[u].push_back(v);
+        adj[u].push_back(v); // this condition is for create directed graph
     }
 
     // call dfs topological sort , util all nodes or v are not visited
@@ -136,20 +136,34 @@ void dfs( int node , unordered_map<int, list<int> > &adj , stack<int> &s , vecto
 
 int main() { 
 
-    int Vertext , Edge;
+    int Vertext, Edge;
 
+    // Read the number of vertices and edges
     cin >> Vertext >> Edge;
-    vector<vector<int> >graph(Vertext);
 
+    // Initialize the graph
+    vector<vector<int>> graph(Vertext);
+
+    // Read the edges and construct the graph
     for(int i = 0; i < Edge; i++) {
-        int u , v;
+        int u, v;
         cin >> u >> v;
-        graph[u].push_back(v); // this condition is for create directed graph
+        graph[u].push_back(v); // Add v to the adjacency list of u
     }
+
+    // Optionally, print the graph to verify
+    for(int i = 0; i < Vertext; i++) {
+        cout << "Vertex " << i << " -> ";
+        for(int neighbor : graph[i]) {
+            cout << neighbor << " ";
+        }
+        cout << endl;
+    }
+
 
     vector<int> topologicalOrder = topologicalSort(graph , Vertext , Edge);
 
-cout << "topologicalOrder : "  << endl;
+    cout << "topologicalOrder : "  << endl;
     for(int i = 0; i < topologicalOrder.size(); i++) {
         cout << topologicalOrder[i] << " ";
     }
