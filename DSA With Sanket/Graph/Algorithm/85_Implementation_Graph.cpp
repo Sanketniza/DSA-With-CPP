@@ -10,7 +10,7 @@ class graph {
 
         void addEdge(int u , int v , bool direction) {
 
-            // direction = 0 -> undirected gr
+            // direction = 0 -> undirected graph
             // direction = 1 -> directed graph
 
             adj[u].push_back(v);
