@@ -62,10 +62,64 @@ Yes
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
+
+bool isCycleDFS(int node, int parent, unordered_map<int, list<int>> &adj, unordered_map<int, bool> &visited) {
+    visited[node] = 1;
+
+    for (auto neighbor : adj[node]) {
+        if (!visited[neighbor]) {
+            bool cycleDetected = isCycleDFS(neighbor, node, adj, visited);
+            if (cycleDetected)
+                return true;
+        } else if (neighbor != parent) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+string cycleDetection(vector<vector<int>> &edges, int n, int m) {
+    unordered_map<int, list<int>> adj;
+
+    // prepare adj list
+    for (int i = 0; i < m; i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    unordered_map<int, bool> visited;
+
+    for (int node = 0; node < n; node++) {
+        if (!visited[node]) {
+            // bool ans = isCycleBFS(node, adj, visited);
+            bool ans = isCycleDFS(node, -1,adj , visited);
+            if (ans) {
+                return "Yes";
+            }
+        }
+    }
+
+    return "No";
+}
  
 int main() { 
 
-    
+    int v = 3;
+    int e = 3;
+
+vector<vector<int> > edges = {
+    {1, 2},
+    {1, 3},
+    {2, 3}
+};
+
+
+  cycleDetection( edges , v , e);
 
     return 0;
 }
