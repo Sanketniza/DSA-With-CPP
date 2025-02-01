@@ -46,3 +46,78 @@ Sample Output 2:
 6
 
  */
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool cmp(vector<int> &a , vector<int> &b) {
+  return a[2] < b[2];
+}
+
+void makeSet(vector<int> &rank , vector<int> &parent , int n) {
+  for(int i = 0; i < n; i++) {
+    parent[i] = i;
+    rank[i] = 0;
+  }
+}
+
+int findParent(vector<int> &parent , int node) {
+  if(parent[node] == node) {
+    return node;
+  }
+  return parent[node] = findParent(parent , parent[node]);
+}
+
+void unionSet(int u , int v , vector<int> &parent , vector<int> &rank) {
+  u = findParent(parent , u);
+  v = findParent(parent , v);
+
+  if(rank[u] < rank[v]) {
+    parent[u] = v;
+  }
+  else if(rank[v] < rank[u]) {
+    parent[v] = u;
+  }
+  else {
+    parent[v] = u;
+    rank[u]++;
+  }
+}
+
+int minimumSpanningTree(vector<vector<int>>& edges, int n) {
+  // sort the edge
+  sort(edges.begin() , edges.end() , cmp);
+
+  vector<int> rank(n);
+  vector<int> parent(n);
+  makeSet(rank , parent , n);
+
+  int minWeigh = 0;
+
+  for(int i = 0; i < edges.size(); i++) {
+    int u = findParent(parent , edges[i][0]);
+    int v = findParent(parent , edges[i][1]);
+    int w = edges[i][2];
+
+    if(u != v) {
+      minWeigh += w;
+      unionSet(u , v , parent , rank);
+    }
+  }
+
+  return minWeigh;
+}
+
+int main() {
+  // Example usage:
+  vector<vector<int>> edges = {{0, 1, 2}, {1, 2, 3}, {0, 3, 6}, {1, 3, 8}, {1, 4, 5}, {2, 4, 7}};
+  int n = 5; // Number of nodes
+
+  int minSpanningTreeWeight = minimumSpanningTree(edges, n);
+  cout << "The weight of the minimum spanning tree is: " << minSpanningTreeWeight << endl;
+
+  return 0;
+}
