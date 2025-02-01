@@ -71,10 +71,80 @@ There is only one bridge((0-4)) in the above-given graph denoted by red lines.
     #include<bits/stdc++.h>
     using namespace std;
 
-    vector<vector<int> > findBridges(vector<vector<int> > &edges , int v , int e) {
+void dfs(int node, int timer, vector<int>& low, vector<int>& dist, int parent, unordered_map<int, bool>& vis, vector<vector<int>>& result, unordered_map<int, list<int>>& adj) {
 
+    vis[node] = true;
 
+    dist[node] = low[node] = timer++;
+    // dist[node] = timer;
+    // low[node] = timer;
+    // timer++; 
+
+    for(auto nbr : adj[node]) {
+        if(nbr == parent) {
+            continue;
+        }
+
+        else if(!vis[nbr]) {
+
+            dfs(nbr, timer, low, dist, node, vis, result, adj);
+
+            low[node] = min(low[node], low[nbr]);
+
+            // check edge is bridge  
+            if(low[nbr] > dist[node]){
+
+                vector<int> ans;
+                ans.push_back(node);
+                ans.push_back(nbr);
+                result.push_back(ans);
+                
+            }
+        }
+
+        else {
+            // back edge
+            low[node] = min(low[node], dist[nbr]);
+        }
+    }    
+}
+
+vector<vector<int>> findBridges(vector<vector<int>>& edges, int v, int e) {
+    // prepare adj list
+
+    unordered_map<int, list<int>> adj;
+
+    for(int i = 0; i < edges.size(); i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
+
+    // 
+
+    int timer = 0;
+    vector<int> low(v);
+    vector<int> dist(v);
+    int parent = -1;
+    unordered_map<int, bool> vis;
+
+    for(int i = 0; i < v; i++) {
+        low[i] = -1;
+        dist[i] = -1;
+    }
+
+    vector<vector<int>> result;
+
+    for(int i = 0; i < v; i++) {
+        if(!vis[i]) {
+            dfs(i, timer, low, dist, parent, vis, result, adj);
+        }
+    }
+
+    return result;
+}
  
     int main() { 
 
