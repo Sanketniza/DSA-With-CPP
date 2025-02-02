@@ -29,6 +29,7 @@ So the “6th” element is “8” hence we get the output.
 #include<vector>
 using namespace std;
 
+// todo: Approach one : - Top - Down [Recursive + Memoization]
 int fib(int n , vector<int> &dp) {
 
     if(n <= 1) {
@@ -48,6 +49,14 @@ int main() {
     int n ;
     cin >> n;
 
+//----------------------------------------------------------------
+
+// todo: Approach one : - Top - Down [Recursive + Memoization]
+    /* 
+        Time Complexity : O(n);
+        Space Complexity : O(n);
+    */
+
     vector<int> dp(n + 1);
 
     for(int i = 0; i <= n; i++) {
@@ -55,7 +64,53 @@ int main() {
     }
 
     cout << "ans is : " << fib(n, dp) << endl;
+// ----------------------------------------------------------------
 
+    // todo: Approach two : - Bottom - UP [ Tabulation  ]
+
+    /* 
+        Time Complexity : O(n);
+        Space Complexity : O(n);
+    */
+
+    vector<int> dp2(n + 1);
+
+    dp2[0] = 0;
+    dp2[1] = 1;
+
+    for(int i = 2; i <= n; i++) {
+        dp2[i] = dp2[i - 1] + dp2[i - 2];
+    }
+
+    cout << "ans is : " << dp2[n] << endl;
+
+// ----------------------------------------------------------------
+
+    // todo: Approach three : - Space Optimization
+
+    /* 
+        Time Complexity : O(n);
+        Space Complexity : O(1);
+    */
+
+    int a = 0;
+    int b = 1;
+    int c;
+
+    if(n == 0) {
+        cout << "ans is : " << a << endl;
+        return 0;
+    }
+
+    for(int i = 2; i <= n; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    cout << "ans is : " << b << endl;
+
+// ----------------------------------------------------------------
 
     return 0;
 }
