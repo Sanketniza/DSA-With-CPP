@@ -97,10 +97,7 @@ int main() {
 
     t -> insertWord("APPLE");
 
-    cout << "Trie Search Results" << t -> search("APPLE") << endl;
-
-    
-    
+    cout << "Trie Search Results : " << t -> search("APPLE") << endl;
 
     return 0;
 

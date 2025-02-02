@@ -72,7 +72,7 @@ There is only one bridge((0-4)) in the above-given graph denoted by red lines.
     using namespace std;
 
 void dfs(int node, int timer, vector<int>& low, vector<int>& dist, int parent, unordered_map<int, bool>& vis, vector<vector<int>>& result, unordered_map<int, list<int>>& adj) {
-
+    
     vis[node] = true;
 
     dist[node] = low[node] = timer++;
@@ -86,19 +86,17 @@ void dfs(int node, int timer, vector<int>& low, vector<int>& dist, int parent, u
         }
 
         else if(!vis[nbr]) {
-
+            
             dfs(nbr, timer, low, dist, node, vis, result, adj);
 
             low[node] = min(low[node], low[nbr]);
 
             // check edge is bridge  
             if(low[nbr] > dist[node]){
-
                 vector<int> ans;
                 ans.push_back(node);
                 ans.push_back(nbr);
                 result.push_back(ans);
-                
             }
         }
 
