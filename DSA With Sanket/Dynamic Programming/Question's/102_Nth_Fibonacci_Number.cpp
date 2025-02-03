@@ -29,6 +29,21 @@ So the “6th” element is “8” hence we get the output.
 #include<vector>
 using namespace std;
 
+/* 
+    * Dynamic Programming:
+    * 1. Overlapping Subproblems
+    * 2. Optimal Substructure
+    * 3. Optimal Solution
+    * 4. Recursion + Memoization
+    * 5. Tabulation
+    * 6. Space Optimization
+   
+    Approach one : - Top - Down [Recursive + Memoization]
+    Approach two : - Bottom - UP [ Tabulation  ]
+    Approach three : - Space Optimization
+
+ */
+
 // todo: Approach one : - Top - Down [Recursive + Memoization]
 int fib(int n , vector<int> &dp) {
 
