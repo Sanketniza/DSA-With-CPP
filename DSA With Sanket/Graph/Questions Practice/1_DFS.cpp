@@ -10,11 +10,17 @@
         component.push_back(node);
         visited[node] = true;
 
-        for(int i = 0; i < adj.size(); i++) {
-            if(visited[i] == false) {
-                dfs(i , adj , visited , component);
+        for(int neighbour : adj[node]) {
+            if(visited[neighbour] == false) {
+                dfs(neighbour , adj , visited , component);
             }
         }
+
+        // for(int i = 0; i < adj.size(); i++) {
+        //     if(visited[i] == false) {
+        //         dfs(i , adj , visited , component);
+        //     }
+        // }
     }
     
     vector<vector<int> > depthFirstSearch(int v , int e , vector<vector<int> > &edge) {
@@ -29,14 +35,14 @@
             adj[v].push_back(u);
         }
         
-        vector<int> component;    
+            
         vector<int ,bool> visited;
         vector<vector<int> > result;
 
         for(int node = 1; node < v; node++) {
             
             if(!visited[node]) {
-                component.push_back(node);
+                vector<int> component;
                 dfs(node, adj , visited , component);
                 result.push_back(component);
             }
