@@ -81,7 +81,8 @@ int main() {
     cout << "ans is : " << fib(n, dp) << endl;
 // ----------------------------------------------------------------
 
-    // todo: Approach two : - Bottom - UP [ Tabulation  ]
+    // todo: Approach two : - Bottom - UP [ Tabulation  ] 
+    // Taaulation is nothing but the iterative version of the recursive approach
 
     /* 
         Time Complexity : O(n);
