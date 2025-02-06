@@ -84,6 +84,56 @@ int solveRec(vector<int> &num  , int x) {
 
     
 }
+
+int solveRec1(vector<int> &num , int x , vector<int> dp) {
+
+    if(x == 0) {
+        return 0;
+    }
+
+    if(x < 0) {
+        return INT_MAX;
+    }
+
+    if(dp[x] != -1) {
+        return dp[x];
+    }
+
+    int mini = INT_MAX;
+
+    for(int i = 0; i < num.size(); i++) {
+        int ans = solveRec1(num , x - num[i] , dp);
+
+        if(ans != INT_MAX) {
+            mini = min(mini , 1 + ans);
+        }
+    }
+
+    dp[x] = mini;
+
+    return mini;
+}
+
+int solveRec2(vector<int> &num , int x) {
+
+    vector<int> dp(x + 1 , INT_MAX);
+    dp[0] = 0;
+
+    for(int i = 1; i <= x ; i++) {
+        for(int j = 0; j < num.size(); j++) {
+            if(i - num[j] >= 0 && dp[i - num[j] ] != INT_MAX) {
+                dp[i] = min(dp[i] , 1 + dp[i - num[j]]);
+            }
+        }
+    }
+
+    if(dp[x] == INT_MAX) {
+        return -1;
+    }
+
+    return dp[x];
+}
+
  
 int main() { 
 
@@ -105,6 +155,33 @@ int main() {
         } else {
             cout << "ans is : " << ans << endl;
         }
+
+        // todo: Approach two : - Recursive + Memoization
+        // Recursion + Memoization = 2
+        /*  
+            Time Complexity : O(n);
+            Space Complexity : O(n);
+        */
+
+        vector<int> dp(sum + 1 , -1);
+        int ans2 = solveRec1(num , sum , dp);
+        if(ans2 == INT_MAX) {
+            cout << "Not Possible" << endl;
+        }
+
+        else {
+            cout << "ans is : " << ans2 << endl;
+        }
+
+        // todo: Approach three : - Tabulation
+        // Tabulation = 3
+        /*  
+            Time Complexity : O(n * sum);
+            Space Complexity : O(sum);
+        */
+
+       int ans3 = solveRec2(num , sum);
+        cout << "ans is : " << ans3 << endl;
 
     return 0;
 }
