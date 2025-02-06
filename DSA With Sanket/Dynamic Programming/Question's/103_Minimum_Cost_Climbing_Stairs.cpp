@@ -95,7 +95,7 @@
 
     int n = cost.size();
 
-    // todo: Approach one : - Resursive only
+    // todo: Approach one : - Recursive only
     // Recursion way = 1
         /*  
             Time Complexity : O(2^n);
@@ -108,7 +108,7 @@
          cout << "ans is : " << ans << endl;
 
 
-    // todo: Approach two : - Resursive + Memoization
+    // todo: Approach two : - Recursive + Memoization
     // Recursion + Memoization = 2
         /*  
             Time Complexity : O(n);
