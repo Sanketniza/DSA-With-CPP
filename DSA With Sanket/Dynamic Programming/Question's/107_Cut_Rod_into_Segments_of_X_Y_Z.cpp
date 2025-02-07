@@ -34,12 +34,54 @@ In the second case, cut it into 8 parts of length 1.
  #include<iostream>
  #include<bits/stdc++.h>
  using namespace std;
+
+int SolveTab(int n , int x , int y , int z) {
+
+    vector<int> dp(n + 1 , INT_MIN);
+    dp[0] = 0;
+
+    for(int i = 1; i <= n; i++) {
+
+       if(i - x >= 0) {
+         dp[i] = max(dp[i] , dp[i - x] + 1);
+       }
+
+       if(i - y >= 0) {
+         dp[i] = max(dp[i] , dp[i - y] + 1);
+       }
+
+       if(i - z >= 0) {
+            dp[i] = max(dp[i] , dp[i - z] + 1);
+        }
+
+        cout << "dp[" << i << "] : " << dp[i] << endl;
+    }
+
+    if(dp[n] < 0) {
+        return 0;
+    }
+
+    else {
+        return dp[n];
+    }
+
+} 
+
+int solve(int n , int x , int y , int z) {
+    return SolveTab(n , x , y , z);
+}
  
+
  int main() {
  
-    
-    // This is the main function, which is the entry point of the program
-    // It is used to execute the code in the program
-    // The return statement is used to exit the program and return a value to the operating system
+  vector<int> len = {7, 5, 2, 2};
+  int n = len[0];
+  int x = len[1];
+  int y = len[2];
+  int z = len[3];
+
+  int ans = solve(n , x , y , z);
+  cout << "ans is : " << ans << endl;
+
   return 0;
- }
+}

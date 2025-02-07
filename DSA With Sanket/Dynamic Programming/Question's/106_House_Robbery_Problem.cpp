@@ -97,7 +97,9 @@ Sample Output 2:
  
  int main() {
  
+    // create a vector of integers
     vector<int> arr = {1, 5, 1, 2, 6};
+    // get the size of the vector
     int n = arr.size();
 
     vector<int> first;
