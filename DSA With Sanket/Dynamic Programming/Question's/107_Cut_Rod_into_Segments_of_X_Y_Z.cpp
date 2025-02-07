@@ -32,11 +32,14 @@ In the second case, cut it into 8 parts of length 1.
  */
 
  #include<iostream>
-#include<bits/stdc++.h>
+ #include<bits/stdc++.h>
  using namespace std;
  
  int main() {
  
     
+    // This is the main function, which is the entry point of the program
+    // It is used to execute the code in the program
+    // The return statement is used to exit the program and return a value to the operating system
   return 0;
  }

@@ -68,9 +68,65 @@ Sample Output 2:
  #include<iostream>
 #include<bits/stdc++.h>
  using namespace std;
+
+ int solve(vector<int> &arr ) {
+
+    int n = arr.size();
+
+    int a = 0;
+    int b = arr[0];
+
+    for(int i = 1; i < n; i++) {
+        int include = a + arr[i];
+        cout << "include : " << include << endl;
+        int exclude = a + b;
+        cout << "exclude : " << exclude << endl;
+
+
+        int temp = max(include , exclude);
+        cout << "temp : " << temp << endl;
+        a = b;
+        b = temp;
+        cout << "a : " << a << " b : " << b << endl;
+    }
+
+    return b;
+
+}
+
  
  int main() {
  
+    vector<int> arr = {1, 5, 1, 2, 6};
+    int n = arr.size();
+
+    vector<int> first;
+    vector<int> second;
+
+
+    // base case
+    if(n == 0) {
+        cout << 0 << endl;
+    }
+
+    if(n == 1) {
+        cout << arr[0] << endl;
+    }
+
+    for(int i = 0; i < n; i++) {
+
+        if( i != n - 1) {
+            first.push_back(arr[i]);
+        }
+
+        if(i != 0) {
+            second.push_back(arr[i]);
+        }
+    }
+
+    int ans = max(solve(first) , solve(second));
+    cout << ans << endl;
+    
  
   return 0;
- }
+}
