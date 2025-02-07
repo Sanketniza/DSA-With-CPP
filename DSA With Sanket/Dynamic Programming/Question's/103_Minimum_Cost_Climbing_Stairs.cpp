@@ -47,8 +47,9 @@ The total cost is 6.
     Approach one : - Top - Down [Recursive + Memoization]
     Approach two : - Bottom - UP [ Tabulation  ]
     Approach three : - Space Optimization
-
+    
  */
+
 
  int solve (vector<int> &cost , int n) {
 
