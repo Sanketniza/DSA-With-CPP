@@ -35,6 +35,47 @@ In the second case, cut it into 8 parts of length 1.
  #include<bits/stdc++.h>
  using namespace std;
 
+int solveRec(int n , int x , int y , int z) {
+
+    if(n == 0) {
+        return 0;
+    }
+
+    if(n < 0) {
+        return INT_MIN;
+    }
+
+    int a = solveRec(n - x , x , y , z) + 1;
+    int b = solveRec(n - y , x , y , z) + 1;
+    int c = solveRec(n - z , x , y , z) + 1;
+
+    return max(a , max(b , c));
+
+}
+
+int solveRec(int n , int x , int y , int z , vector<int> &dp) {
+
+    if(n == 0) {
+        return 0;
+    }
+
+    if(n < 0) {
+        return INT_MIN;
+    }
+
+    if(dp[n] != -1) {
+        return dp[n];
+    }
+
+    int a = solveRec(n - x , x , y , z , dp) + 1;
+    int b = solveRec(n - y , x , y , z , dp) + 1;
+    int c = solveRec(n - z , x , y , z , dp) + 1;
+
+    dp[n] = max(a , max(b , c));
+    return dp[n];
+
+}
+
 int SolveTab(int n , int x , int y , int z) {
 
     vector<int> dp(n + 1 , INT_MIN);
@@ -68,7 +109,32 @@ int SolveTab(int n , int x , int y , int z) {
 } 
 
 int solve(int n , int x , int y , int z) {
-    return SolveTab(n , x , y , z);
+
+    //todo: Normal Recursion
+    // int ans = solveRec(n , x , y , z);
+    // if(ans < 0) {
+    //     return 0;
+    // }
+
+    // else {
+    //     return ans;
+    // }
+
+    //todo:  Recursion + Memomization method , way 1
+    //vector<int> dp(n + 1 , -1);
+    //int ans = solveRec(n , x , y , z , dp);
+    //if(ans < 0) {
+    //    return 0;
+    //}
+
+    //else {
+    //    return ans;
+    //}
+
+    //todo:  Tabulation method , way 3
+   // return SolveTab(n , x , y , z);
+
+   
 }
  
 
