@@ -49,6 +49,43 @@ int solve(vector<int> &s , int index , int time) {
     return max(include , exclude); 
 }
 
+int solveM(vector<int> &s , int index , int time , vector<vector<int>> &dp) {
+
+    // base case
+    int n = s.size();
+    if(index == n) {
+        return 0;
+    }
+
+    if(dp[index][time] != -1) {
+        return dp[index][time];
+    }
+
+    // recursive case
+    int include = s[index] * (time + 1) + solveM(s , index + 1 , time + 1 , dp);
+    int exclude = 0 + solveM(s , index + 1 , time , dp);
+
+    dp[index][time] = max(include , exclude);
+    return dp[index][time];
+}
+
+int solveT(vector<int> &s) {
+    int n = s.size();
+    vector<vector<int>> dp(n, vector<int>(n + 1, 0));
+
+    for (int index = n - 1; index >= 0; index--) {
+        for (int time = index; time >= 0; time--) {
+            int include = s[index] + dp[index + 1][time + 1];
+            int exclude = dp[index + 1][time];
+
+            dp[index][time] = max(include, exclude);
+        }
+    }
+
+    return dp[0][0];
+}
+
+
 int main() {
 
     vector<int> satisfaction = {-1,-8,0,5,-9};
@@ -60,6 +97,16 @@ int main() {
     int ans = solve(satisfaction , 0 , 0);
     cout << "ans is : " << ans << endl;
 
+
+    // memoization approach
+    vector<vector<int>> dp(n , vector<int> (n + 1 , -1));
+    int ansM = solveM(satisfaction , 0 , 0 , dp);
+    cout << "ansM is : " << ansM << endl;
+
+
+    // tabulation approach
+    int ansT = solveT(satisfaction);
+    cout << "ansT is : " << ansT << endl;
 
  return 0;
 } 
