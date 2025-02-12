@@ -36,7 +36,29 @@ Explanation: People do not like the dishes. No dish is prepared.
 #include<bits/stdc++.h>
 using namespace std;
 
+int solve(vector<int> &s , int index , int time) {
+
+    int n = s.size();
+    if(index == n) {
+        return 0;
+    }
+
+    int include = s[index] * (time + 1) + solve(s , index + 1 , time + 1);
+    int exclude = 0 + solve(s , index + 1 , time);
+
+    return max(include , exclude); 
+}
+
 int main() {
+
+    vector<int> satisfaction = {-1,-8,0,5,-9};
+    sort(satisfaction.begin() , satisfaction.end());
+    int n = satisfaction.size();
+
+
+    // recursive approach
+    int ans = solve(satisfaction , 0 , 0);
+    cout << "ans is : " << ans << endl;
 
 
  return 0;
