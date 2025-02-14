@@ -33,13 +33,31 @@ Explanation: Pick pizza slice of size 8 in each turn. If you pick slice with siz
 #include<bits/stdc++.h>
 using namespace std;
 
+int solve(int index , int endPoint , vector<int> &slices , int k) {
+
+    // base case
+    if(k == 0 || index > endPoint) {
+        return 0;
+    }
+
+    // recursive case
+
+    // if we take the current slice
+    int take = slices[index] + solve(index + 2 , endPoint , slices , k - 1);
+    int nottake = 0 + solve(index + 1, endPoint , slices , k);
+
+    return max(take , nottake);
+}
+
 int main() {
 
     vector<int> slices = {1,2,3,4,5,6};
     int n = slices.size();
 
     // step1 : find the max sum of slices
-    int ans = solve(n , slices);
+    int case1 = solve(0 , n - 2 , slices , n / 3);
+    int case2 = solve(1 , n - 1 , slices , n / 3);
+    int ans = max(case1 , case2);
     cout << "ans is : " << ans << endl;
 
 
