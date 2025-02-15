@@ -94,6 +94,32 @@ int solveTab(vector<int> &arr , int sum , int size) {
     return dp[0][sum/2];   
 }
 
+int solveS(vector<int> &arr , int sum , int size) {
+
+   vector<int> curr(sum + 1 , 0);
+   vector<int> next(sum + 1 , 0);
+
+   curr[0] = 1;
+   next[0] = 1;
+
+   for(int index = size - 1; index >= 0; index--) {
+       for(int target = 0; target <= sum/2; target++) {
+
+           int include = 0;
+           if(target - arr[index] >= 0) {
+               include = next[target - arr[index]];
+            }
+
+           int exclude = next[target - 0];
+           curr[target] = include || exclude;
+        }
+
+       next = curr;
+    }
+
+    return curr[sum/2];
+}
+
 int main() {
 
   vector<int> arr = {1, 5, 11, 5};
@@ -123,6 +149,10 @@ int main() {
     //todo: Dp Approach (Bottom Up) (Tabulation)
     int ans3 = solveTab(arr , sum , size);
     cout << "ans is : " << ans3 << endl;
+
+    //todo: space optimized Dp Approach (Bottom Up) (Tabulation)
+    int ans4 = solveS(arr , sum , size);
+    cout << "ans is : " << ans4 << endl;
 
 
  return 0;
