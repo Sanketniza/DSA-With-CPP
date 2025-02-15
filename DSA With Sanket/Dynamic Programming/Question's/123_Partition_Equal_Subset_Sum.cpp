@@ -42,6 +42,58 @@ int solve(int index  , vector<int> &arr , int target , int size) {
 
 }
 
+int solveM(int index  , vector<int> &arr , int target , int size , vector<vector<int>> &dp) {
+
+    // base cases
+    if(target == 0) {
+        return 1;
+    }
+
+    if(index >= size) {
+        return 0;
+    }
+
+    if(target < 0)
+        return 0;
+
+    if(dp[index][target] != -1) {
+        return dp[index][target];
+    }
+
+    // recursive cases
+    int include = solveM (index + 1, arr , target - arr[index] , size , dp);
+    int exclude = solveM (index + 1, arr , target , size , dp);
+
+    dp[index][target] = include || exclude;
+    return dp[index][target];
+
+}
+
+int solveTab(vector<int> &arr , int sum , int size) {
+
+    vector<vector<int>> dp(size + 1 , vector<int> (sum + 1 , 0));
+
+    //base case
+    for(int i = 0; i <= size; i++) {
+        dp[i][0] = 1;
+    }
+
+    for(int index = size - 1; index >= 0; index--) {
+        for(int target = 0; target <= sum/2; target++) {
+
+            int include = 0;
+            if(target - arr[index] >= 0) {
+                include = dp[index + 1][target - arr[index]];
+            }
+
+            int exclude = dp[index + 1][target - 0];
+            dp[index][target] = include || exclude;
+        }
+    }
+
+    return dp[0][sum/2];   
+}
+
 int main() {
 
   vector<int> arr = {1, 5, 11, 5};
@@ -59,8 +111,19 @@ int main() {
 
     int target = sum / 2;
 
-  //todo: Recursive Approach
-  int ans = solve(0 , arr , target , size); // 0 is the index from where we are starting
+    //todo: Recursive Approach
+    int ans = solve(0 , arr , target , size); // 0 is the index from where we are starting
     cout << "ans is : " << ans << endl;
+
+    //todo: Dp Approach (Top Down) (Memoization + Recursion)
+    vector<vector<int>> dp(size + 1 , vector<int> (target + 1 , -1));
+    int ans2 = solveM(0 , arr , target , size , dp); // 0 is the index from where we are starting
+    cout << "ans is : " << ans2 << endl;
+
+    //todo: Dp Approach (Bottom Up) (Tabulation)
+    int ans3 = solveTab(arr , sum , size);
+    cout << "ans is : " << ans3 << endl;
+
+
  return 0;
 } 
