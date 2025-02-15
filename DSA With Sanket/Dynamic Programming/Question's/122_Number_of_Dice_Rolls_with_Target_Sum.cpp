@@ -23,8 +23,42 @@ Explanation: There is only 1 way to get the Sum 6 using 3 dices with faces from 
 #include<bits/stdc++.h>
 using namespace std;
 
+    int solve(int face , int dice , int target) {
+
+        // base cases
+        if(target == 0 && dice == 0) {
+            return 1;
+        }
+
+        if(target < 0)
+            return 0;
+
+        if(dice == 0 && target != 0) {
+            return 0;
+        }
+
+        if(target == 0 && dice != 0) {
+            return 0;
+        }
+
+        // recursive case
+
+        int ans = 0;
+        for(int i = 1; i <= face; i++) {
+            ans += solve(face , dice - 1 , target - i);
+        }
+
+        return ans;
+    }
 int main() {
 
+    int m = 6;
+    int n = 3;
+    int x = 12;
 
+   
+    //todo: Recursive Solution
+    int ans = solve( m ,  n ,  x); 
+    cout << "ans is : " << ans << endl;
  return 0;
 }  
