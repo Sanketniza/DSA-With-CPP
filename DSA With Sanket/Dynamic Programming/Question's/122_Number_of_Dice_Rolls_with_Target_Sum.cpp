@@ -50,6 +50,39 @@ using namespace std;
 
         return ans;
     }
+
+    int solveM(int face , int dice , int target , vector<vector<int>> &dp) {
+
+        // bases
+        if(target == 0 && dice == 0) {
+            return 1;
+        }
+
+        if(target < 0)
+            return 0;
+
+        if(dice == 0 && target != 0) {
+            return 0;
+        }
+
+        if(target == 0 && dice != 0) {
+            return 0;
+        }
+
+        if(dp[dice][target] != -1) {
+            return dp[dice][target];
+        }
+
+        // recursive case
+
+        int ans = 0;
+        for(int i = 1; i <= face; i++) {
+            ans += solveM(face , dice - 1 , target - i , dp);
+        }
+
+        return dp[dice][target] = ans;
+
+    }
 int main() {
 
     int m = 6;
@@ -60,5 +93,10 @@ int main() {
     //todo: Recursive Solution
     int ans = solve( m ,  n ,  x); 
     cout << "ans is : " << ans << endl;
+
+    //todo: DP Solution (Top Down) (Recursive + Memoization)
+    vector<vector<int>> dp(n + 1 , vector<int> (x + 1 , -1));
+    int ansM = solveM(m , n , x , dp);
+    cout << "ansM is : " << ansM << endl;
  return 0;
 }  
