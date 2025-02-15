@@ -83,6 +83,28 @@ using namespace std;
         return dp[dice][target] = ans;
 
     }
+
+    int solveTab(int f , int d , int t ){
+
+        vector<vector<int>> dp(d + 1 , vector<int> (t + 1 , 0));
+        dp[0][0] = 1;
+
+        for(int dice = 1; dice <= d; dice++) {
+            for(int target = 1; target <= t; target++) {
+
+                int ans  = 0;
+                for(int face = 1; face <= f; face++) {
+                    if(target - face >= 0) {
+                      ans = ans +  dp[dice - 1][target - face];
+                    }
+                }
+                dp[dice][target] = ans;
+            }
+        }
+
+        return dp[d][t];
+    }
+
 int main() {
 
     int m = 6;
@@ -98,5 +120,9 @@ int main() {
     vector<vector<int>> dp(n + 1 , vector<int> (x + 1 , -1));
     int ansM = solveM(m , n , x , dp);
     cout << "ansM is : " << ansM << endl;
+
+    //todo: DP Solution (Bottom Up) (Tabulation)
+    int ansT = solveTab(m , n , x);
+    cout << "ansT is : " << ansT << endl;
  return 0;
 }  
