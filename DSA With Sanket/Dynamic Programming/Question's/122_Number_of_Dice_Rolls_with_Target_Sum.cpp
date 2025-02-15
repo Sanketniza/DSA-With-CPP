@@ -105,6 +105,30 @@ using namespace std;
         return dp[d][t];
     }
 
+    int solveSpaceOpt(int f , int d , int t) {
+
+        vector<int> prev(t + 1 , 0);
+        vector<int> curr(t + 1 , 0);
+
+        prev[0] = 1;
+
+        for(int dice = 1; dice <= d; dice++) {
+            for(int target = 1; target <= t; target++) {
+
+                int ans = 0;
+                for(int face = 1; face <= f; face++) {
+                    if(target - face >= 0) {
+                        ans = ans + prev[target - face];
+                    }
+                }
+                curr[target] = ans;
+            }
+            prev = curr;
+        }
+
+        return curr[t];
+    }
+
 int main() {
 
     int m = 6;
@@ -124,5 +148,9 @@ int main() {
     //todo: DP Solution (Bottom Up) (Tabulation)
     int ansT = solveTab(m , n , x);
     cout << "ansT is : " << ansT << endl;
+
+    //todo: Space Optimized DP Solution (Bottom Up) (Tabulation)
+    int ansS = solveSpaceOpt(m , n , x);
+    cout << "ansS is : " << ansS << endl;
  return 0;
 }  
