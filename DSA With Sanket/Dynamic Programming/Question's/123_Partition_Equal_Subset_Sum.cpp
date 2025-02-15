@@ -20,8 +20,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int solve(int index  , vector<int> &arr , int target , int size) {
+
+    // base cases
+    if(target == 0) {
+        return 1;
+    }
+
+    if(index >= size) {
+        return 0;
+    }
+
+    if(target < 0)
+        return 0;
+
+    // recursive cases
+    int include = solve (index + 1, arr , target - arr[index] , size);
+    int exclude = solve (index + 1, arr , target , size);
+
+    return include || exclude;
+
+}
+
 int main() {
 
-  
+  vector<int> arr = {1, 5, 11, 5};
+  int size = arr.size();
+
+  int sum = 0;
+    for(int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+
+    if(sum & 1) {
+        cout << "false" << endl;
+        return 0;
+    }
+
+    int target = sum / 2;
+
+  //todo: Recursive Approach
+  int ans = solve(0 , arr , target , size); // 0 is the index from where we are starting
+    cout << "ans is : " << ans << endl;
  return 0;
 } 
