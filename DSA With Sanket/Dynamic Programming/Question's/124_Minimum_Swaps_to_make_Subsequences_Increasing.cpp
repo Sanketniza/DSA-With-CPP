@@ -58,7 +58,43 @@ int solve(vector<int>&nums1 , vector<int>& nums2 , bool swapped , int index) {
     }
 
     return ans;
-    
+
+}
+
+int solveM(vector<int>&nums1 , vector<int>& nums2 , bool swapped , int index , vector<vector<int>>& dp) {
+
+    // base case
+    if(index == nums1.size()) {
+        return 0;
+    }
+
+    if(dp[index][swapped] != -1) {
+        return dp[index][swapped];
+    }
+
+    int ans = INT_MAX;
+
+    int prev1 = nums1[index - 1];
+    int prev2 = nums2[index - 1];
+
+    // catch the case when the previous element is swapped
+    if(swapped){
+        swap(prev1 , prev2);
+    }
+
+    // case 1: if both elements are strictly increasing
+    if(nums1[index] > prev1 && nums2[index] > prev2) {
+        ans = min(ans , solveM(nums1 , nums2 , 0 , index + 1 , dp));
+    }
+
+    // case 2: if we swap the elements
+    if(nums1[index] > prev2 && nums2[index] > prev1) {
+        ans = min(ans , 1 + solveM(nums1 , nums2 , 1 , index + 1 , dp));
+    }
+
+    dp[index][swapped] = ans;
+    return dp[index][swapped];
+
 }
 
 int main() {
@@ -78,6 +114,12 @@ int main() {
     //todo: Recursive Approach
     int ans = solve(nums1 , nums2 , swapped ,1);
     cout << "ans is : " << ans << endl;
+
+    //todo: Memoization Approach (Top Down) (Memoization + Recursion)
+    vector<vector<int>> dp(size + 1 , vector<int> (2 , -1));
+    int ans1 = solveM(nums1 , nums2 , swapped , 1 , dp);
+    cout << "ans is : " << ans1 << endl;
+
 
    /*  int size = nums1.size();
     vector<vector<int>> dp(size , vector<int> (2 , 0));
