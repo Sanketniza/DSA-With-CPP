@@ -32,6 +32,29 @@ using namespace std;
 
 int main() {
 
+    vector<int> arr = {1, 5, 7, 8, 5, 3, 4, 2, 1};
+    int difference = -2;
+    int size = arr.size();
+
+    unordered_map<int , int> dp;
+
+    int ans = 0;
+    for(int i = 0; i < arr.size(); i++) {
+            int temp = arr[i] - difference;
+            int temAns = 0;
+
+            // check ans is exits for temp , already or not
+            if(dp.count(temp))
+                temAns = dp[temp];
+
+            // current ans updata
+            dp[arr[i]] = 1 + temAns;
+
+            // update ans
+            ans = max(ans , dp[arr[i]]);    
+        }
+
+        cout << ": " << ans;
 
  return 0;
 } 
