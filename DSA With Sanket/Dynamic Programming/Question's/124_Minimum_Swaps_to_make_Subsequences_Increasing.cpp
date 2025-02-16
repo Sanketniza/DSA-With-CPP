@@ -125,6 +125,47 @@ int solveT(vector<int>& nums1, vector<int>& nums2) {
         }
         return dp[1][0];
     }
+
+    int solveS(vector<int>& nums1, vector<int>& nums2) {
+
+        int n = nums1.size();
+
+        int swapp = 0;
+        int noswap = 0;
+        int currswap = 0;
+        int currnoswap = 0;
+
+        for(int index = n - 1 ; index >= 1; index--) {
+
+            for(int swapped = 1 ; swapped >= 0; swapped--) {
+
+                int ans = INT_MAX;
+                int prev1 = nums1[index - 1];
+                int prev2 = nums2[index - 1];
+
+                if(swapped)
+                    swap(prev1 , prev2);
+
+                if(nums1[index] > prev1 && nums2[index] > prev2) {
+                    ans = noswap;
+                }    
+
+                if(nums1[index] > prev2 && nums2[index] > prev1){
+                    ans = min(ans , 1 + swapp);
+                }
+
+                if(swapped)
+                    currswap = ans;
+                else 
+                    currnoswap = ans;    
+            }
+
+            swapp = currswap;
+            noswap = currnoswap;
+        }
+
+        return min(swapp , noswap);
+    }
   
 
 int main() {
@@ -153,6 +194,10 @@ int main() {
     //todo: Tabulation Approach (Bottom Up) (Tabulation)
     int ans3 = solveT(nums1 , nums2);
     cout << "ans is : " << ans3 << endl;
+
+    //todo: Space Optimized Approach (Bottom Up) (Tabulation)
+    int ans4 = solveS(nums1 , nums2);
+    cout << "ans is : " << ans4 << endl;
 
 
    /*  int size = nums1.size();
