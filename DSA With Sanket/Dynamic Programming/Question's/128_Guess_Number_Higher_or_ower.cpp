@@ -76,6 +76,26 @@ int solve(int start , int end) {
     return ans;
 }
 
+int solveM(int start , int end , vector<vector<int>>&dp) {
+
+    // base case
+    if(start >= end) {
+        return 0;
+    }
+
+    if(dp[start][end] != - 1)
+        return dp[start][end];
+
+    int ans = INT_MAX;
+
+    for(int i = start; i <= end; i++) {
+        int temp = max(solveM(start, i - 1, dp), solveM(i + 1, end, dp));
+        ans = min(ans, i + temp);
+    }
+
+    return dp[start][end] = ans;
+}
+
 int main() {
 
     int n = 10;
@@ -84,5 +104,10 @@ int main() {
     int ans = solve(1, n); // 1 is the starting point and n is the ending point
     cout << "ans is : " << ans << endl;
 
+    //todo: DP Approach (Top Down) (Memoization + Recursion) 
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, -1));
+    int ans1 = solveM(1, n, dp);
+    cout << "ans1 is : " << ans1 << endl;
+ 
  return 0;
 } 
