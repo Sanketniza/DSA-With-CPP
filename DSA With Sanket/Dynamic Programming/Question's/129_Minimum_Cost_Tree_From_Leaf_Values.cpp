@@ -62,6 +62,59 @@ int solve(vector<int> &arr , map<pair<int,int>,int> &maxi , int start , int end)
     return ans;
 }
 
+int solveM(vector<int> &arr , map<pair<int, int> , int> &maxi , int start , int end , vector<vector<int>> &dp)  {
+
+    // base casee
+    if(start == end) {
+        return 0;
+    }
+
+    int ans = INT_MAX;
+
+    for(int i = start; i < end ; i++) {
+
+        int left = solveM(arr , maxi , start , i , dp);
+        int right = solveM(arr , maxi , i + 1 , end  ,dp);
+
+        int leftMax = maxi[{start , i}];
+        int rightMax = maxi[{i + 1 , end}];
+
+        ans = min(ans , left + right + leftMax * rightMax);
+
+    }
+
+    return dp[start][end] = ans;
+}
+
+int solveT(vector<int> &arr , map<pair<int, int> , int> &maxi , int start , int end) {
+
+    int n = arr.size();
+    vector<vector<int>> dp(n , vector<int>(n , 0));
+
+    for(int i = n - 1; i >= 0; i--) {
+        for(int j = i + 1; j < n; j++) {
+
+                int ans = INT_MAX;
+
+            for(int k = i; k < j; k++) {
+
+                int left = dp[i][k];
+                int right = dp[k + 1][j];
+                int leftMax = maxi[{i , k}];
+                int rightMax = maxi[{k + 1 , j}];
+
+                ans = min(ans , left + right + leftMax * rightMax);
+            }
+
+            dp[i][j] = ans;
+        }
+    }
+
+    return dp[0][n - 1];
+
+}
+
+
 int main() {
 
     vector<int> arr = {6,2,4};
@@ -93,6 +146,15 @@ int main() {
     //todo: Recursive approach
     int ans = solve(arr , maxi , 0 , n - 1);
     cout << "ans is : " << ans << endl;
+
+    //todo: Memoization approach
+    vector<vector<int>> dp(n , vector<int>(n , -1));
+    int ansM = solveM(arr , maxi , 0 , n - 1 , dp);
+    cout << "ansM is : " << ansM << endl;
+
+    //todo: Tabulation approach
+    int ans2 = solveT(arr , maxi , 0 , n - 1);
+    cout << "ans2 is : " << ans2 << endl;
 
  return 0;
 } 
