@@ -29,9 +29,9 @@ int solve(int n ) {
 
     int ans = 0;
 
-    // for each node as root
-    // left subtree * right subtree
-    // i -> root node  , n - i - 1 -> right subtree , n - i - 1 -> left subtree
+    //* for each node as root
+    //* left subtree * right subtree
+    //* i -> root node  , n - i - 1 -> right subtree , n - i - 1 -> left subtree
 
     for(int i = 1; i <= n; i++) {
         ans += solve(i - 1) * solve(n - i);
