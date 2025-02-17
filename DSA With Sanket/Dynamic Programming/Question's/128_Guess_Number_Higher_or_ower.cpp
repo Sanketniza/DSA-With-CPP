@@ -83,17 +83,44 @@ int solveM(int start , int end , vector<vector<int>>&dp) {
         return 0;
     }
 
+    // if the value is already computed, return it
     if(dp[start][end] != - 1)
         return dp[start][end];
 
     int ans = INT_MAX;
 
+    // iterate through the array
     for(int i = start; i <= end; i++) {
+        // compute the maximum value between the left and right subarrays
         int temp = max(solveM(start, i - 1, dp), solveM(i + 1, end, dp));
+        // compute the minimum value between the current index and the maximum value
         ans = min(ans, i + temp);
     }
 
+    // store the computed value in the dp array
     return dp[start][end] = ans;
+}
+
+int solveTab(int n) {
+
+    vector<vector<int>> dp(n + 1 , vector<int> (n + 1, 0));
+
+    for(int i = n; i >= 1; i--) { // i is the starting point and n is the ending point
+
+        for(int j = i + 1; j <= n; j++) { // j is the ending point
+
+            int ans = INT_MAX;
+
+            for(int k = i; k <= j; k++) { // k is the number which we are guessing
+                int temp = k + max(k - 1 < i ? 0 : dp[i][k - 1], k + 1 > j ? 0 : dp[k + 1][j]);
+                ans = min(ans, temp);
+            }
+
+            dp[i][j] = ans;
+        }
+    }
+
+    return dp[1][n]; // 1 is the starting point and n is the ending point (solve(1, n))
 }
 
 int main() {
@@ -108,6 +135,10 @@ int main() {
     vector<vector<int>> dp(n + 1, vector<int>(n + 1, -1));
     int ans1 = solveM(1, n, dp);
     cout << "ans1 is : " << ans1 << endl;
+
+    //todo: DP Approach (Bottom Up) (Tabulation)
+    int ans2 = solveTab(n);
+    cout << "ans2 is : " << ans2 << endl;
  
  return 0;
 } 
