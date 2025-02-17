@@ -57,8 +57,32 @@ Explanation: The winning strategy is as follows:
 #include<bits/stdc++.h>
 using namespace std;
 
+int solve(int start , int end) {
+
+    // base case
+    if(start >= end) {
+        return 0;
+    }
+
+    int ans = INT_MAX;
+
+    for(int i = start; i <= end; i++) {
+        // int temp = i + max(solve(start, i - 1), solve(i + 1, end));
+        // ans = min(ans, temp);
+
+        ans = min(ans , i + max(solve(start , i -1 ) , solve(i + 1 , end)));
+    }
+
+    return ans;
+}
+
 int main() {
 
+    int n = 10;
+
+    //todo: Recursive Approach
+    int ans = solve(1, n); // 1 is the starting point and n is the ending point
+    cout << "ans is : " << ans << endl;
 
  return 0;
 } 
