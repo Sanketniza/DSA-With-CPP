@@ -128,6 +128,41 @@ int solveTab(vector<int> &prices) {
         return dp[0][1];
     }
 
+    int solveSaaceOptimized(vector<int> &prices ) {
+
+        int n = prices.size();
+
+        vector<int> curr(2 , 0);
+        vector<int> next( 2 , 0);
+
+        for(int index = n - 1; index >= 0; index--) {
+            for(int buy = 0; buy <= 1; buy++    ) {
+
+                int profit = 0;
+                    
+                if(buy) {
+                    int buyKaro = -prices[index] + next[0];
+                    int skipKaro = 0 + next[1];
+                    profit = max(buyKaro , skipKaro);
+                }
+
+                else {
+                    int sellKaro = prices[index] + next[1];
+                    int skipKaro = 0 + next[0];
+                    profit = max(sellKaro , skipKaro);
+                }
+
+                curr[buy] = profit;
+            }
+
+            next = curr;
+        
+        }
+
+        return next[1];
+
+    }
+
 
 int main() {
 
@@ -147,6 +182,9 @@ int main() {
     int c = solveTab(prices);
     cout << "Max Profit is : " << c << endl;
 
+    //todo: space optimized approach
+    int d = solveSaaceOptimized(prices);
+    cout << "Max Profit is : " << d << endl;
 
  return 0;
 } 
