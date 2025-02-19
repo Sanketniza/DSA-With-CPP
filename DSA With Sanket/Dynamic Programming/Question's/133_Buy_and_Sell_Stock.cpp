@@ -61,36 +61,83 @@ int solveTabulation(vector<int> &prices , int k) {
 
 int solveTabulationSpaceOptimized(vector<int> &prices , int k) {
 
+    // Get the size of the prices vector
     int n = prices.size();
+    // Create two 2D vectors to store the current and next states
     vector<vector<int>> curr(2 , vector<int> (k + 1 , 0));
     vector<vector<int>> next(2 , vector<int> (k + 1 , 0));
 
+    // Iterate through the prices vector from the end to the beginning
     for(int index = n - 1; index >= 0; index--) {
+        // Iterate through the buy state
         for(int buy = 0; buy <=1 ; buy++ ) {
+            // Iterate through the limit
             for(int limit = 1; limit <= k; limit++) {
 
+                // Initialize the profit to 0
                 int profit = 0;
 
+                // If the current state is buy
                 if(buy) {
+                    // Calculate the profit if we buy the stock
                     int buyKiya = -prices[index] + next[0][limit];
+                    // Calculate the profit if we skip buying the stock
                     int skipKiya = 0 + next[1][limit];
+                    // Take the maximum of the two profits
                     profit = max(buyKiya , skipKiya);
                 } 
+                // If the current state is sell
                 else {
+                    // Calculate the profit if we sell the stock
                     int sellKiya = prices[index] + next[1][limit - 1];
+                    // Calculate the profit if we skip selling the stock
                     int skipKiya = 0 + next[0][limit];
+                    // Take the maximum of the two profits
                     profit = max(sellKiya , skipKiya);
                 } 
 
+                // Store the profit in the current state
                 curr[buy][limit] = profit;
 
             }  
         }
+        // Update the next state with the current state
         next = curr;
     }
 
     return next[1][k];
 }
+
+    // ------------ 2 -------------------------------------
+
+    int solve(int index , int OperationNo , int k , vector<int> &price) {
+
+        // base cases
+        if(index == price.size() ) 
+            return 0;
+
+        if(OperationNo == 2*k) {
+            return 0;
+        }
+
+
+        // recursive cases
+        int profit = 0;
+
+        if(OperationNo %2 == 0) {
+            int buyKiya = -price[index] + solve(index + 1 , OperationNo + 1 , k , price);
+            int skipKiya = 0 + solve(index + 1 , OperationNo , k , price);
+            profit = max(buyKiya , skipKiya);
+        }
+
+        else {
+            int sellKiya = price[index] + solve(index + 1 , OperationNo + 1 , k , price);
+            int skipKiya = 0 + solve(index + 1 , OperationNo , k , price);
+            profit = max(sellKiya , skipKiya);
+        }
+
+        return profit;
+    }
 
 int main() {
 
@@ -114,6 +161,8 @@ int main() {
     //* way 2:
 
     //todo: Recursive Approach
+        int c = solve(0 , 0 , k , prices ); // 0 is the number of transactions(limit)
+        cout << "Max Profit is : " << c << endl;
 
     //todo: Top Down Approach(Using Recursion + Memoization)
 
