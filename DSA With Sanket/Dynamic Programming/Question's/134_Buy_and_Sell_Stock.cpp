@@ -33,11 +33,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int solve(int index , int buy , vector<int> &price , int fee) {
+
+    // base case
+    if(index == price.size())
+        return 0;
+
+    int profit = 0;
+
+    if(buy) {
+        int buyKiya = -price[index] + solve(index + 1 , 0 , price , fee);
+        int skipKiya = 0 + solve(index + 1 , 1 , price , fee);
+        profit = max(buyKiya , skipKiya);
+    }
+
+    else {
+        int sellKiya = price[index] - fee + solve(index + 1 , 1 , price , fee);
+        int skipKiya = 0 + solve(index + 1 , 0 , price , fee);
+        profit = max(sellKiya , skipKiya);
+    }
+
+    return profit;
+}
+
 int main() {
 
     vector<int> prices = {1,3,2,8,4,9};
     int fee = 2;
     int n = prices.size();
+
+    //! HINT: use the same approach as 131_Buy_and_Sell_Stock.cpp with a slight modification
+
+    //todo: Recursive Approach
+        int a = solve(0 , 1 , prices , fee); 
+        // 0 -> starting index ,  1 -> allowed to buy , 0 -> not allowed to buy (sell only)
+        cout << "ans is : " << a << endl;
+
+    //todo: Memoization
+
+    //todo: Tabulation
+
+    //todo: Space Optimized Tabulation
 
     
 
