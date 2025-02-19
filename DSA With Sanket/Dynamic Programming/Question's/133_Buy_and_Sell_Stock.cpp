@@ -176,6 +176,78 @@ int solveTabulationSpaceOptimized(vector<int> &prices , int k) {
              return dp[index][operationNo] =  profit;
     }  
 
+    int solveTab(vector<int> &prices , int k) {       
+
+        int n = prices.size();
+        vector<vector<int>> dp(n + 1 , vector<int> (2 * k + 1 , 0));
+
+        for(int index = n -1 ; index >= 0; index--) {
+            for(int operationNo = 0; operationNo < 2*k; operationNo++) {
+
+                int profit = 0;
+
+                if(operationNo % 2 == 0) {
+                    int buyKiya = -prices[index] + dp[index + 1][operationNo + 1];
+                    int skipKiya = 0 + dp[index + 1][operationNo];
+                    profit = max(buyKiya , skipKiya);
+                } 
+
+                else {
+                   int sellKiya = prices[index] + dp[index + 1][operationNo + 1];
+                   int skipKiya = 0 + dp[index + 1][operationNo];
+                   profit = max(sellKiya , skipKiya);
+                } 
+
+                dp[index][operationNo] = profit;
+            }
+        }
+
+        return dp[0][0];  // 0 is the operationNo , 0 is the index
+        //  soveM(0,0 , k , prices , dp); // 0 is the index , 0 is the operationNo
+    }
+
+    int solveSpace(vector<int> &prices , int k) {
+
+        // Initialize the size of the prices vector
+        int n = prices.size();
+        // Initialize the current and next vectors with size 2*k + 1 and all elements as 0
+        vector<int> curr(2 * k + 1 , 0);
+        vector<int> next(2 * k + 1 , 0);
+
+        // Iterate through the prices vector from the end to the beginning
+        for(int index = n - 1; index >= 0; index--) {
+            // Iterate through the operationNo from 0 to 2*k
+            for(int operationNo = 0; operationNo < 2*k; operationNo++) {
+
+                // Initialize the profit as 0
+                int profit = 0;
+
+                // If the operationNo is even, calculate the profit by buying the stock or skipping the operation
+                if(operationNo % 2 == 0) {
+                    int buyKiya = -prices[index] + next[operationNo + 1];
+                    int skipKiya = 0 + next[operationNo];
+                    profit = max(buyKiya , skipKiya);
+                } 
+
+                // If the operationNo is odd, calculate the profit by selling the stock or skipping the operation
+                else {
+                   int sellKiya = prices[index] + next[operationNo + 1];
+                   int skipKiya = 0 + next[operationNo];
+                   profit = max(sellKiya , skipKiya);
+                } 
+
+                // Store the profit in the current vector
+                curr[operationNo] = profit;
+            }
+            // Update the next vector with the current vector
+            next = curr;
+        }
+
+        // Return the profit at operationNo 0 and index 0
+        return next[0];  // 0 is the operationNo , 0 is the index
+        //  soveM(0,0 , k , prices , dp); // 0 is the index , 0 is the operationNo
+    }
+
 int main() {
 
     vector<int> prices = {3,2,6,5,0,3};
@@ -207,8 +279,12 @@ int main() {
         cout << "Max Profit is : " << d << endl;
 
     //todo: Bottom Up Approach(Using Iterative + Tabulation)
+        int e = solveTab(prices , k);
+        cout << "Max Profit is : " << e << endl;
 
     //todo: Optimized Bottom Up Approach(Using Iterative + Tabulation)
+        int f = solveSpace(prices , k);
+        cout << "Max Profit is : " << f << endl;
 
  return 0;
 } 
