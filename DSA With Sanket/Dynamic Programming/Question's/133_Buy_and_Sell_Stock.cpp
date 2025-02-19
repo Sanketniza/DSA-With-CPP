@@ -28,8 +28,98 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int solveTabulation(vector<int> &prices , int k) {
+
+    int n = prices.size();
+    vector<vector<vector<int>>> dp(n + 1 , vector<vector<int>> (2 , vector<int> (k + 1 , 0)));
+
+    for(int index = n - 1; index >= 0; index--) {
+        for(int buy = 0; buy <=1 ; buy++ ) {
+            for(int limit = 1; limit <= k; limit++) {
+
+                int profit = 0;
+
+                if(buy) {
+                    int buyKiya = -prices[index] + dp[index + 1][0][limit];
+                    int skipKiya = 0 + dp[index + 1][1][limit];
+                    profit = max(buyKiya , skipKiya);
+                } 
+                else {
+                    int sellKiya = prices[index] + dp[index + 1][1][limit - 1];
+                    int skipKiya = 0 + dp[index + 1][0][limit];
+                    profit = max(sellKiya , skipKiya);
+                } 
+
+                dp[index][buy][limit] = profit;
+
+            }  
+        }
+    }
+
+    return dp[0][1][k];
+}
+
+int solveTabulationSpaceOptimized(vector<int> &prices , int k) {
+
+    int n = prices.size();
+    vector<vector<int>> curr(2 , vector<int> (k + 1 , 0));
+    vector<vector<int>> next(2 , vector<int> (k + 1 , 0));
+
+    for(int index = n - 1; index >= 0; index--) {
+        for(int buy = 0; buy <=1 ; buy++ ) {
+            for(int limit = 1; limit <= k; limit++) {
+
+                int profit = 0;
+
+                if(buy) {
+                    int buyKiya = -prices[index] + next[0][limit];
+                    int skipKiya = 0 + next[1][limit];
+                    profit = max(buyKiya , skipKiya);
+                } 
+                else {
+                    int sellKiya = prices[index] + next[1][limit - 1];
+                    int skipKiya = 0 + next[0][limit];
+                    profit = max(sellKiya , skipKiya);
+                } 
+
+                curr[buy][limit] = profit;
+
+            }  
+        }
+        next = curr;
+    }
+
+    return next[1][k];
+}
+
 int main() {
 
+    vector<int> prices = {3,2,6,5,0,3};
+    int n = prices.size();
+    int k = 2;
+
+    //^ Two way to solve this problem is by using the same approach as 132_Buy_and_Sell_Stock.cpp or by using the same approach as 132_Buy_and_Sell_Stock.cpp with a slight modification
+
+    //* way 1: Using the same approach as 132_Buy_and_Sell_Stock.cpp
+
+    //todo: Tabulation
+        int a = solveTabulation(prices , k);
+        cout << "ans is : " << a << endl;
+
+    //todo: space optimized tabulation
+        int b = solveTabulationSpaceOptimized(prices , k);
+        cout << "ans is : " << b << endl;
+
+
+    //* way 2:
+
+    //todo: Recursive Approach
+
+    //todo: Top Down Approach(Using Recursion + Memoization)
+
+    //todo: Bottom Up Approach(Using Iterative + Tabulation)
+
+    //todo: Optimized Bottom Up Approach(Using Iterative + Tabulation)
 
  return 0;
 } 

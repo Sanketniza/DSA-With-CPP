@@ -108,7 +108,7 @@ using namespace std;
             for(int buy = 0; buy <=1 ; buy++ ) {
                 for(int limit = 1; limit <= 2; limit++) {
 
-                     int profit = 0;
+                    int profit = 0;
 
                     if(buy) {
                         int buyKiya = -prices[index] + dp[index + 1][0][limit];
