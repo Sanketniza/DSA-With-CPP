@@ -56,6 +56,90 @@ int solve(int index , int buy , vector<int> &price , int fee) {
     return profit;
 }
 
+int solveM(int index , int buy , vector<int> &price , int fee , vector<vector<int>> &dp) {
+
+    // base case
+    if(index == price.size())
+        return 0;
+
+    if(dp[index][buy] != -1)
+        return dp[index][buy];
+
+    int profit = 0;
+
+    if(buy) {
+        int buyKiya = -price[index] + solveM(index + 1 , 0 , price , fee , dp);
+        int skipKiya = 0 + solveM(index + 1 , 1 , price , fee , dp);
+        profit = max(buyKiya , skipKiya);
+    }
+
+    else {
+        int sellKiya = price[index] - fee + solveM(index + 1 , 1 , price , fee , dp);
+        int skipKiya = 0 + solveM(index + 1 , 0 , price , fee , dp);
+        profit = max(sellKiya , skipKiya);
+    }
+
+    return dp[index][buy] = profit;
+}
+
+int solveTab(vector<int> &price , int fee) {
+
+    int n = price.size();
+    vector<vector<int>> dp(n + 1 , vector<int> (2 + 1 , 0));
+
+    for(int index = n - 1; index >= 0; index--) {
+        for(int buy = 0; buy <= 1; buy++) {
+
+            int profit = 0;
+
+            if(buy) {
+                int buyKiya = -price[index] + dp[index + 1][0];
+                int skipKiya = 0 + dp[index + 1][1];
+                profit = max(buyKiya , skipKiya);
+            }
+
+            else {
+                int sellKiya = price[index] - fee + dp[index + 1][1];
+                int skipKiya = 0 + dp[index + 1][0];
+                profit = max(sellKiya , skipKiya);
+            }
+
+            dp[index][buy] = profit;
+        }
+    }
+    return dp[0][1];
+}
+
+int solveTabulationSpaceOptimized(vector<int> &price , int fee) {
+
+    int n = price.size();
+    vector<int> curr(2 , 0);
+    vector<int> next(2 , 0);
+
+    for(int index = n - 1; index >= 0; index--) {
+        for(int buy = 0; buy <= 1; buy++) {
+
+            int profit = 0;
+
+            if(buy) {
+                int buyKiya = -price[index] + next[0];
+                int skipKiya = 0 + next[1];
+                profit = max(buyKiya , skipKiya);
+            }
+
+            else {
+                int sellKiya = price[index] - fee + next[1];
+                int skipKiya = 0 + next[0];
+                profit = max(sellKiya , skipKiya);
+            }
+
+            curr[buy] = profit;
+        }
+        next = curr;
+    }
+
+    return next[1];
+}
 int main() {
 
     vector<int> prices = {1,3,2,8,4,9};
@@ -70,10 +154,18 @@ int main() {
         cout << "ans is : " << a << endl;
 
     //todo: Memoization
+        vector<vector<int>> dp(n , vector<int> (2 , -1));
+        // n -> size of the prices vector , 2 -> 2 states (buy or sell)
+        int b = solveM(0 , 1 , prices , fee , dp);
+        cout << "ans is : " << b << endl;
 
     //todo: Tabulation
+        int c = solveTab(prices , fee);
+        cout << "ans is : " << c << endl;
 
     //todo: Space Optimized Tabulation
+         int d = solveTabulationSpaceOptimized(prices , fee);
+         cout << "ans is : " << d << endl;
 
     
 
