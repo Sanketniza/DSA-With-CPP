@@ -139,6 +139,43 @@ int solveTabulationSpaceOptimized(vector<int> &prices , int k) {
         return profit;
     }
 
+     int solveM(int index , int operationNo , int k , vector<int> &prices , vector<vector<int>> &dp) {
+
+        // base case
+        if(index == prices.size())
+            return 0;
+
+        if(operationNo == 2 * k)
+            return 0;
+
+        if(dp[index][operationNo] != -1)
+            return dp[index][operationNo];    
+
+            int profit = 0;
+            // if operationNo is even, we can buy the stock
+            if(operationNo % 2 == 0) {
+                 // if we buy the stock, we add the negative price of the stock to the profit and move to the next index and operationNo
+                 int buyKiya = -prices[index] + solveM(index + 1 , operationNo + 1 , k , prices , dp);
+                 // if we skip the stock, we add 0 to the profit and move to the next index and the same operationNo
+                 int skipKiya = 0 + solveM(index + 1 , operationNo , k , prices , dp);
+                 // we take the maximum of buying or skipping the stock
+                 profit = max(buyKiya , skipKiya);
+              } 
+
+             // if operationNo is odd, we can sell the stock
+             else {
+                 // if we sell the stock, we add the price of the stock to the profit and move to the next index and operationNo
+                 int sellKiya = prices[index] + solveM(index + 1 , operationNo + 1 , k , prices , dp);
+                 // if we skip the stock, we add 0 to the profit and move to the next index and the same operationNo
+                 int skipKiya = 0 + solveM(index + 1 , operationNo , k , prices , dp);
+                 // we take the maximum of selling or skipping the stock
+                 profit = max(sellKiya , skipKiya);
+            } 
+
+             // we store the profit in the dp array
+             return dp[index][operationNo] =  profit;
+    }  
+
 int main() {
 
     vector<int> prices = {3,2,6,5,0,3};
@@ -165,6 +202,9 @@ int main() {
         cout << "Max Profit is : " << c << endl;
 
     //todo: Top Down Approach(Using Recursion + Memoization)
+        vector<vector<int>> dp(n + 1 , vector<int> (2 * k + 1 , -1));
+        int d = solveM(0 , 0 , k , prices , dp);
+        cout << "Max Profit is : " << d << endl;
 
     //todo: Bottom Up Approach(Using Iterative + Tabulation)
 
