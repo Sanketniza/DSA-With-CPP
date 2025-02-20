@@ -67,6 +67,55 @@ using namespace std;
         return ans; 
     }
 
+    int solveM(string &a , string &b , int i , int j , vector<vector<int>> &dp) {
+
+        // base case
+        if(i == a.length()) {
+            // if we have reached the end of string a, the remaining characters in string b are to be inserted
+            return b.length() - j;
+        }
+
+        if(j == b.length ()) {
+            // if we have reached the end of string b, the remaining characters in string a are to be deleted
+            return a.length() - i;
+        }
+
+        if(dp[i][j] != -1) {
+            // if the result is already computed, return it
+            return dp[i][j];
+        }
+
+        // recursive call
+
+        int ans = 0;
+
+        if(a[i] == b[j]){
+            // if the characters at the current positions in both strings are the same, move to the next positions
+            ans = solveM(a , b , i + 1 , j + 1 , dp);
+        } 
+
+        else{
+            // if the characters at the current positions in both strings are different, we have three options:
+            //* 1. insert the character from string b at the current position in string a
+            //* 2. delete the character from string a at the current position
+            //* 3. replace the character from string a at the current position with the character from string b at the current position
+
+            // we take the minimum of these three options
+            
+            // insert
+            int insertAns = 1 + solveM(a , b , i , j + 1 , dp);
+            // delete
+            int deleteAns = 1 + solveM(a , b , i + 1 , j , dp);
+            // replace
+            int replaceAns = 1 + solveM(a , b , i + 1 , j +1 , dp);
+
+            ans = min(insertAns , min(deleteAns , replaceAns));
+        }
+
+        // store the result in the dp array
+        return dp[i][j] = ans;
+    }
+
 int main() {
 
     string word1 = "horse";
@@ -80,9 +129,9 @@ int main() {
         cout << "ans is : " << a << endl;
 
     //todo: Memoization Approach
-        //vector<vector<int>> dp(n , vector<int> (m , -1));
-        //int b = solveM(word1 , word2 , 0 , 0 , dp);
-        //cout << "ans is : " << b << endl;    
+        vector<vector<int>> dp(n , vector<int> (m , -1));
+        int b = solveM(word1 , word2 , 0 , 0 , dp);
+        cout << "ans is : " << b << endl;    
 
  return 0;
 } 
