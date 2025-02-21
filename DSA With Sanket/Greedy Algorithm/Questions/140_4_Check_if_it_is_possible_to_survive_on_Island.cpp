@@ -50,6 +50,11 @@ int main() {
     int N = 16;
     int M = 2;
 
+    /*  
+         For Input:  --> work for this input
+         10 9 8 (Here S = 10, N = 9, M = 8)
+         your output is: -1
+    */
     int sunday = S / 7;
     int buyDay = S - sunday;
     int totalFood = S * M;
