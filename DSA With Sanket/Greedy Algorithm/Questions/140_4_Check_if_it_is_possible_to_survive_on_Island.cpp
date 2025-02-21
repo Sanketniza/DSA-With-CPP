@@ -50,6 +50,23 @@ int main() {
     int N = 16;
     int M = 2;
 
+    int sunday = S / 7;
+    int buyDay = S - sunday;
+    int totalFood = S * M;
+    int ans = 0;
+
+    if(totalFood % N == 0) {
+        ans = totalFood / N;
+    } else {
+        ans = totalFood / N + 1;
+    }
+
+    if(ans <= buyDay) {
+        cout << ans << endl;
+    } else {
+        cout << -1 << endl;
+    }
+
     
  return 0;
 }
