@@ -49,7 +49,7 @@ int main() {
         return a.second < b.second;
     }); */
 
-    // sort(v.begin() , v.end() , cmp);
+    sort(v.begin() , v.end() , cmp);
 
     //& Selecting the first meeting
 

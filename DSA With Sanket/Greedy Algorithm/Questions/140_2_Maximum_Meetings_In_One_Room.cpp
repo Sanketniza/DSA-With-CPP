@@ -29,12 +29,55 @@
 
  */
 
-#include<iostream>
-#include<bits/stdc++.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 using namespace std;
+
+class Solution {
+public:
+
+    vector<int> maxMeetings(int N, vector<int>& start, vector<int>& end) {
+        // Create meetings array with {end, start, position}
+        vector<vector<int>> meetings;
+        for(int i = 0; i < N; i++) {
+            meetings.push_back({end[i], start[i], i + 1});
+        }
+        
+        // Sort by end time
+        sort(meetings.begin(), meetings.end());
+        
+        vector<int> result;
+        int lastEnd = -1;
+        
+        // Select meetings
+        for(auto& meet : meetings) {
+            if(meet[1] > lastEnd) {
+                result.push_back(meet[2]);
+                lastEnd = meet[0];
+            }
+        }
+        
+        sort(result.begin(), result.end());
+        return result;
+    }
+};
 
 int main() {
 
+    vector<int> start = {1, 3, 0, 5, 8, 5};
+    vector<int> end = {2, 4, 6, 7, 9, 9};
+    int N = start.size();
+    
+    Solution sol;
+    vector<int> ans = sol.maxMeetings(N, start, end);
+    
+    cout << "Selected meetings: ";
+    for(int x : ans) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 
- return 0;
-} 
+}
