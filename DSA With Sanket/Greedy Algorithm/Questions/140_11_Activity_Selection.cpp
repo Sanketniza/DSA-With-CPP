@@ -40,6 +40,7 @@ int main() {
     int last = v[0].first;
 
     for(int i = 1; i < v.size(); i++) {
+
         if(v[i].second > last) {
             ans++;
             last = v[i].first;
@@ -49,4 +50,5 @@ int main() {
     cout << "ans is : " << ans << endl;
 
  return 0;
+ 
 }    
