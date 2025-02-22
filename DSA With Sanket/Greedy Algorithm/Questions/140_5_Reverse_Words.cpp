@@ -24,10 +24,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+string solve(string &s) {
+
+    string ans = "";
+    string temp = "";
+
+    for(int i = s.length() - 1; i >= 0; i--) {
+
+        if(s[i] == ' ' ) {
+            reverse(temp.begin(), temp.end());
+            ans += temp;
+            ans += " ";
+            temp = "";
+        }
+
+        else {
+            temp.push_back(s[i]);
+        }
+    }
+
+    reverse(temp.begin(), temp.end());
+    ans += temp;
+    return ans;
+}
+
 int main() {
 
     string s = " i like this program very much ";
     string temp = "";
+
         vector<string> words;
         
         // Split the string into words
@@ -57,7 +82,10 @@ int main() {
             }
         }
 
-    cout  << ans << endl;
+        //  cout  << ans << endl;
+
+         string a = solve(s);
+         cout << a << endl; // Output: "much very program this like i"
         
         return 0;
 } 
