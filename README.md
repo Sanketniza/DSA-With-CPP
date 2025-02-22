@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	DSA in C++
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
-<body style="font-family: sans-serif; text-align: center;">
+<body>
+
 	<div style="display: flex; flex-direction: column; align-items: center;">
 		<h1 style="margin: 10px;">Data Structures and Algorithms in C++</h1>
 		<p style="margin: 10px;">This project is a comprehensive repository for learning and practicing Data Structures and Algorithms (DSA) using C++.</p>
 		<div style="width: 100%; margin: 10px;">
 			<a href="https://github.com/tahseen07/DSA-in-CPP/blob/master/Flowchart%20Layout/Flowchart%20Layout.png">
-				<img src="SANKET.png" alt="Flowchart Layout" style="width: 100%;" />
+			<img src="SANKET.png" width="100%" />
 			</a>
 		</div>
 		<p style="margin: 10px;">The project is organized into multiple directories and subdirectories, each representing a specific aspect of DSA. Here's a brief introduction to each part of the project:</p>
@@ -33,6 +36,66 @@
 		<p style="margin: 10px;">Flowchart Layout: This directory contains the flowchart layout of the project, illustrating the flow of data and algorithms.</p>
 		<p style="margin: 10px;">Final UML Diagram: This directory contains the final UML diagram of the project, illustrating the relationships between different modules and components.</p>
 	</div>
+
+	<div style="width: 100%; margin: 10px; border: 2px solid black; border-radius: 10px; padding: 10px; background-color: #f2f2f2;">
+		<h2 style="text-align: center;">What else does the project include?</h2>
+		<p style="margin: 10px;">The project also includes several subclasses for specific algorithms and data structures, such as:</p>
+		<ul style="margin: 10px;">
+			<li style="margin: 10px;">BubbleSort</li>
+			<li style="margin: 10px;">InsertionSort</li>
+			<li style="margin: 10px;">SelectionSort</li>
+			<li style="margin: 10px;">LinearSearch</li>
+			<li style="margin: 10px;">BinarySearch</li>
+			<li style="margin: 10px;">BFS</li>
+			<li style="margin: 10px;">DFS</li>
+			<li style="margin: 10px;">Dijkstra</li>
+			<li style="margin: 10px;">Prim</li>
+			<li style="margin: 10px;">Kruskal</li>
+			<li style="margin: 10px;">Fibonacci</li>
+			<li style="margin: 10px;">Knapsack</li>
+			<li style="margin: 10px;">NQueens</li>
+			<li style="margin: 10px;">RatInMaze</li>
+			<li style="margin: 10px;">SudokuSolver</li>
+		</ul>
+		<p style="margin: 10px;">Overall, this project appears to be a comprehensive tool for learning and practicing DSA, providing a wide range of data structures and algorithms to choose from.</p>
+	</div>
+
+	<div style="width: 100%; margin: 10px;">
+		<a href="https://github.com/tahseen07/DSA-in-CPP/blob/master/Flowchart%20Layout/Flowchart%20Layout.png">
+		<img src="image.png" width="100%" />
+		</a>
+	</div>
+
+	<div style="width: 100%; margin: 10px; border: 2px solid black; border-radius: 10px; padding: 10px; background: linear-gradient(to right, #9b164b, #ff6600);">
+		<style>
+			p {
+				font-family: 'Lato', sans-serif;
+				font-size: 1.2em;
+				line-height: 1.5em;
+				margin: 10px;
+			}
+			.heart {
+				color: #e2553f;
+				font-size: 2em;
+			}
+			.emoji {
+				font-size: 1.5em;
+				margin: 0 10px;
+			}
+		</style>
+		<p style="text-align: center;">Dear Love Babbar sir and the CodeHelp team,</p>
+		<p style="text-align: center;">I'm writing this comment with a <span class="heart">&hearts;</span> full of gratitude and a touch of emotion!</p>
+		<p>Today, 22nd Feb 2025, I completed the 149th and final video of your DSA series, a journey that began on 1st August 2024. For over half a year, your DSA playlist has been my constant companion.</p>
+		<p>It wasn’t just about learning DSA; it became a beautiful habit, a part of my daily life that I truly enjoyed. Your teaching style is exceptional – you make complex topics so easy to grasp, and the quality of content is simply top-notch, covering everything from basic to advanced DSA concepts. Reaching the end of this series feels like a significant milestone, and honestly, a bit emotional!</p>
+		<p>I'm feeling a mix of joy for finishing and a little sadness because this routine, this daily dose of learning from you, will change. Thank you, Love Babbar sir, for not just being a teacher, but for being an inspiration.</p>
+		<p>You’ve created something truly special that has impacted so many learners. And to all my fellow learners in the comments section – thanks for being part of this journey!</p>
+		<p>Now, it’s time to put all this incredible DSA knowledge to great use!</p>
+		<p>Thank you, Sir, for every late night you spent creating these videos, for simplifying the complex, and for caring so deeply about our success. You’ve changed lives — including mine. <span class="heart">&hearts;</span></p>
+		<p>To everyone watching: If you’re starting this journey, STICK WITH IT. This playlist is a goldmine — trust the process, and one day, you’ll look back with tears of pride too! <span class="emoji">🌟</span></p>
+		<p>Love Babbar Sir, you’re a legend. This isn’t a “goodbye” but a “see you later” — wherever life takes us, your lessons will forever be our compass. <span class="emoji">🧭</span></p>
+		<p>With endless gratitude and respect,</p>
+		<p>Thank you again, from the bottom of my heart! <span class="heart">&hearts;</span><span class="emoji">🙏</span></p>
+	</div>
+
 </body>
 </html>
-
