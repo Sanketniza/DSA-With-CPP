@@ -14,7 +14,7 @@
     Input: val[] = [60, 100], wt[] = [10, 20], capacity = 50
     Output: 160.000000
     Explanation: Take both the items completely, without breaking. Total maximum value of item we can have is 160.00 from the given capacity of sack.
-    
+
     Input: val[] = [10, 20, 30], wt[] = [5, 10, 15], capacity = 100
     Output: 60.000000
     Explanation: In this case, the knapsack capacity exceeds the combined weight of all items (5 + 10 + 15 = 30). Therefore, we can take all items completely, yielding a total maximum value of 10 + 20 + 30 = 60.000000.
@@ -42,10 +42,13 @@ int main() {
     double ans = 0;
 
     for(int i = 0; i < v.size(); i++) {
+
         if(wt[v[i].second] <= capacity) {
             ans += val[v[i].second];
             capacity -= wt[v[i].second];
-        } else {
+        } 
+
+        else {
             ans += (double)val[v[i].second] * capacity / wt[v[i].second];
             break;
         }
@@ -54,4 +57,5 @@ int main() {
     cout << "ans is : " << ans << endl;
 
  return 0;
+ 
 }
