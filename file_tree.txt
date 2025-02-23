@@ -1,0 +1,882 @@
+DSA With C++/
+├─ .gitignore
+├─ .vscode/
+│  ├─ CPP.code-snippets
+│  ├─ extensions.json
+│  └─ settings.json
+├─ C++ Question/
+│  ├─ Lecture 19 = STL Queastion/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ Question/
+│  │  │  ├─ Merge_Array.cpp
+│  │  │  ├─ Merge_Array.exe
+│  │  │  ├─ Merge_Vector.cpp
+│  │  │  ├─ Merge_Vector.exe
+│  │  │  ├─ Move_Zero.cpp
+│  │  │  ├─ Move_Zero.exe
+│  │  │  ├─ Reverse_Array.cpp
+│  │  │  ├─ Reverse_Array.exe
+│  │  │  ├─ Reverse_Array_2.cpp
+│  │  │  ├─ Reverse_Array_2.exe
+│  │  │  ├─ Rotate_Array.cpp
+│  │  │  ├─ Rotate_Array.exe
+│  │  │  ├─ Sort_Rotate.cpp
+│  │  │  └─ Sort_Rotate.exe
+│  │  └─ Question Practise/
+│  │     ├─ 1_Merge_Unsorted_Arr.cpp
+│  │     ├─ 1_Merge_Unsorted_Arr.exe
+│  │     ├─ 2_Move_Zero.cpp
+│  │     ├─ 2_Move_Zero.exe
+│  │     ├─ 3_Reverse_Array.cpp
+│  │     ├─ 3_Reverse_Array.exe
+│  │     ├─ 4_Rotate.cpp
+│  │     └─ 4_Rotate.exe
+│  ├─ Lecture 20 = Array/
+│  │  ├─ 20_Reverse_Arr.cpp
+│  │  └─ 20_Reverse_Arr.exe
+│  ├─ Lecture 22 = Array and String/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ Practice/
+│  │  │  ├─ 1_Palindrom.cpp
+│  │  │  ├─ 2_Remove_Space.cpp
+│  │  │  ├─ 2_Remove_Space.exe
+│  │  │  ├─ Max_Char_Instring.cpp
+│  │  │  ├─ Max_Char_Instring.exe
+│  │  │  ├─ Rm_Occ.cpp
+│  │  │  └─ Rm_Occ.exe
+│  │  └─ Question/
+│  │     ├─ 1_StringBasic.cpp
+│  │     ├─ 1_StringBasic.exe
+│  │     ├─ 2_ArrayReverse.cpp
+│  │     ├─ 2_StringReverse.exe
+│  │     ├─ 3_Palindrom.cpp
+│  │     ├─ 3_Palindrom.exe
+│  │     ├─ 4_Max_String_Count.cpp
+│  │     ├─ 4_Max_String_Count.exe
+│  │     ├─ 5_Replace_Spaces.cpp
+│  │     ├─ 5_Replace_Spaces.exe
+│  │     ├─ 6_Rm_All_Oc_of_Sb_St.cpp
+│  │     ├─ 6_Rm_All_Oc_of_Sb_St.exe
+│  │     ├─ 7_Intersection_Two_Arrays.cpp
+│  │     ├─ 7_Intersection_Two_Arrays.exe
+│  │     ├─ simple.exe
+│  │     └─ tempCodeRunnerFile.cpp
+│  ├─ Lecture 23 = 2D Arrays/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ Practice/
+│  │  │  ├─ 1_Find_element_2D.cpp
+│  │  │  ├─ 1_Find_element_2D.exe
+│  │  │  ├─ 2_Sum_Of_2D.cpp
+│  │  │  ├─ 2_Sum_Of_2D.exe
+│  │  │  ├─ 3_Print_2D_RotatedForm.cpp
+│  │  │  ├─ 4_Search_Ele_2d.cpp
+│  │  │  ├─ 4_Search_Ele_2d.exe
+│  │  │  ├─ 5_2D_Array.cpp
+│  │  │  ├─ 5_2D_Array.exe
+│  │  │  ├─ 6_Find_Ele_2d.cpp
+│  │  │  ├─ 6_Find_Ele_2d.exe
+│  │  │  ├─ 7_Print_wave.cpp
+│  │  │  └─ 7_Print_wave.exe
+│  │  └─ Queation/
+│  │     ├─ 1_2D_ArrayIntro.cpp
+│  │     ├─ 1_2D_ArrayIntro.exe
+│  │     ├─ 2_Fd_Ele_2DA.cpp
+│  │     ├─ 2_Fd_Ele_2DA.exe
+│  │     ├─ 3_Sum_of_2d_rw_cl.cpp
+│  │     ├─ 3_Sum_of_2d_rw_cl.exe
+│  │     ├─ 4_Print_Like_Wave.cpp
+│  │     ├─ 4_Print_Like_Wave.exe
+│  │     ├─ 5_Search_2D_Matrix.cpp
+│  │     ├─ 5_Search_2D_Matrix.exe
+│  │     ├─ 6_Search_2D_Matrix.cpp
+│  │     ├─ 6_Search_2D_Matrix.exe
+│  │     └─ tempCodeRunnerFile.cpp
+│  ├─ Lecture 24 = Basic Math For DSA/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ 1_Prime_No.cpp
+│  │  ├─ 1_Prime_No.exe
+│  │  ├─ 2_gcd.cpp
+│  │  └─ 2_gcd.exe
+│  ├─ Lecture 25 = Pointer In C++/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ 1_Basic_Of_pointer.cpp
+│  │  ├─ 1_Basic_Of_pointer.exe
+│  │  ├─ 2_Tech_Pointer_Q.cpp
+│  │  ├─ 2_Tech_Pointer_Q.exe
+│  │  └─ tempCodeRunnerFile.cpp
+│  ├─ Lecture 26 = Pointer in C++/
+│  │  ├─ 1_Array_Address.cpp
+│  │  └─ 1_Array_Address.exe
+│  ├─ Lecture 27 = Double Pointer in C++/
+│  │  ├─ Basic_Double_Pointer.cpp
+│  │  ├─ Basic_Double_Pointer.exe
+│  │  ├─ Double_Pointer_And_Pointer.cpp
+│  │  ├─ Double_Pointer_And_Pointer.exe
+│  │  ├─ Pointer_MCQ.cpp
+│  │  ├─ Pointer_MCQ.exe
+│  │  └─ tempCodeRunnerFile.cpp
+│  ├─ Lecture 28 = Reference Variable/
+│  │  ├─ 1_Basic_Of_ref_var.cpp
+│  │  ├─ 1_Basic_Of_ref_var.exe
+│  │  ├─ 2_Ref_with_Func.cpp
+│  │  ├─ 2_Ref_with_Func.exe
+│  │  ├─ 3_Dynamic_mem_allo.cpp
+│  │  ├─ 3_Dynamic_mem_allo.exe
+│  │  └─ Static_Mem_VS_Dynamic_Mem.txt
+│  ├─ Lecture 29 = Dynamic Memory Allocation In 2D Array/
+│  │  ├─ 1_Basic_2D_Array.cpp
+│  │  └─ 1_Basic_2D_Array.exe
+│  ├─ Lecture 30 = Keywords IMP/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ 1_micro.cpp
+│  │  ├─ 1_micro.exe
+│  │  ├─ 2_local_variable.cpp
+│  │  ├─ 3_Default_Argu.cpp
+│  │  └─ 3_Default_Argu.exe
+│  └─ Lecture 31 32 33 34 35 36 37 38 = Recursion 1/
+│     ├─ Question Practise/
+│     │  ├─ 1_Print_No.cpp
+│     │  ├─ 1_Print_No.exe
+│     │  ├─ 2_Go_SrcToDest.cpp
+│     │  ├─ 2_Go_SrcToDest.exe
+│     │  ├─ 3_Fibo.cpp
+│     │  ├─ 3_Fibo.exe
+│     │  ├─ 4_Sort_Array.cpp
+│     │  ├─ 4_Sort_Array.exe
+│     │  ├─ 5_GoToDes.cpp
+│     │  ├─ 5_GoToDes.exe
+│     │  ├─ 6_RevTheStr.cpp
+│     │  └─ 6_RevTheStr.exe
+│     └─ Question's/
+│        ├─ 10_Palindrom_RR.cpp
+│        ├─ 10_Palindrom_RR.exe
+│        ├─ 11_Power.cpp
+│        ├─ 11_Power.exe
+│        ├─ 12_Bubble_sort_R.exe
+│        ├─ 13_Merge_sort_R.exe
+│        ├─ 1_Print_No_RR.cpp
+│        ├─ 1_Print_No_RR.exe
+│        ├─ 2_Factorial_RR.cpp
+│        ├─ 2_Factorial_RR.exe
+│        ├─ 34_Bubble_sort_R.cpp
+│        ├─ 35_Merge_sort_R.cpp
+│        ├─ 36_Quick_Sort_Recursion.cpp
+│        ├─ 36_Quick_Sort_Recursion.exe
+│        ├─ 37_Subset.R
+│        ├─ 37_Subset_R.cpp
+│        ├─ 37_Subset_R.exe
+│        ├─ 37_substring_R.cpp
+│        ├─ 37_substring_R.exe
+│        ├─ 38_Phone_KeyPad.cpp
+│        ├─ 38_Phone_KeyPad.exe
+│        ├─ 3_Go_SrccToDest_RR.cpp
+│        ├─ 3_Go_SrccToDest_RR.exe
+│        ├─ 4_Fibonachhi.cpp
+│        ├─ 4_Fibonachhi.exe
+│        ├─ 5_Nth_Stairs.cpp
+│        ├─ 5_Nth_Stairs.exe
+│        ├─ 6_Print_No_ToWord.cpp
+│        ├─ 6_Print_No_ToWord.exe
+│        ├─ 7_Sorted_Array.cpp
+│        ├─ 7_Sorted_Array.exe
+│        ├─ 8_SumOf_Array.cpp
+│        ├─ 8_SumOf_Array.exe
+│        ├─ 9_Reverse_Str_RR.cpp
+│        └─ 9_Reverse_Str_RR.exe
+├─ DSA Lecture Notes/
+│  ├─ 100_Kosaraju's Algorithm for Strongly Connected Components.pdf
+│  ├─ 101_Bellman Ford Algorithm.pdf
+│  ├─ 102_Introduction to Dynamic Programming , Memoization , Tabulation , Space Optimisation Dp  l.pdf
+│  ├─ 103_Minimum Cost Climbing Stairs  Dp - 2.pdf
+│  ├─ 104_Minimum Number of Coins Dp 3.pdf
+│  ├─ 105_Maximum Sum of Non-Adjacent Elements Dp  4.pdf
+│  ├─ 106_House Robbery Problem Dp 5.pdf
+│  ├─ 107_ Cut Rod into Segments of X, Y, Z Dd  7.pdf
+│  ├─ 108_Count derangements Dp 8.pdf
+│  ├─ 109_Painting Fence Algorithm Dp  9.pdf
+│  ├─ 110_ 01 KnapSack Problem Dp  10.pdf
+│  ├─ 111_Combination Sum IV Problem  Dp  11.pdf
+│  ├─ 112_Perfect Squares Problem Dp 12.pdf
+│  ├─ 113_Minimum Cost for Tickets Dp B.pdf
+│  ├─ 115_Largest Square area in Matrix- Dp 15.pdf
+│  ├─ 116_Min Score Triangulation of PolygonDp 16.pdf
+│  ├─ 117_ Minimum Sideways Jump LeetCode Dp 17.pdf
+│  ├─ 118_Reducing Dishes LeetCode Dp 18.pdf
+│  ├─ 120_Maximum Height by Stacking Cuboid  Dp 20.pdf
+│  ├─ 121_Pizza with 3n Slices Dp  21.pdf
+│  ├─ 121_Pizza with 3n SlicesDp 21.pdf
+│  ├─ 122_ Number of Dice Rolls with Target Sum Dp 22.pdf
+│  ├─ 123_Partition Equal Subset Sum  Dp 23.pdf
+│  ├─ 124_Minimum Swaps to make Subsequences Increasing Dp 24.pdf
+│  ├─ 125_ Longest Arithmetic Subsequence Dp 25..pdf
+│  ├─ 126_ Longest AP with given Difference d Dp 26.pdf
+│  ├─ 127_Unique Binary Search Trees Dp 27.pdf
+│  ├─ 128_Guess Number Higher or Lower Dp 28.pdf
+│  ├─ 129_Minimum Cost Tree From Leaf Values Dp 29.pdf
+│  ├─ 130_ Buy and Sell Stock [Part 1] Dp 30.pdf
+│  ├─ 131_Buy and Sell Stock Dp 31.pdf
+│  ├─ 132_ Buy and Sell Stock Dp 32.pdf
+│  ├─ 133_ Buy and Sell Stock Dp 33.pdf
+│  ├─ 134_Buy and Sell Stock Dp 34.pdf
+│  ├─ 135_ Longest Common Subsequence Dp 35.pdf
+│  ├─ 136_Longest Palindromic Subsequence Dp 36.pdf
+│  ├─ 137_EDIT Distance  Dp 37.pdf
+│  ├─ 138_ Maximum Rectangle with all 1's Dp 38.pdf
+│  ├─ 139_ Wildcard Pattern Matching Dp 39.pdf
+│  ├─ 140_Greedy Algorithms  l.pdf
+│  ├─ 14_ Binary Search Ques 2.pdf
+│  ├─ 15 _ Binary Search Question 3.pdf
+│  ├─ 16_Selection Sort.pdf
+│  ├─ 17_ Bubble Sort.pdf
+│  ├─ 18_ Insertion Sort.pdf
+│  ├─ 22_Strings.pdf
+│  ├─ 23_2d Arrays.pdf
+│  ├─ 24_Maths.pdf
+│  ├─ 25_Pointers 1.pdf
+│  ├─ 26_Pointers 2.pdf
+│  ├─ 27_ Doubly Pointers.pdf
+│  ├─ 28_Reference Variable Dynamic Part 1.pdf
+│  ├─ 29_Dynamic Allocation In 2D Array Part 2.pdf
+│  ├─ 30_Keywords.pdf
+│  ├─ 31_Recursion 1.pdf
+│  ├─ 32_Recursion 2.pdf
+│  ├─ 33_Recursion 3 Binary Search and Linear Search.pdf
+│  ├─ 34_Recursion 4.pdf
+│  ├─ 35_Recursion Merge sort 5.pdf
+│  ├─ 36_Recursion 6 Quick Sort.pdf
+│  ├─ 37_Recursion 7 subset of string problem solving.pdf
+│  ├─ 38_ Recursion 8 Phone keypad problem.pdf
+│  ├─ 39_Recursion 9 Permutation of the string problem.pdf
+│  ├─ 40_Recursion 10 Rat problem.pdf
+│  ├─ 41_Time Complecity & Space Complecity of R.pdf
+│  ├─ 42_Oops 1.pdf
+│  ├─ 43_Oops 2.pdf
+│  ├─ 44_Linked List all operation with all type.pdf
+│  ├─ 45_Linked List 2 ( question ).pdf
+│  ├─ 46_Linked List 3 (circular LL and K reversed ).pdf
+│  ├─ 47_Linked List 4 ( Detect & Remove Loop in Linked List).pdf
+│  ├─ 48_Linked List 5.pdf
+│  ├─ 49_Linked List 6 ( Sort linked list of 0s 1s 2s ).pdf
+│  ├─ 50_Linked List #7 ( palindrome LL ).pdf
+│  ├─ 51_Linked List 8 ( Add 2 Numbers represented by LL ).pdf
+│  ├─ 52_Linked List #9.pdf
+│  ├─ 53_Linked List 10 Merge Sort in LL }.pdf
+│  ├─ 54_Stack #1.pdf
+│  ├─ 55_Stack #2 Stack Interview Questions.pdf
+│  ├─ 56_Stack #3.pdf
+│  ├─ 57_Stack #4.pdf
+│  ├─ 58_Stack #5 ( N Stack ).pdf
+│  ├─ 59_Stack #6.pdf
+│  ├─ 60_Queue #1..pdf
+│  ├─ 62_Tree #1 Final.pdf
+│  ├─ 63_Tree 2 (questions).pdf
+│  ├─ 65_Tree 4.pdf
+│  ├─ 66_Tree 5 construct the binary tree in inorder.pdf
+│  ├─ 67_Tree burn tree hard question.pdf
+│  ├─ 68_Tree 7.pdf
+│  ├─ 70_Bst 2.pdf
+│  ├─ 71_Bst 3.pdf
+│  ├─ 72_ Merge two bst Bst 4.pdf
+│  ├─ 73_Bst 5.pdf
+│  ├─ 74_Heap 1 Heaps in C++.pdf
+│  ├─ 74_Heap into Insertion Deletion in Heap.pdf
+│  ├─ 75_Heap 2.pdf
+│  ├─ 94_Shortest Path in Directed Acyclic Graphs.pdf
+│  ├─ 95_Dijkstra's Algorithm.pdf
+│  ├─ 96_Minimum Spanning Tree - Prim's Algorithm.pdf
+│  ├─ 97_Kruskal's Algorithm.pdf
+│  └─ DSA Final Question  = 450.xlsx
+├─ DSA With Sanket/
+│  ├─ Backtracking/
+│  │  ├─ Algorithms/
+│  │  │  ├─ 83_N_Queen.cpp
+│  │  │  └─ 83_N_Queen.exe
+│  │  ├─ Questions/
+│  │  │  ├─ 82_Rat_In_A_Maze.cpp
+│  │  │  ├─ 82_Rat_In_A_Maze.exe
+│  │  │  ├─ 84_Sudoku_Solver.cpp
+│  │  │  └─ 84_Sudoku_Solver.exe
+│  │  └─ Questions Practice/
+│  │     ├─ 1_Rat_Maze.cpp
+│  │     └─ 1_Rat_Maze.exe
+│  ├─ Dynamic Programming/
+│  │  ├─ Algorithm's/
+│  │  │  ├─ 109_Painting_Fence_Algorithm.cpp
+│  │  │  ├─ 109_Painting_Fence_Algorithm.exe
+│  │  │  ├─ 110_01_KnapSack_Problem.cpp
+│  │  │  ├─ 110_01_KnapSack_Problem.exe
+│  │  │  └─ tempCodeRunnerFile.cpp
+│  │  ├─ Question's/
+│  │  │  ├─ 102_Nth_Fibonacci_Number.cpp
+│  │  │  ├─ 102_Nth_Fibonacci_Number.exe
+│  │  │  ├─ 103_Minimum_Cost_Climbing_Stairs.cpp
+│  │  │  ├─ 103_Minimum_Cost_Climbing_Stairs.exe
+│  │  │  ├─ 104_Minimum_Number_of_Coins.cpp
+│  │  │  ├─ 104_Minimum_Number_of_Coins.exe
+│  │  │  ├─ 105_Maximum_Sum_Non_Adjacent_Elements.cpp
+│  │  │  ├─ 106_House_Robbery_Problem.cpp
+│  │  │  ├─ 106_House_Robbery_Problem.exe
+│  │  │  ├─ 107_Cut_Rod_into_Segments_of_X_Y_Z.cpp
+│  │  │  ├─ 107_Cut_Rod_into_Segments_of_X_Y_Z.exe
+│  │  │  ├─ 108_Count_derangements.cpp
+│  │  │  ├─ 108_Count_derangements.exe
+│  │  │  ├─ 111_Combination_Sum_IV_Problem.cpp
+│  │  │  ├─ 111_Combination_Sum_IV_Problem.exe
+│  │  │  ├─ 112_Perfect_Squares_Problem.cpp
+│  │  │  ├─ 112_Perfect_Squares_Problem.exe
+│  │  │  ├─ 113_Minimum_Cost_for_Tickets.cpp
+│  │  │  ├─ 113_Minimum_Cost_for_Tickets.exe
+│  │  │  ├─ 115_Largest_Square_area_In_Matrix.cpp
+│  │  │  ├─ 115_Largest_Square_area_In_Matrix.exe
+│  │  │  ├─ 116_Min_Score_Triangulation_Polygon.cpp
+│  │  │  ├─ 116_Min_Score_Triangulation_Polygon.exe
+│  │  │  ├─ 117_Minimum_Sideways_Jump.cpp
+│  │  │  ├─ 117_Minimum_Sideways_Jump.exe
+│  │  │  ├─ 118_Reducing_Dishes.cpp
+│  │  │  ├─ 118_Reducing_Dishes.exe
+│  │  │  ├─ 119_Longest_Increasing_Subsequence.cpp
+│  │  │  ├─ 119_Longest_Increasing_Subsequence.exe
+│  │  │  ├─ 120_Maximum_Height_by_Stacking_Cuboid.cpp
+│  │  │  ├─ 120_Maximum_Height_by_Stacking_Cuboid.exe
+│  │  │  ├─ 121_Pizza_with_3n_Slices.cpp
+│  │  │  ├─ 121_Pizza_with_3n_Slices.exe
+│  │  │  ├─ 122_Number_of_Dice_Rolls_with_Target_Sum.cpp
+│  │  │  ├─ 122_Number_of_Dice_Rolls_with_Target_Sum.exe
+│  │  │  ├─ 123_Partition_Equal_Subset_Sum.cpp
+│  │  │  ├─ 123_Partition_Equal_Subset_Sum.exe
+│  │  │  ├─ 124_Minimum_Swaps_to_make_Subsequences_Increasing.cpp
+│  │  │  ├─ 124_Minimum_Swaps_to_make_Subsequences_Increasing.exe
+│  │  │  ├─ 125_Longest_Arithmetic_Subsequence.cpp
+│  │  │  ├─ 125_Longest_Arithmetic_Subsequence.exe
+│  │  │  ├─ 126_Longest_AP_with_given_Difference_D.cpp
+│  │  │  ├─ 126_Longest_AP_with_given_Difference_D.exe
+│  │  │  ├─ 127_Unique_Binary_Search_Trees.cpp
+│  │  │  ├─ 127_Unique_Binary_Search_Trees.exe
+│  │  │  ├─ 128_Guess_Number_Higher_or_ower.cpp
+│  │  │  ├─ 128_Guess_Number_Higher_or_ower.exe
+│  │  │  ├─ 129_Minimum_Cost_Tree_From_Leaf_Values.cpp
+│  │  │  ├─ 129_Minimum_Cost_Tree_From_Leaf_Values.exe
+│  │  │  ├─ 130_Buy_and_Sell_Stock.cpp
+│  │  │  ├─ 130_Buy_and_Sell_Stock.exe
+│  │  │  ├─ 131_Buy_and_Sell_Stock.cpp
+│  │  │  ├─ 131_Buy_and_Sell_Stock.exe
+│  │  │  ├─ 132_Buy_and_Sell_Stock.cpp
+│  │  │  ├─ 132_Buy_and_Sell_Stock.exe
+│  │  │  ├─ 133_Buy_and_Sell_Stock.cpp
+│  │  │  ├─ 133_Buy_and_Sell_Stock.exe
+│  │  │  ├─ 134_Buy_and_Sell_Stock.cpp
+│  │  │  ├─ 134_Buy_and_Sell_Stock.exe
+│  │  │  ├─ 135_Longest_Common_Subsequence.cpp
+│  │  │  ├─ 135_Longest_Common_Subsequence.exe
+│  │  │  ├─ 136_Longest_Palindromic_Subsequence.cpp
+│  │  │  ├─ 136_Longest_Palindromic_Subsequence.exe
+│  │  │  ├─ 137_EDIT_Distance.cpp
+│  │  │  ├─ 137_EDIT_Distance.exe
+│  │  │  ├─ 138_Maximum_Rectangle_with_all_1s.cpp
+│  │  │  ├─ 138_Maximum_Rectangle_with_all_1s.exe
+│  │  │  ├─ 139_Wildcard_Pattern_Matching.cpp
+│  │  │  ├─ 139_Wildcard_Pattern_Matching.exe
+│  │  │  └─ tempCodeRunnerFile.cpp
+│  │  └─ Question's Practice/
+│  │     ├─ 1_Fib.cpp
+│  │     ├─ 1_Fib.exe
+│  │     ├─ 2_Unique_BST.cpp
+│  │     └─ 2_Unique_BST.exe
+│  ├─ Graph/
+│  │  ├─ Algorithm/
+│  │  │  ├─ 85_Implementation_Graph.cpp
+│  │  │  ├─ 85_Implementation_Graph.exe
+│  │  │  ├─ 86_BFS_Traversal_In_Graph.cpp
+│  │  │  ├─ 86_BFS_Traversal_In_Graph.exe
+│  │  │  ├─ 87_DFS_Traversal_In_Graph.cpp
+│  │  │  ├─ 87_DFS_Traversal_In_Graph.exe
+│  │  │  ├─ 95_Dijkstras_Algorithm.cpp
+│  │  │  ├─ 95_Dijkstras_Algorithm.exe
+│  │  │  ├─ 96_Prims_Algorithm_MST.cpp
+│  │  │  ├─ 96_Prims_Algorithm_MST.exe
+│  │  │  ├─ 97_Kruskals_Algorithm.cpp
+│  │  │  └─ 97_Kruskals_Algorithm.exe
+│  │  ├─ Questions/
+│  │  │  ├─ 100_Kosarajus_Algorithm.cpp
+│  │  │  ├─ 100_Kosarajus_Algorithm.exe
+│  │  │  ├─ 101_Bellman_Ford_Algorithm.cpp
+│  │  │  ├─ 85_Creating_and_Printing.cpp
+│  │  │  ├─ 85_Creating_and_Printing.exe
+│  │  │  ├─ 88_Cycle_Detection_Undirected_Graphs_BFS.cpp
+│  │  │  ├─ 88_Cycle_Detection_Undirected_Graphs_BFS.exe
+│  │  │  ├─ 88_Cycle_Detection_Undirected_Graphs_DFS.cpp
+│  │  │  ├─ 88_Cycle_Detection_Undirected_Graphs_DFS.exe
+│  │  │  ├─ 89_Cycle_Detection_Directed_Graphs_DFS.cpp
+│  │  │  ├─ 89_Cycle_Detection_Directed_Graphs_DFS.exe
+│  │  │  ├─ 90_Topological_Sort_Using_DFS.cpp
+│  │  │  ├─ 90_Topological_Sort_Using_DFS.exe
+│  │  │  ├─ 91_Topological_Sort_Using_Kahns_Algorithm.cpp
+│  │  │  ├─ 91_Topological_Sort_Using_Kahns_Algorithm.exe
+│  │  │  ├─ 92_Cycle_Detection_Directed_Graphs_BFS.cpp
+│  │  │  ├─ 92_Cycle_Detection_Directed_Graphs_BFS.exe
+│  │  │  ├─ 93_Shortest_Path_in_Undirected_Graphs.cpp
+│  │  │  ├─ 93_Shortest_Path_in_Undirected_Graphs.exe
+│  │  │  ├─ 94_Shortest_Path_In_Directed_Acyclic_Graphs.cpp
+│  │  │  ├─ 94_Shortest_Path_In_Directed_Acyclic_Graphs.exe
+│  │  │  ├─ 98_Bridges_In_Graph.cpp
+│  │  │  ├─ 98_Bridges_In_Graph.exe
+│  │  │  ├─ 99_Articulation_Points_In_Graphs.cpp
+│  │  │  └─ 99_Articulation_Points_In_Graphs.exe
+│  │  └─ Questions Practice/
+│  │     ├─ 1_DFS.cpp
+│  │     ├─ 1_DFS.exe
+│  │     ├─ 2_DFS.cpp
+│  │     ├─ 2_DFS.exe
+│  │     ├─ 3_create_print.cpp
+│  │     ├─ 3_create_print.exe
+│  │     └─ 4_Cycle_Detec_UnD_BSF.cpp
+│  ├─ Greedy Algorithm/
+│  │  ├─ Algorithms/
+│  │  ├─ Questions/
+│  │  │  ├─ 140_10_Job_Sequencing_Problem.cpp
+│  │  │  ├─ 140_10_Job_Sequencing_Problem.exe
+│  │  │  ├─ 140_11_Activity_Selection.cpp
+│  │  │  ├─ 140_11_Activity_Selection.exe
+│  │  │  ├─ 140_1_N_meetings_in_one_room.cpp
+│  │  │  ├─ 140_1_N_meetings_in_one_room.exe
+│  │  │  ├─ 140_2_Maximum_Meetings_In_One_Room.cpp
+│  │  │  ├─ 140_2_Maximum_Meetings_In_One_Room.exe
+│  │  │  ├─ 140_3_Shop_in_Candy_Store.cpp
+│  │  │  ├─ 140_3_Shop_in_Candy_Store.exe
+│  │  │  ├─ 140_4_Check_if_it_is_possible_to_survive_on_Island.cpp
+│  │  │  ├─ 140_4_Check_if_it_is_possible_to_survive_on_Island.exe
+│  │  │  ├─ 140_5_Reverse_Words.cpp
+│  │  │  ├─ 140_5_Reverse_Words.exe
+│  │  │  ├─ 140_6_Chocolate_Distribution_Problem.cpp
+│  │  │  ├─ 140_6_Chocolate_Distribution_Problem.exe
+│  │  │  ├─ 140_7_Minimum_Cost_of_ropes.cpp
+│  │  │  ├─ 140_7_Minimum_Cost_of_ropes.exe
+│  │  │  ├─ 140_8_Huffman_Encoding.cpp
+│  │  │  ├─ 140_8_Huffman_Encoding.exe
+│  │  │  ├─ 140_9_Fractional_Knapsack.cpp
+│  │  │  ├─ 140_9_Fractional_Knapsack.exe
+│  │  │  └─ tempCodeRunnerFile.cpp
+│  │  └─ Questions Practice/
+│  ├─ Hashmaps in C++/
+│  │  ├─ Algorithm/
+│  │  │  ├─ 78_1_Map_STL_Implementation.cpp
+│  │  │  ├─ 78_1_Map_STL_Implementation.exe
+│  │  │  └─ tempCodeRunnerFile.cpp
+│  │  ├─ Queations/
+│  │  │  ├─ 78_1_Maxi_Occ_No.cpp
+│  │  │  ├─ 78_1_Maxi_Occ_No.exe
+│  │  │  ├─ 78_2_Max_freq_No.cpp
+│  │  │  └─ 78_2_Max_freq_No.exe
+│  │  └─ Queations Practice/
+│  ├─ Heaps in C++/
+│  │  ├─ Algorith/
+│  │  │  ├─ 74_1_Insertion_Deletion_in_Heap.cpp
+│  │  │  ├─ 74_2_Heapify_Algo.cpp
+│  │  │  ├─ 74_2_Heapify_Algo.exe
+│  │  │  ├─ 74_3_Priority_Queue_STL.cpp
+│  │  │  └─ 74_3_Priority_Queue_STL.exe
+│  │  ├─ Questions/
+│  │  │  ├─ 74_Build_Min_Heap.cpp
+│  │  │  ├─ 74_Build_Min_Heap.exe
+│  │  │  ├─ 74_Sort_Heap.cpp
+│  │  │  ├─ 74_Sort_Heap.exe
+│  │  │  ├─ 75_1_Kth_Smallest_ele.cpp
+│  │  │  ├─ 75_1_Kth_Smallest_ele.exe
+│  │  │  ├─ 75_2_IsBT_Heap.cpp
+│  │  │  ├─ 75_2_IsBT_Heap.exe
+│  │  │  ├─ 75_3_Marge_Two_Binary_MaxHeap.cpp
+│  │  │  ├─ 75_3_Marge_Two_Binary_MaxHeap.exe
+│  │  │  ├─ 75_4_MIn_Cost.cpp
+│  │  │  ├─ 75_4_MIn_Cost.exe
+│  │  │  ├─ 75_5_Conver_CBT_MinHeap.cpp
+│  │  │  ├─ 75_5_Conver_CBT_MinHeap.exe
+│  │  │  ├─ 76_1_Kth_Largest_SubArr.cpp
+│  │  │  ├─ 76_1_Kth_Largest_SubArr.exe
+│  │  │  ├─ 76_2_Merge_Different_Array.cpp
+│  │  │  ├─ 76_2_Merge_Different_Array.exe
+│  │  │  ├─ 76_2_Merge_K_Sort_LL.cpp
+│  │  │  ├─ 76_2_Merge_K_Sort_LL.exe
+│  │  │  ├─ 77_1_Smallest_Range_From_K_Sorted_List.cpp
+│  │  │  ├─ 77_2_Median_in_stream.cpp
+│  │  │  └─ 77_3_Rearrange_string.cpp
+│  │  └─ Questions Practice/
+│  │     ├─ 1_Insertion_Del_In_heap.cpp
+│  │     ├─ 1_Insertion_Del_In_heap.exe
+│  │     ├─ 2_Insertion_Del_In_heap.cpp
+│  │     └─ 2_Insertion_Del_In_heap.exe
+│  ├─ Linkedlist/
+│  │  ├─ Algorithm/
+│  │  │  ├─ 1_Singly_LL.cpp
+│  │  │  ├─ 1_Singly_LL.exe
+│  │  │  ├─ 2_Doubly_LL.cpp
+│  │  │  ├─ 2_Doubly_LL.exe
+│  │  │  ├─ 3_Circular_Singly_LL.cpp
+│  │  │  └─ 3_Circular_Singly_LL.exe
+│  │  ├─ LinkedList Que Practice/
+│  │  │  ├─ 10_Rev_LL_Grp.cpp
+│  │  │  ├─ 10_Rev_LL_Grp.exe
+│  │  │  ├─ 11_Del_Rem_Loop.cpp
+│  │  │  ├─ 11_Del_Rem_Loop.exe
+│  │  │  ├─ 12_Rem_Dup_DLL.cpp
+│  │  │  ├─ 12_Rem_Dup_DLL.exe
+│  │  │  ├─ 13_Dup_Rem_LL.cpp
+│  │  │  ├─ 13_Dup_Rem_LL.exe
+│  │  │  ├─ 14_Merge_Two_Sort_LL.cpp
+│  │  │  ├─ 14_Merge_Two_Sort_LL.exe
+│  │  │  ├─ 15_Sort_LL.cpp
+│  │  │  ├─ 15_Sort_LL.exe
+│  │  │  ├─ 16_Palindrom_SLL.cpp
+│  │  │  ├─ 16_Palindrom_SLL.exe
+│  │  │  ├─ 1_LinkedList.cpp
+│  │  │  ├─ 1_LinkedList.exe
+│  │  │  ├─ 2_Singly_LL.cpp
+│  │  │  ├─ 2_Singly_LL.exe
+│  │  │  ├─ 3_Doubly_LL.cpp
+│  │  │  ├─ 3_Doubly_LL.exe
+│  │  │  ├─ 4_Signly_LL.cpp
+│  │  │  ├─ 4_Signly_LL.exe
+│  │  │  ├─ 5_Doubly_LL.cpp
+│  │  │  ├─ 5_Doubly_LL.exe
+│  │  │  ├─ 6_Circular_Singly_LL.cpp
+│  │  │  ├─ 6_Circular_Singly_LL.exe
+│  │  │  ├─ 7_Middle_Of_LL.cpp
+│  │  │  ├─ 7_Middle_Of_LL.exe
+│  │  │  ├─ 8_Rev_LL.cpp
+│  │  │  ├─ 8_Rev_LL.exe
+│  │  │  ├─ 9_Check_LL_Circular.cpp
+│  │  │  ├─ 9_Check_LL_Circular.exe
+│  │  │  └─ tempCodeRunnerFile.cpp
+│  │  └─ Linkedlist Queation/
+│  │     ├─ 45_Middle_Of_SLL.cpp
+│  │     ├─ 45_Middle_Of_SLL.exe
+│  │     ├─ 45_Reverse_Singly_LL.cpp
+│  │     ├─ 45_Reverse_Singly_LL.exe
+│  │     ├─ 46_Circularly_Linked.cpp
+│  │     ├─ 46_Circularly_Linked.exe
+│  │     ├─ 46_Reverse_List_In_K_Groups.cpp
+│  │     ├─ 46_Reverse_List_In_K_Groups.exe
+│  │     ├─ 47_Detect_and_Remove_Loop.cpp
+│  │     ├─ 47_Detect_and_Remove_Loop.exe
+│  │     ├─ 48_Rm_Dup_Sort_LL.cpp
+│  │     ├─ 48_Rm_Dup_Sort_LL.exe
+│  │     ├─ 48_Rm_Dup_Unsorted_LL.cpp
+│  │     ├─ 48_Rm_Dup_Unsorted_LL.exe
+│  │     ├─ 49_Merge_Two_Sorted_LL.cpp
+│  │     ├─ 49_Merge_Two_Sorted_LL.exe
+│  │     ├─ 49_Sort_LL_of_0s_1s_2s.cpp
+│  │     ├─ 49_Sort_LL_of_0s_1s_2s.exe
+│  │     ├─ 50_Palindrome_LL.cpp
+│  │     ├─ 50_Palindrome_LL.exe
+│  │     ├─ 51_Add_no_LL.cpp
+│  │     ├─ 51_Add_no_LL.exe
+│  │     ├─ 52_Clone_Of_LL.cpp
+│  │     ├─ 52_Clone_Of_LL.exe
+│  │     ├─ 53_Flatten_LL.cpp
+│  │     ├─ 53_Flatten_LL.exe
+│  │     ├─ 53_MergeSort_LL.cpp
+│  │     ├─ 53_MergeSort_LL.exe
+│  │     ├─ Sort_Singly_LL.cpp
+│  │     ├─ Sort_Singly_LL.exe
+│  │     └─ tempCodeRunnerFile.cpp
+│  ├─ Queue/
+│  │  ├─ Queue Algo/
+│  │  │  ├─ 60_Array_Doubly_Ended_Queue_Impl.cpp
+│  │  │  ├─ 60_Array_Doubly_Ended_Queue_Impl.exe
+│  │  │  ├─ 60_Array_Implementation.cpp
+│  │  │  ├─ 60_Array_Implementation.exe
+│  │  │  ├─ 60_Circular_Queue_Implementation.cpp
+│  │  │  ├─ 60_Circular_Queue_Implementation.exe
+│  │  │  ├─ 60_LinkList_Implementation.cpp
+│  │  │  ├─ 60_LinkList_Implementation.exe
+│  │  │  ├─ 60_STL_Doubly_Ended_Queue_Impl.cpp
+│  │  │  ├─ 60_STL_Doubly_Ended_Queue_Impl.exe
+│  │  │  ├─ 60_STL_Implementation.cpp
+│  │  │  └─ 60_STL_Implementation.exe
+│  │  ├─ Queue Que Practice/
+│  │  │  ├─ 1_First_ve.cpp
+│  │  │  ├─ 1_First_ve.exe
+│  │  │  ├─ 2_First_non_re_char.cpp
+│  │  │  ├─ 2_First_non_re_char.exe
+│  │  │  ├─ 3_Reverse_Queue.cpp
+│  │  │  ├─ 3_Reverse_Queue.exe
+│  │  │  └─ 4_Reverse_queue_from_k.cpp
+│  │  └─ Queue Question/
+│  │     ├─ 61_Circular_Tour.cpp
+│  │     ├─ 61_Circular_Tour.exe
+│  │     ├─ 61_First_negative_In_every_window_size_k.cpp
+│  │     ├─ 61_First_negative_In_every_window_size_k.exe
+│  │     ├─ 61_First_Non_Repeating_character_stream.cpp
+│  │     ├─ 61_First_Non_Repeating_character_stream.exe
+│  │     ├─ 61_K_Queue_In_Single_Array.cpp
+│  │     ├─ 61_K_Queue_In_Single_Array.exe
+│  │     ├─ 61_Queue_Reversal.cpp
+│  │     ├─ 61_Queue_Reversal.exe
+│  │     ├─ 61_Reverse_First_K_ele_Queue.cpp
+│  │     ├─ 61_Reverse_First_K_ele_Queue.exe
+│  │     ├─ 61_Sum_mini_maxi_ele_all_subarr_of_size_k.cpp
+│  │     ├─ 61_Sum_mini_maxi_ele_all_subarr_of_size_k.exe
+│  │     └─ tempCodeRunnerFile.cpp
+│  ├─ Searching/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ Algorithm/
+│  │  │  ├─ 33_Binary_Search_With_Recursion.cpp
+│  │  │  ├─ 33_Binary_Search_With_Recursion.exe
+│  │  │  ├─ 33_Linear_Search_with_R.cpp
+│  │  │  ├─ 33_Linear_Search_with_R.exe
+│  │  │  ├─ BinarySearch.cpp
+│  │  │  └─ BinarySearch.exe
+│  │  ├─ Algorithm Practice/
+│  │  │  ├─ Binary Search/
+│  │  │  │  ├─ 10_First_Last_Occ.cpp
+│  │  │  │  ├─ 10_First_Last_Occ.exe
+│  │  │  │  ├─ 11_Peak_Ele.cpp
+│  │  │  │  ├─ 11_Peak_Ele.exe
+│  │  │  │  ├─ 12_Rotated_Array.cpp
+│  │  │  │  ├─ 12_Rotated_Array.exe
+│  │  │  │  ├─ 13_Perfect_Sqr.cpp
+│  │  │  │  ├─ 13_Perfect_Sqr.exe
+│  │  │  │  ├─ 14_Book_Allocation.cpp
+│  │  │  │  ├─ 14_Book_Allocation.exe
+│  │  │  │  ├─ 15_Cows.cpp
+│  │  │  │  ├─ 15_Cows.exe
+│  │  │  │  ├─ 1_First_Last_Occ.cpp
+│  │  │  │  ├─ 1_First_Last_Occ.exe
+│  │  │  │  ├─ 2_Peak_index_Mountain.cpp
+│  │  │  │  ├─ 2_Peak_index_Mountain.exe
+│  │  │  │  ├─ 3_Search_In_Sorted.cpp
+│  │  │  │  ├─ 3_Search_In_Sorted.exe
+│  │  │  │  ├─ 4_mouting.cpp
+│  │  │  │  ├─ 4_mouting.exe
+│  │  │  │  ├─ 5_First_Last_Occ.cpp
+│  │  │  │  ├─ 5_First_Last_Occ.exe
+│  │  │  │  ├─ 6_Sqr.cpp
+│  │  │  │  ├─ 6_Sqr.exe
+│  │  │  │  ├─ 7_Book_Page.cpp
+│  │  │  │  ├─ 7_Book_Page.exe
+│  │  │  │  ├─ 8_Pinter.cpp
+│  │  │  │  ├─ 8_Pinter.exe
+│  │  │  │  ├─ 9_BS.cpp
+│  │  │  │  └─ 9_BS.exe
+│  │  │  └─ Linear Search/
+│  │  │     ├─ 1_LS.cpp
+│  │  │     └─ 1_LS.exe
+│  │  └─ Algorithm Question's/
+│  │     ├─ BinarySearch Problem/
+│  │     │  ├─ Prob_1.cpp
+│  │     │  ├─ Prob_1.exe
+│  │     │  ├─ prob_2.cpp
+│  │     │  ├─ prob_2.exe
+│  │     │  ├─ Prob_3.cpp
+│  │     │  ├─ Prob_3.exe
+│  │     │  ├─ Prob_4.cpp
+│  │     │  ├─ Prob_4.exe
+│  │     │  ├─ Prob_5.cpp
+│  │     │  ├─ Prob_5.exe
+│  │     │  ├─ Prob_6.cpp
+│  │     │  ├─ Prob_6.exe
+│  │     │  ├─ Prob_7.cpp
+│  │     │  ├─ Prob_7.exe
+│  │     │  ├─ Prob_8.cpp
+│  │     │  ├─ Prob_8.exe
+│  │     │  └─ tempCodeRunnerFile.cpp
+│  │     └─ LinearSearch Problem/
+│  ├─ Sorting/
+│  │  ├─ .vscode/
+│  │  │  └─ settings.json
+│  │  ├─ Algo Quea Practise/
+│  │  │  ├─ 1_Bubble_sort.cpp
+│  │  │  ├─ 1_Bubble_sort.exe
+│  │  │  ├─ 2_Insertion_sort.cpp
+│  │  │  ├─ 2_Insertion_sort.exe
+│  │  │  ├─ 3_Selection_sort.cpp
+│  │  │  ├─ 3_Selection_sort.exe
+│  │  │  ├─ 4_Bubble_sort.cpp
+│  │  │  ├─ 4_Bubble_sort.exe
+│  │  │  ├─ 5_Bubble_sort.cpp
+│  │  │  ├─ 5_Bubble_sort.exe
+│  │  │  ├─ 6_Insertion_sort.cpp
+│  │  │  ├─ 6_Insertion_sort.exe
+│  │  │  ├─ 7_Selection_sort.cpp
+│  │  │  └─ 7_Selection_sort.exe
+│  │  ├─ Algorithm/
+│  │  │  ├─ 16_Selection_Sort.cpp
+│  │  │  ├─ 16_Selection_Sort.exe
+│  │  │  ├─ 17_Bubble_Sort.cpp
+│  │  │  ├─ 17_Bubble_Sort.exe
+│  │  │  ├─ 18_Insertion_Sort.cpp
+│  │  │  ├─ 18_Insertion_Sort.exe
+│  │  │  ├─ 34_Bubble_sort_R.cpp
+│  │  │  ├─ 34_Bubble_sort_R.exe
+│  │  │  ├─ 35_Merge_sort_R.cpp
+│  │  │  ├─ 35_Merge_sort_R.exe
+│  │  │  ├─ 36_Quick_Sort_Recursion.cpp
+│  │  │  └─ 36_Quick_Sort_Recursion.exe
+│  │  └─ Algorithm Question/
+│  ├─ Stack/
+│  │  ├─ Stack Algo/
+│  │  │  ├─ 54_Stack_Array_Impl.cpp
+│  │  │  ├─ 54_Stack_Array_Impl.exe
+│  │  │  ├─ 54_Stack_LinkedList_Impl.cpp
+│  │  │  ├─ 54_Stack_STL_Implementatin.cpp
+│  │  │  └─ 54_Stack_STL_Implementatin.exe
+│  │  ├─ Stack Que Practice/
+│  │  │  ├─ 1_Insert_Ele_At_Butt_Stack.cpp
+│  │  │  ├─ 1_Insert_Ele_At_Butt_Stack.exe
+│  │  │  ├─ 2_Celebraty_Prob.cpp
+│  │  │  ├─ 2_Celebraty_Prob.exe
+│  │  │  └─ 3_stack.cpp
+│  │  └─ Stack Question/
+│  │     ├─ 54_Simple_Stack_Op.cpp
+│  │     ├─ 54_Simple_Stack_Op.exe
+│  │     ├─ 54_Two_Stack.cpp
+│  │     ├─ 54_Two_Stack.exe
+│  │     ├─ 55_Delete_Middle_Ele_Stack.cpp
+│  │     ├─ 55_Delete_Middle_Ele_Stack.exe
+│  │     ├─ 55_Insert_Element_At_Bottom_Stack.cpp
+│  │     ├─ 55_Insert_Element_At_Bottom_Stack.exe
+│  │     ├─ 55_Minimum_Cost_To_Make_String_Valid.cpp
+│  │     ├─ 55_Minimum_Cost_To_Make_String_Valid.exe
+│  │     ├─ 55_Redundant_Brackets.cpp
+│  │     ├─ 55_Redundant_Brackets.exe
+│  │     ├─ 55_Reverse_Stack.cpp
+│  │     ├─ 55_Reverse_Stack.exe
+│  │     ├─ 55_Reverse_Stack_Using_Recursion.cpp
+│  │     ├─ 55_Reverse_Stack_Using_Recursion.exe
+│  │     ├─ 55_Valid_Parentheses.cpp
+│  │     ├─ 55_Valid_Parentheses.exe
+│  │     ├─ 56_Largest_Rectangle_In_Histogram.cpp
+│  │     ├─ 56_Next_Smaller_Element.cpp
+│  │     ├─ 56_Next_Smaller_Element.exe
+│  │     ├─ 57_Celebrity_Prob.cpp
+│  │     ├─ 57_Celebrity_Prob.exe
+│  │     ├─ 57_Max_Rectangle.cpp
+│  │     ├─ 58_N_Stacks_In_Array.cpp
+│  │     ├─ 59_Special_stack.cpp
+│  │     ├─ 59_Special_stack.exe
+│  │     ├─ Clone_stack_without_using_extra_space.cpp
+│  │     ├─ Clone_stack_without_using_extra_space.exe
+│  │     ├─ Revers_String_Using_stack.cpp
+│  │     └─ Revers_String_Using_stack.exe
+│  ├─ Tree/
+│  │  ├─ B-Tree/
+│  │  ├─ Binary Search Tree/
+│  │  │  ├─ Algorithm/
+│  │  │  │  ├─ 69_1_Binary_Search_Tree.cpp
+│  │  │  │  └─ 69_1_Binary_Search_Tree.exe
+│  │  │  ├─ Questions/
+│  │  │  │  ├─ 69_Delete_Node_In_BST.cpp
+│  │  │  │  ├─ 69_Delete_Node_In_BST.exe
+│  │  │  │  ├─ 69_Min_Max_In_BST.cpp
+│  │  │  │  ├─ 69_Min_Max_In_BST.exe
+│  │  │  │  ├─ 69_Search_In_BST.cpp
+│  │  │  │  ├─ 69_Search_In_BST.exe
+│  │  │  │  ├─ 70_Find_Kth_smallest_Element_BST.cpp
+│  │  │  │  ├─ 70_Find_Kth_smallest_Element_BST.exe
+│  │  │  │  ├─ 70_LCA_of_Two_Nodes_BST.cpp
+│  │  │  │  ├─ 70_LCA_of_Two_Nodes_BST.exe
+│  │  │  │  ├─ 70_Partial_BST.cpp
+│  │  │  │  ├─ 70_Partial_BST.exe
+│  │  │  │  ├─ 70_Predecessor_And_Successor_BST.cpp
+│  │  │  │  ├─ 70_Predecessor_And_Successor_BST.exe
+│  │  │  │  ├─ 71_Flatten_BST_To_Sorted_List.cpp
+│  │  │  │  ├─ 71_Flatten_BST_To_Sorted_List.exe
+│  │  │  │  ├─ 71_Normal_BST_To_Balanced_BST.cpp
+│  │  │  │  ├─ 71_Normal_BST_To_Balanced_BST.exe
+│  │  │  │  ├─ 71_Preorder_Traversal_of_BST.cpp
+│  │  │  │  ├─ 71_Preorder_Traversal_of_BST.exe
+│  │  │  │  ├─ 71_Two_Sum_Input_BST.cpp
+│  │  │  │  ├─ 71_Two_Sum_Input_BST.exe
+│  │  │  │  ├─ 72_Merge_Two_BSTs.cpp
+│  │  │  │  ├─ 72_Merge_Two_BSTs.exe
+│  │  │  │  ├─ 73_Size_of_Largest_BST_in_Binary_Tree.cpp
+│  │  │  │  └─ 73_Size_of_Largest_BST_in_Binary_Tree.exe
+│  │  │  └─ Questions Practice/
+│  │  └─ Binary Tree/
+│  │     ├─ Algo Binary Tree/
+│  │     │  ├─ 62_1_BInary_Tree.cpp
+│  │     │  ├─ 62_1_BInary_Tree.exe
+│  │     │  ├─ 62_2_Binary_Tree_LevelOrderTraversal.cpp
+│  │     │  ├─ 62_2_Binary_Tree_LevelOrderTraversal.exe
+│  │     │  ├─ 62_3_Binary_Tree_LeOrTr_PreO_InO_PoO.cpp
+│  │     │  ├─ 62_3_Binary_Tree_LeOrTr_PreO_InO_PoO.exe
+│  │     │  ├─ 62_4_Create_BT_Level_Or_Tr.cpp
+│  │     │  └─ 62_4_Create_BT_Level_Or_Tr.exe
+│  │     ├─ Questions/
+│  │     │  ├─ 62_Count_Leaf_Nodes.cpp
+│  │     │  ├─ 62_Count_Leaf_Nodes.exe
+│  │     │  ├─ 63_Balanced_Tree_Check.cpp
+│  │     │  ├─ 63_Balanced_Tree_Check.exe
+│  │     │  ├─ 63_Diameter_Of_BT.cpp
+│  │     │  ├─ 63_Diameter_Of_BT.exe
+│  │     │  ├─ 63_Height_of_BT.cpp
+│  │     │  ├─ 63_Height_of_BT.exe
+│  │     │  ├─ 63_Identical_Trees.cpp
+│  │     │  ├─ 63_Identical_Trees.exe
+│  │     │  ├─ 63_Sum_Tree.cpp
+│  │     │  ├─ 63_Sum_Tree.exe
+│  │     │  ├─ 64_Bottom_View_of_BT.cpp
+│  │     │  ├─ 64_Bottom_View_of_BT.exe
+│  │     │  ├─ 64_Right_View_of_BT.cpp
+│  │     │  ├─ 64_Right_View_of_BT.exe
+│  │     │  ├─ 64_Top_View_of_BT.cpp
+│  │     │  ├─ 64_Top_View_of_BT.exe
+│  │     │  ├─ 64_Tree_Boundary_Traversal.cpp
+│  │     │  ├─ 64_Tree_Boundary_Traversal.exe
+│  │     │  ├─ 64_Vertical_Tree_Traversal.cpp
+│  │     │  ├─ 64_Vertical_Tree_Traversal.exe
+│  │     │  ├─ 64_ZigZag_Tree_Traversal.cpp
+│  │     │  ├─ 64_ZigZag_Tree_Traversal.exe
+│  │     │  ├─ 65_Kth_Ancestor_in_Tree.cpp
+│  │     │  ├─ 65_Kth_Ancestor_in_Tree.exe
+│  │     │  ├─ 65_K_Sum_Paths.cpp
+│  │     │  ├─ 65_K_Sum_Paths.exe
+│  │     │  ├─ 65_LCA_In_BT.cpp
+│  │     │  ├─ 65_LCA_In_BT.exe
+│  │     │  ├─ 65_Max_sum_Non_adjacent_node.cpp
+│  │     │  ├─ 65_Max_sum_Non_adjacent_node.exe
+│  │     │  ├─ 65_Sum_of_root_to_leaf.cpp
+│  │     │  ├─ 65_Sum_of_root_to_leaf.exe
+│  │     │  ├─ 66_BT_from_InOr_PostOr.cpp
+│  │     │  ├─ 66_Construct_Tree_from_InOr_PreOr.CPP
+│  │     │  ├─ 67_Burning_Tree.cpp
+│  │     │  ├─ 68_Flatten_BT_Of_LL.cpp
+│  │     │  ├─ 68_Flatten_BT_Of_LL.exe
+│  │     │  └─ 68_Morris_Traversal.cpp
+│  │     └─ Questions Practice/
+│  │        ├─ 1_BT_LOT.cpp
+│  │        ├─ 1_BT_LOT.exe
+│  │        ├─ 2_leaf_node_count.cpp
+│  │        ├─ 2_leaf_node_count.exe
+│  │        ├─ 3_BT_InPrePost_Tr.cpp
+│  │        ├─ 4_Balance_Tree.cpp
+│  │        ├─ 4_Balance_Tree.exe
+│  │        ├─ 5_Sum_Of_rootToleaf.cpp
+│  │        ├─ 5_Sum_Of_rootToleaf.exe
+│  │        ├─ 6_LCA.cpp
+│  │        ├─ 6_LCA.exe
+│  │        ├─ 7_Kth_ancestor.cpp
+│  │        ├─ 7_Kth_ancestor.exe
+│  │        ├─ 8_HeightOfBT.cpp
+│  │        └─ 8_HeightOfBT.exe
+│  └─ Trie/
+│     ├─ Algorithm/
+│     │  ├─ 79_Trie_Implementation.cpp
+│     │  └─ 79_Trie_Implementation.exe
+│     ├─ Questions/
+│     │  ├─ 80_Longest_Common_Prefix.cpp
+│     │  ├─ 80_Longest_Common_Prefix.exe
+│     │  ├─ 80_Longest_Comm_Prefix_Using_Trie.cpp
+│     │  ├─ 80_Longest_Comm_Prefix_Using_Trie.exe
+│     │  ├─ 81_Implement_phone_directory.cpp
+│     │  └─ 81_Implement_phone_directory.exe
+│     └─ Questions Pratice/
+├─ image.png
+├─ index.html
+└─ SANKET.png
