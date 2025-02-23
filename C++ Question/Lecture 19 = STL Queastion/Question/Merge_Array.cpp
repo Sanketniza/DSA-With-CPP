@@ -2,10 +2,11 @@
 // ! Merge two sorted array
 
 #include <iostream>
-// #include<vector>
+#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-void merge(int arr1[], int n, int arr2[], int m, int arr3[])
+void mergee(int arr1[], int n, int arr2[], int m, int arr3[])
 {
 
     int i = 0;
@@ -62,16 +63,24 @@ void PrintArray(int arr3[], int n)
 int main()
 {
 
-    int arr1[] = {1, 3, 5, 7};
+    int arr1[] = {1, 3, 15, 7};
     int arr2[] = {0, 2, 6, 8, 9};
     int n = sizeof(arr1) / sizeof(arr1[0]);
     int m = sizeof(arr2) / sizeof(arr2[0]);
 
     int arr3[n + m] = {0};
 
-    merge(arr1, n, arr2, m, arr3);
+    mergee(arr1, n, arr2, m, arr3);
 
     PrintArray(arr3, n + m);
+
+    stl approach
+
+
+// you have array
+    // merge(arr1.begin(), arr1.end(), arr2.begin(), arr2.end(), arr3.begin());
+
+    // PrintArray(arr3, n + m);
 
     
 
