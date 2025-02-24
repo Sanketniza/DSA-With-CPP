@@ -62,30 +62,7 @@ int main() {
         cout << v[i] << " ";
     }
 
-    // one more solution
-
-    vector<int> nums = {1,2,3,4,5,6,7,2,10};
-    int k1 = 2;
-    int n1 = nums.size();
-    cout << "n1 = " << n1 << endl;
-
-        k1 = k1 % n1; // Calculate effective rotations
-        cout << "k1 = " << k1 << endl;
-        
-        // Reverse the entire array
-        reverse(nums.begin(), nums.end());
-        
-        // Reverse the first k elements
-        reverse(nums.begin(), nums.begin() + k1);
-        
-        // Reverse the remaining elements
-        reverse(nums.begin() + k1, nums.end());
-
-        for(int i = 0; i < nums.size(); i++) {
-            cout << nums[i] << " ";
-        }
-
-
+    cout << endl;
 
     return 0;
 }
