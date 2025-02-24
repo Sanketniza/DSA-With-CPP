@@ -1,6 +1,6 @@
 /*
  
-283. Move Zeroes
+283.  
 
 
 ^    Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
@@ -41,14 +41,17 @@ int main()
     int nonzero = 0;
     cout << nonzero << endl;
 
+    // cout <<"nonzero : " << arr[nonzero ] << endl;
 
+ 
     for (int i = 0; i < n; i++)
     {
         if (arr[i] != 0)
         {
+            // cout << "arr[i] : " << arr[i] << " arr[nonzero] : " << arr[nonzero] << endl;
             swap(arr[i], arr[nonzero]);
             nonzero++;
-            // cout << nonzero << endl;
+            cout << nonzero << endl;
         }
     }
 

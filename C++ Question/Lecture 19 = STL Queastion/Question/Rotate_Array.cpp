@@ -26,6 +26,7 @@
 
 #include<iostream>
 #include<vector>
+#include<bits/stdc++.h>
 using namespace std;
  
 int main() { 
@@ -60,6 +61,29 @@ int main() {
     for(int i = 0; i < v.size(); i++) {
         cout << v[i] << " ";
     }
+
+    // one more solution
+
+    vector<int> nums = {1,2,3,4,5,6,7};
+    int k1 = 3;
+    int n1 = nums.size();
+    
+        k1 = k1 % n1; // Calculate effective rotations
+        
+        // Reverse the entire array
+        reverse(nums.begin(), nums.end());
+        
+        // Reverse the first k elements
+        reverse(nums.begin(), nums.begin() + k1);
+        
+        // Reverse the remaining elements
+        reverse(nums.begin() + k1, nums.end());
+
+        for(int i = 0; i < nums.size(); i++) {
+            cout << nums[i] << " ";
+        }
+
+
 
     return 0;
 }

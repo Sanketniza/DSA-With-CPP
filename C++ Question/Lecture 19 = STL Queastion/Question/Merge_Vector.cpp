@@ -73,9 +73,15 @@ int main()
 
     v3.resize(k); // Resize v3 to hold the merged result
 
-    vector<int> ans = merge(v1, n, v2, m, v3);
+    vector<int> ans = Merge(v1, n, v2, m, v3);
 
     PrintArray(ans, k);
+
+    // merge(v1.begin(), v1.end(), v2.begin(), v2.end(), v3.begin());
+
+    // sort(v3.begin(), v3.end());
+
+    // PrintArray(v3, k);
 
     return 0;
 }
