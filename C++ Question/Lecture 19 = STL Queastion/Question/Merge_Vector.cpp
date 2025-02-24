@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-vector<int> merge(vector<int> v1, int n, vector<int> v2, int m, vector<int>& v3)
+ 
+ vector<int> Merge(vector<int> v1, int n, vector<int> v2, int m, vector<int>& v3)
 {
     int i = 0;
     int j = 0;
