@@ -64,11 +64,13 @@ int main() {
 
     // one more solution
 
-    vector<int> nums = {1,2,3,4,5,6,7};
-    int k1 = 3;
+    vector<int> nums = {1,2,3,4,5,6,7,2,10};
+    int k1 = 2;
     int n1 = nums.size();
-    
+    cout << "n1 = " << n1 << endl;
+
         k1 = k1 % n1; // Calculate effective rotations
+        cout << "k1 = " << k1 << endl;
         
         // Reverse the entire array
         reverse(nums.begin(), nums.end());
