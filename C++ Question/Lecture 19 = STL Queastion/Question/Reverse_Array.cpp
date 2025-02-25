@@ -46,9 +46,11 @@ int main() {
     cout << "Reversed Array : " << endl;
     PrintArray (ans);
 
-    // for (int i = 0 ; i < ans.size() ; i++) {
+    // for (int i = 0 ; i < ans.size() ; i++) { 
     //     cout << ans[i] << " ";
     // }
+
+    //^ solution 2
     
 
     return 0;
