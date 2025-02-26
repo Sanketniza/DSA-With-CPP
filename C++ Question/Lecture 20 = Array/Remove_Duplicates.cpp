@@ -19,6 +19,7 @@ void removeDuplicatesArray(int arr[], int &n) {
 
 // Function to remove duplicates using vector and set
 vector<int> removeDuplicatesVector(vector<int>& arr) {
+    
     set<int> s(arr.begin(), arr.end());
     
     vector<int> result(s.begin(), s.end());
