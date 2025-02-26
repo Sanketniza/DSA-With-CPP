@@ -25,6 +25,16 @@ Explanation: The largest element of the array is 10 and the second largest eleme
 #include<vector>
 using namespace std;
 
+int anyLargestelement(vector<int> &arr , int n) {
+
+    sort(arr.begin() , arr.end());
+
+    return arr[n - 2]; // second largest element
+    retur arr[n - 3]; // third largest element
+
+    return arr[] //second samll element
+
+}
 
 int main() {
 
