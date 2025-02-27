@@ -13,7 +13,7 @@ int main()
     {
         if (s[i] == ' ')
         {
-            temp += "@40"; // Use += to concatenate the string "@40"
+            temp += "@40"; // Use += to concatenate the string with "@40"
             cout << temp << endl; 
         }
         else
