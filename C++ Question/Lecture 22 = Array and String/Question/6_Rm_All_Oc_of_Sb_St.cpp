@@ -16,7 +16,7 @@ int main()
         s.erase(s.find(part), part.length());
     }
 
-    cout << s << endl;
+    cout << "Remaining part after erase : " << s << endl;
 
     return 0;
 }
