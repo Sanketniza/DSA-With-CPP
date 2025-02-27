@@ -31,7 +31,9 @@ int main() {
    int i = 0;
    int j = 0;
 
-   vector<int> ans;
+//*    vector<int> ans;  // it not store the unique elements , so we use unordered_set
+
+   unordered_set<int> ans; // to store the unique elements
 
    while ( i < n && j < m ) {
 
@@ -44,15 +46,20 @@ int main() {
         }
 
         else {
-            ans.push_back(nums1[i]);
+            // ans.push_back(nums1[i]);
+            ans.insert(nums1[i]);
             i++;
             j++;
         }
     }
 
-    for(int i = 0; i < ans.size(); i++) {
-        cout << ans[i] << " ";
-    }
+    // for(int i = 0; i < ans.size(); i++) {
+    //     cout << ans[i] << " ";
+    // }
+
+    for(auto x : ans) {
+        cout << x << " ";
+    }    
 
      return 0;
 }
