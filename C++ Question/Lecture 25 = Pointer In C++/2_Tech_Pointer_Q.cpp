@@ -8,15 +8,18 @@ int main() {
    /*  float f = 10.5;
     float l = 2.5;
     float *m = &f;
-    cout << "value of m is " << *m << endl;
+    cout << "value of m is " << *m << endl << endl;
     
     (*m)++;
     cout << "value of m is " << *m << endl;
+    cout << "value of f is " << f << endl;
+    cout << "value of l is " << l << endl << endl;
   
     *m = l;
     cout << "value of m is " << *m << endl;
     cout << "value of f is " << f << endl;
-    cout << "value of l is " << l << endl << endl; */
+    cout << "value of l is " << l << endl << endl; 
+     */
    
   //&   -----------------------------------------------
      
@@ -32,11 +35,13 @@ int main() {
    
   //&   -----------------------------------------------
    
-/*    int *ptr = 0;
+ /*    int *ptr = 0;
+    cout << "value of ptr is " << ptr << endl;
+    cout << "value of ptr is " << *ptr << endl;
    int d = 10;
    *ptr = d;  
 
-   cout << "value of ptr is " << "value of d is " << endl; */
+   cout << "value of ptr is " << "value of d is " << endl;  */
 
    //compiler time error........
   
@@ -67,7 +72,7 @@ int main() {
   
   //&   -----------------------------------------------
   
-/*    int a = 7;
+/*     int a = 7;
   cout << "memory of a is " << &a << endl;
 
   int *c = &a;
@@ -76,8 +81,8 @@ int main() {
   
   c = c + 3;
   
-  cout<< c << endl;
-  cout << *c << endl;  */
+  cout << c << endl;
+  cout << *c << endl;   */
   
   //&   -----------------------------------------------
   
@@ -98,11 +103,12 @@ int main() {
   
   //&   -----------------------------------------------
   
-/*   
+/*    
   int a[] = {1, 2, 3, 4};
-  int *p = a++;
+  // int *p = a++;
+  int *p = &(a)++;
   cout << *p << endl;
-   */
+   */ 
 
   //&   -----------------------------------------------
   
@@ -114,16 +120,17 @@ int main() {
    */
   //&   -----------------------------------------------
   
-/*   char b[] = "xyz";
+ /* char b[] = "xyz";
   // char ab = "sanket";
   char *c = &b[0];
-  cout << c << endl; 
+  cout << "value of c is : " << c << endl; 
 
-  char *c = &b[1];
-  cout << c << endl;  */
+  // char *c = &b[1];
+  // cout << c << endl;  
+   */
   
   //&   -----------------------------------------------
-  
+ /*  
   char s[]= "hello";
   char *p = s;
   // char *p = &s;  //^ not valid 
@@ -134,7 +141,7 @@ int main() {
   for(int i = 0 ; i < 6 ; i++ ) {
     cout << p[i] ;
   }
-  
+   */
   //&   -----------------------------------------------
   //&   -----------------------------------------------
   
