@@ -65,7 +65,7 @@ string solve(string &s , int n) {
     // 6 --> length of string
     // 1 + 6 = 7
     // s[1] to s[7] = "aabbaa"
-    
+
 }
 
 int main() {
@@ -77,4 +77,5 @@ int main() {
     cout << "ans is : " << ans << endl;
 
  return 0;
+ 
 } 
