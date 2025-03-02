@@ -33,6 +33,7 @@ int main() {
     int n = s.length();
 
     int count = 0;
+    vector<string> ans;
 
     for(int i = 0; i < n; i++) {
 
@@ -42,11 +43,18 @@ int main() {
 
                 if(s[j] == '1') {
                     count++;
+                    ans.push_back(s.substr(i , j - i + 1));
                 }
             }
         }
     }
 
     cout << "count is : " << count << endl;
+
+    cout << "Printing all substrings : " << endl;
+    for(auto i : ans) {
+        cout << i << "  ";
+    }
+
  return 0;
 }  
