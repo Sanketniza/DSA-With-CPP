@@ -10,9 +10,11 @@ int print(int n) {
     }
 
     int smallerProblem = print(n - 1);
+    cout << smallerProblem << " ";
+
     int bigProblem = 2 * smallerProblem;
 
-    cout << bigProblem << " ";
+    // cout << bigProblem << " ";
  
     return bigProblem;
 
