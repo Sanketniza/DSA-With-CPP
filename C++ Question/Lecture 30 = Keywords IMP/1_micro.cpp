@@ -12,7 +12,7 @@ using namespace std;
 #define LIMIT 5
 
 #define AREA(length, width) (length * width)
-//          (a , b ) (a * b)
+//          (a , b )        (a * b)
 //          (passing the argument) (what should we have to do here)
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))

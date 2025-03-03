@@ -17,7 +17,7 @@ int main() {
     cout << "Testing the local variable "  << endl;
 
     a(i);
-   cout << a;
+    cout << "a : " << a;
 
     return 0;
 }
