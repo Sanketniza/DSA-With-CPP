@@ -14,15 +14,15 @@ void sayDigit(int n, string arr[])
 
     if (n == 0)
     {
-        cout <<  arr[0];
-        return;
+        // cout <<  arr[0];
+        return ;
     } 
 
     // processing
     int digit = n % 10;
-    cout << arr[digit] << endl;
+    // cout << arr[digit] << endl;
     n = n / 10;
-    cout << n << endl;
+    // cout << n << endl;
 
    // cout << arr[digit] << " " << endl; --> print number in reverse order
 
@@ -44,6 +44,7 @@ int main()
                       "seven", "eight", "nine"};
 
     sayDigit(n, arr);
+
 
         return 0;
 }
