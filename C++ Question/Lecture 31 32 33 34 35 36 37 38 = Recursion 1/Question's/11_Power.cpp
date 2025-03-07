@@ -33,9 +33,9 @@ int main() {
     int x, n;
     cout << "enter the value of x and n: ";
     cin >> x >> n;
-   int anss = pow(x, n);
+    int anss = pow(x, n);
 
-   cout << "ans is: " << anss;
+    cout << "ans is: " << anss;
 
     return 0;
 }
