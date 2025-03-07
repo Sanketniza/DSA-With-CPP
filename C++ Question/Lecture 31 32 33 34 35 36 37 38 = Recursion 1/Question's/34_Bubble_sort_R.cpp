@@ -18,7 +18,7 @@ using namespace std;
     // recursive call
 
     BubbleSort(arr, n - 1);
- }
+}
 
 int main() { 
 
