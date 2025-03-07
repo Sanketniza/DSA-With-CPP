@@ -3,6 +3,7 @@
 using namespace std;
 
 int solve(int index , vector<int> &nums1, int target) {
+
     if(index == nums1.size()) {
         return -1;
     }
@@ -13,6 +14,7 @@ int solve(int index , vector<int> &nums1, int target) {
     }
 
     return solve(index + 1, nums1, target);
+    // return solve(nums1 + 1 , target , size - 1); -> another way , but need to change function parameters
 }
 
 int main() {
