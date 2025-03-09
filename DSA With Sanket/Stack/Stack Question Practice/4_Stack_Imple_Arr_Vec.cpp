@@ -2,7 +2,7 @@
 using namespace std;
 
 class stack {
-    
+
     public:
         int *arr;
         int top;
@@ -106,4 +106,5 @@ int main() {
     }
 
  return 0;
+ 
 }
