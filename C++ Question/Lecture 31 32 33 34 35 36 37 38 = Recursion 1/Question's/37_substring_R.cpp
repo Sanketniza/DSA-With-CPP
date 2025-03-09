@@ -10,9 +10,8 @@
 ^  1 <= T <= 10
 ^  1 <=  |STR| <= 16
 ^
-^  Where |STR| represents the length of the string 'STR'.
-^
-^  Time Limit: 1 sec
+c
+
 ^  Sample Input 1:
 ^  1
 ^  abc
@@ -21,11 +20,15 @@
 ^  Explanation of sample input 1:
 ^  All possible subsequences of abc are :
 ^  “a” , “b” , “c” , “ab” , “bc” , “ac”, “abc”
+
 ^  Sample Input 2:
 ^  1
 ^  bbb
 ^  Sample Output 2:
 ^  b b b bb bb bb bbb
+^  Explanation of sample input 2:
+^  All possible subsequences of bbb are :
+^  “b” , “bb” , “bbb” 
    */
 
 #include <iostream>

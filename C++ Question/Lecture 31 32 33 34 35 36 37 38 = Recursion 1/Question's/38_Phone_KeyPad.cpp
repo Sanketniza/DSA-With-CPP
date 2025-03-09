@@ -1,9 +1,6 @@
 /* 
 17. Letter Combinations of a Phone Number
-Solved
-Medium
-Topics
-Companies
+
 
 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
 
@@ -13,15 +10,14 @@ A mapping of digits to letters (just like on the telephone buttons) is given bel
  
 
 Example 1:
-
 Input: digits = "23"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-Example 2:
 
+Example 2:
 Input: digits = ""
 Output: []
-Example 3:
 
+Example 3:
 Input: digits = "2"
 Output: ["a","b","c"]
  
@@ -43,6 +39,7 @@ void solve(string str, vector<string> &ans, string output, int index, string key
     }
 
     int number = str[index] - '0';
+    cout << "number is : " << number << endl;
     string value = keyPad[number];
 
     for (int i = 0; i < value.length(); i++)
@@ -75,6 +72,7 @@ int main()
 
     solve(str, ans, output, index, keyPad);
 
+    cout << "The possible combinations are : " << endl;
     for (int i = 0; i < ans.size(); i++)
     {
         cout << ans[i] << " ";
