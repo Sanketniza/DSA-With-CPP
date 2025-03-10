@@ -4,9 +4,9 @@
   ? link - https://www.naukri.com/code360/problems/reverse-stack-using-recursion_631875?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&leftPanelTabValue=PROBLEM
 
   Problem statement
-  Reverse a given stack of 'N' integers using recursion. You are required to make   changes in the input parameter itself.
+  Reverse a given stack of 'N' integers using recursion. You are required to make changes in the input parameter itself.
 
-  Note: You are not allowed to use any extra space other than the internal stack   space used due to recursion.
+  Note: You are not allowed to use any extra space other than the internal stack space used due to recursion.
 
   Example:
   Input: [1,2,3,4,5]
@@ -42,6 +42,7 @@ void reverseStack(stack<int> &s)
     int topElement = s.top();
     s.pop();
     reverseStack(s);
+    
     insertAtBottom(s, topElement);
 }
 
