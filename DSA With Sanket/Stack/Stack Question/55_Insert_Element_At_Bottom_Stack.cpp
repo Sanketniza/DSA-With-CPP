@@ -17,7 +17,7 @@ Try to do this without using any other data structure.
 Detailed explanation ( Input/output format, Notes, Images )
 Constraints :
 1 <= T <=100
-1 <= N <= 10^4
+1 <= N <= 10^4 
 0 <= 'X’ and 'MY_STACK[i]’ <= 10^5
 
 ? Time limit: 1 second
@@ -41,21 +41,21 @@ using namespace std;
 void insertAtBottom(stack<int> &s, int x)
 {
 
-    //     // base case
+        // base case
     if (s.empty())
     {
         s.push(x);
         return;
     }
 
-    //     // stored the top element
+        // stored the top element
     int topElement = s.top();
     s.pop();
 
-    //     // recursive call
+        // recursive call
     insertAtBottom(s, x);
 
-    //     // backtrack
+        // backtrack
     s.push(topElement);
 }
 
@@ -83,6 +83,8 @@ int main()
         cout << st.top() << endl;
         st.pop();
     }
+
+    cout << "top element is: " << st.top() << endl;
 
     return 0;
 }
