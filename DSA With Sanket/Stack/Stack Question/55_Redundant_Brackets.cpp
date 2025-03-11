@@ -62,6 +62,8 @@ int main()
             st.push(ch);
         }
 
+        // here we are ignoring alphabets
+
         else { // closed brakes )
 
             if( ch == ')') {
