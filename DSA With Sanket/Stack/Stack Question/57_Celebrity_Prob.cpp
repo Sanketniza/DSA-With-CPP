@@ -8,11 +8,12 @@
 
     Examples:
 
-    Input: mat[][] = [[0 1 0],
+    Input: mat[][] =[[0 1 0],
                     [0 0 0], 
                     [0 1 0]]
     Output: 1
     Explanation: 0th and 2nd person both know 1. Therefore, 1 is the celebrity. 
+
     Input: mat[][] = [[0 1],
                     [1 0]]
     Output: -1
@@ -98,4 +99,47 @@ int main() {
         cout << "No celebrity found" << endl;
         return -1;
     }
+
+    int ans = s.top();
+
+    // Verify if the potential celebrity is actually a celebrity
+    
+    
+    // check row 
+    // bool rowCheck = false;
+    // int zeroCount = 0;
+
+    // for(int i = 0; i < n; i++) {
+    //     if(mat[ans][i] == 0) {
+    //         zeroCount++;
+    //     }
+    // }
+
+    // if(zeroCount == n) {
+    //     rowCheck = true;
+    // }
+
+    // // check column
+
+    // bool colCheck = true;
+    // int oneCount = 0;
+
+    // for(int i = 0; i < n; i++) {
+    //     if(mat[i][ans] == 1) {
+    //         oneCount++;
+    //     }
+    // }
+
+    // if(oneCount == n - 1) {
+    //     colCheck = true;
+    // }
+
+    // if(rowCheck && colCheck) {
+    //     cout << "The celebrity is " << ans << endl;
+    // }
+    // else {
+    //     cout << "There is no celebrity" << endl;
+    // }
+
+    return 0;
 }
