@@ -26,6 +26,30 @@
 #include<vector>
 using namespace std;
 
+vector<int> solve( int arr[] , int n , int k ) {
+
+    vector<int> ans;
+
+    for(int i = 0; i < n - 1; i++) {
+
+        bool found = false;
+
+        for(int j = i; j < min(i + k, (int)n); j++) {
+            if(arr[j] < 0) {
+                ans.push_back(arr[j]);
+                found = true;
+                break;
+            }
+        }
+
+        if(!found) {
+            ans.push_back(0);
+        }
+    }
+
+    return ans;
+}
+
 int main() {
 
     int arr[] = {-8, 2, 3, -6, 10};
@@ -68,30 +92,30 @@ int main() {
     for(int i = k; i < n; i++) {
 
         // remove the first element for the window or array
-         if(!q.empty() && i - q.front() >= k ) {
-            q.pop_front();
-         }
+        if(!q.empty() && i - q.front() >= k ) {
+           q.pop_front();
+        }
 
-         // check if the current element is -ve
-         cout << "current element: " << arr[i] << endl;
-         if(arr[i] < 0) {
-            q.push_back(i);
-            cout << "q.push_back: " << arr[q.back()] << endl;
-         }
+        // check if the current element is -ve
+        cout << "current element: " << arr[i] << endl;
+        if(arr[i] < 0) {
+           q.push_back(i);
+           cout << "q.push_back: " << arr[q.back()] << endl;
+        }
 
-         // store the first -ve integer in the vector
-         cout << "q.size(): " << q.size() << endl;
-         if(q.size() > 0) {
-            ans.push_back(arr[q.front()]);
-            cout << "ans.push_back: " << arr[q.front()] << endl;
-         }
+        // store the first -ve integer in the vector
+        cout << "q.size(): " << q.size() << endl;
+        if(q.size() > 0) {
+           ans.push_back(arr[q.front()]);
+           cout << "ans.push_back: " << arr[q.front()] << endl;
+        }
 
-         else {
-            ans.push_back(0);
-            cout << "ans.push_back: "  << endl;
-         }
-         
-         cout << "first element in vecotor: " << ans.front() << endl;
+        else {
+           ans.push_back(0);
+           cout << "ans.push_back: "  << endl;
+        }
+        
+        cout << "first element in vecotor: " << ans.front() << endl;
     }
 
     cout << "first element in vecotor: " << ans.front() << endl;
@@ -100,7 +124,18 @@ int main() {
         cout << ans[i] << " ";
     }
 
+    cout << endl;
+
+    // Normal solution (brute force)
+
+    cout << "Normal solution: " << endl;
+    vector<int> res = solve(arr, n, k);
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
+    }
+
  return 0;
+
 }
 
 /* 
