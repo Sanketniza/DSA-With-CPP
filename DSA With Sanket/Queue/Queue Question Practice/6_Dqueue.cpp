@@ -50,15 +50,37 @@ class Queue {
     }
 
     void popFront() {
-        if(PF == -1) {
+        if(PF == -1 && PR == size) {
             cout << "Queue is empty" << endl;
         }
 
-        else if()
+        else if(PF == PPF) {
+            cout << "Popped element in front: " << arr[PPF] << endl;
+            PF = -1;
+            PPF = 0;
+        }
 
         else {
-            cout << "Popped element in front: " << arr[PF] << endl;
-            PF++;
+            cout << "Popped element in front: " << arr[PPF] << endl;
+            PPF++;
+        }
+
+    }
+
+    void popRear() {
+        if(PR == size && PF == -1) {
+            cout << "Queue is empty" << endl;
+        }
+
+        else if(PPR == PR ) {
+            cout << "Popped element in rear: " << arr[PPR] << endl;
+            PR = size;
+            PPR = size - 1;
+        }
+
+        else {
+            cout << "Popped element in rear: " << arr[PPR] << endl;
+            PPR--;
         }
     }
 
@@ -117,6 +139,21 @@ int main() {
     q -> print();
     // q -> pushFront(60);
     q -> pushRear(60);
+
+    cout << "------------" << endl;
+
+    q -> popFront();
+    q -> print();
+
+    cout << "------------" << endl;
+
+    q -> popRear();
+    q -> print();
+
+    cout << "------------" << endl;
+    q -> popFront();
+    q -> popFront();
+    q -> print();
 
     cout << "------------" << endl;
 

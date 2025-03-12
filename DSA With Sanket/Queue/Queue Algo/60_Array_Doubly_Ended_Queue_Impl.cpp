@@ -141,6 +141,14 @@ public:
     bool isFull() {
         return (front == rear + 1) || (front == 0 && rear == size - 1);
     }
+
+    void print() {
+
+        cout << "Deque elements: ";
+        for (int i = front; i <= rear; i++) {
+            cout << arr[i] << " ";
+        }
+    }
 };
 
 int main() {
@@ -161,6 +169,7 @@ int main() {
 
     deq->pushRear(10);
     deq->pushRear(20);
+   
 
     cout << endl << "------------" << endl;
 
