@@ -27,7 +27,9 @@ public:
             cout << "Queue is full!" << endl;
             return;
         }
-        rear = (rear + 1) % capacity; // Circular increment
+        // rear = (rear + 1) % capacity; // Circular increment
+        rear++;
+        // can also be written as rear++; if rear == capacity rear = 0;
         arr[rear] = item;
         count++;
     }
@@ -37,7 +39,17 @@ public:
             cout << "Queue is empty!" << endl;
             return;
         }
-        front = (front + 1) % capacity; // Circular increment
+
+        else if(front == rear) {
+            front = 0;
+            rear = -1;
+        }
+
+        else {
+            front++;
+        // front = (front + 1) % capacity; // Circular increment
+        }
+     
         count--;
     }
 
@@ -83,7 +95,17 @@ int main() {
     cout << "Is empty: " << (q.empty() ? "Yes" : "No") << endl; // Output: Is empty: No
     q.pop();
     q.push(60);
+    q.push(70);
+    // q.push();
     q.print(); // Output: Queue elements: 30 60
+
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.print(); // Output: Queue is empty!
+
+
 
     return 0;
 }

@@ -24,15 +24,22 @@ public:
             arr[rear] = x;
         }
 
-        else {
+        else if (rear == size) {
             cout << "Queue is full" << endl;
         }
     }
 
     void pop(){
+
+
+
         if(front == rear) {
             front = 0;
             rear = -1;
+            cout << "Queue is empty" << endl;
+        }
+
+        else if(front == size) {
             cout << "Queue is empty" << endl;
         }
 
@@ -148,16 +155,25 @@ int main() {
     q.push(4);
     q.push(5);
     q.push(6);
+    q.push(6);
+    q.push(6);
+    q.push(6);
+    q.push(6);
     q.print();
 
     q.push(7);
+    q.push(7);
+    q.push(7);
+    q.push(7);
+    q.push(7);
    
-    q.pop();
-    q.pop();
-    q.pop();
+    // q.pop();
+    // q.pop();
+    // q.pop();
     q.print();
     q.pop();
     q.pop();
+    q.print();
 
 
 
