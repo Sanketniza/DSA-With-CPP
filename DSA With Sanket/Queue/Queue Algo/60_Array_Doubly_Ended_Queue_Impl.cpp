@@ -146,6 +146,10 @@ public:
 int main() {
     Deque *deq = new Deque(3);
 
+    
+
+    cout << endl << "------------" << endl;
+
     deq->pushFront(15);
     deq->pushFront(22);
 
