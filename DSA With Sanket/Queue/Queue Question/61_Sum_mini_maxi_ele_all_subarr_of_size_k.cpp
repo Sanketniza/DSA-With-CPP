@@ -8,25 +8,25 @@ Examples:
 
 Input : arr[] = {2, 5, -1, 7, -3, -1, -2}
         K = 4
-Output : 18
-Explanation : Subarrays of size 4 are :
-     {2, 5, -1, 7},   min + max = -1 + 7 = 6
-     {5, -1, 7, -3},  min + max = -3 + 7 = 4
-     {-1, 7, -3, -1}, min + max = -3 + 7 = 4
-     {7, -3, -1, -2}, min + max = -3 + 7 = 4
+    Output : 18
+    Explanation : Subarrays of size 4 are :
+    {2, 5, -1, 7},   min + max = -1 + 7 = 6
+    {5, -1, 7, -3},  min + max = -3 + 7 = 4
+    {-1, 7, -3, -1}, min + max = -3 + 7 = 4
+    {7, -3, -1, -2}, min + max = -3 + 7 = 4
 
-     Missing sub arrays -
+    Missing sub arrays -
 
-     {2, -1, 7, -3}
-     {2, 7, -3, -1}
-     {2, -3, -1, -2}
-     {5, 7, -3, -1}
-     {5, -3, -1, -2}
-     and few more -- why these were not considered??
-     Considering missing arrays result coming as 27
+    {2, -1, 7, -3}
+    {2, 7, -3, -1}
+    {2, -3, -1, -2}
+    {5, 7, -3, -1}
+    {5, -3, -1, -2}
+    and few more -- why these were not considered??
+    Considering missing arrays result coming as 27
 
-     Sum of all min & max = 6 + 4 + 4 + 4 = 18
- */
+    Sum of all min & max = 6 + 4 + 4 + 4 = 18
+*/
 
 #include <iostream>
 #include <deque>
@@ -111,12 +111,14 @@ int main()
 //------------------------------------------------
         while (!maxi.empty() && arr[i] >= arr[maxi.back()])
         {
+            cout << "sanket 1 :" << arr[maxi.back()] << endl;  
             cout << "while loop 1 entered for maxi" << endl;
             maxi.pop_back();
         }
 
         while (!mini.empty() && arr[i] <= arr[mini.back()])
         {
+            cout << "sanket 2 :" << arr[mini.back()] << endl;
             cout << "while loop 1 entered for mini" << endl;
             mini.pop_back();
         }

@@ -26,6 +26,7 @@
 #include<vector>
 using namespace std;
 
+// Normal solution (brute force)
 vector<int> solve( int arr[] , int n , int k ) {
 
     vector<int> ans;

@@ -40,11 +40,7 @@ int main() {
     string ans = "";
 
     for(int i = 0; i < n; i++) {
-        
-        // cout << "count map is " << endl;
-        // for(auto it = count.begin(); it != count.end(); it++) {
-        //     cout << it->first << " : " << it->second << endl;
-        // }
+       
 
         char ch = A[i];
         // cout << "count of '" << ch << "' is " << count[ch] << endl << endl;
@@ -52,11 +48,9 @@ int main() {
         // cout << "count of '" << ch << "' is " << count[ch] << endl << endl;
 
         q.push(ch);
-        // cout << "element in queue is '" << q.front() << "'" << endl << endl;
-        // cout << "size of queue is " << q.size() << endl << endl;
 
         while (!q.empty()) {  // when queue is not empty , 
-            // cout << "while loop entered" << endl << endl;
+            
 
             if(count[q.front()] > 1) { // if count of front element is greater than 1 , then pop it
                 // cout << "if block entered"  << endl;
