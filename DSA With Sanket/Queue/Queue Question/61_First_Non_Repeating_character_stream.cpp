@@ -68,9 +68,9 @@ int main() {
         }
 
         if(q.empty()) { // if queue is empty , then add '#' to ans
-            cout << "if block entered" << endl;
+            // cout << "if block entered" << endl;
             ans.push_back('#');
-            cout << "ans is '" << ans << "'" << endl << endl;
+            // cout << "ans is '" << ans << "'" << endl << endl;
         }
 
         cout << "ans is " << ans << endl;
