@@ -119,9 +119,15 @@ void print(Node *head) {
 
 int main() {
     
-    Node *node1 = new Node(1);
-    Node *head = node1;
-    Node *tail = node1;
+    // Node *node1 = new Node(1);
+    // Node *head = node1;
+    // Node *tail = node1;
+
+    Node *head = new Node(1);
+    Node *tail = head;
+
+    // Node *head = NULL;
+    // Node *tail = NULL;
 
     print(head);
 
