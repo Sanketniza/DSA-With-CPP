@@ -40,6 +40,67 @@ void insertAtTail(Node *&head , Node *&tail , int data) {
     tail = temp;
 }
 
+void insertAtMiddle(Node *&head , Node *&tail , int position , int data) {
+    
+    if(position == 1) {
+        insertAtHead(head, data);
+        return;
+    }
+
+    Node *temp = head;
+
+    int cnt = 1;
+
+    while (cnt < position - 1) {
+        temp = temp -> next;
+        cnt++;
+    }
+
+    if(temp -> next == NULL) {
+        insertAtTail(head, tail, data);
+        return;
+    }
+
+    Node *nodeToInsert = new Node(data);
+    nodeToInsert -> next = temp -> next;
+    temp -> next = nodeToInsert;
+
+
+}
+
+
+void deleteAtPosition(Node *&head , Node *&tail , int position) {
+    
+    if(position == 1) {
+        Node *temp = head;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+
+    else {
+
+        Node *curr = head;
+        Node *prev = NULL;
+        int cnt = 1;
+
+        while (cnt < position) {
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+
+        if(curr == tail) {
+            tail = prev;
+        }
+
+        delete curr;
+    }
+}
+
 void print(Node *head) {
 
     Node *temp = head;
@@ -78,6 +139,31 @@ int main() {
 
     insertAtTail(head, tail, 6);
     print(head);
+    insertAtTail(head, tail, 7);
+    insertAtTail(head, tail, 8);
+    insertAtTail(head, tail, 9);
+    print(head);
+    cout << "Tail is " << tail -> data << endl;
+    cout << "Head is " << head -> data << endl;
+
+    // ----------------------------
+
+    insertAtMiddle(head, tail, 3, 10);
+    print(head);
+    insertAtMiddle(head, tail, 1, 11);
+    insertAtMiddle(head, tail, 12, 12);
+    print(head);
+
+    // ----------------------------
+    deleteAtPosition(head, tail, 1);
+    print(head);
+    deleteAtPosition(head, tail, 3);
+    print(head);
+    deleteAtPosition(head, tail, 7);
+    print(head);
+    deleteAtPosition(head, tail, 9);
+    print(head);
+
 
  return 0;
 }
