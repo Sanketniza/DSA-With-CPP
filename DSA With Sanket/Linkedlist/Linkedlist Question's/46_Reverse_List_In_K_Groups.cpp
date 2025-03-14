@@ -103,7 +103,7 @@ Node *reverseKGroup(Node *head, int k) {
     Node *forward = NULL;
     int count = 0;
 
-       // Check if there are at least k nodes left
+    // Check if there are at least k nodes left
     Node *temp = head;
     for (int i = 0; i < k; i++) {
         if (temp == NULL) {
