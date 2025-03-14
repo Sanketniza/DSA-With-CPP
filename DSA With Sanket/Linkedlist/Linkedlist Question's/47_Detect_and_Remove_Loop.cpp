@@ -134,7 +134,7 @@ bool detectLoop(Node *head)
         }
 
         visited[temp] = true; //* Mark the current node as visited -> This is the main logic of the approach -> true mark
-        temp = temp->next;
+        temp = temp -> next;
     }
 
     return false;
@@ -150,6 +150,7 @@ void removeLoop(Node *head) {
     }
 
     Node *startOfLoop = startingNode(head);
+    // cout << "sanket " << startOfLoop -> data << endl;
     Node *temp = startOfLoop;
 
     while (temp -> next != startOfLoop) {
@@ -166,7 +167,7 @@ void printLL(Node *head) {
     Node *temp = head;
 
     while (temp != NULL) {
-      std:: cout << temp->data << " ";
+        cout << temp->data << " ";
         temp = temp->next;
     }
     cout << endl;
