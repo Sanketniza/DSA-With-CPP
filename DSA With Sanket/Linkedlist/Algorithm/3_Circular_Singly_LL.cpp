@@ -40,7 +40,7 @@ void InsertNode (Node *&tail , int element , int d) {
     else {
 
         //^ non empty list
-        //^ assuming that the element is present in the list
+        //^ assuming that atList one element is present in the list
 
         Node *curr = tail;
 

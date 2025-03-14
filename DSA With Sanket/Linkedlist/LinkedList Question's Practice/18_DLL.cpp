@@ -70,7 +70,7 @@ void insertAtPosition(Node *head , Node *tail , int position , int data) {
     temp -> next = nodeToInsert;
     nodeToInsert -> prev = temp;
 
-    
+     
 }
 
 void print (Node *head) {
