@@ -62,6 +62,7 @@ int getLength(Node *head)
     return len;
 }
 
+// first approach
 void ans(Node *head , int middle) {
 
     Node *temp = head;
@@ -71,6 +72,50 @@ void ans(Node *head , int middle) {
         cnt++;
     }
     cout << "Middle is :" << temp->data << endl;
+}
+
+//* Time complexity is O(N) and space complexity is O(1)
+//! same but in one function
+void solve(Node *head) {
+
+    cout << "second approach" << endl;
+
+    Node *temp = head;
+
+    int len = 1;
+
+    while(temp != NULL) {
+        len++;
+        temp = temp -> next;
+    }
+
+    temp = head;
+
+    int mid = len / 2;
+
+    int cnt = 1;
+
+    while (cnt < mid) {
+        temp = temp -> next;
+        cnt++;
+    }
+
+    cout << "Middle is : " << temp -> data << endl;
+    
+
+    // while(temp != NULL) {
+    //     cout << temp -> data << " -> ";
+    //     temp = temp -> next;
+    // }
+    // cout << "NULL" << endl;
+
+    do{
+        temp = temp -> next;
+        cout << temp -> data << " -> ";
+    } while(temp -> next != NULL);
+    cout << "NULL" << endl;
+
+
 }
 
 void print(Node *head , int mid) {
@@ -117,6 +162,9 @@ int main()
     ans(head , middle);
 
     print(head , middle);
+
+    //--
+    solve(head);
 
     return 0;
 }
