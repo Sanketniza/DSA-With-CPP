@@ -70,6 +70,41 @@ class Node {
     }
 };
 
+//todo: simple approach
+
+void remove(Node* &head) {
+    
+    // base condition
+    if(head == NULL) {
+        return;
+    }
+
+    Node* curr = head;
+    Node* index = NULL;
+
+    while (curr != NULL) {
+
+        index = curr -> next;
+
+        while (index != NULL) {
+
+            if(curr -> data == index -> data) {
+
+                Node *temp = index;
+                index = index -> next;
+                curr -> next = index;
+                temp -> next = NULL;
+            }
+
+            else {
+                index = index -> next;
+            }
+        }
+        
+        curr = curr -> next;
+    }
+}
+
 // todo: first approach --> using two pointer and hashmap
 void removeDuplicates(Node* &head) {
 
@@ -168,6 +203,11 @@ int main() {
     cout << "original LL" << endl;
     print(head);
     cout << "----------------------------------------" << endl;
+
+//todo: simeple approach -> 
+    remove(head);
+    print(head);
+    cout << "----------------------------------------" << endl;    
 
 // todo: first approach -> using two pointer and hashmap
     removeDuplicates(head);
