@@ -92,6 +92,35 @@ void insertAtEnd(Node* &head, int data) {
     temp->next = newNode;
 }
 
+// Function to sort the linked list
+void sortLL(Node* &head) {
+    
+    // Empty LL
+    if(head == NULL) {
+        return;
+    }
+    
+    // Non-Empty LL
+    Node *curr = head;
+    Node *index = NULL;
+    
+    while (curr != NULL) {
+        
+        index = curr -> next;
+        
+        while (index != NULL) {
+            
+            if(curr -> data > index -> data) {
+                swap(curr -> data , index -> data);
+            }
+            
+            index = index -> next;
+        }
+        
+        curr = curr -> next;
+    }
+}
+
 int main() {
     Node* head = NULL;
 
@@ -110,6 +139,11 @@ int main() {
     // Sort the list
     head = mergeSort(head);
 
+    cout << "Sorted list: ";
+    printList(head);
+
+    //sort LL simple 
+    sortLL(head);
     cout << "Sorted list: ";
     printList(head);
 
