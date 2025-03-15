@@ -71,10 +71,14 @@ void print(Node *head) {
 
 Node* merge(Node* head1, Node* head2) {
 
+
+    // base case
     if (head1 == NULL) return head2;
     if (head2 == NULL) return head1;
 
     Node* mergedHead = NULL;
+
+    // recursive case
 
     if (head1 -> data <= head2 -> data) {
         mergedHead = head1;

@@ -10,7 +10,8 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "forward_list": "cpp"
     },
     "cSpell.words": [
         "abcasdf",
