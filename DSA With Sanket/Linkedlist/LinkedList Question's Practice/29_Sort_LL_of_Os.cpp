@@ -60,7 +60,9 @@ void sort(Node* &head) {
 }
 
 void print(Node* &head) {
+
     Node* temp = head;
+
     while(temp != NULL) {
         cout << temp->data << " -> ";
         temp = temp->next;
@@ -69,6 +71,7 @@ void print(Node* &head) {
             cout << "NULL";
         }
     }
+    
     cout << endl;
 }
 

@@ -4,7 +4,7 @@
  * link:-https://www.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1
 
   Palindrome Linked List
-^ Difficulty: MediumAccuracy: 41.48%Submissions: 340K+Points: 4
+^ 
 ^ Given a singly linked list of integers. The task is to check if the given linked list ^ is  palindrome or not.
 ^ 
 ^ Examples:
