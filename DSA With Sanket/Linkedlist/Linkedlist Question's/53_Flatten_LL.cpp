@@ -1,6 +1,6 @@
 /*
- *  lecture 53 : Flatten a Linked List
- *  link -https://www.naukri.com/code360/problems/flatten-a-linked-list_1112655?source=youtube&campaign=YouTube_CodestudioLovebabbar5thfeb
+ ?  lecture 53 : Flatten a Linked List
+ ?  link -https://www.naukri.com/code360/problems/flatten-a-linked-list_1112655?source=youtube&campaign=YouTube_CodestudioLovebabbar5thfeb
 
    Problem statement
 You are given a linked list containing 'n' 'head' nodes, where every node in the linked list contains two pointers:
@@ -26,6 +26,7 @@ Input: Given linked list is:
 
 Output:
 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 12 → 20 → null.
+
  */
 
 #include <iostream>
@@ -54,6 +55,7 @@ Node *mergeTwoList(Node *first, Node *second)
     if (first == NULL) {
       return second;
     }
+
     if ( second == NULL ) {
       return first;
     }
@@ -79,7 +81,7 @@ Node *mergeTwoList(Node *first, Node *second)
 Node *flattenLinkedList(Node *head)
 {
 
-    if (!head || !head->next)
+    if (!head || !head->next) // (head == NULL || head->next == NULL)
     {
         return head;
     }
