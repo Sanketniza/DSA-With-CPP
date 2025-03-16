@@ -68,6 +68,19 @@ int main() {
 
     print(head);
 
+    cout << "---------------------------" << endl;
+    cout << "random pointers: " << head -> random << endl;
+    cout << "random pointers: " << second -> random << endl;
+    cout << "random pointers: " << third -> random << endl;
+    cout << "random pointers: " << fourth -> random << endl;
+
+    cout << "---------------------------" << endl;
+
+    cout << "next pointers: " << head -> next << endl;
+    cout << "next pointers: " << second -> next << endl;
+    cout << "next pointers: " << third -> next << endl;
+    cout << "next pointers: " << fourth -> next << endl;
+
 
  return 0;
 }
