@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+using namespace std;
 
 class Solution {
 public:
@@ -30,34 +31,48 @@ public:
             result.push_back(arr[i]);
         }
         return result;
+
+        // or
+
+        // int max_so_far = arr[0];
+        // int max_ending_here = arr[0];
+
+        // for (int i = 1; i < arr.size(); i++) {
+            
+        //     max_ending_here = max(arr[i], max_ending_here + arr[i]);
+        //     max_so_far = max(max_so_far, max_ending_here);
+            
+        // }
+
+        // return max_so_far;
     }
 };
 
 int main() {
     Solution sol;
-    std::vector<int> arr1 = {2, 3, -8, 7, -1, 2, 3};
-    std::vector<int> result1 = sol.maxSubarraySum(arr1);
-    std::cout << "Max subarray: ";
+    vector<int> arr1 = {2, 3, -8, 7, -1, 2, 3};
+    vector<int> result1 = sol.maxSubarraySum(arr1);
+    cout << "Max subarray: ";
     for (int num : result1) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
 
-    std::vector<int> arr2 = {-2, -4};
-    std::vector<int> result2 = sol.maxSubarraySum(arr2);
-    std::cout << "Max subarray: ";
+    vector<int> arr2 = {-2, -4};
+    vector<int> result2 = sol.maxSubarraySum(arr2);
+    cout << "Max subarray: ";
     for (int num : result2) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
 
-    std::vector<int> arr3 = {5, 4, 1, 7, 8};
-    std::vector<int> result3 = sol.maxSubarraySum(arr3);
-    std::cout << "Max subarray: ";
+    vector<int> arr3 = {5, 4, 1, 7, 8};
+    vector<int> result3 = sol.maxSubarraySum(arr3);
+    cout << "Max subarray: ";
     for (int num : result3) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
