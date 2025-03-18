@@ -1,6 +1,7 @@
 /* 
   * lecture 49 :- Merge two sorted linked list
-  * link:-https://www.naukri.com/code360/problems/merge-two-sorted-linked-lists_800332?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_Lovebabbar31stJan2021&leftPanelTabValue=PROBLEM
+  ? link:-https://www.naukri.com/code360/problems/merge-two-sorted-linked-lists_800332?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_Lovebabbar31stJan2021&leftPanelTabValue=PROBLEM
+  ? https://leetcode.com/problems/merge-two-sorted-lists/submissions/1577944199/?envType=problem-list-v2&envId=linked-list
 
    Problem statement
 You are given two sorted linked lists. You have to merge them to produce a combined sorted linked list. You need to return the head of the final linked list.
