@@ -105,6 +105,34 @@ void removeDuplicates(Node* &head) {
     // return head;
 }
 
+// simple solution
+void removeDuplicates2(Node* &head) {
+
+    //base condition
+    if(head == NULL) {
+        return;
+    }
+
+    Node *curr = head;
+    Node *prev = NULL;
+
+    while(curr != NULL) {
+
+        if(prev != NULL && prev -> data == curr -> data) {
+            Node* nodeToDelete = curr;
+            curr = curr -> next;
+            prev -> next = curr;
+            // delete nodeToDelete;
+        }
+
+        else {
+            prev = curr;
+            curr = curr -> next;
+        }
+    }
+
+}
+
 
 void print (Node* &head) {
     Node* temp = head;
@@ -112,7 +140,7 @@ void print (Node* &head) {
         cout << temp->data << " -> ";
         temp = temp->next;
     }
-    cout<<endl;
+    cout << "NULL" <<endl;
 }
 
 int main() {
@@ -138,6 +166,11 @@ int main() {
     
     removeDuplicates(head);
     print(head);
+
+    removeDuplicates2(head);
+    print(head);
+
+
 
 
  return 0;
