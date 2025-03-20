@@ -43,6 +43,7 @@ Node* solve(Node *head, int k) {
 
         int length = 1;
         Node* tail = head;
+        cout << "tail next : " << tail->next << endl;
         while (tail->next) {
             tail = tail->next;
             length++;
