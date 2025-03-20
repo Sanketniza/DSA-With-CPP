@@ -5,17 +5,17 @@
 
  
 
-Example 1:
+    Example 1:
 
 
-Input: head = [1,2,3,4,5], k = 2
-Output: [4,5,1,2,3]
-Example 2:
+    Input: head = [1,2,3,4,5], k = 2
+    Output: [4,5,1,2,3]
+    Example 2:
 
 
-Input: head = [0,1,2], k = 4
-Output: [2,0,1]
- 
+    Input: head = [0,1,2], k = 4
+    Output: [2,0,1]
+    
 
  */
 
@@ -37,7 +37,7 @@ class Node {
 
 Node* solve(Node *head, int k) {
 
-   if (!head || !head->next || k == 0) { //(head == NULL || head -> next == NULL || k == 0) {
+        if (!head || !head->next || k == 0) { //(head == NULL || head -> next == NULL || k == 0) {
             return head;
         }
 
