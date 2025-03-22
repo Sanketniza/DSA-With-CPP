@@ -49,7 +49,9 @@ Node *reverseBetween(Node *head, int left, int right) {
 }
 
 void print(Node* head) {
+
     Node* temp = head;
+
     while (temp != NULL) {
         cout << temp->data << " -> ";
         temp = temp->next;
@@ -77,7 +79,5 @@ int main() {
     Node *ans = reverseBetween(head, 2, 4);
     print(ans);
     
-
-
  return 0;
 }
