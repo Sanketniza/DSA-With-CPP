@@ -42,6 +42,8 @@ int main() {
 
     print(head);
 
+    //* ------------------solution-------------------
+
     Node* dummy = new Node(0);
     dummy->next = head;
 
@@ -50,11 +52,22 @@ int main() {
 
     while(curr != NULL && curr->next != NULL) {
         Node* first = curr;
+        printf("first: %d\n", first->data);
+        cout << "first:"; print(first);
+
         Node* second = curr->next;
+        printf("first: %d\n", second->data);
+        cout << "second:"; print(second);
 
         prev->next = second;
         first->next = second->next;
         second->next = first;
+
+        printf("+first: %d\n", first->data);
+        cout << "-> first:"; print(first);
+
+        printf("+first: %d\n", second->data);
+        cout << "-> second:"; print(second);
 
         prev = first;
         curr = first->next;
