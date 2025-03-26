@@ -51,6 +51,16 @@ void Inorder(Root *root) {
     Inorder(root -> right);
 }
 
+void Preorder(Root *root) {
+    if(root == NULL) {
+        return;
+    }
+
+    cout << root -> data << " ";
+    Preorder(root -> left);
+    Preorder(root -> right);
+}
+
 int main() {
 
     Root *root = NULL;
