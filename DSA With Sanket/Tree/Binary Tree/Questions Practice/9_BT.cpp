@@ -61,6 +61,16 @@ void Preorder(Root *root) {
     Preorder(root -> right);
 }
 
+void Postorder(Root *root) {
+    if(root == NULL) {
+        return;
+    }
+
+    Postorder(root -> left);
+    Postorder(root -> right);
+    cout << root -> data << " ";
+}
+
 int main() {
 
     Root *root = NULL;
