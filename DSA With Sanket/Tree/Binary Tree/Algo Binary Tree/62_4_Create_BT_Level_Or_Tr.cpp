@@ -1,57 +1,66 @@
-#include<iostream>
-#include<queue>
+#include <iostream>
+#include <queue>
 using namespace std;
 
-class node {
-    public:
-        int data;
-        node *left;
-        node *right;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
 
-        node (int d) {
-            this -> data = d;
-            this -> left = NULL;
-            this -> right = NULL;
-        }
-
+    node(int d)
+    {
+        this->data = d;
+        this->left = NULL;
+        this->right = NULL;
+    }
 };
 
-void levelOrderTraversal(node *root) {
+void levelOrderTraversal(node *root)
+{
 
-    queue<node*> q;
+    queue<node *> q;
     q.push(root);
     q.push(NULL);
 
-    while (!q.empty()) {
+    while (!q.empty())
+    {
 
         node *temp = q.front();
         q.pop();
 
-        if(temp == NULL) {
+        if (temp == NULL)
+        {
 
             cout << endl;
 
-            if(!q.empty()) {
+            if (!q.empty())
+            {
                 q.push(NULL);
             }
         }
 
-        else {
+        else
+        {
 
-            cout << temp -> data << " ";
+            cout << temp->data << " ";
 
-            if(temp -> left) {
-                q.push(temp -> left);
+            if (temp->left)
+            {
+                q.push(temp->left);
             }
 
-            if(temp -> right) {
-                q.push(temp -> right);
+            if (temp->right)
+            {
+                q.push(temp->right);
             }
         }
     }
 }
 
-void CreateBtLevelOrder(node* &root) {
+void CreateBtLevelOrder(node *&root)
+{
 
     queue<node *> q;
     cout << "Enter the data for root : " << endl;
@@ -60,41 +69,45 @@ void CreateBtLevelOrder(node* &root) {
     root = new node(data);
     q.push(root);
 
-    while (!q.empty()) {
+    while (!q.empty())
+    {
 
         node *temp = q.front();
         q.pop();
 
-        cout << "Enter the left node for : " << temp -> data << endl;
+        cout << "Enter the left node for : " << temp->data << endl;
         int leftData;
         cin >> leftData;
 
-            if(leftData != -1) {
-                temp -> left = new node(leftData);
-                q.push(temp -> left);
-            }
+        if (leftData != -1)
+        {
+            temp->left = new node(leftData);
+            q.push(temp->left);
+        }
 
-        cout << "Enter the right node for :" << temp -> data << endl;
+        cout << "Enter the right node for :" << temp->data << endl;
         int rightData;
         cin >> rightData;
 
-            if(rightData != -1) {
-                temp -> right = new node (rightData);
-                q.push(temp -> right);
-            }
+        if (rightData != -1)
+        {
+            temp->right = new node(rightData);
+            q.push(temp->right);
+        }
     }
 }
 
-int main() {
+int main()
+{
 
     node *root = NULL;
 
-    //creating a Tree
+    // creating a Tree
     CreateBtLevelOrder(root);
 
     // printing the tree
     cout << "Printing the tree : " << endl;
     levelOrderTraversal(root);
 
- return 0;
+    return 0;
 }
