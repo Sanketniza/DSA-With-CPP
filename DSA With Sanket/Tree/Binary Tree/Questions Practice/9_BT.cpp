@@ -73,6 +73,40 @@ void postorder(Node *root) {
     cout << root -> data << " ";
 }
 
+void levelwise(Node *root) {
+
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()) {
+
+        Node *temp = q.front();
+        q.pop();
+
+        if(temp == NULL) {
+
+            cout << endl;
+            if(!q.empty()) {
+                q.push(NULL);
+            }
+        }
+
+        else {
+
+            cout << temp -> data << " ";
+            if(temp -> left) {
+                q.push(temp -> left);
+            }
+
+            if(temp -> right) {
+                q.push(temp -> right);
+            }
+
+        }
+    }
+}
+
 int main() {
 
     // Node *root = new Node(1);
@@ -102,7 +136,11 @@ int main() {
     cout << "Postorder traversal of the binary tree is: ";
     postorder(root);
 
+    cout << endl;
 
+    cout << "Levelwise traversal of the binary tree is: ";
+    levelwise(root);
+    
     
 
 
