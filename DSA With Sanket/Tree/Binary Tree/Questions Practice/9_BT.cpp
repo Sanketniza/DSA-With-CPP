@@ -17,20 +17,60 @@ class Node {
 
 };
 
-Node *CreateNewNode(int data) {
-    Node *newNode = new Node(data);
+Node *CreateNewNode(Node *root) {
+
+    int data;
+    cout << "Enter the data: " << endl;
+    cin >> data;
+    root = new Node(data);
+
+    if(data == -1) {
+        return NULL;
+    }
+
+    cout << "Enter the left child of " << data << endl;
+    root -> left = CreateNewNode(root -> left);
+
+    cout << "Enter the right child of " << data << endl;
+    root -> right = CreateNewNode(root -> right);
+
+    return root;
     
 }
 
-void print(Node *root) {
+void prevorder(Node *root) {
     
     if(root == NULL) {
         return;
     }
 
     cout << root -> data << " ";
-    print(root -> left);
-    print(root -> right);
+    prevorder(root -> left);
+    prevorder(root -> right);
+}
+
+void inorder(Node *root) {
+
+    // base case
+    if(root == NULL) {
+        return;
+    }
+
+    inorder(root -> left);
+    cout << root -> data << " ";
+    inorder(root -> right);
+}
+
+void postorder(Node *root) {
+
+    // base case
+    if(root == NULL) {
+        return;
+    }
+
+    postorder(root -> left);
+    postorder(root -> right);
+    cout << root -> data << " ";
 }
 
 int main() {
@@ -46,7 +86,23 @@ int main() {
     // cout << "Preorder traversal of the binary tree is: ";
     // print(root);
 
-    CreateNewNode(1);
+    Node *root = NULL;
+    root = CreateNewNode(root);
+
+    cout << "Preorder traversal of the binary tree is: ";
+    prevorder(root);
+
+    cout << endl;
+
+    cout << "Inorder traversal of the binary tree is: ";
+    inorder(root);
+
+    cout << endl;
+
+    cout << "Postorder traversal of the binary tree is: ";
+    postorder(root);
+
+
     
 
 
