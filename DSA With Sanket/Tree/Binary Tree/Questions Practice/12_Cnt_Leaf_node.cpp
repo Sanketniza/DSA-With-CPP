@@ -17,7 +17,7 @@ class TreeNode {
 
 };
 
-TreeNode *createTree(TreeNode *root) {
+TreeNode *createTree(TreeNode *root ) {
 
         int data;
         cout << "Enter the data: " << endl;
@@ -37,21 +37,21 @@ TreeNode *createTree(TreeNode *root) {
         return root;
 }
 
-int countLeafNodes(TreeNode *root) {
+int countLeafNodes(TreeNode *root  , int &count) {
 
     if(root == NULL) {
         return 0;
     }
 
     if(root -> left == NULL && root -> right == NULL) {
-        return 1;
+       count++;
     }
 
     else {
-        return countLeafNodes(root -> left) + countLeafNodes(root -> right);
+        return countLeafNodes(root -> left, count) + countLeafNodes(root -> right , count);
     }
-    
-       
+
+
 }
 
 
@@ -72,7 +72,14 @@ int main() {
     root = createTree(root);
     print(root);
 
-    countLeafNodes(root);
+    int count = 0;
+    cout << "Number of leaf nodes are: " ;
+    countLeafNodes(root , count);
+
+    cout << endl;
+    cout << count << endl;
+
+
 
  return 0;
 }
