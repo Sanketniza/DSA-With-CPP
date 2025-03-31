@@ -56,6 +56,29 @@ int diameter(Node *root) {
     return ans;
 }
 
+pair<int , int> diameter1(Node *root) {
+    
+    if(root == NULL) {
+        pair<int , int> p = make_pair(0,0);
+        return p;
+    }
+
+    pair<int , int> left = diameter1(root -> left);
+    pair<int , int> right = diameter1(root -> right);
+
+    int op1 = left.first; // diameter of left and right subtree
+    int op2 = right.first; // diameter of left and right subtree
+    int op3 = left.second + right.second + 1;// height of tree
+
+    pair<int , int> ans;
+
+    ans.first = max(op1 , max(op2 , op3)); // diameter of tree
+    ans.second = max(left.second , right.second) + 1; // height of tree
+
+    return ans;
+
+}
+
 int main() {
 
     Node *root = new Node(1);
@@ -73,6 +96,8 @@ int main() {
     // cout << " hello ans is : " << height(root);
 
     cout << "Diameter of the tree is : " << diameter(root) << endl;
+    
+    cout << "Diameter of the tree is : " << diameter1(root).first << endl;
 
    
  return 0;
