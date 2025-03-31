@@ -27,9 +27,10 @@ pair<bool , int> isBalancedFast(Node *root) {
 
     pair <bool ,int> left = isBalancedFast(root -> left);
     pair <bool , int > right = isBalancedFast(root -> right);
-
+    
     bool leftAns = left.first;
     bool rightAns = right.first;
+
 
     bool diff = abs(left.second - right.second) <= 1;
 
