@@ -62,6 +62,8 @@ int main() {
     root2 -> right -> left -> left = new node(8);
     root2 -> right -> left -> right = new node(9);
     root2 -> right -> right = new node(7);
+    // root2 -> right -> right -> left = new node(10);
+    // root2 -> right -> right -> right = new node(11);
 
 
     if(isIdentical(root1 , root2)) {
