@@ -33,9 +33,12 @@ bool isIdentical(node *root1 , node *root2) {
     bool left = isIdentical(root1 -> left , root2 -> left);
     bool right = isIdentical(root1 -> right , root2 -> right);
 
-    if(root1 -> data == root2 -> data && left && right) {
+    if(root1 -> data == root2 -> data && left && right) { // if data is same and left and right subtree is same then return true
+     // left && right -> if left and right subtree is same then return true
         return true;
-    } else {
+    } 
+    
+    else {
         return false;
     }
 }
