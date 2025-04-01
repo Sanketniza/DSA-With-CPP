@@ -7,19 +7,20 @@ Note: You need to return true or false, the printing is done by the driver code.
 
 Examples:
 
-Input:
-     1          1
-   /   \      /   \
-  2     3    2     3
-Output: Yes
-Explanation: 
-There are two trees both having 3 nodes and 2 edges, both trees are identical having the root as 1, left child of 1 is 2 and right child of 1 is 3.
-Input:
-    1       1
-  /  \     /  \
- 2    3   3    2
-Output: No
-Explanation: There are tw
+    Input:
+        1          1
+    /   \      /   \
+    2     3    2     3
+    Output: Yes
+    Explanation: 
+    There are two trees both having 3 nodes and 2 edges, both trees are identical having the root as 1, left child of 1 is 2 and right child of 1 is 3.
+
+    Input:
+        1       1
+    /  \     /  \
+    2    3   3    2
+    Output: No
+    Explanation: There are tw
 
  */
 
