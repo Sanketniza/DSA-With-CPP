@@ -81,7 +81,9 @@ pair<bool , int> isSumTreeFast(Node *root) {
     if(isLeftSumTree && isRightSumTree && condition) { // left and right subtree is sum tree and root data is equal to sum of left and right subtree
         ans.first = true; // it is sum tree
         ans.second = root -> data + leftSum + rightSum; // 2 * root -> data
-    } else {
+    } 
+    
+    else {
         ans.first = false; // it is not sum tree
     }
 
