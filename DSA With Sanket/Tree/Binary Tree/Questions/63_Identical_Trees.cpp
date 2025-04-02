@@ -16,7 +16,7 @@ Examples:
     There are two trees both having 3 nodes and 2 edges, both trees are identical having the root as 1, left child of 1 is 2 and right child of 1 is 3.
 
     Input:
-        1       1
+     1       1
     /  \     /  \
     2    3   3    2
     Output: No
@@ -65,9 +65,19 @@ bool isIdentical(node *r1 , node *r2) {
     
     if(left && right && value) {
         return true;
-    } else {
+    } 
+    
+    else {
         return false;
     }
+
+    // if(r1 -> data == r2 -> data && left && right) {
+    //     return true;
+    // } 
+    
+    // else {
+    //     return false;
+    // }
     
 }
 
@@ -97,7 +107,9 @@ int main() {
 
     if(isIdentical(root1 , root2)) {
         cout << "Yes" << endl;
-    } else {
+    } 
+    
+    else {
         cout << "No" << endl;
     }
 

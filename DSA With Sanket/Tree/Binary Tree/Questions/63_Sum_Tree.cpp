@@ -7,8 +7,31 @@
     Examples:
 
     Input:
+            26
+          /   \
+        10     3
+      /    \     \
+    4      6     3
+    Output: 1
+    Explanation: In the above binary tree,
+    every node is the sum of its left and right subtree.  
 
-    
+    Input:
+            10
+          /    \
+        10      10
+      /    \      \
+    5      5      5
+    Output: 0
+    Explanation: In the above binary tree, 
+    the root node is not sum of left and right subtree.
+
+      3
+    /   \    
+   1     2
+    Output: true
+    Explanation: The sum of left subtree and right subtree is 1 + 2 = 3, which is the value of the root node. Therefore,the given binary tree is a sum tree.          
+        
  */
 
 #include<iostream>
@@ -80,7 +103,9 @@ int main() {
 
     if(isSumTreeFast(root).first) {
         cout << "It is a sum tree" << endl;
-    } else {
+    } 
+    
+    else {
         cout << "It is not a sum tree" << endl;
     }
 
