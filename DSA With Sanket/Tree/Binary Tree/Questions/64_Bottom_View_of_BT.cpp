@@ -78,6 +78,20 @@
 
         return ans;
     }
+
+     int solve(Node *root , vector<int> &ans) {
+    if(root == NULL) {
+        return 0;
+    }
+    
+    int left = solve(root -> left , ans);
+    int right = solve(root -> right , ans);
+
+    if(root -> left == NULL || root -> right == NULL) {
+        ans.push_back(root -> data);
+    }
+ 
+}
   
   int main() {
     
@@ -92,6 +106,15 @@
     vector<int> bottomView = bottomViewOfBinaryTree(root);
     for(int i = 0; i < bottomView.size(); i++) {
         cout << bottomView[i] << " ";
+    }
+    cout << endl;
+
+
+    // For the second approach
+    vector<int> ans;
+    solve(root , ans);
+    for(int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
     }
   
    return 0;
