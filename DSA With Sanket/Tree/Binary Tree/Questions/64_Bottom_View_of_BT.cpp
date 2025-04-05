@@ -11,9 +11,9 @@
                         /    \
                       8       22
                     /   \     /   \
-                  5      3 4     25
+                  5      3  4     25
                          /    \      
-                     10       14
+                      10       14
 
     For the above tree, the output should be 5 10 4 14 25.
 
