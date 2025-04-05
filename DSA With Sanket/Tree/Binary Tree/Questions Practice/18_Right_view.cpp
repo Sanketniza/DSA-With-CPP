@@ -16,28 +16,38 @@ class Node{
 
 };
 
-int solve(Node* root, vector<int> &ans) {
-    
-    if(root == NULL) {
-        return 0;
+void done(Node *root , vector<int> &ans , int level) {
+
+    if(root == NULL) return;
+
+    if(level == ans.size()) {
+        ans.push_back(root -> data);
     }
 
-    ans.push_back(root -> data);
-    int right = solve(root -> right, ans);
+    done(root -> right , ans , level + 1);
+    done(root -> left , ans , level + 1);
+}
+
+vector<int> solve(Node* root) {
+
+    vector<int> ans;
+    int level = 0;
+    done(root, ans, level);
+    return ans;
 }
 
 int main() {
 
      Node* root = new Node(1);
     root->left = new Node(2);
-    root->right = new Node(3);
+    // root->right = new Node(3);
     root->left->left = new Node(4);
     root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    // root->right->left = new Node(6);
+    // root->right->right = new Node(7);
 
     vector<int> ans;
-    solve(root, ans);
+    ans = solve(root);
 
     for(int i = 0; i < ans.size(); i++) {
         cout << ans[i] << " ";
