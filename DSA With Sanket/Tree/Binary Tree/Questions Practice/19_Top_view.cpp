@@ -25,7 +25,7 @@ vector<int> solve(Node *root ) {
     if(root == NULL) {
         return ans;
     }
-
+ 
 
     //create a map to store the top view
     map<int , int> topNode;
