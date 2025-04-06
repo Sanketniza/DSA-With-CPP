@@ -22,8 +22,11 @@ Input: Tree = 8  k = 7
          /   \       \
        3     2       2                        
       /   \     \                    
-    3    -2    1       
+     3    -2     1       
 Output: 3
+explanation: 
+3 paths exist with sum 7: 8->4->3, 8->4->2->1, 8->5->2
+
  */
 
 #include<iostream>
@@ -84,7 +87,7 @@ int main() {
     int k = 3;
     int count = 0;
 
-     vector<int> ans ;
+    vector<int> ans ;
     findPath (root , k  , ans , count);
 
     cout << "Count is : " << count << endl;
