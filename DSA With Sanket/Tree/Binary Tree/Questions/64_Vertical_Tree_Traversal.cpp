@@ -60,6 +60,7 @@ vector<int> verticalOrderTraversal(Node *root) {
      // queue to store the nodes and their horizontal distance and level
         cout << "value in Node * is : " << root << endl;
         queue< pair<Node*, pair<int,int> > > q;
+        // pair to store < Node* = frontNode , pair<int,int> = horizontal distance and level >
 
     // vector to store the result
     vector<int> ans;
@@ -91,6 +92,7 @@ vector<int> verticalOrderTraversal(Node *root) {
             
             nodes[hd][lvl].push_back(frontNode->data);
             cout << "value in nodes is : " << nodes[hd][lvl][0] << endl;
+            
             
             if(frontNode->left) {
                 q.push(make_pair(frontNode->left, make_pair(hd-1, lvl+1) ));
