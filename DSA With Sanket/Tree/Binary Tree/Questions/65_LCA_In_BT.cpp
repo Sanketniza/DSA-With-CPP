@@ -14,7 +14,7 @@
       / \
      2   3
     Output: 1
-    Explanation:
+    Explanation:     
     LCA of 2 and 3 is 1.
 
  */
@@ -84,7 +84,9 @@ int main()
 
     if(lcaNode != NULL) {
         cout << "LCA of " << n1 << " and " << n2 << " is: " << lcaNode->data << endl;
-    } else {
+    } 
+    
+    else {
         cout << "LCA not found" << endl;
     }
 

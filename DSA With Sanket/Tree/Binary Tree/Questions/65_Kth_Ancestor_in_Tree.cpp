@@ -45,11 +45,7 @@ Constraints:
 1<= K <= 100
 1 <= Node.data <= N
 
-Seen this question in a real interview before ?
-Yes
-No
-Company Tags
-GoogleFacebookAmazon
+
 
  */
 
@@ -119,10 +115,14 @@ class Node {
 int kthAncestor(Node *root, int k, int node)
 {
     Node* ans = solve(root, k, node);
-    if(ans == NULL || ans->data == node)
-       { return -1;}
-    else
-        {return ans->data;}
+    if(ans == NULL || ans->data == node) {
+        cout << "sorry yaar" << endl;
+        return -1;
+    }
+
+    else { 
+       return ans->data;
+    }
 }
 int main() {
 
