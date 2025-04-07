@@ -45,7 +45,7 @@ int done(Node *root) {
     int sum = 0;
     int msum = INT_MIN;
 
-    solve(len , mlen , sum , msum);
+    solve(root ,len , mlen , sum , msum);
     return msum;
 }
 

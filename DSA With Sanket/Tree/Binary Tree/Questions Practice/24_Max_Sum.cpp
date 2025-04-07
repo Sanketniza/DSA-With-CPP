@@ -38,7 +38,7 @@ int solve(Node *root) {
 
     pair<int , int> a = getMaxSum(root);
 
-    return max(a.first , a.first)
+    return max(a.first , a.first);
 }
 
 int main() {
@@ -54,7 +54,7 @@ int main() {
     root -> right -> left = new Node(6);
     root -> right -> right = new Node(7);
 
-    int ans = solve(root) 
+    int ans = solve(root); 
     cout << ans << endl;
     
     return 0;
