@@ -17,6 +17,12 @@ class Node {
 
 Node *lca (Node *root , int n , int m) {
 
+    //     1
+    //    / \
+    //   2   3
+    //  / \ / \
+    // 4  5 6  7
+
     // base case 
     if(root == NULL) {
         return NULL;
@@ -30,7 +36,7 @@ Node *lca (Node *root , int n , int m) {
     Node *rightAns = lca(root -> right , n , m);
 
     //
-    if(leftAns && rightAns) { 
+    if(leftAns && rightAns) {  //  both are not null then return present root data
         return root;
     }
 
