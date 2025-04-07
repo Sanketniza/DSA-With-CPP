@@ -9,7 +9,7 @@ Example 1:
 
 Input:
      11
-    /  \
+            
    1    2
 Output: 11
 Explanation: The maximum sum is sum of
