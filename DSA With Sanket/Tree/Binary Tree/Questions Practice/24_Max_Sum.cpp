@@ -17,7 +17,6 @@ class Node {
 
 pair<int , int> getMaxSum(Node *root) {
 
-    //base case
     if(root == NULL) {
         pair<int , int> p = make_pair(0 , 0);
         return p;
@@ -26,9 +25,9 @@ pair<int , int> getMaxSum(Node *root) {
     pair<int , int> left = getMaxSum(root -> left);
     pair<int , int> right = getMaxSum(root -> right);
 
-    pair <int , int > res;
-    res.first = root -> data + left.second + right.second;
-    res.second = max(left.first , left.second) + max(right.first , right.second);
+    pair<int , int> res;
+    res.first = root -> data + left.second + right.second; // include the current node
+    res.second = max(left.first , left.second) + max(right.first , right.second); // exclude the current node
 
     return res;
 
@@ -36,9 +35,9 @@ pair<int , int> getMaxSum(Node *root) {
 
 int solve(Node *root) {
 
-    pair<int , int> a = getMaxSum(root);
+   pair<int , int> a = getMaxSum(root);
 
-    return max(a.first , a.first);
+   return max(a.first , a.second);
 }
 
 int main() {

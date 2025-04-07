@@ -63,12 +63,21 @@ pair <int , int > solve (Node *root) {
     res.second = max(l.first , l.second) + max(r.first , r.second);
 
     return res;
+
+//         1
+//        / \
+//       2   3
+//      /   / \
+//     4   5   6
+//    /
+//   7
+
 }
 
 int getMaxSum(Node *root) {
 
     pair <int , int > a = solve (root);
-    return max(a.first , a.first);
+    return max(a.first , a.second);
 }
 
 int main() {
@@ -79,6 +88,7 @@ int main() {
     root -> left -> left = new Node (4);
     root -> right -> left = new Node (5);
     root -> right -> right = new Node (6);
+    root -> left -> left -> left = new Node (7);
 
     int ans = getMaxSum(root) ;
     cout << ans << endl;
