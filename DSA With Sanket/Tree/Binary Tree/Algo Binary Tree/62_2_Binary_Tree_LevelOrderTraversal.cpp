@@ -54,10 +54,10 @@ void levelOrderTraversal(node *root) {
         if(temp == NULL) {
             //purana level complete traverse ho chuka hai
             cout << endl;
-              if(!q.empty()) {
-                //queue still has some child nodes
-                q.push(NULL);
-              }
+            if(!q.empty()) {
+              //queue still has some child nodes
+              q.push(NULL);
+            }
         }
 
         else {
@@ -103,7 +103,7 @@ vector<vector<int>> levelOrder(TreeNode* root) {
                 q.push(front -> right);
               }
 
-           }
+            }
 
            ans.push_back(currLevel);
         }
