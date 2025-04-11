@@ -75,6 +75,45 @@ void levelOrderTraversal(node *root) {
     }
 }
 
+vector<vector<int>> levelOrder(TreeNode* root) {
+
+        vector<vector<int>> ans;
+        if(root == NULL) return ans;
+
+        queue<TreeNode*> q;
+        q.push(root);
+        // q.push(NULL);
+
+        while(!q.empty()) {
+
+           int levelSize = q.size();
+           vector<int> currLevel;
+
+           for(int i = 0; i < levelSize; i++) {
+              TreeNode* front = q.front();
+              q.pop();
+
+              currLevel.push_back(front -> val);
+
+              if(front -> left) {
+                q.push(front -> left);
+              }
+
+              if(front -> right) {
+                q.push(front -> right);
+              }
+
+           }
+
+           ans.push_back(currLevel);
+        }
+
+        return ans;
+
+        //  ans = Input: root = [3,9,20,null,null,15,7]
+                // Output: [[3],[9,20],[15,7]]
+    }
+
 int main() {
  
     // node *root = new node (1);
