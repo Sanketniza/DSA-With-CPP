@@ -57,23 +57,53 @@ vector<Node *> solve(int n) {
     return generateSubtrees(1, n);
 };
 
-void printVector(vector<Node *> &ans) {
-    for(auto it : ans) {
-        cout << it -> data << " ";
+
+vector<int> traversalBT(Node *root) {
+
+    vector<int> ans;
+
+    if(root == NULL) {
+        return ans;
     }
-    cout << endl;
+
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()) {
+        
+        Node *front = q.front();
+        q.pop();
+
+        if(front == NULL) {
+            ans.push_back(-1);
+
+            if(!q.empty()) {
+                q.push(NULL);
+            }
+        }
+
+        else {
+            ans.push_back(front -> data);
+
+            if(front -> left) {
+                q.push(front -> left);
+            }
+
+            if(front -> right) {
+                q.push(front -> right);
+            }
+        }
+    }
 }
+
+
 
 int main() {
     int n = 3;
 
    
     vector<Node *>ans = solve(n);
-
-    printVector(ans);
-
-
-
     
     return 0;
 }
