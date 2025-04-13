@@ -81,6 +81,7 @@ vector<int> traversalBT(Node *root) {
             if(!q.empty()) {
                 q.push(NULL);
             }
+            
         }
 
         else {
