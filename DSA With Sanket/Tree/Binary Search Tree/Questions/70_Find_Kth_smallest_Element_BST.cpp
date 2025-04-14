@@ -52,10 +52,12 @@ int kthSmallest(bst<int> *root, int k , int &i)
     }
 
     // recursive call
-    
+
     int left = kthSmallest(root -> left , k , i);
+    cout << "left is : " << left << endl;
 
     if(left != -1) {
+        cout << "left is not -1" << endl;
         return left;
     }
 
