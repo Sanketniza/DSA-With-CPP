@@ -35,7 +35,7 @@ Node * CreateBst(Node* root , int data) {
 
 
 
-void intputBST(Node* root) {
+void intputBST(Node* &root) {
 
     int data;
     cout << "Enter a data for binary search tree : " << endl;
@@ -50,6 +50,7 @@ void intputBST(Node* root) {
 }
 
 void inOrder(Node * root) {
+
     if(root == NULL) {
         return;
     }
