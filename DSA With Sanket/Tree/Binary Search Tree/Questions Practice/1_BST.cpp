@@ -18,7 +18,7 @@ class Node {
 
 Node * CreateBst(Node* root , int data) {
     
-   if(root == NULL) {
+    if(root == NULL) {
         root = new Node(data);
         return root;
     }
