@@ -54,10 +54,10 @@ int kthSmallest(bst<int> *root, int k , int &i)
     // recursive call
 
     int left = kthSmallest(root -> left , k , i);
-    cout << "left is : " << left << endl;
+    // cout << "left is : " << left << endl;
 
     if(left != -1) {
-        cout << "left is not -1" << endl;
+        // cout << "left is not -1" << endl;
         return left;
     }
 
@@ -72,6 +72,30 @@ int kthSmallest(bst<int> *root, int k , int &i)
     return kthSmallest(root -> right , k , i);
 
 }
+
+void solve(bst<int> *root , int k)
+{
+    static int count = 0; // static variable to keep track of the count of nodes visited
+    static int result = -1;
+
+    if(root == NULL) {
+        return;
+    }
+
+    // Inorder Traversal
+    solve(root -> left , k);
+
+    count++;
+
+    if(count == k) {
+        result = root -> data;
+        cout << "The " << k << " th smallest element in the BST is: " << result << endl;
+        return;
+    }
+
+    solve(root -> right , k);
+}
+
 
 int main()
 {
@@ -90,6 +114,9 @@ int main()
     int k = 4;
     int i = 0;
     cout << kthSmallest(root, k , i) << endl;
+
+    // second approach
+    solve(root , k);
 
     return 0;
 }
