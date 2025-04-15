@@ -81,7 +81,9 @@ bool SearchInBST(Node *root , int x) {
     // recursive call
     if( root -> data > x) {
         return SearchInBST(root -> left , x);
-    } else {
+    } 
+    
+    else {
         return SearchInBST(root -> right , x);
     }
 }
