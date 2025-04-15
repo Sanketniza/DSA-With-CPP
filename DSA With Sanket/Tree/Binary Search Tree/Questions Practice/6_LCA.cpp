@@ -17,20 +17,34 @@ class Node {
 
 Node *solve(Node *root , int p , int q) {
 
-    while(root != NULL) {
+    // while(root != NULL) {
 
-        if(root -> data > p && root -> data > q) {
-            root = solve(root -> left ,  p , q);
-        }
+    //     if(root -> data > p && root -> data > q) {
+    //         root = solve(root -> left ,  p , q);
+    //     }
 
-        else if(root -> data < p && root -> data < q) {
-            root = solve(root -> right , p , q);
-        }
+    //     else if(root -> data < p && root -> data < q) {
+    //         root = solve(root -> right , p , q);
+    //     }
 
-        else {
-            return root;
-        }
+    //     else {
+    //         return root;
+    //     }
+    // }
+
+    if(root == NULL) {
+        return root;
     }
+
+    if(root -> data > p && root -> data > q) {
+        return solve(root -> left , p ,q );
+    }
+
+    if(root -> data < p && root -> data < q) {
+        return solve(root -> right , p , q);
+    }
+
+    return root;
 }
 
 int main() {
@@ -48,7 +62,7 @@ int main() {
     Node *ans = solve(root , p , q);
     cout << "Recursive way: " << ans -> data << endl;
 
-    
+
 
 
     
