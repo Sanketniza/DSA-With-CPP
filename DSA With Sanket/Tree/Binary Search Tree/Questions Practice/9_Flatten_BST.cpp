@@ -43,6 +43,7 @@ void solve(Node *root , vector<int> &v) {
 }
 
 int main() {
+
     Node *root = new Node(4); 
     root -> left = new Node(2); 
     root -> right = new Node(6); 
@@ -56,8 +57,6 @@ int main() {
 
     // Flatten the BST
     Node *flattened = flatten(root , ans);
-    
-
     
     return 0;
 }

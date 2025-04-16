@@ -75,7 +75,7 @@ bst *balanceBSTheight(int s , int e , vector<int> &v ) {
 
     int mid = (s + e) /2;
 
-    bst * root = new bst(v[mid]);
+    bst *root = new bst(v[mid]);
     root -> left = balanceBSTheight(s , mid - 1, v);
     root -> right = balanceBSTheight(mid + 1 , e , v);
 

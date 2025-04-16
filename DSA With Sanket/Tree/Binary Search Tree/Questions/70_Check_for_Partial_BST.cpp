@@ -63,6 +63,12 @@ bool isSolve(Node<int> *root , int min , int max) {
         return false;
     }
 
+    // if(root == NULL) return true;
+
+    // if(root -> data <= min || root -> data >= max) return false;
+
+    // return isPartialBST(root -> left , min , root -> data) && isPartialBST(root -> right , root -> data , max);
+
 }
 
 bool isPartialBST(Node<int> *root) {
