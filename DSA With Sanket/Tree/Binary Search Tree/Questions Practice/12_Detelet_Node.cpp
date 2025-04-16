@@ -1,203 +1,106 @@
+/* 
+    ? lecture 70:  Find K-th smallest Element in BST
+    ? https://www.naukri.com/code360/problems/find-k-th-smallest-element-in-bst_1069333?leftPanelTab=0&leftPanelTabValue=PROBLEM
+
+    Problem statement
+    You have been given a binary search tree of integers with ‘N’ nodes. You are also given 'KEY' which represents data of a node of this tree.
+    
+     
+    
+    Your task is to return the predecessor and successor of the given node in the BST.
+    
+    
+    
+    Note:
+    1. The predecessor of a node in BST is that node that will be visited just before the given node in the inorder traversal of the tree. If the given node is visited first in the inorder traversal, then its predecessor is NULL.
+    
+    2. The successor of a node in BST is that node that will be visited immediately after the given node in the inorder traversal of the tree. If the given node is visited last in the inorder traversal, then its successor is NULL.
+    
+    3. The node for which the predecessor and successor will not always be present. If not present, you can hypothetically assume it's position (Given that it is a BST) and accordingly find out the predecessor and successor.
+    
+    4. A binary search tree (BST) is a binary tree data structure which has the following properties.
+         • The left subtree of a node contains only nodes with data less than the node’s data.
+         • The right subtree of a node contains only nodes with data greater than the node’s data.
+         • Both the left and right subtrees must also be binary search trees.
+    
+    
+    Detailed explanation ( Input/output format, Notes, Images )
+    Sample Input 1:
+    15 10 20 8 12 16 25 -1 -1 -1 -1 -1 -1 -1 -1
+    10
+    Sample output 1:
+    8 12
+
+ */
+ 
 #include<iostream>
-#include<queue>
 using namespace std;
 
-class Node {
+class  bst{
     public:
         int data;
-        Node *left;
-        Node *right;
+        bst *left;
+        bst *right;
 
-        Node(int data) {
+        bst(int data) {
             this -> data = data;
             this -> left = NULL;
             this -> right = NULL;
         }
-
 };
 
-Node *MinVal(Node *root) {
-    Node *temp = root;
-    while(temp -> left != NULL) {
-        temp = temp -> left;
-    }
-    return temp;
-}
+pair<int , int> predecessorAndSuccessor(bst *root , int key){
 
-Node *deleteNode(Node *root, int val) {
+    // key is present in the tree
+    bst *temp = root;
+    int pred = -1;
+    int succ = -1;
 
-    // base case
-    if(root == NULL) {
-        return NULL;
-    }
+    while(temp -> data != key) {
 
-    if(root -> data == val) {
-
-        // 0 child
-            if(root -> left == NULL && root -> right == NULL) {
-                delete root;
-                return NULL;
-            }  
-
-        // 1 child present
-
-            //? if left node is present
-                if(root -> left != NULL && root -> right == NULL) {
-                    Node *temp = root -> left;
-                    delete root;
-                    return temp;
-                }
-
-            //? if right node is present
-                if(root -> left == NULL && root -> right != NULL) {
-                    Node *temp = root -> right;
-                    delete root;
-                    return temp;
-                }
-
-
-        // 2 child present
-            if(root -> left != NULL && root -> right != NULL) {
-                int mini = MinVal(root -> right) -> data;
-                root -> data = mini;
-                root -> right = deleteNode(root -> right , mini);
-                return root;
-            }
-    }
-
-    else if( root -> data > val) {
-        // visit left subpart of tree
-        root -> left = deleteNode(root ->left , val);
-        return root;
-    }
-
-    else {
-        // visit right subpart of tree
-        root -> right = deleteNode(root -> right , val);
-        return root;
-    }
-
-}
-    
-void levelOrderTraversal(Node *root) {
-
-    queue<Node*> q;
-    q.push(root);
-    q.push(NULL);
-
-    while (!q.empty()) {
-
-        Node *temp = q.front();
-        q.pop();
-
-        if(temp == NULL) {
-            cout << endl;
-              if(!q.empty()) {
-                q.push(NULL);
-              }
+       if(temp -> data > key) {
+            succ = temp -> data;
+            temp = temp -> left;
         }
 
         else {
-
-            cout << temp -> data << " ";
-
-            if(temp -> left) {
-                q.push(temp -> left);
-            }
-
-            if(temp -> right) {
-                q.push(temp -> right);
-            }
+            pred = temp -> data;
+            temp = temp -> right;
         }
-    }
-}
 
-void Inorder(Node *root) {
-
-    // base case 
-    if(root == NULL) {
-        return;
     }
 
-    // LNR
-    Inorder(root -> left);
-    cout << root -> data << " ";
-    Inorder(root -> right);
-}
+    bst *leftT = temp -> left;
+       while (leftT != NULL) {
+            pred = leftT -> data;
+            leftT = leftT -> right;
+        }
 
-void PreOrder(Node *root) {
+    bst *rightT = temp -> right;
+        while (rightT != NULL) {
+            succ = rightT -> data;
+            rightT = rightT -> left;
+        }
 
-    // base case 
-    if(root == NULL) {
-        return;
-    }
 
-    // NLR
-    cout << root -> data << " ";
-    PreOrder(root -> left);
-    PreOrder(root -> right);
-}
-
-void PostOrder(Node *root) {
-
-    // base case 
-    if(root == NULL) {
-        return;
-    }
-
-    // LRN
-    PostOrder(root -> left);
-    PostOrder(root -> right);
-    cout << root -> data << " ";
+    return {pred , succ};
 }
 
 int main() {
 
-    Node *root = new Node(4);
-    root -> left = new Node(2);
-    root -> right = new Node(6);
-    root -> left -> left = new Node(1);
-    root -> left -> right = new Node(3);
-    root -> right -> left = new Node(5);
-    root -> right -> right = new Node(7);
 
-    // print the tree
+    bst *root = new bst(15);
+    root -> left = new bst(10);
+    root -> right = new bst(20);
+    root -> left -> left = new bst(8);
+    root -> left -> right = new bst(12);
+    root -> right -> left = new bst(16);
+    root -> right -> right = new bst(25);
 
-    //^ Level Order Traversal
-    cout << "Level Order Traversal : " << endl;
-    levelOrderTraversal(root); cout << endl;
+    int key = 10;
 
-    //^ Inorder Traversal
-    cout << "Inorder Traversal : " ;
-    Inorder(root); cout << endl;
-
-    //^ Preorder Traversal
-    cout << "PreOrder Traversal : " ;
-    PreOrder(root) ; cout << endl;
-
-    //^ Postorder Traversal
-    cout << "PostOrder Traversal : " ;
-    PostOrder(root) ; cout << endl;
-
-    // Delete a Node in BST
-
-    root = deleteNode(root, 3);
-
-    //^ After Deletion Level Order Traversal
-    cout << "After Deletion Level Order Traversal : " << endl;
-    levelOrderTraversal(root); cout << endl;
-
-    //^ After Deletion Inorder Traversal
-    cout << "After Deletion Inorder Traversal : " ;
-    Inorder(root); cout << endl;
-
-    //^ After Deletion Preorder Traversal
-    cout << "After Deletion Preorder Traversal : " ;
-    PreOrder(root) ; cout << endl;
-
-    //^ After Deletion Postorder Traversal
-    cout << "After Deletion Postorder Traversal : " ;
-    PostOrder(root) ; cout << endl;
+    pair<int , int> ans = predecessorAndSuccessor(root , key);
+    cout << ans.first << " " << ans.second << endl;
 
  return 0;
 }
