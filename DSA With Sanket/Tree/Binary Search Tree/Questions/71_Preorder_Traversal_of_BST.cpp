@@ -18,6 +18,15 @@ Note:
 It is guaranteed that a BST can be always constructed from the given preorder traversal. Hence, the answer will always exist.
 Example:
 From PREORDER = [20, 10, 5, 15, 13, 35, 30, 42] , the following BST can be constructed:
+          20
+         /  \
+        10   35
+       / \   / \
+      5  15 30 42
+        /
+       13
+         
+
 
 Detailed explanation ( Input/output format, Notes, Images )
 Constraints :
