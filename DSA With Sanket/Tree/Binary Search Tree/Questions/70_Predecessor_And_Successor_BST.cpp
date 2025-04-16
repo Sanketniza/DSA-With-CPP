@@ -5,7 +5,7 @@
     Problem statement
     You have been given a binary search tree of integers with ‘N’ nodes. You are also given 'KEY' which represents data of a node of this tree.
     
-    
+     
     
     Your task is to return the predecessor and successor of the given node in the BST.
     
@@ -32,7 +32,7 @@
     8 12
 
  */
-
+ 
 #include<iostream>
 using namespace std;
 
