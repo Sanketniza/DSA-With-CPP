@@ -136,6 +136,7 @@ int main() {
         BinaryTreeNode *left;
         BinaryTreeNode *right;
     
+    
         BinaryTreeNode(int data) {
             this->data = data;
             left = NULL;
