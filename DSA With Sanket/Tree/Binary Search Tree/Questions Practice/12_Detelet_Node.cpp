@@ -99,7 +99,6 @@ void solve(bst<int> *root , int k)
 
 int main()
 {
-
     bst<int> *root = new bst<int>(15);
     root->left = new bst<int>(10);
     root->right = new bst<int>(20);
