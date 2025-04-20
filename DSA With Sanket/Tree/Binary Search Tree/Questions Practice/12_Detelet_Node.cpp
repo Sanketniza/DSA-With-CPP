@@ -1,121 +1,146 @@
-/*
-    ? lecture 70:  Find K-th smallest Element in BST
-    ? https://www.naukri.com/code360/problems/find-k-th-smallest-element-in-bst_1069333?leftPanelTab=0&leftPanelTabValue=PROBLEM
+
+/* 
+    ? lecture 70:  LCA of Two Nodes In A BST
+    ? https://www.naukri.com/code360/problems/lca-in-a-bst_981280?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
     Problem statement
-    Given a binary search tree and an integer ‘K’. Your task is to find the ‘K-th’ smallest element in the given BST( binary search tree).
-
-    BST ( binary search tree) -
-
-    If all the smallest nodes on the left side and all the greater nodes on the right side of the node current node.
-
-    Example -
+    You are given a binary search tree of integers with N nodes. You are also   given references to two nodes 'P' and 'Q' from this BST.
 
 
-    Order of elements in increasing order in the given BST is - { 2, 3, 4, 5, 6, 7, 8, 10 }
 
-    Suppose given ‘K = 3’ then 3rd smallest element is ‘4’.
+    Your task is to find the lowest common ancestor(LCA) of these two given     nodes.
 
-    Suppose given ‘K = 8’ then 8th smallest element is ‘10’.
 
-    Note:
-    1. You are not required to print the output explicitly, it has already been taken care of. Just implement the function and return the ‘K-th’ smallest element of BST.
-    2. You don’t need to return ‘K-th’ smallest node, return just value of that node.
-    3. If ‘K-th’ smallest element is not present in BST then return -1.
+
+    The lowest common ancestor for two nodes P and Q is defined as the lowest   node that has both P and Q as descendants (where we allow a node to be a  descendant of itself)
+
+
+
+    A binary search tree (BST) is a binary tree data structure which has the    following properties.
+
+    • The left subtree of a node contains only nodes with data less than the    node’s data.
+    • The right subtree of a node contains only nodes with data greater than    the node’s data.
+    • Both the left and right subtrees must also be binary search trees.
+
+
+    For example:
+    'P' = 1, 'Q' = 3
+    tree = 2 1 4 -1 -1 3 -1 -1 -1,
+
+    The BST corresponding will be- 
+
+    Here, we can clearly see that LCA of node 1 and node 3 is 2.
+    Detailed explanation ( Input/output format, Notes, Images )
+    Sample Input 1 :
+    3 5
+    2 1 3 -1 -1 -1 5 -1 -1
+    Sample Output 1:
+    3
+    Explanation for Sample 1:
+    The BST corresponding will be-
+
+    Here, we can clearly see that LCA of node 3 and node 5 is 3.
+    Sample Input 2 :
+    1 2
+    3 2 -1 1 -1 -1 -1
+    Sample Output 2:
+    2
+    Constraints:
+    1 <= 'N' <= 10^5
+    1 <= Data <= 10^6
+
+    Time Limit: 1sec
 
  */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-template <typename T>  // template for generic type , T can be int , char , float , double , etc.
-class bst
-{
+ /* 
+    ? Two ways to solve this problem
+
+        * Recursive way
+            ^ - Time Complexity = O(n);
+            ^ - space Complexity = O(n);
+
+        * Iterative way
+            ^ - Time Complexity = O(n);    
+            ^ - Time Complexity = O(1);     
+ 
+  */
+
+class  bst {
     public:
-        T data;
+        int data;
         bst *left;
         bst *right;
 
-        bst(T data)
-        {
-            this->data = data;
-            this->left = NULL;
-            this->right = NULL;
+        bst(int data) {
+            this -> data = data;
+            this -> left = NULL;
+            this -> right = NULL;
         }
 };
 
-int kthSmallest(bst<int> *root, int k , int &i)
-{
-    // base case
+//todo: Recursive way
+
+bst * lcaOfBST(bst *root , int p , int q) {
+
     if(root == NULL) {
-        return -1;
+        return NULL;
     }
 
-    // recursive call
-
-    int left = kthSmallest(root -> left , k , i);
-    // cout << "left is : " << left << endl;
-
-    if(left != -1) {
-        // cout << "left is not -1" << endl;
-        return left;
+    if(root -> data > p && root -> data > q) {
+        return lcaOfBST(root -> left , p , q );
     }
 
-    // N
-    i++;
-
-    if( i == k ) {
-        return root -> data;
+    if(root -> data < p && root -> data < q) {
+        return lcaOfBST (root -> right , p , q);
     }
 
-    //R
-    return kthSmallest(root -> right , k , i);
+    return root;
 
 }
 
-void solve(bst<int> *root , int k)
-{
-    static int count = 0; // static variable to keep track of the count of nodes visited
-    static int result = -1;
+//todo: Iterative way
+bst * lcaOfBST_Iterative(bst *root , int p , int q) {
 
-    if(root == NULL) {
-        return;
+    while (root != NULL) {
+
+        if(root -> data > p && root -> data > q) {
+             root = lcaOfBST_Iterative(root -> left , p , q );
+        }
+
+        else if (root -> data < p && root -> data < q) {
+             root = lcaOfBST_Iterative (root -> right , p , q);
+        }
+
+        else {
+            return root;
+        }
     }
-
-    // Inorder Traversal
-    solve(root -> left , k);
-
-    count++;
-
-    if(count == k) {
-        result = root -> data;
-        cout << "The " << k << " th smallest element in the BST is: " << result << endl;
-        return;
-    }
-
-    solve(root -> right , k);
 }
+ 
 
+int main() {
 
-int main()
-{
-    bst<int> *root = new bst<int>(15);
-    root->left = new bst<int>(10);
-    root->right = new bst<int>(20);
-    root->left->left = new bst<int>(8);
-    root->left->left->left = new bst<int>(5);
-    root->left->right = new bst<int>(12);
-    root->left->right->left = new bst<int>(11);
-    root->left->right->right = new bst<int>(13);
+    
+    bst *root = new bst(15);
+    root -> left = new bst(10);
+    root -> right = new bst(20);
+    root -> left -> left = new bst(8);
+    root -> left -> right = new bst(12);
+    root -> right -> left = new bst(16);
+    root -> right -> right = new bst(25);
 
-    // inorder traversal : 5 8 10 11 12 13 15 20
+    int p = 10;
+    int q = 25;
 
-    int k = 4;
-    int i = 0;
-    cout << kthSmallest(root, k , i) << endl;
+    bst *ans = lcaOfBST(root , p , q);
+    cout << "Recursive way: " << ans -> data << endl;
 
-    // second approach
-    solve(root , k);
+    bst *ans2 = lcaOfBST_Iterative(root , p , q);
+    cout << "Iterative way: " << ans2 -> data << endl;
 
-    return 0;
+ return 0;
 }
