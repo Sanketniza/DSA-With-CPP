@@ -1,129 +1,123 @@
+
 /* 
-    ? lecture 69 : Search in BST
-    ? https://www.naukri.com/code360/problems/search-in-bst_1402878?count=25&page=2&search=&sort_entity=order&sort_order=ASC&attempt_status=NOT_ATTEMPTED&leftPanelTabValue=PROBLEM
+        ? lecture 71:  Two Sum IV - Input is a BST
+        ? https://www.naukri.com/code360/problems/two-sum-in-a-bst_1062631?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
-    Problem statement
-    There is a Binary Search Tree (BST) consisting of ‘N’ nodes. Each node of     this BST has some integer data.
-    
-    
-    
-    You are given the root node of this BST, and an integer ‘X’. Return true     if there is a node in BST having data equal to ‘X’, otherwise return false.
-    
-    
-    
-    A binary search tree (BST) is a binary tree data structure that has the     following properties:
-    
-    1. The left subtree of a node contains only nodes with data less than the     node’s data.
-    
-    2. The right subtree of a node contains only nodes with data greater than     the node’s data.
-    
-    3. The left and right subtrees must also be binary search trees.
-    Note:
-    It is guaranteed that all nodes have distinct data.
-    Detailed explanation ( Input/output format, Notes, Images )
-    Sample Input 1:
-    7 8
-    4 2 6 1 3 5 7 -1 -1 -1 -1 -1 -1 -1 -1
-    Sample Output 1:
-    False
-    Explanation For Sample Input 1:
-    There is no node having data 8. See the problem statement for the picture     of this BST.
-    Sample Input 2:
-    4 1
-    3 1 5 -1 2 -1 -1 -1 -1
-    Sample Output 2:
-    True
-    Explanation For Sample Input 1:
-    There is a left node, and it has data 1. Thus, we should print ‘True’. 
+        Problem statement
+You have been given a Binary Search Tree and a target value. You need to find out whether there exists a pair of node values in the BST, such that their sum is equal to the target value.
+
+A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values keys in the node's left subtree and less than those in its right subtree.
+
+Follow Up:
+Can you solve this in O(N) time, and O(H) space complexity?
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= T <= 100
+1 <= N <= 3000
+-10^9 <= node data <= 10^9, (where node data != -1)
+-10^9 <= target value <= 10^9
+
+Where N denotes is the number of nodes in the given tree.
+
+Time Limit: 1 second
+Sample Input 1:
+1
+10 6 12 2 8 11 15 -1 -1 -1 -1 -1 -1 -1 -1
+14
+Sample Output 1:
+True
+Explanation for sample 1:
+For the first test case, the sum of the nodes with values 2 and 12 equals the target value.
+
+Sample Input 2:
+1
+5 3 7 -1 -1 6 8 -1 -1 -1 -1
+20
+Sample output 2:
+False
+Explanation for sample 2:
+For the first test case, there is no such pair of nodes, the sum of which equals the target value.
+
  */
-
-
-
- // todo: Here are two ways to solve this problem
-
- //* 1. Recursive way
-    //^ Time Complexity : O(N)
-    //^ Space Complexity : O(N)
-
- //* 2. Iterative way
-    //^ Time Complexity : O(N)
-    //^ Space Complexity : O(1)
-
 
 #include<iostream>
 #include<vector>
 using namespace std;
 
-class Node {
+class bst {
     public:
-    int data;
-    Node *left;
-    Node *right;
+        int data;
+        bst *left;
+        bst *right;
 
-    Node(int data) {
-        this -> data = data;
-        this -> left = NULL;
-        this -> right = NULL;
-    }
+        bst(int data) {
+            this -> data = data;
+            this -> left = NULL;
+            this -> right = NULL;
+        }
+
 };
 
- //* 1. Recursive way
-bool SearchInBST(Node *root , int x) {
+void solve(bst *root , vector<int> &ino) {
 
-    if(root == NULL) {
-        return false;
-    }
+    if(root == NULL)
+        return;
 
-    if (root -> data == x) {
-        return true;
-    }
+    solve(root -> left , ino);
+    ino.push_back(root -> data);
+    solve(root -> right , ino);
 
-    // recursive call
-    if( root -> data > x) {
-        return SearchInBST(root -> left , x);
-    } 
-    
-    else {
-        return SearchInBST(root -> right , x);
-    }
 }
 
- //* 2. Iterative way
-bool Iterativeway(Node* root, int x) {
-    Node* current = root;
-    
-    while (current != NULL) {
-        if (current->data == x) {
+bool isPairPresent(bst *root , int target) {
+
+    vector<int> ino;
+    solve(root , ino);
+
+    int i = 0;
+    int j = ino.size() - 1;
+
+    while (i < j) {
+
+        int sum = ino[i] + ino[j];
+
+        if( target == sum) {
+            cout << "first element : " << ino[i] << " second element : " << ino[j] << endl;
             return true;
         }
-        else if (x < current->data) {
-            current = current->left;
+
+        else if(target < sum) {
+            j--;
         }
+
         else {
-            current = current->right;
+            i++;
         }
     }
+
     return false;
 }
 
 int main() {
 
-    Node *root = new Node(4);
-    root->left = new Node(2);
-    root->right = new Node(6);
-    root->left->left = new Node(1);
-    root->left->right = new Node(3);
-    root->right->left = new Node(5);
-    root->right->right = new Node(7);
+    bst *root = new bst(10);
+    root -> left = new bst(6);
+    root -> right = new bst(12);
+    root -> left -> left = new bst(2);
+    root -> left -> right = new bst(8);
+    root -> right -> left = new bst(11);
+    root -> right -> right = new bst(15);
 
-    int x = 25;
+    int target = 17;
 
-    //* 1. Recursive way
-    cout << "Recursive Search in BST : " << SearchInBST(root, x) << endl;
+    //todo: check if there exists a pair of node values in the BST, such that their sum is equal to the target value
 
-    //* 2. Iterative way
-    bool result = Iterativeway(root, x);
-    cout << "Iterative Search in BST : " << (result ? "True" : "False") << endl;
+    if(isPairPresent(root , target)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
 
-    return 0;
-}
+
+ return 0;
+}   
