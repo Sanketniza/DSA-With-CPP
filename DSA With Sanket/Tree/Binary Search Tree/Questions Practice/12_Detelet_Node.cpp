@@ -1,50 +1,72 @@
 
 /* 
-        ? lecture 71:  Two Sum IV - Input is a BST
-        ? https://www.naukri.com/code360/problems/two-sum-in-a-bst_1062631?leftPanelTab=0&leftPanelTabValue=PROBLEM
+    ? lecture 71: Preorder Traversal of BST
+    ? https://www.naukri.com/code360/problems/preorder-traversal-to-bst_893111?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
-        Problem statement
-You have been given a Binary Search Tree and a target value. You need to find out whether there exists a pair of node values in the BST, such that their sum is equal to the target value.
+    Problem statement
+You have been given an array/list 'PREORDER' representing the preorder traversal of a BST with 'N' nodes. All the elements in the given array have distinct values.
 
-A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values keys in the node's left subtree and less than those in its right subtree.
+Your task is to construct a binary search tree that matches the given preorder traversal.
 
-Follow Up:
-Can you solve this in O(N) time, and O(H) space complexity?
+A binary search tree (BST) is a binary tree data structure that has the following properties:
+
+• The left subtree of a node contains only nodes with data less than the node’s data.
+• The right subtree of a node contains only nodes with data greater than the node’s data.
+• Both the left and right subtrees must also be binary search trees.
+Note:
+
+It is guaranteed that a BST can be always constructed from the given preorder traversal. Hence, the answer will always exist.
+Example:
+From PREORDER = [20, 10, 5, 15, 13, 35, 30, 42] , the following BST can be constructed:
+          20
+         /  \
+        10   35
+       / \   / \
+      5  15 30 42
+        /
+       13
+         
+
+
 Detailed explanation ( Input/output format, Notes, Images )
-Constraints:
+Constraints :
 1 <= T <= 100
-1 <= N <= 3000
--10^9 <= node data <= 10^9, (where node data != -1)
--10^9 <= target value <= 10^9
+1 <= N <= 5000
+0 <= data <= 10^5
 
-Where N denotes is the number of nodes in the given tree.
+Where 'data' denotes data contained in the nodes of the binary search tree.
 
-Time Limit: 1 second
+Time Limit: 1 sec
 Sample Input 1:
 1
-10 6 12 2 8 11 15 -1 -1 -1 -1 -1 -1 -1 -1
-14
+6
+10 4 3 7 40 55 
 Sample Output 1:
-True
-Explanation for sample 1:
-For the first test case, the sum of the nodes with values 2 and 12 equals the target value.
+3 5 7 10 40 50
+Explanation For Sample Output1:
+From the given preorder traversal, the following BST can be constructed:
 
+The inorder traversal of the given BST is [1, 4, 7, 10, 40, 55].
 Sample Input 2:
-1
-5 3 7 -1 -1 6 8 -1 -1 -1 -1
-20
-Sample output 2:
-False
-Explanation for sample 2:
-For the first test case, there is no such pair of nodes, the sum of which equals the target value.
+2
+7
+15 10 7 13 21 20 25 
+3
+1 2 4
+Sample Output 2:
+7 10 13 15 20 21 25
+1 2 4
 
- */
+*/    
+
+//^ task is to construct a binary search tree that matches the given vector preorder traversal. 
 
 #include<iostream>
 #include<vector>
+#include<climits>
 using namespace std;
 
-class bst {
+class  bst{
     public:
         int data;
         bst *left;
@@ -58,66 +80,57 @@ class bst {
 
 };
 
-void solve(bst *root , vector<int> &ino) {
+bst *solveTree(vector<int> &preorder , int min , int max , int &i) {
 
-    if(root == NULL)
-        return;
+    if( i >= preorder.size()) {
+        return NULL;
+    }
 
-    solve(root -> left , ino);
-    ino.push_back(root -> data);
-    solve(root -> right , ino);
+    if(preorder[i] < min || preorder[i] > max) {
+        return NULL;
+    }
+
+    bst *root = new bst(preorder[i++]);
+
+    root -> left = solveTree(preorder , min , root -> data , i);
+    root -> right = solveTree(preorder , root -> data , max , i);
+
+    return root;
+}
+
+bst *preorderToBST(vector<int> &preorder) {
+
+    int min = INT_MIN;
+    int max = INT_MAX;
+    int i = 0;
+    
+    return solveTree(preorder , min , max , i);
 
 }
 
-bool isPairPresent(bst *root , int target) {
+void printInorder(bst *root) {
 
-    vector<int> ino;
-    solve(root , ino);
+    // Inorder traversal : left , root , right
 
-    int i = 0;
-    int j = ino.size() - 1;
-
-    while (i < j) {
-
-        int sum = ino[i] + ino[j];
-
-        if( target == sum) {
-            cout << "first element : " << ino[i] << " second element : " << ino[j] << endl;
-            return true;
-        }
-
-        else if(target < sum) {
-            j--;
-        }
-
-        else {
-            i++;
-        }
+    // base case 
+    if(root == NULL) {
+        return;
     }
 
-    return false;
+    printInorder(root -> left);
+    cout << root -> data << " ";
+    printInorder(root -> right);
+
 }
 
 int main() {
 
-    bst *root = new bst(10);
-    root -> left = new bst(6);
-    root -> right = new bst(12);
-    root -> left -> left = new bst(2);
-    root -> left -> right = new bst(8);
-    root -> right -> left = new bst(11);
-    root -> right -> right = new bst(15);
+   vector<int> preorder = {20 , 10 , 5 , 15 , 13 , 35 , 30 , 42};
 
-    int target = 17;
+    bst *ans = preorderToBST(preorder);
 
-    //todo: check if there exists a pair of node values in the BST, such that their sum is equal to the target value
-
-    if(isPairPresent(root , target)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-
+    printInorder(ans);
 
  return 0;
-}   
+
+}
