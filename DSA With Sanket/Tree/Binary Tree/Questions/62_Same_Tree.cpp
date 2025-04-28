@@ -30,7 +30,25 @@ bool isSame(Node *p , Node *q) {
         return false;
     }
 
-    return isSame(p -> left, q -> left) && isSame(p -> right, q -> right);
+    //* recursive call
+
+    // left 
+    bool left = isSame(p -> left , q -> left);
+
+    // right
+    bool right = isSame(p -> right , q -> right);
+
+    if(left && right) {
+        return true;
+    }
+
+    else {
+        return false;
+    }
+
+
+    //* return left && right;
+    // return isSame(p -> left, q -> left) && isSame(p -> right, q -> right);
 
 }
 

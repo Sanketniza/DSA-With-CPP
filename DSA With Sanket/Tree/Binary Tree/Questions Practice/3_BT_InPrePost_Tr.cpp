@@ -33,8 +33,6 @@ Node *buildTree(Node *root) {
     root -> right = buildTree(root -> right);
 
     return root;
-    
-
 }
 
 void Inorder (Node *root ) {
