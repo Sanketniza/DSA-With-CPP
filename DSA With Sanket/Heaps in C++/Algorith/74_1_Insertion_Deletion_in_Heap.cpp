@@ -4,19 +4,31 @@ using namespace std;
 
 /* 
 
- *   TIME COMPLEXITY : O(logN)
- *   SPACE COMPLEXITY : O(1)
+    *   TIME COMPLEXITY : O(logN)
+    *   SPACE COMPLEXITY : O(1)
 
- */
+*/
 
-class  Heap{
+    //? 1. Create a class Heap
+    //? 2. Create an array of size 100
+    //? 3. Create a variable size to keep track of number of elements in heap
+    //? 4. Create a constructor to initialize size to 0 and arr[0] to -1 & initialize size to 0
+    //? 5. Create a function insert to insert an element in heap
+    //? 6. Create a function deletion to delete the root element from heap
+    //? 7. Create a function print to print the heap
+    //? 8. Create a main function to test the heap
+    //? 9. In main function, create an object of Heap class and call insert and deletion functions
+    //? 10. Print the heap after each operation
+
+class  Heap {
+
     public:
         int arr[100];
         int size;
 
         Heap() {
             arr[0] = -1;
-            size = 0;
+            size = 0; // -> initialize size to 0 means index 0 is not used
         }
 
         void insert(int val) {
@@ -48,7 +60,7 @@ class  Heap{
             }
 
             //? step 1 : put last element into first index
-            arr[1] = arr[size]; // 
+            arr[1] = arr[size]; //  -> put last element at first index
 
             //? step 2 : remove last element
             size--; //-> decrease size by 1 , due to it last element is deleted automatically
@@ -62,8 +74,8 @@ class  Heap{
                 int rightIndex = 2*i + 1;  //-> right child of i, here i is parent
 
                 if(leftIndex < size && arr[i] < arr[leftIndex]) {
-                //(leftIndex < size) --> if leftIndex is less than size , means left child is present
-                //(arr[i] < arr[leftIndex]) --> if parent is less than left child , then swap
+                    // (leftIndex < size) --> if leftIndex is less than size , means left child is present
+                    // (arr[i] < arr[leftIndex]) --> if parent is less than left child , then swap
 
                     swap(arr[i], arr[leftIndex]);
                     i = leftIndex;  //-> update i to leftIndex
