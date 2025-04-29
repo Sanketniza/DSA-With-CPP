@@ -3,8 +3,7 @@
 using namespace std;
 
 class Heap {
-    
-     public:
+    public:
         int arr[100];
         int size;
 
@@ -13,18 +12,18 @@ class Heap {
             size = 0;
         }
 
-        void insert(int val) {
+        void insertion(int val) {
 
             size = size + 1;
             int index = size;
-            arr[index] = val;
+            arr[index ] = val;
 
-            while(index > 1) {
+            while (index > 1) {
 
                 int parent = index / 2;
 
                 if(arr[parent] < arr[index]) {
-                    swap( arr[parent] , arr[index]);
+                    swap(arr[parent], arr[index]);
                     index = parent;
                 }
 
@@ -41,28 +40,25 @@ class Heap {
                 return;
             }
 
-            // step 1 : put last element at root
-            arr[1] = arr[size];
 
-            // step 2 : remove last element
+            arr[1] = arr[size]; //-> put last element at first index
             size--;
 
-            // step 3 : take root node to its correct position
             int i = 1;
 
-            while(i < size) {
+            while (i < size) {
 
-                int leftIndex = 2 * i; // left child of i
-                int rightIndex = 2 * i + 1; // right child of i
+                int left = 2 * i; // left child
+                int right = 2 * i + 1; // right child
 
-                if(leftIndex < size && arr[i] < arr[leftIndex]) {
-                    swap(arr[i] , arr[leftIndex]);
-                    i = leftIndex;
+                if(left < size && arr[i] < arr[left]) {
+                    swap(arr[i], arr[left]);
+                    i = left;
                 }
 
-                else if(rightIndex < size && arr[i] < arr[rightIndex]) {
-                    swap(arr[i] , arr[rightIndex]);
-                    i = rightIndex;
+                else if(right < size && arr[i] < arr[right]) {
+                    swap(arr[i], arr[right]);
+                    i = right;
                 }
 
                 else {
@@ -72,32 +68,31 @@ class Heap {
         }
 
         void print() {
+
             for(int i = 1; i <= size; i++) {
                 cout << arr[i] << " ";
             }
             cout << endl;
         }
+
 };
 
 int main() {
 
     Heap h;
 
-    h.insert(50);
-    h.insert(55);
-    h.insert(53);
-    h.insert(52);
-    h.insert(54);
+    h.insertion(50);
+    h.insertion(30);
+    h.insertion(20);
+    h.insertion(10);
+    h.insertion(5);
+    h.insertion(1);
 
-    cout << "Heap array is : " << endl;
+    cout << "Heap after insertion: ";
     h.print();
 
     h.deletion();
-    cout << "Heap array after deletion is : " << endl;
-    h.print();
-
-    h.deletion();
-    cout << "Heap array after deletion is : " << endl;
+    cout << "Heap after deletion: ";
     h.print();
 
 
