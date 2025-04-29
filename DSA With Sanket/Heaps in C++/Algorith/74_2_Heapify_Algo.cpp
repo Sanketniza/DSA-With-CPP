@@ -6,18 +6,20 @@ using namespace std;
     Heapify is the process of converting a binary tree into a heap data structure.
     It is used to create a Max-Heap or Min-Heap from an array.
 
-    In a Max-Heap, the parent node is always greater than its child nodes.
-    In a Min-Heap, the parent node is always smaller than its child nodes.
+    ? In a Max-Heap, the parent node is always greater than its child nodes.
+    ? In a Min-Heap, the parent node is always smaller than its child nodes.
 
     Heapify is used to create a heap from an array.
     Heapify is used to maintain the heap property of the heap.
 
-    time complexity of heapify is O(log n)
-    space complexity of heapify is O(log n)
+    todo: time complexity of heapify is = O(log n)
+    todo: space complexity of heapify is = O(1)
+    where n is the number of elements in the heap.
 
  */
 
 class heapify {
+
     public:
 
     void heapifyAlgo(int arr[], int n, int i) {
@@ -25,6 +27,9 @@ class heapify {
         int largest = i; // Initialize largest as root , means i is the index of the root which is first element of the array
         int left = 2*i ; // left child of the root, if index is starting from 0 then left child is 2*i + 1 ,if index is starting from 1 then left child is 2*i
         int right = 2*i + 1; // right child of the root, if index is starting from 0 then right child is 2*i + 2 ,if index is starting from 1 then right child is 2*i + 1
+        cout << "parent is :" << largest << " " << arr[largest] << endl;
+        cout << "left is :" << left << " " << arr[left] << endl;
+        cout << "right is :" << right << " " << arr[right] << endl;
 
         if(left <= n && arr[left] > arr[largest]) {
             // if left child is greater than the root && left child is in the range of the array
@@ -48,6 +53,7 @@ class heapify {
 int main() {
 
     int arr[] = {-1 , 54, 53, 55, 52, 50};
+    cout << "size of the array is : " << sizeof(arr)/sizeof(arr[0]) << endl;
 
     /* 
         -1 is used to make the calculations easier, it is not part of the array
@@ -64,6 +70,7 @@ int main() {
 
     heapify h;
     for(int i = n/2; i > 0; i--) { // start from the last non-leaf node, because the leaf nodes are already heapified
+        cout << "i is : " << i << endl;
         h.heapifyAlgo(arr, n, i); // call the heapify function for the non-leaf nodes
     }
 
