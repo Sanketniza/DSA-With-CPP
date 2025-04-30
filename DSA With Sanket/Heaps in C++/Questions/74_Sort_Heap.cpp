@@ -24,7 +24,7 @@ using namespace std;
         }
     }
 
-    void heapSort(int arr[], int n) {
+    void heapSort(vector<int> &arr, int n) {
 
         int size = n;
 
