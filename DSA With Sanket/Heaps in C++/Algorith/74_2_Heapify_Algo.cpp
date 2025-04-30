@@ -24,26 +24,26 @@ class heapify {
 
     void heapifyAlgo(int arr[], int n, int i) {
 
-        int largest = i; // Initialize largest as root , means i is the index of the root which is first element of the array
+        int parent = i; // Initialize parent as root , means i is the index of the root which is first element of the array
         int left = 2*i ; // left child of the root, if index is starting from 0 then left child is 2*i + 1 ,if index is starting from 1 then left child is 2*i
         int right = 2*i + 1; // right child of the root, if index is starting from 0 then right child is 2*i + 2 ,if index is starting from 1 then right child is 2*i + 1
-        cout << "parent is :" << largest << " " << arr[largest] << endl;
+        cout << "parent is :" << parent << " " << arr[parent] << endl;
         cout << "left is :" << left << " " << arr[left] << endl;
         cout << "right is :" << right << " " << arr[right] << endl;
 
-        if(left <= n && arr[left] > arr[largest]) {
+        if(left <= n && arr[left] > arr[parent]) {
             // if left child is greater than the root && left child is in the range of the array
-            largest = left;
+            parent = left;
         }
 
-        if(right <= n && arr[right] > arr[largest]) {
+        if(right <= n && arr[right] > arr[parent]) {
             // if right child is greater than the root && right child is in the range of the array
-            largest = right;
+            parent = right;
         }
 
-        if(largest != i) { // if largest is not the root
-            swap(arr[largest], arr[i]); // swap the root with the largest   
-            heapifyAlgo(arr, n, largest); // call the function recursively for the largest index to check if it is following the heap property or not
+        if(parent != i) { // if parent is not the root
+            swap(arr[parent], arr[i]); // swap the root with the parent   
+            heapifyAlgo(arr, n, parent); // call the function recursively for the parent index to check if it is following the heap property or not
         }
 
     }
