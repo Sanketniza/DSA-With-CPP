@@ -13,6 +13,10 @@ using namespace std;
     by default, priority queue is a max heap.
     to use min heap, we need to pass a comparator.
 
+    syntax:
+    ? priority_queue<int> maxi; // max heap
+    ? priority_queue<int, vector<int>, greater<int>> mini; // min heap
+
     * no need to write heapify function. it is already implemented in STL. also no need to write heap sort. 
  */
 
