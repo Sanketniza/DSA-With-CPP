@@ -55,7 +55,9 @@ int main() {
     // above code is not correct it will give wrong output
 
     // because we are using max heap to merge two heaps
-    // so we need to use min heap to merge two heaps
+    // yes we can use max heap logic to merge two heaps
+    // we just need to traverse the merged array in reverse order
+    // and heapify the array in max heap order
 
     vector<int> v;
     for(auto i : a) {
@@ -78,6 +80,11 @@ int main() {
     }
         cout << endl;
 
+    // now we need to merge two heap using max heap
+    // we will traverse the merged array in reverse order
+    // and heapify the array in max heap order
+
+  
 
  return 0;
 }
