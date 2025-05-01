@@ -78,6 +78,8 @@ bool isMaxOrder(Node *root) {
         bool left = isMaxOrder(root -> left);
         bool right = isMaxOrder(root -> right);
 
+        cout << "left order : " << left << " right order : " << right << endl;
+
         return (left && right && (
             root -> data > root -> left -> data && root -> data > root -> right -> data
         ));

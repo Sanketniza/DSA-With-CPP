@@ -18,12 +18,29 @@ int main() {
         cout << "top: " << q.top() << endl;
         if(arr[i] < q.top()) {
             q.pop();
-            // cout << "popped: " << q.top() << endl;
             q.push(arr[i]);
-
         }
     }
 
     cout << q.top() << endl;
- return 0;
+
+    //second method
+    //? time complexity is O(nlogk)
+    //? space complexity is O(k)
+    //? here we are using min heap to find kth largest element
+
+    priority_queue<int , vector<int> , greater<int>> p;
+
+    for(int i = 0; i < n; i++) {
+        p.push(arr[i]);
+    }
+
+    for(int i = 0; i < k-1; i++) {
+        p.pop();
+    }
+
+    cout << "Kth smallest element is: " << p.top() << endl;
+    cout << "Kth largest element is: " << q.top() << endl;
+
+    return 0;
 }
