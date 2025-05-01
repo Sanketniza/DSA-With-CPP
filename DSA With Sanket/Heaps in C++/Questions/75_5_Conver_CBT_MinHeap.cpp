@@ -44,9 +44,14 @@ void preorderFill(Node* root, vector<int>& inorderArr, int& index) {
     if (root == nullptr) {
         return;
     }
-
+ 
     // Copy the next element from the inorder array
+    // cout << "root value : " << root->data << endl;
+
     root->data = inorderArr[index++];
+
+    // cout << "index value : " << index << endl;
+    // cout << "inorderArr value : " << inorderArr[index] << endl;
 
     // Fill left and right subtree
     preorderFill(root->left, inorderArr, index);  
@@ -67,6 +72,7 @@ void convertBSTtoMinHeap(Node* root) {
     // Step 2: Perform preorder traversal and 
     // fill nodes with inorder values
     preorderFill(root, inorderArr, index);
+    cout << "index value : " << index << endl;
 }
 
 // Function to print preorder traversal of the tree
@@ -88,6 +94,7 @@ int main() {
     //       2     6
     //      / \   / \
     //     1   3 5   7
+    
     Node* root = new Node(4);
     root->left = new Node(2);
     root->right = new Node(6);
