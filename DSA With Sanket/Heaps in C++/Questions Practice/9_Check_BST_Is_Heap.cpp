@@ -84,11 +84,11 @@ int main() {
     root->right->left = new Node(20);
     root->right->right = new Node(10);
 
-    int cnt = NodeCount(root);
+    int cnt = NodeCount(root); // count total number of nodes in the tree
     cout << "Node count: " << cnt << endl;
 
-    int index = 0;
-    bool isBst = isBST(root, index, cnt);
+    int index = 0; // index of the root node
+    bool isBst = isBST(root, index, cnt); // check the given tree is a BST or not with the help of index and count
     bool isMaxOrderr = isMaxOrder(root);
 
     if(isBst && isMaxOrderr) {
