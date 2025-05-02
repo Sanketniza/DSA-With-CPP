@@ -54,6 +54,9 @@ int main() {
 
             m["sanket2"] = 3;
 
+        //^ 4 method of insertion
+            m.insert({{"sanket3", 4}});    
+
         // todo: searching in both map and unordered_map
 
         cout << m.size() << endl;
