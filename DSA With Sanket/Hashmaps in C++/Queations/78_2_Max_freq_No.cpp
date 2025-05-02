@@ -3,14 +3,7 @@
     ? link : https://www.naukri.com/code360/problems/maximum-frequency-number_920319?leftPanelTab=0
     ? https://www.geeksforgeeks.org/maximum-occurrence-element-array/
 
-    Maximum Frequency Number
-Easy
-0/40
-Average time to solve is 10m
-Contributed by
-91 upvotes
-Asked in companies
-Problem statement
+
 Ninja is given an array of integers that contain numbers in random order. He needs to write a program to find and return the number which occurs the maximum times in the given input. He needs your help to solve this problem.
 
 If two or more elements contend for the maximum frequency, return the element which occurs in the array first i.e. whose index is lowest.
@@ -26,19 +19,18 @@ Constraints:
 
 Time Limit: 1 sec
 Sample Input 1:
-1 
-13
+1
 2 12 2 11 -12 2 -1 2 2 11 12 2 -6 
 Sample Output 1:
 2
 Explanation of Sample Input 1:
 Test case 1:
 For the first test case of sample output 1, as we start traveling the array, ‘2’ has the highest frequency, hence our answer is ‘2’.
+
 Sample Input 2:
-2 
-3
+
 4 -5 1
-4
+
 1 -2 1 -2
 Sample Output 2:
 4
@@ -66,6 +58,7 @@ int main() {
     int MaxAns = 0;
 
     for(int i = 0; i < n; i++) { 
+        cout << mp[arr[i]] << endl;
        mp[arr[i]]++; 
        MaxiFre = max(MaxiFre, mp[arr[i]]);
     }
