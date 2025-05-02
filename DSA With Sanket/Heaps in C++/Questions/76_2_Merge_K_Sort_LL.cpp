@@ -3,19 +3,23 @@ using namespace std;
 
 class Node {
 public:
+
     int data;
     Node *next;
+
     Node() {
-        this->data = 0;
+        this -> data = 0;
         next = NULL;
     }
+
     Node(int data) {
-        this->data = data;
-        this->next = NULL;
+        this -> data = data;
+        this -> next = NULL;
     }
+
     Node(int data, Node* next) {
-        this->data = data;
-        this->next = next;
+        this -> data = data;
+        this -> next = next;
     }
 };
 
@@ -37,7 +41,7 @@ Node* mergeKLists(vector<Node*> &listArray) {
         return NULL;
 
     // Step 1: Push the first node of each list into the min heap
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++) {   
         if (listArray[i] != NULL) {
             minHeap.push(listArray[i]);
         }

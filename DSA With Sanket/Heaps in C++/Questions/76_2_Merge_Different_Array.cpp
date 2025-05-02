@@ -9,7 +9,8 @@ using namespace std;
 
 int main() {
 
-    // todo: first approach 
+        ? [Bad Approach]
+    todo: first approach 
    
         Time Complexity: ( O(N \log N) )
         Space Complexity: ( O(N) )
@@ -81,6 +82,7 @@ struct Element {
 };
 
 int main() {
+
     int arr1[] = {1, 3, 5, 7, 9};
     int arr2[] = {2, 4, 6, 8, 10};
     int arr3[] = {11, 13, 15, 17, 19};
@@ -93,20 +95,28 @@ int main() {
                    sizeof(arr3) / sizeof(arr3[0]), 
                    sizeof(arr4) / sizeof(arr4[0]), 
                    sizeof(arr5) / sizeof(arr5[0])};
+
+    cout << "size is : " << sizeof(sizes) / sizeof(arrays[0]) << endl;               
+
     int K = sizeof(arrays) / sizeof(arrays[0]);
+    cout << "K is : " << K << endl;
 
     int totalSize = 0;
     for (int i = 0; i < K; ++i) {
+        // cout << "size of array " << i << " is : " << sizes[i] << endl;
         totalSize += sizes[i];
     }
 
-    int result[totalSize];
+    cout << "total size is : " << totalSize << endl;
+
+    int result[totalSize]; // The  array with size of the total number of elements [25]
     int index = 0;
 
     priority_queue<Element, vector<Element>, greater<Element>> minHeap;
 
     // Step 1: Insert the first element of each array into the min-heap
     for (int i = 0; i < K; ++i) {
+        
         if (sizes[i] > 0) {
             minHeap.push({arrays[i][0], i, 0});
         }
