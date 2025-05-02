@@ -66,7 +66,7 @@ public:
             return root -> isTerminal;
         }
 
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
         TrieNode *child;
 
         // present
@@ -78,8 +78,8 @@ public:
             return false;
         }
 
-        // recursive cal
-        return searchUtil(root, word.substr(1));
+        // recursive call
+        return searchUtil(child, word.substr(1));
     }
 
     bool search(string word) {
@@ -95,9 +95,9 @@ int main() {
 
     Trie *t = new Trie();
 
-    t -> insertWord("APPLE");
+    t->insertWord("asdf");  // Using lowercase to match implementation
 
-    cout << "Trie Search Results : " << t -> search("APPLE") << endl;
+    cout << "Trie Search Results : " << t->search("asdf") << endl;
 
     return 0;
 
