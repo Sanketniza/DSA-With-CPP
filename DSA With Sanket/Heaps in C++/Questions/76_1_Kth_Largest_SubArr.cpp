@@ -38,20 +38,26 @@ int main() {
     
     // todo: first approach
     // & time complexity : O(n^2 log n) time complexity : O(n^2) 
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    vector<int> arr = {2,8,10};
     int k = 3;
-
-    int n = arr.size();
+    int m = arr.size();
 
 	vector<int> v;
 
-	for(int i = 0; i < n ; i++) {
+	for(int i = 0; i < m ; i++) {
+
 		int sum = 0;
-		for(int j = i; j < n; j++) {
+
+		for(int j = i; j < m; j++) {
 			sum += arr[j];
 			v.push_back(sum);	
 		}
 	}
+
+	for(auto it : v) {
+		cout << it << " ";
+	}
+	cout << endl;
 
 	sort(v.begin() , v.end());
 
@@ -66,11 +72,12 @@ int main() {
 	 vector<int> arrr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int kk = 3;
 	priority_queue<int, vector<int> , greater<int> > mini;
-
 	int n = arrr.size();
 
 	for(int i = 0; i < n ; i++) {
+
 		int sum = 0;
+		
 		for(int j = i; j < n; j++) {
 			sum += arr[j];
 
