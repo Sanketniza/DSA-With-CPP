@@ -59,6 +59,33 @@ class Trie {
         void insertWord(string word) {
             insertUtil(root , word);
         }
+
+        bool searchUtil(TrieNode *root , string word) {
+
+            //base case
+            if(word.length() == 0) {
+                return root -> isTerminal;
+            }
+
+            int index = word[0] - 'a';
+            TrieNode *child;
+
+            // present
+            if(root -> children[index] != NULL) {
+                child = root -> children[index];
+            }
+
+            else {
+                return false;
+            }
+
+            // recursive call
+            return searchUtil(child , word.substr(1));
+        }
+
+        bool search(string word) {
+            return searchUtil(root , word);
+        }
 };
 
 int main() {
@@ -69,6 +96,8 @@ int main() {
     t -> insertWord("he");
     t -> insertWord("hi");
     t -> insertWord("hii");
+
+    cout << t -> search("hello") << endl; // 1
 
     // trie is ready
 
