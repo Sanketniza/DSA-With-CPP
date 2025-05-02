@@ -21,6 +21,11 @@ int main() {
        mp[arr[i]]++; 
     }
 
+    for(auto i:mp) { 
+        cout << i.first << " : " << i.second << endl; 
+    }
+    cout << endl;
+
     int maxi = INT_MIN;
     int ans = -1;
 
