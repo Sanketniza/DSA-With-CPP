@@ -96,6 +96,36 @@ class TrieNode{
         }    
 };
 
+string longestCommonPrefix(vector<string>& arr , string &ans , int n) {
+
+    // traversing the all characters of the first string
+    for(int i = 0; i < arr[0].length(); i++ ) { 
+
+        // get first character of the first string
+        char ch = arr[0][i];
+        bool match = true;
+
+        // check if this character is present in all the strings in array
+        for(int j = 1; j < n; j++) {
+
+            // if the character is not present in the string
+            if(arr[j][i] != ch) {
+                match = false;
+                break;
+            }
+        }
+
+        // if the character is not present in all the strings
+        if(match == false) {
+            break;
+        }
+
+        // if the character is present in all the strings
+        ans.push_back(ch);
+    }
+    return ans;
+}
+
 int main() { 
 
      vector<string> arr1 = {"coding", "codezen", "codingninja", "coder"};
@@ -106,16 +136,23 @@ int main() {
     // insert all the string into the trie
 
     for(int i = 0; i < n; i++) {
+        // cout << arr1[i] << endl;
         t->insertWord(arr1[i]);
     }
 
     string first = arr1[0];
+    // cout << first << endl;
 
     string ans = "";
 
     t -> lcp (first , ans);
 
     cout << ans << endl;
+
+// todo: second approach with time complexity O(n * m) and space complexity O(1)
+    string ans2 = "";
+    string done = longestCommonPrefix(arr1 , ans2 , n);
+    cout << "done is : " << done << endl;
 
     return 0;
 }
