@@ -186,7 +186,7 @@ vector<vector<string>> phoneDirectory(vector<string> &contactList, string &query
 int main() {
     
     vector<string> contactList = {"cod", "coding", "codding", "code", "coly"};
-    string queryStr = "coding";
+    string queryStr = "cod";
     vector<vector<string>> result = phoneDirectory(contactList, queryStr);
 
     for (const auto &suggestions : result) {
