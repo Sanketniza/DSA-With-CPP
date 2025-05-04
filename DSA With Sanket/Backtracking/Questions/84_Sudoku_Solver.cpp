@@ -32,6 +32,7 @@ Sample Input 1
 1 3 0 0 0 0 2 5 0
 0 0 0 0 0 0 0 7 4
 0 0 5 2 0 6 3 0 0
+
 Sample Output 1
 3 1 6 5 7 8 4 9 2
 5 2 9 1 3 4 7 6 8
@@ -78,7 +79,7 @@ bool solve(vector<vector<int>> &board) {
 
     for (int row = 0; row < n; row++) {
         for (int col = 0; col < n; col++) {
-            // Check if cell is empty
+
             if (board[row][col] == 0) {
                 for (int val = 1; val <= 9; val++) {
                     if (isSafe(board, n, row, col, val)) {
@@ -96,6 +97,7 @@ bool solve(vector<vector<int>> &board) {
                 }
                 return false; // If no number from 1 to 9 can be placed
             }
+            
         }
     }
     return true; // When all cells are filled
