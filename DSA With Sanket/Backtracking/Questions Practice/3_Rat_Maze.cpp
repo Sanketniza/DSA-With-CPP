@@ -59,15 +59,43 @@ int main() {
     vector<vector<int>> arr = {
         {1, 0, 0, 0},
         {1, 1, 0, 1},
-        {0, 1, 0, 0},
+        {0, 1, 1, 0},
         {1, 1, 1, 1}
     };
 
     int n = arr.size();
 
     vector<string> ans = maze(arr, n);
+    cout << "Paths to reach the destination: " << endl;
     for (const string &path : ans) {
         cout << path << " ";
     }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(string s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(auto s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(auto &s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
+
+    
  return 0;
 }

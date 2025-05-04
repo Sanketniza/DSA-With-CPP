@@ -111,7 +111,7 @@ vector<string> searchMaze(vector<vector<int>> &arr, int n) {
 
     if (arr[0][0] == 0) {
         return ans;
-    }
+    } 
 
     solve(0, 0, arr, n, ans, visited, path);
 
@@ -128,11 +128,37 @@ int main() {
     };
 
     int n = maze.size();
-    vector<string> result = searchMaze(maze, n);
+    cout << "size of maze: " << n << "x" << n << endl;
+    vector<string> ans = searchMaze(maze, n);
 
-    for (const string &path : result) {
+     cout << "Paths to reach the destination: " << endl;
+    for (const string &path : ans) {
         cout << path << " " << endl;
     }
+
+    cout << "Paths to reach the destination: " << endl;
+    for(int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(string s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(auto s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
+
+    cout << "Paths to reach the destination: " << endl;
+    for(auto &s : ans) {
+        cout << s << " ";
+    }
+    cout << endl << endl;
 
     return 0;
 }
