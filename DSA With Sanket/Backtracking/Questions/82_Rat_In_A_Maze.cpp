@@ -62,6 +62,7 @@ bool isSafe(int newx, int newy, vector<vector<int>> &arr, int n, vector<vector<b
 }
 
 void solve(int x, int y, vector<vector<int>> &arr, int n, vector<string> &ans, vector<vector<bool>> &vis, string path) {
+    
     // base case
     if (x == n - 1 && y == n - 1) {
         ans.push_back(path);
@@ -122,7 +123,7 @@ int main() {
     vector<vector<int>> maze = {
         {1, 0, 0, 0},
         {1, 1, 0, 1},
-        {0, 1, 0, 0},
+        {0, 1, 1, 0},
         {1, 1, 1, 1}
     };
 
