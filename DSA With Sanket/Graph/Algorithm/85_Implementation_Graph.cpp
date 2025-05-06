@@ -13,9 +13,11 @@ class graph {
             // direction = 0 -> undirected graph
             // direction = 1 -> directed graph
 
+            // first create an edge from u to v
             adj[u].push_back(v);
 
-            if(direction == 0) {
+            if(direction == 0) { // undirected graph
+                // then create an edge from v to u
                 adj[v].push_back(u);
             } 
         }
