@@ -4,6 +4,7 @@
 #include<queue>
 using namespace std;
 
+// global variable
 vector<vector<int>> adj; // Adjacency list
 
 void bfs(int node, vector<bool>& visited, queue<int>& q, vector<vector<int>>& result) {
@@ -65,6 +66,13 @@ int main() {
         {3, 4},
         {3, 5}
     };
+
+    // for(auto i : edge) {
+    //     for(auto j : i) {
+    //         cout << j << " ";
+    //     }
+    //     cout << endl;
+    // }
 
     vector<vector<int>> result = PrintBFS(v, e, edge);
 
