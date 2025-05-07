@@ -68,6 +68,7 @@ bool bfs(int node , unordered_map<int , bool> &visited , unordered_map<int, list
     unordered_map<int , int > parent;
     visited[node] = true;
     parent[node] = -1;
+    // cout << "node : " << node << endl;
 
     queue<int> q;
     q.push(node);
@@ -129,7 +130,7 @@ int main() {
 
     /* 
         1 - - - 2
-          \    /
+          \   /
             3
      */
 

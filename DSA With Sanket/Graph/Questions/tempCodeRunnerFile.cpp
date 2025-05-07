@@ -1,1 +1,1 @@
-printAdjacency
+solve
