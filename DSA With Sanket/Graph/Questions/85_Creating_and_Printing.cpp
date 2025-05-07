@@ -74,7 +74,7 @@ vector<vector<int>> printAdjacency (int node , int e , vector<vector<int> > &edg
         int u = edges[i][0];
         int v = edges[i][1];
 
-        cout << "value of u and v : " << u << " " << v << endl;
+        // cout << "value of u and v : " << u << " " << v << endl;
 
         ans[u].push_back(v);
         ans[v].push_back(u);
@@ -90,8 +90,8 @@ vector<vector<int>> printAdjacency (int node , int e , vector<vector<int> > &edg
     // }
 
 
-    vector<vector<int>> adj(node);
 
+    vector<vector<int>> adj(node);
     for (int i = 0; i < node; i++) {
         adj[i].push_back(i);
 
@@ -116,7 +116,7 @@ int main() {
         2 1 0
         
     
-     */
+    */
 
         vector<vector<int>> result = printAdjacency(v, E, edges);
 
