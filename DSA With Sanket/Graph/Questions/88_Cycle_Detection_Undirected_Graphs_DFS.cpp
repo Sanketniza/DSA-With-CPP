@@ -64,14 +64,25 @@ Yes
 using namespace std;
 
 bool isCycleDFS(int node, int parent, unordered_map<int, list<int>> &adj, unordered_map<int, bool> &visited) {
-    visited[node] = 1;
 
+    // if the node is already visited, then return true
+    visited[node] = 1;
+    // check for all the neighbours of the node
+
+    // if the neighbour is not visited, then do a DFS on it
     for (auto neighbor : adj[node]) {
+
         if (!visited[neighbor]) {
+            // if the neighbor is not visited, then do a DFS on it
             bool cycleDetected = isCycleDFS(neighbor, node, adj, visited);
-            if (cycleDetected)
+            // if cycle is detected in the DFS, then return true
+            if (cycleDetected) {
                 return true;
-        } else if (neighbor != parent) {
+            }
+        } 
+
+        // if the neighbour is visited and it is not the parent of the current node, then cycle is detected
+        else if (neighbor != parent) {
             return true;
         }
     }
@@ -112,11 +123,11 @@ int main() {
     int v = 3;
     int e = 3;
 
-vector<vector<int> > edges = {
-    {1, 2},
-    {1, 3},
-    {2, 3}
-};
+    vector<vector<int> > edges = {
+        {1, 2},
+        {1, 3},
+        {2, 3}
+    };
 
 
   cycleDetection( edges , v , e);
