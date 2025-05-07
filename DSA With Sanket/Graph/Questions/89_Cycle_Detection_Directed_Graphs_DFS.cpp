@@ -23,10 +23,11 @@ Note :
 
 #include<iostream>
 #include<bits/stdc++.h>
-using namespace std;    
+using namespace std;     
 
 
 bool cycleDetection(int node , unordered_map<int, list<int>> &adj ,unordered_map<int, bool> &visited , unordered_map<int, bool> &dfsVisited) {
+
   visited[node] = true;
   dfsVisited[node] = true;
 
@@ -47,10 +48,14 @@ bool cycleDetection(int node , unordered_map<int, list<int>> &adj ,unordered_map
 }
 
 bool detectCycleInDirectedGraph(int n, vector<pair<int, int>> &edges) {
+
   unordered_map<int, list<int>> adj;
+
   for (int i = 0; i < edges.size(); i++) {
+
     int u = edges[i].first - 1;
     int v = edges[i].second - 1;
+
     adj[u].push_back(v);
   }
 
