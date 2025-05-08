@@ -44,7 +44,7 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges) {
     // Perform DFS for each node
     for (int i = 0; i < V; i++) { // V -> Total number of nodes in graph
         if (!visited[i]) {
-            vector<int> component;
+            vector<int> component; // To store the current component
             dfs(i, visited, adj, component);
             ans.push_back(component);
         }
