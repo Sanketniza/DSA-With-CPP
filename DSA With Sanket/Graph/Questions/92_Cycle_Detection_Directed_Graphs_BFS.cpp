@@ -63,28 +63,33 @@ class Graph{
         // prepare adj list
         unordered_map<int, list<int>> adj;
         for (int i = 0; i < edges.size(); i++) {
-          int u = edges[i].first - 1;
-          int v = edges[i].second - 1;
-          adj[u].push_back(v);
+
+            int u = edges[i].first - 1;
+            int v = edges[i].second - 1;
+
+            adj[u].push_back(v);
+
         }
 
-           // find out indegree
+        // find out indegree
         vector<int> indegree(n, 0);
+
         for(auto i:adj) {
-          for(auto j:i.second) {
-            indegree[j]++;
-          }
+
+            for(auto j:i.second) {
+                indegree[j]++;
+            }
         }
 
-           // push 0 degree element into queue
+        // push 0 degree element into queue
         queue<int> q;
         for(int i = 0; i < n; i++) {
-          if(indegree[i] == 0) {
-            q.push(i);
-          }
+            if(indegree[i] == 0) {
+                q.push(i);
+            }
         }
 
-           // do bfs
+        // do bfs
         int cnt = 0;
 
         while (!q.empty()) {
@@ -95,21 +100,22 @@ class Graph{
             cnt++;
 
             for(auto neineighbor:adj[front]) {
-              indegree[neineighbor]--;
-              if(indegree[neineighbor] == 0) {
-                q.push(neineighbor);
-              }
+                indegree[neineighbor]--;
+
+                if(indegree[neineighbor] == 0) {
+                    q.push(neineighbor);
+                }
             }
 
         }
 
-            if(cnt == n) {
-                 return false;
-            } 
+        if(cnt == n) {
+            return false;
+        } 
 
-            else {
-                 return true;
-            }
+        else {
+            return true;
+        }
 
     }
 
@@ -117,7 +123,7 @@ class Graph{
 
 int main() { 
 
-       int n, e;
+    int n, e;
     cin >> n >> e;
 
     vector<pair<int, int>> edges(e);
