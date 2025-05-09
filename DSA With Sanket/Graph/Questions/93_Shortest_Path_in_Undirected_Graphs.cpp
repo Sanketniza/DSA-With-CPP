@@ -32,15 +32,15 @@ vector<int> solve (vector<pair<int, int> > &edges , int n , int s , int t ) {
 	queue<int> q;
 
 	q.push(s);
-	parent[s] = -1;
 	visited[s] = true;
+	parent[s] = -1;
 
 	while (!q.empty()) {
 		int front = q.front();
 		q.pop();
 
 		for(auto i:adj[front]) {
-		if(!visited[i]) {
+			if(!visited[i]) {
 				q.push(i);
 				parent[i] = front;
 				visited[i] = true;
