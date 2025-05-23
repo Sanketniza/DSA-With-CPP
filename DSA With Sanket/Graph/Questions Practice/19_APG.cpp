@@ -22,26 +22,7 @@ void dfs(int node, int parent, int &timer, vector<int> &dis, vector<int> &low, v
             continue;
         }
 
-        if(!visited[nbr]) {
-
-            dfs(nbr, node, timer, dis, low, visited, adj, ap);
-            low[node] = min(low[node], low[nbr]);
-
-            // check for articulation point
-
-            if(low[nbr] >= dis[node] && parent != -1) {
-                ap[node] = 1;
-            }
-            child++;
-        }
-
-        else {
-            low[node] = min(low[node], dis[nbr]);
-        }
-    } 
-
-    if(parent == -1 && child > 1) {
-        ap[node] = 1;
+    ] = 1;
     }
 }
  
@@ -78,10 +59,7 @@ int main() {
     vector<int> ap(n, 0);
     int timer = 0;
 
-    // for(int i = 0; i < n; i++) {  // no need due to  low(n, -1) , dis(n, -1)
-    //     low[i] = -1;
-    //     dis[i] = -1;
-    // }
+   
 
     for(int i = 0; i < n; i++) {
 
@@ -98,6 +76,8 @@ int main() {
     }
      
     cout << endl; 
+
+
     
 
     return 0;
