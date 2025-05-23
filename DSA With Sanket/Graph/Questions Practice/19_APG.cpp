@@ -1,84 +1,63 @@
-/* 
-    Lecture 99: Articulation Points in Graphs
-    Link: https://www.youtube.com/watch?v=aZXi1unBdJA&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=99
-
- */
-
-#include<iostream>
-#include<bits/stdc++.h>
+#include <vector>
+#include <iostream>
 using namespace std;
 
+vector<int> bellmanFord(int n, int m, int src, vector<vector<int>> &edges) {
+    vector<int> dist(n + 1, 1e8);
+    dist[src] = 0;
 
-void dfs(int node, int parent, int &timer, vector<int> &dis, vector<int> &low, vector<bool> &visited, unordered_map<int, list<int> > &adj, vector<int> &ap) {
+    // Travel n - 1 times
+    for (int i = 1; i <= n - 1; i++) {
+        // Travel on edge list
+        for (int j = 0; j < m; j++) {
+            int u = edges[j][0];
+            int v = edges[j][1];
+            int wt = edges[j][2];
 
-    visited[node] = true;
-    dis[node] = low[node] = timer++;
-
-    int child = 0;
-
-    for(auto nbr:adj[node]) {
-
-        if(nbr == parent) {
-            continue;
+            if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
+                dist[v] = dist[u] + wt;
+            }
         }
-
-    ] = 1;
     }
+
+    // Check for negative weight cycle
+    for (int j = 0; j < m; j++) {
+        int u = edges[j][0];
+        int v = edges[j][1];
+        int wt = edges[j][2];
+
+        if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
+            // Negative weight cycle detected
+            return {};
+        }
+    }
+
+    // Replace 1e8 with 1e8 for unreachable nodes
+    for (int i = 1; i <= n; i++) {
+        if (dist[i] == 1e8) {
+            dist[i] = 1e8;
+        }
+    }
+
+    return dist;
 }
- 
-int main() { 
 
-    int n = 5;
-    int e = 5;
+int main() {
+    int n = 2, m = 1, src = 1;
+    vector<vector<int>> edges = {
+        {2, 1, 3}
+    };
 
-    vector<pair<int,int> > edge;
+    vector<int> result = bellmanFord(n, m, src, edges);
 
-    edge.push_back({0 ,3});
-    // edge.push_back(make_pair(0 ,3));
-    edge.push_back(make_pair(3 ,4));
-    edge.push_back(make_pair(3 ,4));
-    edge.push_back(make_pair(0 ,4));
-    edge.push_back(make_pair(0, 1));
-    edge.push_back(make_pair(1 ,2));
-
-
-    unordered_map<int , list<int> > adj;
-
-    for(int i = 0; i < edge.size(); i++) {
-        int u = edge[i].first;
-        int v = edge[i].second;
-
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-
-    vector<int> low(n, -1);
-    vector<int> dis(n, -1);
-    int parent = -1;
-    vector<bool> visited(n, false);
-    vector<int> ap(n, 0);
-    int timer = 0;
-
-   
-
-    for(int i = 0; i < n; i++) {
-
-        if(!visited[i]) {
-            dfs(i,parent, timer, dis, low , visited, adj, ap);
+    if (result.empty()) {
+        cout << "Negative weight cycle detected" << endl;
+    } else {
+        for (int i = 1; i <= n; i++) {
+            cout << result[i] << " ";
         }
+        cout << endl;
     }
-
-    cout << "Articulation points in graph : " << endl;
-    for(int i = 0; i < n; i++) {
-        if(ap[i] == 1) {
-            cout << i << " ";
-        }
-    }
-     
-    cout << endl; 
-
-
-    
 
     return 0;
 }
