@@ -2,21 +2,6 @@
 #include<iostream>
 using namespace std;
 
-/* 
-    Heapify is the process of converting a binary tree into a heap data structure.
-    It is used to create a Max-Heap or Min-Heap from an array.
-
-    ? In a Max-Heap, the parent node is always greater than its child nodes.
-    ? In a Min-Heap, the parent node is always smaller than its child nodes.
-
-    Heapify is used to create a heap from an array.
-    Heapify is used to maintain the heap property of the heap.
-
-    todo: time complexity of heapify is = O(log n)
-    todo: space complexity of heapify is = O(1)
-    where n is the number of elements in the heap.
-
- */
 
 class heapify {
 
@@ -74,33 +59,7 @@ int main() {
         h.heapifyAlgo(arr, n, i); // call the heapify function for the non-leaf nodes
     }
 
-    /* 
-       ? for (int i = n/2 - 1; i >= 0; i--) {
-       ?     h.heapifyAlgo(arr, n, i);
-       ? }
-
-       ? then :
-       ? int left = 2*i + 1;
-       ? int right = 2*i + 2;
-
-        ? if(left < n && arr[left] > arr[largest])  // indexing is starting from 0
-
-        ? if(right < n && arr[right] > arr[largest]) // indexing is starting from 0
-    
-     */
-
-    /* 
-        tree representation of the array after heapify is :
-
-                55
-               /  \
-              53   54
-             /  \
-           52   50
-
-           array representation of the tree is :
-           -1, 55, 53, 54, 52, 50
-     */
+  
 
     cout << "Printing the array after heapify" << endl;
     for(int i = 1; i <= n; i++) {
