@@ -2,23 +2,7 @@
 #include<iostream>
 using namespace std;
 
-/* 
 
-    *   TIME COMPLEXITY : O(logN)
-    *   SPACE COMPLEXITY : O(1)
-
-*/
-
-    //? 1. Create a class Heap
-    //? 2. Create an array of size 100
-    //? 3. Create a variable size to keep track of number of elements in heap
-    //? 4. Create a constructor to initialize size to 0 and arr[0] to -1 & initialize size to 0
-    //? 5. Create a function insert to insert an element in heap
-    //? 6. Create a function deletion to delete the root element from heap
-    //? 7. Create a function print to print the heap
-    //? 8. Create a main function to test the heap
-    //? 9. In main function, create an object of Heap class and call insert and deletion functions
-    //? 10. Print the heap after each operation
 
 class  Heap {
 
@@ -28,16 +12,16 @@ class  Heap {
 
         Heap() {
             arr[0] = -1;
-            size = 0; // -> initialize size to 0 means index 0 is not used
+            size = 0; 
         }
 
         void insert(int val) {
 
-            size = size + 1;  //-> put inserted value at last index of array / insert at last position
-            int index = size;  //-> index of inserted value in array
-            arr[index] = val;  //-> insert value at last index in array
+            size = size + 1;  
+            int index = size; 
+            arr[index] = val; 
 
-            while(index > 1) {  //-> while inserted value is not at root position , means it is not at 1st position
+            while(index > 1) {  
 
                 int parent = index/2;  //-> parent of inserted value
 
@@ -47,7 +31,7 @@ class  Heap {
                 }
 
                 else {
-                    return;  //-> if parent is greater than inserted value , then return
+                    return;  
                 } 
             }
         }
