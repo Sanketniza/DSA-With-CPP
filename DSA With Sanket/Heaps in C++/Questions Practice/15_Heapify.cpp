@@ -55,28 +55,30 @@ class heap {
                 int rightIndex = 2 * i + 1;
                 
                    if(leftIndex < size && arr[i] < arr[leftIndex]) {
-                //(leftIndex < size) --> if leftIndex is less than size , means left child is present
-                //(arr[i] < arr[leftIndex]) --> if parent is less than left child , then swap
-
+                
+                
                     swap(arr[i], arr[leftIndex]);
-                    i = leftIndex;  //-> update i to leftIndex
+                    i = leftIndex;  
+                    
                 }
 
                 else if(rightIndex < size && arr[i] < arr[rightIndex]) {
-                //(rightIndex < size) --> if rightIndex is less than size , means right child is present
-                //(arr[i] < arr[rightIndex]) --> if parent is less than right child , then swap
-
+               
+               
                     swap(arr[i], arr[rightIndex]);
-                    i = rightIndex;  //-> update i to rightIndex
+                    i = rightIndex;  
+                    
                 }
 
                 else {
-                    return;  //-> if parent is greater than both children , then return
+                    return;  
+                    
                 }
             }
 
 
         }
+
 
         void print() {
 
@@ -98,6 +100,7 @@ int main() {
     h.insert(33);
     h.insert(4);
     h.insert(50);
+
 
     h.print();
 
