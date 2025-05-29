@@ -1,69 +1,87 @@
-
 #include<iostream>
+#include<queue>
 using namespace std;
 
+/* 
+    why priority queue?
+    - It is a container that stores elements in a specific order.
+    - It is a queue where the elements are stored in a specific order.
+    - It is a heap where the elements are stored in a specific order.
 
-class heapify {
+    priority queue is implemented using heap. we can use max heap and min heap.
 
-    public:
+    by default, priority queue is a max heap.
+    to use min heap, we need to pass a comparator.
 
-    void heapifyAlgo(int arr[], int n, int i) {
+    syntax:
+    ? priority_queue<int> maxi; // max heap
+    ? priority_queue<int, vector<int>, greater<int>> mini; // min heap
 
-        int parent = i; // Initialize parent as root , means i is the index of the root which is first element of the array
-        int left = 2*i ; // left child of the root, if index is starting from 0 then left child is 2*i + 1 ,if index is starting from 1 then left child is 2*i
-        int right = 2*i + 1; // right child of the root, if index is starting from 0 then right child is 2*i + 2 ,if index is starting from 1 then right child is 2*i + 1
-        cout << "parent is :" << parent << " " << arr[parent] << endl;
-        cout << "left is :" << left << " " << arr[left] << endl;
-        cout << "right is :" << right << " " << arr[right] << endl;
-
-        if(left <= n && arr[left] > arr[parent]) {
-            // if left child is greater than the root && left child is in the range of the array
-            parent = left;
-        }
-
-        if(right <= n && arr[right] > arr[parent]) {
-            // if right child is greater than the root && right child is in the range of the array
-            parent = right;
-        }
-
-        if(parent != i) { // if parent is not the root
-            swap(arr[parent], arr[i]); // swap the root with the parent   
-            heapifyAlgo(arr, n, parent); // call the function recursively for the parent index to check if it is following the heap property or not
-        }
-
-    }
-
-};
+    * no need to write heapify function. it is already implemented in STL. also no need to write heap sort. 
+ */
 
 int main() {
 
-    int arr[] = {-1 , 54, 53, 55, 52, 50};
-    cout << "size of the array is : " << sizeof(arr)/sizeof(arr[0]) << endl;
 
-    /* 
-        -1 is used to make the calculations easier, it is not part of the array
+    // -------------------- Max Heap --------------------
 
-        tree representation of the array is :
+    priority_queue<int> maxi;
+    // syntax for max heap
 
-                54
-               /  \
-              53   55
-             /  \
-            52   50
-     */
-    int n = 5; // size of the array
+    maxi.push(1);
+    maxi.push(3);
+    maxi.push(2);
+    maxi.push(0);
 
-    heapify h;
-    for(int i = n/2; i > 0; i--) { // start from the last non-leaf node, because the leaf nodes are already heapified
-        cout << "i is : " << i << endl;
-        h.heapifyAlgo(arr, n, i); // call the heapify function for the non-leaf nodes
+    cout << "Size of maxi: " << maxi.size() << endl;
+    cout << "Top element of maxi: " << maxi.top() << endl;
+    maxi.pop();
+    cout << "Top element of maxi after pop: " << maxi.top() << endl;
+    cout << "Size of maxi after pop: " << maxi.size() << endl;
+
+    if(maxi.empty()) {
+        cout << "Maxi is empty" << endl;
+    }
+    else {
+        cout << "Maxi is not empty" << endl;
     }
 
-  
+    cout << "Elements of maxi: ";
+    int n = maxi.size();
+    for(int i = 0; i < n; i++) {
+        cout << maxi.top() << " ";
+        maxi.pop();
+    }
+    cout << endl;
 
-    cout << "Printing the array after heapify" << endl;
-    for(int i = 1; i <= n; i++) {
-        cout << arr[i] << " ";
+    // -------------------- Min Heap --------------------
+
+    priority_queue<int, vector<int>, greater<int>> mini;
+    // syntax for min heap
+
+    mini.push(1);
+    mini.push(3);
+    mini.push(2);
+    mini.push(0);
+
+    cout << "Size of mini: " << mini.size() << endl;
+    cout << "Top element of mini: " << mini.top() << endl;
+    mini.pop();
+    cout << "Top element of mini after pop: " << mini.top() << endl;
+    cout << "Size of mini after pop: " << mini.size() << endl;
+
+    if(mini.empty()) {
+        cout << "Mini is empty" << endl;
+    }
+    else {
+        cout << "Mini is not empty" << endl;
+    }
+
+    cout << "Elements of mini: ";
+    int m = mini.size();
+    for(int i = 0; i < m; i++) {
+        cout << mini.top() << " ";
+        mini.pop();
     }
     cout << endl;
 
