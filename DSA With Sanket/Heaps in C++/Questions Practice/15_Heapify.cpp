@@ -1,89 +1,109 @@
+
 #include<iostream>
-#include<queue>
 using namespace std;
 
-/* 
-    why priority queue?
-    - It is a container that stores elements in a specific order.
-    - It is a queue where the elements are stored in a specific order.
-    - It is a heap where the elements are stored in a specific order.
+class heap {
+    public:
+        int arr[100];
+        int size;
 
-    priority queue is implemented using heap. we can use max heap and min heap.
+        heap() {
+            arr[0] = -1;
+            size = 0;
+        }
 
-    by default, priority queue is a max heap.
-    to use min heap, we need to pass a comparator.
+        void insert(int val) {
 
-    syntax:
-    ? priority_queue<int> maxi; // max heap
-    ? priority_queue<int, vector<int>, greater<int>> mini; // min heap
+            size = size + 1;
+            int index = size;
+            arr[index] = val;
 
-    * no need to write heapify function. it is already implemented in STL. also no need to write heap sort. 
- */
+            while (index > 1) {
+
+                int parent = index /2;
+
+                if(arr[parent] < arr[index] ) {
+                    swap(arr[parent] , arr[index]);
+                    index = parent;
+                }
+
+                else {
+                    return ;
+                }
+            }
+        }
+
+        void deletion() {
+
+            if( size == 0) {
+                cout << "nothing is here to delete" << endl;
+                return;
+            }
+
+            // step 1: 
+            arr[1] = arr[size];
+
+            // step 2
+            size--;
+
+            // step 3
+            int i = 1;
+
+            while ( i < size) {
+
+                int leftIndex = 2 * i;
+                int rightIndex = 2 * i + 1;
+                
+                   if(leftIndex < size && arr[i] < arr[leftIndex]) {
+                //(leftIndex < size) --> if leftIndex is less than size , means left child is present
+                //(arr[i] < arr[leftIndex]) --> if parent is less than left child , then swap
+
+                    swap(arr[i], arr[leftIndex]);
+                    i = leftIndex;  //-> update i to leftIndex
+                }
+
+                else if(rightIndex < size && arr[i] < arr[rightIndex]) {
+                //(rightIndex < size) --> if rightIndex is less than size , means right child is present
+                //(arr[i] < arr[rightIndex]) --> if parent is less than right child , then swap
+
+                    swap(arr[i], arr[rightIndex]);
+                    i = rightIndex;  //-> update i to rightIndex
+                }
+
+                else {
+                    return;  //-> if parent is greater than both children , then return
+                }
+            }
+
+
+        }
+
+        void print() {
+
+            for (int i = 1 ; i <= size ; i++) {
+                cout << arr[i] << " ";
+            }
+
+            cout << endl;
+
+        }
+
+
+};
 
 int main() {
 
+    heap h;
+    h.insert(23);
+    h.insert(33);
+    h.insert(4);
+    h.insert(50);
 
-    // -------------------- Max Heap --------------------
+    h.print();
 
-    priority_queue<int> maxi;
-    // syntax for max heap
+    h.deletion();
+    h.print();
 
-    maxi.push(1);
-    maxi.push(3);
-    maxi.push(2);
-    maxi.push(0);
-
-    cout << "Size of maxi: " << maxi.size() << endl;
-    cout << "Top element of maxi: " << maxi.top() << endl;
-    maxi.pop();
-    cout << "Top element of maxi after pop: " << maxi.top() << endl;
-    cout << "Size of maxi after pop: " << maxi.size() << endl;
-
-    if(maxi.empty()) {
-        cout << "Maxi is empty" << endl;
-    }
-    else {
-        cout << "Maxi is not empty" << endl;
-    }
-
-    cout << "Elements of maxi: ";
-    int n = maxi.size();
-    for(int i = 0; i < n; i++) {
-        cout << maxi.top() << " ";
-        maxi.pop();
-    }
-    cout << endl;
-
-    // -------------------- Min Heap --------------------
-
-    priority_queue<int, vector<int>, greater<int>> mini;
-    // syntax for min heap
-
-    mini.push(1);
-    mini.push(3);
-    mini.push(2);
-    mini.push(0);
-
-    cout << "Size of mini: " << mini.size() << endl;
-    cout << "Top element of mini: " << mini.top() << endl;
-    mini.pop();
-    cout << "Top element of mini after pop: " << mini.top() << endl;
-    cout << "Size of mini after pop: " << mini.size() << endl;
-
-    if(mini.empty()) {
-        cout << "Mini is empty" << endl;
-    }
-    else {
-        cout << "Mini is not empty" << endl;
-    }
-
-    cout << "Elements of mini: ";
-    int m = mini.size();
-    for(int i = 0; i < m; i++) {
-        cout << mini.top() << " ";
-        mini.pop();
-    }
-    cout << endl;
 
  return 0;
 }
