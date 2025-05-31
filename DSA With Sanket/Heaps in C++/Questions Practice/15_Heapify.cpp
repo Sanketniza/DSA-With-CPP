@@ -2,23 +2,6 @@
 #include<queue>
 using namespace std;
 
-/* 
-    why priority queue?
-    - It is a container that stores elements in a specific order.
-    - It is a queue where the elements are stored in a specific order.
-    - It is a heap where the elements are stored in a specific order.
-
-    priority queue is implemented using heap. we can use max heap and min heap.
-
-    by default, priority queue is a max heap.
-    to use min heap, we need to pass a comparator.
-
-    syntax:
-    ? priority_queue<int> maxi; // max heap
-    ? priority_queue<int, vector<int>, greater<int>> mini; // min heap
-
-    * no need to write heapify function. it is already implemented in STL. also no need to write heap sort. 
- */
 
 int main() {
 
@@ -47,7 +30,9 @@ int main() {
     }
 
     cout << "Elements of maxi: ";
+
     int n = maxi.size();
+
     for(int i = 0; i < n; i++) {
         cout << maxi.top() << " ";
         maxi.pop();
@@ -66,24 +51,34 @@ int main() {
 
     cout << "Size of mini: " << mini.size() << endl;
     cout << "Top element of mini: " << mini.top() << endl;
+
     mini.pop();
+
     cout << "Top element of mini after pop: " << mini.top() << endl;
     cout << "Size of mini after pop: " << mini.size() << endl;
 
     if(mini.empty()) {
+
         cout << "Mini is empty" << endl;
     }
+
+
     else {
-        cout << "Mini is not empty" << endl;
+        c
+        out << "Mini is not empty" << endl;
     }
 
     cout << "Elements of mini: ";
+
     int m = mini.size();
+
     for(int i = 0; i < m; i++) {
         cout << mini.top() << " ";
         mini.pop();
     }
+
     cout << endl;
 
  return 0;
+ 
 }
