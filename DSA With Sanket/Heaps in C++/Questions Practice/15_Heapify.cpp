@@ -1,84 +1,38 @@
 #include<iostream>
-#include<queue>
+#include<bits/stdc++.h>
 using namespace std;
-
 
 int main() {
 
+    vector<int> arr = {4, 3, 2, 6};
+    int n = arr.size();
 
-    // -------------------- Max Heap --------------------
+    // Create a min heap
+    priority_queue<int , vector<int> , greater<int> > q;
+    // priority_queue<int , vector<int> , greater<int> > q(arr.begin(), arr.end());
 
-    priority_queue<int> maxi;
-    // syntax for max heap
-
-    maxi.push(1);
-    maxi.push(3);
-    maxi.push(2);
-    maxi.push(0);
-
-    cout << "Size of maxi: " << maxi.size() << endl;
-    cout << "Top element of maxi: " << maxi.top() << endl;
-    maxi.pop();
-    cout << "Top element of maxi after pop: " << maxi.top() << endl;
-    cout << "Size of maxi after pop: " << maxi.size() << endl;
-
-    if(maxi.empty()) {
-        cout << "Maxi is empty" << endl;
-    }
-    else {
-        cout << "Maxi is not empty" << endl;
+    for(auto i : arr) {
+        q.push(i);
     }
 
-    cout << "Elements of maxi: ";
+    int cost = 0;
 
-    int n = maxi.size();
+    while (q.size() > 1) {
 
-    for(int i = 0; i < n; i++) {
-        cout << maxi.top() << " ";
-        maxi.pop();
-    }
-    cout << endl;
+        int a = q.top();
+        q.pop();
 
-    // -------------------- Min Heap --------------------
+        int b = q.top();
+        q.pop();
 
-    priority_queue<int, vector<int>, greater<int>> mini;
-    // syntax for min heap
+        int sum = a + b;
 
-    mini.push(1);
-    mini.push(3);
-    mini.push(2);
-    mini.push(0);
+        cost += sum;
 
-    cout << "Size of mini: " << mini.size() << endl;
-    cout << "Top element of mini: " << mini.top() << endl;
-
-    mini.pop();
-
-    cout << "Top element of mini after pop: " << mini.top() << endl;
-    cout << "Size of mini after pop: " << mini.size() << endl;
-
-    if(mini.empty()) {
-
-        cout << "Mini is empty" << endl;
+        q.push(sum);
     }
 
-
-    else {
-        c
-        out << "Mini is not empty" << endl;
-    }
-
-    cout << "Elements of mini: ";
-
-    int m = mini.size();
-
-    for(int i = 0; i < m; i++) {
-        cout << mini.top() << " ";
-        mini.pop();
-    }
-
-    cout << endl;
+    cout << "Minimum cost to connect ropes: " << cost << endl;
 
  return 0;
- 
 }
