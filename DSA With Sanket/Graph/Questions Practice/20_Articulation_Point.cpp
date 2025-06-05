@@ -1,27 +1,30 @@
-#include<iostream>
-#include<bits/stdc++.h>
+// C++ program to find articulation points using a naive DFS approach
+
+#include <bits/stdc++.h>
 using namespace std;
 
-void dfs(int node , vector<bool> &visited , unordered_map<int , list<int>> &adj ) {
-
+// Standard DFS to mark all reachable nodes
+void dfs(int node, unordered_map<int , list<int>> &adj, vector<bool> &visited) {
     visited[node] = true;
-
-    for(auto nbr : adj[node]) {
-
-        if(!visited[nbr]) {
-            dfs(nbr , visited , adj );
+    
+    for (int neighbor : adj[node]) {
+        
+        if (!visited[neighbor]) {
+            dfs(neighbor, adj, visited);
         }
     }
 }
 
-vector<int> articulationPoints(int v , vector<vector<int>> &edge) {
 
+// Finds articulation points using naive DFS approach
+vector<int> articulationPoints(int V, vector<vector<int>> &edges) {
+    
     unordered_map<int , list<int>> adj;
 
-    for(int i = 0; i < edge.size(); i++) {
+    for(int i = 0; i < edges.size(); i++) {
 
-        int u = edge[i][0];
-        int v = edge[i][1];
+        int u = edges[i][0];
+        int v = edges[i][1];
 
         adj[u].push_back(v);
         adj[v].push_back(u);
@@ -29,51 +32,48 @@ vector<int> articulationPoints(int v , vector<vector<int>> &edge) {
 
     vector<int> res;
 
-    for(int i = 0; i < v; i++) {
-
-        vector<bool> visited(v , false);
+    // Try removing each node one by one
+    for (int i = 0; i < V; ++i) {
+        vector<bool> visited(V, false);
         visited[i] = true;
+        
+        // count DFS calls from i's neighbors
+        int comp = 0; 
+        for (auto it : adj[i]) {
+            
+            // early stop if already more than 1 component
+            if (comp > 1) break; 
 
-        // cout dfs call for i's neighbours
-
-        int count = 0;
-
-        for(auto nbr : adj[i]) {
-
-            if(count > 1) {
-                break;
-            }
-
-            if(!visited[nbr]) {
-                dfs(nbr , visited , adj);
-                count++;
+            if (!visited[it]) {
+                
+                // explore connected part
+                dfs(it, adj, visited); 
+                comp++;
             }
         }
 
-        if(count > 1) {
+        // if more than one component forms, it's an articulation point
+        if (comp > 1)
             res.push_back(i);
-        }
     }
 
-    if(res.empty()) {
+    if (res.empty())
         return {-1};
-    }
 
     return res;
 }
 
 int main() {
+    
+    int V = 5;
+    vector<vector<int>> edges = {{0, 1}, {1, 4}, {2, 3}, {2, 4}, {3, 4}};
 
-    int v;
-    vector<vector<int>> edges {{0, 1}, {0, 2}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {3, 5}};
-
-    vector<int> ans = articulationPoints(v, edges);
+    vector<int> ans = articulationPoints(V, edges);
 
     cout << "Articulation Points are: ";
-    // for(auto i : ans) {
-    //     cout << i << " ";
-    // }
+    for (auto it : ans) {
+        cout << it << " ";
+    }
 
-
- return 0;
+    return 0;
 }
