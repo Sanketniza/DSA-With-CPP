@@ -121,6 +121,7 @@ int main() {
 
 // C++ program to find articulation points using a naive DFS approach
 
+/*
  #include <bits/stdc++.h>
 using namespace std;
 
