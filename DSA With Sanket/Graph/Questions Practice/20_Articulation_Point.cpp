@@ -61,7 +61,7 @@ vector<int> articulationPoints(int V, vector<vector<int>> &edges) {
         return {-1};
 
     return res;
-}
+} 
 
 int main() {
     
