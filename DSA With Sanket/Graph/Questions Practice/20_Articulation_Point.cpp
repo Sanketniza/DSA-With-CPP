@@ -67,6 +67,7 @@ int main() {
     
     int V = 5;
     vector<vector<int>> edges = {{0, 1}, {1, 4}, {2, 3}, {2, 4}, {3, 4}};
+                        // here {0 , 1} means 0 is connected to 1
 
     vector<int> ans = articulationPoints(V, edges);
 
