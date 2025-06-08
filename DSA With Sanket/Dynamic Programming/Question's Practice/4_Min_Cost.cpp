@@ -13,6 +13,20 @@ int solve(vector<int> &cost , int n) {
     return ans;
 }
 
+int solve1(vector<int> &cost , int n , vector<int> &dp) {
+    
+    // base case
+    if(n == 0) return cost[0];
+    if(n == 1) return cost[1];
+
+    if(dp[n] != -1) return dp[n];
+
+    int ans = cost[n] + min(solve1(cost , n - 1 , dp) , solve1(cost , n - 2 , dp));
+    dp[n] = ans;
+    return dp[n];
+    // return dp[n] = ans; // This line can also be used directly
+}
+
 int main() {
 
     int m;
@@ -32,6 +46,9 @@ int main() {
     cout << "ans is : " << a << endl;
 
     // Approach 1: Top-Down (Recursive + Memoization)
+    vector<int> dp(n + 1 , -1);
+    int b = min(solve1(cost , n - 1 , dp) , solve1(cost , n - 2 , dp));
+    cout << "ans is : " << b << endl;
 
  return 0;
 }
