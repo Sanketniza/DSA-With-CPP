@@ -1,7 +1,7 @@
 
 /* 
-    Minimum Elements
-    https://www.naukri.com/code360/problems/minimum-elements_3843091?leftPanelTab=0&leftPanelTabValue=PROBLEM
+   ?  Minimum Elements
+   ?  https://www.naukri.com/code360/problems/minimum-elements_3843091?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
     Problem statement
 You are given an array of ‘N’ distinct integers and an integer ‘X’ representing the target sum. You have to tell the minimum number of elements you have to take to reach the target sum ‘X’.
@@ -77,6 +77,7 @@ int solveRec(vector<int> &num  , int x) {
 
         if(ans != INT_MAX) {
             mini = min(mini , 1 + ans );
+           
         }
     }
 
