@@ -41,6 +41,20 @@ int solve2(vector<int> &cost , int n) {
     return min(dp[n - 1], dp[n - 2]);
 }
 
+int op(vector<int> &cost , int n) {
+    
+    int first = cost[0];
+    int second = cost[1];
+
+    for(int i = 2; i < n; i++) {
+        int curr = cost[i] + min(first , second);
+        first = second;
+        second = curr;
+    }
+
+    return min(first , second);
+}
+
 int main() {
 
     int m;
@@ -67,6 +81,10 @@ int main() {
     // Approach 2: Bottom-Up (Tabulation)
     int c = solve2(cost, n );
     cout << "ans2 is : " << c << endl;
+
+    // Approach 3: Space Optimized
+    int d = op(cost, n);
+    cout << "ans3 is : " << d << endl;
 
  return 0;
 }

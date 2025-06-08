@@ -29,8 +29,9 @@ Explanation: You will start at index 0.
 - Pay 1 and climb two steps to reach index 9.
 - Pay 1 and climb one step to reach the top.
 The total cost is 6.
- */
 
+ */
+ 
  #include<iostream>
  #include<vector>
  using namespace std;
@@ -45,7 +46,7 @@ The total cost is 6.
     * 6. Space Optimization
    
     Approach one : - Top - Down [Recursive + Memoization]
-    Approach two : - Bottom - UP [ Tabulation  ]
+    Approach two : - Bottom - UP [ Tabulation  ] 
     Approach three : - Space Optimization
     
  */
