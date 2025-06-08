@@ -1,6 +1,6 @@
 /* 
-    Min Cost Climbing Stairs
-    https://leetcode.com/problems/min-cost-climbing-stairs/description/
+   ?  Min Cost Climbing Stairs
+   ?  https://leetcode.com/problems/min-cost-climbing-stairs/description/
 
     You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.
 
@@ -116,9 +116,12 @@ The total cost is 6.
  int main() {
  
     int m;
+    cout << "Enter the number of steps: ";
     cin >> m;
 
     vector<int> cost(m);
+    cout << "Enter the cost of each step: ";
+    // Input the cost of each step
     for(int i = 0; i < m; i++) {
         cin >> cost[i];
     }
@@ -134,8 +137,8 @@ The total cost is 6.
          */
 
         //  int n = cost.size();
-         int ans = min(solve(cost , n - 1 ) , solve(cost , n - 2) );
-         cout << "ans is : " << ans << endl;
+        int ans = min(solve(cost , n - 1 ) , solve(cost , n - 2) );
+        cout << "ans is : " << ans << endl;
 
 
     // todo: Approach two : - Recursive + Memoization
