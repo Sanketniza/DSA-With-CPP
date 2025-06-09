@@ -134,7 +134,7 @@ int main() {
 
     // way 1 = recursive
     int n = nums.size();
-    int ans = solve(nums , n - 1);
+    int ans = solve(nums , n - 1); // n - 1 is the last index
     return ans;
 
    // way 2 = R + M
