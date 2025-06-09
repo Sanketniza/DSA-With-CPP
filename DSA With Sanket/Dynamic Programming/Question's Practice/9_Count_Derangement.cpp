@@ -45,9 +45,25 @@ int tab(int n) {
     return dp[n];
 }
 
+int space(int n) {
+
+    int a = 0;
+    int b = 1;
+    int c;
+
+    for(int i = 3; i <= n; i++) {
+
+        c = (i - 1) * (a + b);
+        a = b;
+        b = c;
+    }
+
+    return c; // c will hold the value of dp[n]
+}
+
 int main() {
 
-    int n = 3;
+    int n = 4;
 
     // first way 
     int a = solve(n);
@@ -61,6 +77,10 @@ int main() {
     // third way
     int c = tab(n);
     cout << "Count of derangements using tabulation: " << c << endl;
+
+    // fourth way
+    int d = space(n);
+    cout << "Count of derangements using space optimization: " << d << endl;
 
  return 0;
 }
