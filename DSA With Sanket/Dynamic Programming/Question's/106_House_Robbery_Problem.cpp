@@ -1,6 +1,6 @@
 /* 
-    House Robbery Problem
-    https://www.naukri.com/code360/problems/house-robber_839733?leftPanelTab=0&leftPanelTabValue=PROBLEM
+  ? House Robbery Problem
+  ? https://www.naukri.com/code360/problems/house-robber_839733?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
     Problem statement
 Mr. X is a professional robber planning to rob houses along a street. Each house has a certain amount of money hidden.
@@ -77,17 +77,21 @@ Sample Output 2:
     int b = arr[0];
 
     for(int i = 1; i < n; i++) {
+
         int include = a + arr[i];
-        cout << "include : " << include << endl;
         int exclude = a + b;
-        cout << "exclude : " << exclude << endl;
+
+        // cout << "include : " << include << endl;
+        // cout << "exclude : " << exclude << endl;
 
 
         int temp = max(include , exclude);
-        cout << "temp : " << temp << endl;
+
+        // cout << "temp : " << temp << endl;
         a = b;
         b = temp;
-        cout << "a : " << a << " b : " << b << endl;
+
+        // cout << "a : " << a << " b : " << b << endl;
     }
 
     return b;

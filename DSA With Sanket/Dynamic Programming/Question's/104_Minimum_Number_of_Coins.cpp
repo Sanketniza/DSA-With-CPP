@@ -77,13 +77,10 @@ int solveRec(vector<int> &num  , int x) {
 
         if(ans != INT_MAX) {
             mini = min(mini , 1 + ans );
-           
         }
     }
 
     return mini;
-
-    
 }
 
 int solveRec1(vector<int> &num , int x , vector<int> dp) {
