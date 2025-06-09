@@ -1,17 +1,13 @@
 /* 
- Maximum sum of non-adjacent elements
- https://www.naukri.com/code360/problems/maximum-sum-of-non-adjacent-elements_843261?leftPanelTab=0
+ ? Maximum sum of non-adjacent elements
+ ? https://www.naukri.com/code360/problems/maximum-sum-of-non-adjacent-elements_843261?leftPanelTab=0
 
     Problem statement
 You are given an array/list of ‘N’ integers. You are supposed to return the maximum sum of the subsequence with the constraint that no two elements are adjacent in the given array/list.
 
 Note:
 A subsequence of an array/list is obtained by deleting some number of elements (can be zero) from the array/list, leaving the remaining elements in their original order.
-Detailed explanation ( Input/output format, Notes, Images )
-Constraints:
-1 <= T <= 500
-1 <= N <= 1000
-0 <= ARR[i] <= 10^5
+
 
 Where 'ARR[i]' denotes the 'i-th' element in the array/list.
 
@@ -134,12 +130,12 @@ int solve3(vector<int> &nums) {
 int main() { 
 
     vector<int> nums = {1, 2, 3, 5, 4};
-    int n = nums.size();
+   
 
-     // way 1 = recursive
-    // int n = nums.size();
-    // int ans = solve(nums , n - 1);
-    // return ans;
+    // way 1 = recursive
+    int n = nums.size();
+    int ans = solve(nums , n - 1);
+    return ans;
 
    // way 2 = R + M
 
