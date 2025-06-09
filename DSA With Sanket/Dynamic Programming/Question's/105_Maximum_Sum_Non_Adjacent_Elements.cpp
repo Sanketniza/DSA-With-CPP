@@ -100,7 +100,8 @@ int solve2(vector<int> &nums ) {
     }
 
     for(int i = 1; i < n; i++) {
-        int inclu = dp[i - 2] + nums[i];
+        // int inclu = dp[i - 2] + nums[i];
+         int inclu = (i-2 >= 0) ? dp[i - 2] + v[i] : 0;
         int exclu = dp[i - 1] + 0;
         dp[i] = max(inclu , exclu);
     }
