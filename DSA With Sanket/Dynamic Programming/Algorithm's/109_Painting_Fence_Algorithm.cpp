@@ -1,7 +1,7 @@
 
 /*  
-    Painting Fence Algorithm
-    https://www.naukri.com/code360/problems/ninja-and-the-fence_3210208?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0
+   ?  Painting Fence Algorithm
+   ?  https://www.naukri.com/code360/problems/ninja-and-the-fence_3210208?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0
 
     Problem statement
     There is a fence with n posts, each post can be painted with one of the k colors.
@@ -38,12 +38,7 @@ Say we have the colors with the numbers 1 and 0. We can paint the fence with 3 p
 100
 010
 011
-Detailed explanation ( Input/output format, Notes, Images )
-Constraints :
-1 <= ‘T’ <= 10
-1 <= 'N' <= 10^5
-1 <= 'K' <= 10^5
-Time Limit: 1 sec
+
 Sample Input 1 :
 2
 1 1
@@ -62,13 +57,16 @@ For the second test case, We can paint the fence with 3 posts with the following
 100
 010
 011
-Sample Input 2 :
-2
-2 4
-4 2
-Sample Output 2 :
-16
-10
+
+    Sample Input 2 :
+
+    2 4
+
+    4 2
+    Sample Output 2 :
+    16
+
+    10
  */
 
 #include<iostream>
@@ -93,6 +91,12 @@ int numberOfWays(int n, int k) {
     }
 
     return total;
+
+    // f(n == 1) return k;
+    // if(n == 2) return add(k, mul(k, k - 1));
+
+    // int ans = solve(n - 2, k) * (k - 1) + solve(n - 1, k) * (k - 1);
+    // return ans;
 }
 
 
