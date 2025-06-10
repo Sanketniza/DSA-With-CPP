@@ -40,6 +40,21 @@ int s(int n , int k) {
     return ans;
 }
 
+int tab(int n , int k) {
+
+    vector<int> dp(n + 1, 0);
+    dp[1] = k; // base case
+    dp[2] = add(k, mul(k, k - 1)); // base case
+
+    for(int i = 3; i <= n; i++) {
+        dp[i] = dp[i - 2] * (k - 1) + dp[i - 1] * (k - 1);
+        dp[i] = dp[i] % MOD; // to avoid overflow
+
+    }
+
+    return dp[n];
+}
+
 int main() {
 
     int n = 2 , k = 4;
@@ -51,6 +66,9 @@ int main() {
 
     int b = s(n , k);
     cout << "Number of ways: " << b << endl;
+
+    int c = tab(n , k);
+    cout << "Number of ways: " << c << endl;
 
  return 0;
 }
