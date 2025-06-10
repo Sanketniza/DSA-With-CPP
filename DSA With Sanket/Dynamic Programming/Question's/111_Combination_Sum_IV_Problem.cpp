@@ -1,6 +1,6 @@
 /* 
-    111: Combination Sum IV Problem 
-    https://www.naukri.com/code360/problems/number-of-ways_3755252?leftPanelTab=0&leftPanelTabValue=PROBLEM
+  ?  111: Combination Sum IV Problem 
+  ?  https://www.naukri.com/code360/problems/number-of-ways_3755252?leftPanelTab=0&leftPanelTabValue=PROBLEM
 
     Problem statement
 You are given an array of distinct integers and you have to tell how many different ways of selecting the elements from the array are there such that the sum of chosen elements is equal to the target number tar.
@@ -21,22 +21,17 @@ If N = 3 and tar = 5 and array elements are [1,2,5] then the number of possible 
 (2,1,2)
 (5)
 Hence the output will be 9.
-Detailed explanation ( Input/output format, Notes, Images )
-Constraints:
-1 <= N <= 200
-1 <= nums[i] <= 1000
-All the elements will be unique
-1 <= tar <= 1000
 
-Time limit: 1 sec
 Sample Input 1 :
-2
-3 5
+
+3 sum - 5
 1 2 5
-2 3
+
+2 sum - 3
 1 2
 Sample output 1 :
 9
+
 3
 Explanation For Sample Output 1:
 For the first test case, the number of possible ways will be
