@@ -3,7 +3,7 @@
   ?  https://www.youtube.com/watch?v=aJTCcyPrPOA&list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA&index=121
 
     Get Minimum Squares
-    Difficulty: MediumAccuracy: 45.22%Submissions: 38K+Points: 4
+ 
     Given a number n, find the minimum number of perfect squares (square of an integer) that sum up to n. 
 
     Examples:
@@ -11,9 +11,19 @@
     Input: n = 100
     Output: 1
     Explanation: 10 * 10 = 100
+
     Input: n = 6
     Output: 3
     Explanation = 1 * 1 + 1 * 1 + 2 * 2 = 6 
+
+    Input: n = 12
+    Output: 3
+    Explanation = 2 * 2 + 2 * 2 + 1 * 1 = 12
+
+    Input: n = 16
+    Output: 1
+    Explanation: 4 * 4 = 16
+
     Expected Time Complexity: O(n * sqrt(n))
     Expected Space Complexity: O(n)
 
