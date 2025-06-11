@@ -99,6 +99,29 @@ Sample Output 2:
 }
 
  
+int solveMemo(vector<int> &arr ,int index , vector<int> &dp) {
+
+    // base case
+    if(index == 0) {
+        return arr[0];
+    }
+
+    if(index < 0) {
+        return 0;
+    }
+    if(dp[index] != -1) return dp[index];
+
+    // include the current house
+    int include = arr[index] + solveMemo(arr, index - 2, dp);
+
+    // exclude the current house
+    int exclude = 0 + solveMemo(arr, index - 1, dp);
+
+
+    dp[index] = max(include, exclude);
+    return dp[index];
+} 
+
  int main() {
  
     // create a vector of integers
@@ -130,6 +153,18 @@ Sample Output 2:
         }
     }
 
+    //dp approach
+      vector<int> dp1(first.size(), -1);
+    vector<int> dp2(second.size(), -1);
+
+    int a = max(
+        solveMemo(first, first.size() - 1, dp1),
+        solveMemo(second, second.size() - 1, dp2)
+    );
+
+    cout << a << endl;
+
+    // recursive approach
     int ans = max(solve(first) , solve(second));
     cout << ans << endl;
     

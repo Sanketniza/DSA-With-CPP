@@ -97,6 +97,17 @@ int numberOfWays(int n, int k) {
 
     // int ans = solve(n - 2, k) * (k - 1) + solve(n - 1, k) * (k - 1);
     // return ans;
+
+    /* 
+        // base
+        if(n == 1) return k;
+        if(n == 2) return 
+
+        int same = (n - 1) * k;
+        int diff = (n - 1) * (k - 1);
+        int total = same + diff;
+    
+     */
 }
 
 
@@ -174,6 +185,7 @@ int main() {
 
 
     int n, k;
+    cout << "Enter number of posts (n) and number of colors (k): ";
     cin >> n >> k;
 
     // Sample Input 0: Iterative
