@@ -21,7 +21,7 @@
     Sample Input 1:
     
     2 
-    2 5
+    2 5 
     1 4 25    
     
     7
@@ -63,7 +63,7 @@ using namespace std;
 
 int solve (int n , vector<int> &days , vector<int> &cost) {
 
-    int index = 0;
+    int index = 0; // we start from the first day
 
     // base case
     if(index >= n) {
@@ -77,11 +77,11 @@ int solve (int n , vector<int> &days , vector<int> &cost) {
 
     int j = 0;
     for(j = index; j < n && days[j] < days[index] + 7; j++) ;
-    // ! 7 day pass
+    //! 7 day pass
     int op2 = cost[1] + solve(n - j , days , cost);
 
     for(j = index; j < n && days[j] < days[index] + 30; j++) ;
-    // ! 30 day pass
+    //! 30 day pass
     int op3 = cost[2] + solve(n - j , days , cost);
 
     return min(op1 , min(op2 , op3));
@@ -89,7 +89,7 @@ int solve (int n , vector<int> &days , vector<int> &cost) {
 
 int solveRM(int n , vector<int> &days , vector<int> &cost , vector<int> &dp) {
 
-    int index = 0;
+    int index = 0; // we start from the first day
 
     // base case
     if(index >= n) {
