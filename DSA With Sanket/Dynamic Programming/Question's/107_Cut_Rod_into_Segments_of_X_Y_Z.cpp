@@ -1,13 +1,13 @@
 /* 
-    Cut Rod into Segments of X, Y, Z
-    https://www.naukri.com/code360/problems/cut-into-segments_1214651?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&leftPanelTabValue=PROBLEM
+  ?  Cut Rod into Segments of X, Y, Z
+  ?  https://www.naukri.com/code360/problems/cut-into-segments_1214651?topList=love-babbar-dsa-sheet-problems?&leftPanelTab=0&leftPanelTabValue=PROBLEM
 
     Problem statement
 You are given an integer ‘N’ denoting the length of the rod. You need to determine the maximum number of segments you can make of this rod provided that each segment should be of the length 'X', 'Y', or 'Z'.
 
 Detailed explanation ( Input/output format, Notes, Images )
 Sample Input 1:
-2
+
 7 5 2 2
 8 3 3 3
 Sample Output 1:

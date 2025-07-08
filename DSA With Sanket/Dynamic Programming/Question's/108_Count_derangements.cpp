@@ -15,7 +15,7 @@
     Sample Output 1:
     1
     2
-    Explanation of Sample Output 1:
+    Explanation of Sample Output 1: 
     In test case 1, For two elements say {0, 1}, there is only one possible derangement {1, 0}. 1 is present at index 0 and not at its actual position, that is, 1. Similarly, 0 is present at index 1 and not at its actual position, that is, 0.
 
     In test case 2, For three elements say {0, 1, 2}, there are two possible derangements {2, 0, 1} and {1, 2, 0}. In both the derangements, no element is present at its actual position.
