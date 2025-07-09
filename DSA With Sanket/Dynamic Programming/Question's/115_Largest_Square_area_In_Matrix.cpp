@@ -10,11 +10,11 @@
     Examples:
 
    Input: mat = [[0, 1, 1, 0, 1], 
-              [1, 1, 0, 1, 0],
-              [0, 1, 1, 1, 0],
-              [1, 1, 1, 1, 0],
-              [1, 1, 1, 1, 1],
-              [0, 0, 0, 0, 0]]
+                 [1, 1, 0, 1, 0],
+                 [0, 1, 1, 1, 0],
+                 [1, 1, 1, 1, 0],
+                 [1, 1, 1, 1, 1],
+                 [0, 0, 0, 0, 0]]
 Output: 3
 
 
@@ -115,14 +115,19 @@ int solveT(vector<vector<int> >&mat , int& maxi) {
 
 int main() {
 
+    // vector<vector<int>> mat = {
+    //             {0, 1, 1, 0, 1}, 
+    //             {1, 1, 0, 1, 0},
+    //             {0, 1, 1, 1, 0},
+    //             {1, 1, 1, 1, 0},
+    //             {1, 1, 1, 1, 1},  
+    //             {0, 0, 0, 0, 0}
+    //         };
+
     vector<vector<int>> mat = {
-                {0, 1, 1, 0, 1}, 
-                {1, 1, 0, 1, 0},
-                {0, 1, 1, 1, 0},
-                {1, 1, 1, 1, 0},
-                {1, 1, 1, 1, 1},  
-                {0, 0, 0, 0, 0}
-            };
+        {1 ,0},
+        {0 ,1}
+    };
 
     int row = mat.size();
     cout << "row is : " << row << endl;
@@ -142,7 +147,7 @@ int main() {
 
     //todo: tabulation Approach
     int ans2 = 0;
-    solveT(mat , row , col , ans2);
+    solveT(mat , ans2);
     cout << "ans is : " << ans2 << endl;
 
     // todo: Brute Force Approach
