@@ -142,6 +142,7 @@ int main() {
 
     //memoization approach
     vector<vector<int>> dp(4 , vector<int> (n , -1));
+    // (size of lanes + 1) x (size of arr)
     int ansM = solveM(obstacles , 2 , 0 , dp);
     cout << "ansM is : " << ansM << endl;
 
