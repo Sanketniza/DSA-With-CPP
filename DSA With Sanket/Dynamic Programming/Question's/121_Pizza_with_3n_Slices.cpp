@@ -1,6 +1,6 @@
 
 /* 
-    ? 121: Pizza with 3n Slices
+    ? 121:  
     ? https://leetcode.com/problems/pizza-with-3n-slices/description/  
 
     There is a pizza with 3n slices of varying size, you and your friends will take slices of pizza as follows:
