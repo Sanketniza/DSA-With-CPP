@@ -81,10 +81,37 @@ using namespace std;
         return nextRow[0];
     }
 
+
+
+    int solveM(int n , int curr , int prev , vector<vector<int>> &a) {
+
+        //base case
+        if(curr == n) {
+            return 0;
+        }
+
+        // include
+        int take = 0;
+        if(prev == -1 || check(a[curr] , a[prev])) {
+            take = a[curr][2] + solveM(n , curr + 1 , curr , a);
+        }
+
+        // exclude
+        int notTake = 0 + solveM(n , curr + 1 , prev , a);
+
+        return max(take , notTake);
+
+
+    }
+
 int main() {
 
     vector<vector<int>> cuboids = {{50,45,20},{95,37,53},{45,23,12}};
     int n = cuboids.size();
+    // cout << "n is : " << n << endl;
+    // int m = cuboids[0].size();
+    // cout << "m is : " << m << endl;
+    // cout << "sum of cuboids is : " << n * m << endl;
 
     // step1 : sort the cuboids based on the daimention
     for(auto &a : cuboids) {
@@ -97,6 +124,12 @@ int main() {
     // step3 : apply the LIS on the height
     int ans = solve(n , cuboids);
     cout << "ans is : " << ans << endl;
+
+    // recursive approach
+    int ans1 = solveM(n , 0 , -1 , cuboids);
+    cout << "ans1 is : " << ans1 << endl;
+
+    
 
 return 0;
 } 
