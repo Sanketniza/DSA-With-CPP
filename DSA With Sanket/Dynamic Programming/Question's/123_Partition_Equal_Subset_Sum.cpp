@@ -18,7 +18,7 @@
 
 #include<iostream>
 #include<bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
 int solve(int index  , vector<int> &arr , int target , int size) {
 
