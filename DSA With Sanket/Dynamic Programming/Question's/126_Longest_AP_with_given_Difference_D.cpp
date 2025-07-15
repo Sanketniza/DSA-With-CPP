@@ -33,7 +33,8 @@ using namespace std;
 
 int main() {
 
-    vector<int> arr = {1, 5, 7, 8, 5, 3, 4, 2, 1};
+    // vector<int> arr = {1, 5, 7, 8, 5, 3, 4, 2, 1};
+    vector<int> arr = {1, 5, 7, 8 , 5};
     int difference = -2;
     int size = arr.size();
 
@@ -52,6 +53,7 @@ int main() {
             dp[arr[i]] = 1 + temAns;
 
             // update ans
+            cout << "dp[arr[i]] : " << dp[arr[i]] << endl;
             ans = max(ans , dp[arr[i]]);    
         }
 
