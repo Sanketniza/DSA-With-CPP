@@ -60,7 +60,8 @@ int solveM(int index , vector<int> &arr , vector<int> &dp) {
     int exclude = 0 + solveM(index + 1 , arr , dp);
 
     int ans = max(include , exclude);
-    return ans;
+    dp[index] = ans;
+    return dp[index];
     // return max(include , exclude);
 }
 
