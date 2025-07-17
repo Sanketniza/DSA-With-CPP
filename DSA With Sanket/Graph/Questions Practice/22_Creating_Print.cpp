@@ -40,11 +40,13 @@ int main() {
     cout << "element in ans :" << endl;
 
     for(int i = 0; i < v; i++) {
-        cout << i << " -> " << endl;
+        cout << i << " -> ";
 
         for(int j = 0; j < result[i].size(); j++) {
+            // result[i].size() => iterate over first row of matrix with index i
             cout << result[i][j] << " ";
         }
+        cout << endl;
     }
 
 
