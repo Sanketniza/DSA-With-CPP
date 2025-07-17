@@ -35,7 +35,7 @@ int solve(int n ) {
 
     for(int i = 1; i <= n; i++) {
         ans += solve(i - 1) * solve(n - i);
-    }
+    }a
 
     return ans;
 } 

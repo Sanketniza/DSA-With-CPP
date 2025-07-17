@@ -41,8 +41,10 @@ Explanation: The winning strategy is as follows:
     Input: n = 1
     Output: 0
     Explanation: There is only one possible number, so you can guess 1 and not have to pay anything.
-    Example 3:
 
+
+
+    Example 3:
     Input: n = 2
     Output: 1
     Explanation: There are two possible numbers, 1 and 2.
@@ -65,7 +67,7 @@ int solve(int start , int end) {
     }
 
     int ans = INT_MAX;
-
+    // i = the number which we are guessing
     for(int i = start; i <= end; i++) {
         // int temp = i + max(solve(start, i - 1), solve(i + 1, end));
         // ans = min(ans, temp);
