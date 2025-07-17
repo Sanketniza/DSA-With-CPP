@@ -19,7 +19,7 @@ class graph {
             if(direction == 0) { // undirected graph
                 // then create an edge from v to u
                 adj[v].push_back(u);
-            } 
+            }  
         }
 
         void print() {
