@@ -19,6 +19,8 @@ So, the adjacency list of the graph is stated below.
 1 → 2
 2 → 0 → 1
 Detailed explanation ( Input/output format, Notes, Images )
+
+
 Sample Input 1:
 4 3
 1 2
@@ -66,7 +68,7 @@ vector<vector<int>> printAdjacency (int node , int e , vector<vector<int> > &edg
 
     // prepare the adjacency list
 
-     vector<vector<int>> ans(node);
+    vector<vector<int>> ans(node);
 
     for (int i = 0; i < e; i++) {
         // here u = source node , v = destination node
@@ -114,7 +116,6 @@ int main() {
         0 1 2
         1 0 2
         2 1 0
-        
     
     */
 
