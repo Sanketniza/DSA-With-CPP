@@ -42,10 +42,9 @@ int main() {
     for(int i = 0; i < v; i++) {
         cout << i << " -> " << endl;
 
-        for(int j = 0; j < result.size(); j++) {
+        for(int j = 0; j < result[i].size(); j++) {
             cout << result[i][j] << " ";
         }
-        cout << endl;
     }
 
 
