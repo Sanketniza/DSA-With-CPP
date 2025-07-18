@@ -64,7 +64,7 @@ int main() {
     {2, 3},
     {3, 4},
     {3, 5}};
-    int n = 3 , e = 3;
+    int n = 5 , e = 4;
 
     vector<vector<int>> result = PrintBFS(n , e , edges);
 
