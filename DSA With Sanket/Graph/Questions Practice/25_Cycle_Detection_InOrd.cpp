@@ -49,7 +49,8 @@ string solve(int node , int e , vector<vector<int>> &edge) {
     for(int i = 1; i <= node; i++) {
 
         if(!visited[i]) {
-            bool ans = isCycleInOrd(i , adj , visited);
+            bool ans = isCycleInOrd(i , adj , visited); // we use here bfs traversal
+            
 
             if(ans == true) {
                 return "Cycle is present";
