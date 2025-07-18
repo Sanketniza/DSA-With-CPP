@@ -76,7 +76,7 @@ bool bfs(int node , unordered_map<int , bool> &visited , unordered_map<int, list
     while (!q.empty()) {
 
         int front = q.front();
-        q.pop();
+        q.pop(); 
 
         for(auto i:adj[front]) {
 
