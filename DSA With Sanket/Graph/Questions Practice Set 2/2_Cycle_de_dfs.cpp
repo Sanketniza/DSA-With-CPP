@@ -26,9 +26,10 @@ bool dfs(int node , unordered_map<int , list<int>> &adj , unordered_map<int , bo
     return false;
 }
 
-sting solve(int node , int edge , vector<vector<int>> edges) {
+string solve(int node , int edge , vector<vector<int>> edges) {
     
     // prepare for adj list
+    unordered_map<int , list<int>> adj;
     for(int i = 0; i < edge; i++) {
         int u = edges[i][0];
         int v = edges[i][1];
