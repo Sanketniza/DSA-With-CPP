@@ -43,8 +43,8 @@ int main() {
 
     // node *root = new node(1);
 
-     node *root = NULL;
-     root = buildTree(root);
+    node *root = NULL;
+    root = buildTree(root);
 
  return 0;
 }
