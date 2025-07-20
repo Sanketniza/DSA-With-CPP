@@ -26,14 +26,6 @@ Note:
 2. There will be no multiple edges and self-loops in the given DAG.
 3. There can be multiple correct solutions, you can find any one of them. 
 4. Don’t print anything, just return an array representing the topological sort of the vertices of the given DAG.
-Detailed explanation ( Input/output format, Notes, Images )
-Constraints:
-1 <= T <= 50
-1 <= V <= 10^4
-0 <= E <= 10^4
-0 <= u, v < V 
-
-Where ‘T’ is the total number of test cases, ‘V’ is the number of vertices, ‘E’ is the number of edges, and ‘u’ and ‘v’ both represent the vertex of a given graph.
 
 Time limit: 2 sec
 Sample Input 1:
