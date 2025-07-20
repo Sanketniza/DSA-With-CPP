@@ -31,46 +31,47 @@ bool cycleDetection(int node , unordered_map<int, list<int>> &adj ,unordered_map
   visited[node] = true;
   dfsVisited[node] = true;
 
-  for(auto neineighbor: adj[node] ) {
-    if(!visited[neineighbor]) {
-      bool cycle = cycleDetection(neineighbor, adj, visited, dfsVisited);
-      if(cycle) {
-        return true;
-      }
-    }
-    else if(dfsVisited[neineighbor]) {
-      return true;
-    }
-  }
+    for(auto neineighbor: adj[node] ) {
+        if(!visited[neineighbor]) {
+            bool cycle = cycleDetection(neineighbor, adj, visited, dfsVisited);
+                if(cycle) {
+                    return true;
+                }
+        }
 
-  dfsVisited[node] = false;
-  return false;
+        else if(dfsVisited[neineighbor]) {
+          return true;
+        }
+    }
+
+    dfsVisited[node] = false;
+    return false;
 }
 
 bool detectCycleInDirectedGraph(int n, vector<pair<int, int>> &edges) {
 
-  unordered_map<int, list<int>> adj;
+    unordered_map<int, list<int>> adj;
 
-  for (int i = 0; i < edges.size(); i++) {
+    for (int i = 0; i < edges.size(); i++) {
 
-    int u = edges[i].first - 1;
-    int v = edges[i].second - 1;
+        int u = edges[i].first - 1;
+        int v = edges[i].second - 1;
 
-    adj[u].push_back(v);
-  }
-
-  unordered_map<int, bool> visited;
-  unordered_map<int, bool> dfsVisited;
-
-  for(int node = 0; node < n; node++ ) {
-    if(!visited[node]) {
-      bool ans = cycleDetection(node , adj , visited,dfsVisited);
-      if(ans) {
-        return true;
-      }
+        adj[u].push_back(v);
     }
-  }
-  return false;
+
+    unordered_map<int, bool> visited;
+    unordered_map<int, bool> dfsVisited;
+
+    for(int node = 0; node < n; node++ ) {
+        if(!visited[node]) {
+            bool ans = cycleDetection(node , adj , visited,dfsVisited);
+            if(ans) {
+                return true;
+            }
+        }
+    } 
+    return false;
 }
 
 int main() {
