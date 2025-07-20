@@ -98,6 +98,7 @@ vector<int> topologicalSort(vector<vector<int> > &edges, int v , int e) {
 
     // find all indegree
 
+  
     vector<int> indegree(v);
 
     for(auto i:adj) {
@@ -121,6 +122,7 @@ vector<int> topologicalSort(vector<vector<int> > &edges, int v , int e) {
     vector<int> ans;
 
     while (!q.empty()) {
+        
         int front = q.front();
         q.pop();
 
