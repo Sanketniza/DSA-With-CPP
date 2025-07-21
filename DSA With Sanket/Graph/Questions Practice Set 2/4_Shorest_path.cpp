@@ -2,10 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void bfs(int node , unordered_map<int , list<int>> &adj , vector<int> &visited , queue<int> &q) {
-    
-    
-}
+
 
 vector<int> shortestPath(int node , int e , vector<vector<int>> &edges , int start , int end) {
 
@@ -21,15 +18,15 @@ vector<int> shortestPath(int node , int e , vector<vector<int>> &edges , int sta
     }
 
     // visited array
-    vector<vector<int , bool>> visited (node + 1 , false);
-    vector<vector<int , int>> parent(node + 1 , -1);
+    unordered_map<int , bool > visited;
+	unordered_map<int , int> parent;
     queue<int> q;
 
     q.push(start);
     visited[start] = true;
     parent[start] = -1;
 
-    while(!@q.empty()) {
+    while(!q.empty()) {
 
         int front = q.front();
         q.pop();
@@ -73,7 +70,7 @@ int main() {
         int start = 1;
         int end  = 8;
 
-        vector<int> asn = shortestPath(node , edge , edges , start , end);
+        vector<int> ans = shortestPath(node , edge , edges , start , end);
 
         for(auto i : ans) {
             cout << i << " -> ";
