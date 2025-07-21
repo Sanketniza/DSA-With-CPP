@@ -1,6 +1,8 @@
 /* 
    ? Shortest Path in Undirected Graphs
    ? https://www.youtube.com/watch?v=abIEXKFpLNE&list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA&index=102
+   
+   ? https://www.naukri.com/code360/problems/shortest-path-in-an-unweighted-graph_981297?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
 
    Problem statement
 The city of Ninjaland is analogous to the unweighted graph. The city has ‘N’ houses numbered from 1 to ‘N’ respectively and are connected by M bidirectional roads. If a road is connecting two houses ‘X’ and ‘Y’ which means you can go from ‘X’ to ‘Y’ or ‘Y’ to ‘X’. It is guaranteed that you can reach any house from any other house via some combination of roads. Two houses are directly connected by at max one road.
@@ -72,9 +74,9 @@ int main()
     /* 
             2 -- -- -----5
         /                  \
-      1 - - - 3 - - -   - -  8
+      1 - - 3 - - -   - -  8
         \                  /
-          4 -- 6 - - - -7
+            4 -- 6 - - - -7
     
      */
 
