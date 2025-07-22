@@ -41,7 +41,6 @@ void insertArTail (Node* &tail, int d) {
 }
 
 void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
-
 // inset at head or first
     if (position == 1) {
         insertArHead(head, d);
@@ -70,6 +69,7 @@ void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
 }
 
 //deleting the node
+
  void deleteNode (Node* &head,Node * &tail, int position) {
      
      //^ deleting first node or start
