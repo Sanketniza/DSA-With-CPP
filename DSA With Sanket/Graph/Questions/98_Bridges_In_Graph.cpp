@@ -1,7 +1,8 @@
 
+
 /* 
-    98: Bridges in a Graph
-    https://www.youtube.com/watch?v=CiDPT1xMKI0&list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA&index=107
+  ?  98: Bridges in a Graph
+  ?  https://www.youtube.com/watch?v=CiDPT1xMKI0&list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA&index=107
 
     Problem statement
 Given an undirected graph of V vertices and E edges. Your task is to find all the bridges in the given undirected graph. A bridge in any graph is defined as an edge which, when removed, makes the graph disconnected (or more precisely, increases the number of connected components in the graph).
@@ -17,11 +18,7 @@ There are no self-loops(an edge connecting the vertex to itself) in the given gr
 
 There are no parallel edges i.e no two vertices are directly connected by more than 1 edge.
 Detailed explanation ( Input/output format, Notes, Images )
-Constraints :
-1 <= T <= 50
-1 <= V <= 10 ^ 3
-V-1 <= E <= 3 * 10^3
-0 <= a, b < V
+
 
 Time Limit: 1 sec
 Sample Input 1 :
@@ -81,6 +78,7 @@ void dfs(int node, int timer, vector<int>& low, vector<int>& dist, int parent, u
     // timer++; 
 
     for(auto nbr : adj[node]) {
+        
         if(nbr == parent) {
             continue;
         }
@@ -125,8 +123,8 @@ vector<vector<int>> findBridges(vector<vector<int>>& edges, int v, int e) {
     int timer = 0;
     vector<int> low(v);
     vector<int> dist(v);
-    int parent = -1;
     unordered_map<int, bool> vis;
+    int parent = -1;
 
     for(int i = 0; i < v; i++) {
         low[i] = -1;
@@ -146,7 +144,7 @@ vector<vector<int>> findBridges(vector<vector<int>>& edges, int v, int e) {
  
     int main() { 
 
-         int v, e;
+        int v, e;
         cin >> v >> e;
 
         vector<vector<int>> edges(e, vector<int>(2));
