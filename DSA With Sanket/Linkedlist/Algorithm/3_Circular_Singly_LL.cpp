@@ -116,13 +116,20 @@ void DeleteNode (Node * &tail , int value) {
 }
 
 int main() { 
-
+void InsertNode(Node *&tail, int element, int d)
 
     Node *tail = NULL;
 
     // inserting node on the basis of value .....
 
-    InsertNode(tail , 5 , 3);
+/*   
+    What do the parameters mean?
+    *    tail: Reference to the tail pointer of the circular linked list.
+    *    element: The value after which you want to insert the new node.
+    *    d: The data for the new node you want to insert. 
+*/
+    InsertNode(tail , 0 , 3);
+    //here (tail , 5 , 3) -> 5 is value and 3 is data
     print(tail);
     cout << "tail : " << tail -> data << endl;
 
