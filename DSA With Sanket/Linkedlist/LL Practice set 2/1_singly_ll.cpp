@@ -66,6 +66,32 @@ void insertAtPosition(Node *&head , Node *&tail , int position , int data) {
 
 }
 
+void deleteAtPostition(Node *&head , Node *&tail , int position) {
+
+    if(position == 1) {
+        Node *temp = head;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+
+    else {
+        Node *curr = head;
+        Node *prev = NULL;
+        int cnt = 1;
+
+        while(cnt < position) {
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+        delete curr;
+    }
+}
+
 void print(Node *root) {
 
     cout << "print the the singly LL data" << endl;
