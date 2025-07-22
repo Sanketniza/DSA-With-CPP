@@ -1,7 +1,7 @@
 /* 
 
     ? Shortest path in a directed acyclic graph
-    ?https://www.naukri.com/code360/library/shortest-path-in-a-directed-acyclic-graph
+    ? https://www.naukri.com/code360/library/shortest-path-in-a-directed-acyclic-graph
 
     
 
@@ -54,6 +54,7 @@ class Graph{
 
                 if(dist[top] != INT_MAX) {
                     for(auto i:adj[top]) {
+        
                         if(dist[top] + i.second < dist[i.first]) {
                             dist[i.first] = dist[top] + i.second;
                         }
@@ -110,7 +111,7 @@ int main() {
     g.PrintAdj(); // for checking the adjacency list
     // we need to do the topological sort
 
-    // topology sort
+    //* topology sort
 
     int n = 6;
 
@@ -135,7 +136,7 @@ int main() {
 
     g.shortestPath(src, dist , st);
 
-
+   
 
     cout << "ans is : ";
 
