@@ -6,10 +6,7 @@ using namespace std;
 // Stack is a non-standard container and not a part of container base class.
 // Stack is a simple container that stores elements in a LIFO manner.
 // Stack is a non-STL container and not a part of STL.
-// Stack is a non-STL container and not a part of STL.
-// Stack is a non-STL container and not a part of STL.
-// Stack is a non-STL container and not a part of STL.
-// Stack is a non-STL container and not a part of STL.
+
 
 // todo: stack STL Implementation
 
