@@ -1,6 +1,6 @@
 /*
- * lecture : 47
- * link :-https://www.naukri.com/code360/problems/interview-shuriken-42-detect-and-remove-loop_241049?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_codestudio_lovebabbar28thjan
+    ? lecture : 47
+    ? link :-https://www.naukri.com/code360/problems/interview-shuriken-42-detect-and-remove-loop_241049?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_codestudio_lovebabbar28thjan
  
 
     ! Detect and Remove Loop in Linkedlist
@@ -16,12 +16,8 @@
     ^
     ^ Expected Complexity: Try doing it in O(n) time complexity and O(1) space complexity. Here, n is the number of nodes in the linked list.
     ^
-    ^ Detailed explanation ( Input/output format, Notes, Images )
-    ^ Constraints:
-    ^ 1 <= N <= 100000.
-    ^ 1 <= ‘VAL’ <= 1000 .
-    ^
-    ^ Time limit: 1 sec
+   
+
     ^ Sample Input:
     ^ 6 2
     ^ 1 2 3 4 5 6
@@ -40,8 +36,7 @@
 #include <map>
 using namespace std;
 
-class Node
-{
+class Node {
 public:
     int data;
     Node *next;
@@ -57,7 +52,7 @@ public:
 // todo: Approach 2: Using Floyd's Cycle Detection
 
 Node *FloydCycleDetection(Node *head) {
-//? Node *xyz(){} -> you can not return the bool [true/false] value.
+//? Node *xyz(){} -> you can not return the bool [true/false] value.YOu all way return node (address of node)
 
     if (head == NULL)
     {
