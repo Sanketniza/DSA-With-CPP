@@ -1,1 +1,2 @@
- while(curr != NULL && count < k) {
+ta << endl;
+    // cout << "count is : " << count << endl;

@@ -1,9 +1,11 @@
 
 /* 
-    ~ lecture 46 :- Reverse List In K Groups
-    * link :- https://www.naukri.com/code360/problems/reverse-list-in-k-groups_983644?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbar_codestudio_26thjan&leftPanelTabValue=PROBLEM
+    ? lecture 46 :- Reverse List In K Groups
+    ? link :- https://www.naukri.com/code360/problems/reverse-list-in-k-groups_983644?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbar_codestudio_26thjan&leftPanelTabValue=PROBLEM
      ? https://www.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
      ? https://leetcode.com/problems/reverse-nodes-in-k-group/
+
+
     Problem statement
 You are given a linked list of 'n' nodes and an integer 'k', where 'k' is less than or equal to 'n'.
 
@@ -86,7 +88,7 @@ class Node {
         Node(int data) {
             this->data = data;
             this->next = NULL;
-        }
+        } 
 
 };
 
@@ -112,6 +114,7 @@ Node *reverseKGroup(Node *head, int k) {
         temp = temp->next;
     }
 
+
     while(curr != NULL && count < k ) {
         forward = curr->next;
         curr->next = prev;
@@ -120,8 +123,13 @@ Node *reverseKGroup(Node *head, int k) {
         count++;
     }
 
+    cout << "head at : " << head->data << endl;
+    // cout << "curr at : " << curr->data << endl;
+    // cout << "forward at : " << forward->data << endl;
+    // cout << "prev at : " << prev->data << endl;
+
     //* reverse remaining nodes
-    if(forward != NULL ) {
+    if(forward != NULL ) { // curr != NULL (both curr and forward are at same point)
         head->next = reverseKGroup(forward, k);
     }
 
@@ -155,12 +163,13 @@ int main() {
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = sixth;
+    sixth-> next = NULL;
 
     print(head);
 
     //* reverse the linked list in k groups
-    int k = 2;
-    // int k = 3;
+    // int k = 2;
+    int k = 3;
     cout << "After reversing the linked list in k groups of " << k << " :" << endl;
     Node *newHead = reverseKGroup(head, k);
     print(newHead);
