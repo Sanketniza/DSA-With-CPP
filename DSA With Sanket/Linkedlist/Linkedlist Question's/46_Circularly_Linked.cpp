@@ -1,8 +1,10 @@
 /*
 
- ? https://www.geeksforgeeks.org/problems/circular-linked-list/1
- ? https://leetcode.com/problems/linked-list-cycle/description/
- ? https://www.naukri.com/code360/problems/detect-the-first-node-of-the-loop_1112628?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan&count=25&page=1&search=linked%20list%20is%20circular%20or%20not&sort_entity=order&sort_order=ASC&attempt_status=NOT_ATTEMPTED&leftPanelTabValue=PROBLEM&customSource=studio_nav
+    ! lecture 46: check linked list is circular or not
+
+    ? https://www.geeksforgeeks.org/problems/circular-linked-list/1
+    ? https://leetcode.com/problems/linked-list-cycle/description/
+    ? https://www.naukri.com/code360/problems/detect-the-first-node-of-the-loop_1112628?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan&count=25&page=1&search=linked%20list%20is%20circular%20or%20not&sort_entity=order&sort_order=ASC&attempt_status=NOT_ATTEMPTED&leftPanelTabValue=PROBLEM&customSource=studio_nav
 
     Circular Linked List:
         - Last node is pointing to first node.
@@ -14,9 +16,9 @@
 
          nature of circular linked lists allows for efficient traversal in both directions and can simplify certain algorithms.
 
-   ! lecture 46: check linked list is circular or not
    You are given the head of a linked list containing integers, You need to find out whether the given linked list is circular or not.
 
+   
 Note :
 
 1. A linked list is said to be circular if it has no node having its next pointer equal to NULL and all the nodes form a circle i.e. the next pointer of last node points to the first node.
