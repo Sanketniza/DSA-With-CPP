@@ -1,9 +1,10 @@
 /* 
     todo: lecture 54 - Two Stack
     ? Implement 2 stack in an array
-    *link:- https://www.naukri.com/code360/problems/two-stacks_983634?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_CodestudioLovebabbar5thfeb&leftPanelTabValue=PROBLEM
+    ? link:- https://www.naukri.com/code360/problems/two-stacks_983634?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_CodestudioLovebabbar5thfeb&leftPanelTabValue=PROBLEM
 
     Problem statement
+    
     Design a data structure, which represents two stacks using only one array common for    both stacks. The data structure should support the following operations:
 
     push1(NUM) - Push ‘NUM’ into stack1.
