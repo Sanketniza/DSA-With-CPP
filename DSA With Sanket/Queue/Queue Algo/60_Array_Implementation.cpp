@@ -35,6 +35,7 @@ public:
     }
 
     void pop() {
+
         if (empty()) {
             cout << "Queue is empty!" << endl;
             return;
@@ -104,8 +105,6 @@ int main() {
     q.pop();
     q.pop();
     q.print(); // Output: Queue is empty!
-
-
 
     return 0;
 }

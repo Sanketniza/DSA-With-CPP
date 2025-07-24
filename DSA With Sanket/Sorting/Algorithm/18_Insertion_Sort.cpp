@@ -57,8 +57,10 @@ int main()
 
         cout << "After pass " << i << ": ";
         PrintArray(arr , n);
-            cout << endl;
+        cout << endl;
+
     }
+    
     return 0;
 }
 
