@@ -108,12 +108,22 @@ class  Heap {
 int main() {
 
     Heap h;
-    h.insert(50);
-    h.insert(55);
-    h.insert(53);
-    h.insert(52);
-    h.insert(54);  
+    // h.insert(50);
+    // h.insert(55);
+    // h.insert(53);
+    // h.insert(52);
+    // h.insert(54);  
     // output : 55 54 53 50 52  , draw the tree for better understanding
+
+    h.insert(4);
+    h.insert(2);
+    h.insert(34);
+    h.insert(5);
+    h.insert(6);
+    h.insert(76);
+    h.insert(18);
+    h.insert(9);
+    h.insert(10);
 
     /* 
 
