@@ -44,7 +44,7 @@ void dfs(int node, int parent, int &timer, vector<int> &dis, vector<int> &low, v
         ap[node] = 1;
     }
 }
- 
+  
 int main() { 
 
     int n = 5;
@@ -52,7 +52,7 @@ int main() {
 
     vector<pair<int,int> > edge;
 
-    edge.push_back({0 ,3});
+    edge.push_back({0 ,3}); // here 0 and 3 are connected to each other 0 --- 3
     // edge.push_back(make_pair(0 ,3));
     edge.push_back(make_pair(3 ,4));
     edge.push_back(make_pair(3 ,4));
