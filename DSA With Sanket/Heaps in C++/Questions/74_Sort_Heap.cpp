@@ -1,8 +1,7 @@
 
 #include<iostream>
+#include<vector>
 using namespace std;
-
-
 
     void heapify(int arr[], int n, int i) {
 
@@ -24,7 +23,7 @@ using namespace std;
         }
     }
 
-    void heapSort(vector<int> &arr, int n) {
+    void heapSort( int arr[], int n) {
 
         int size = n;
 
@@ -32,7 +31,7 @@ using namespace std;
             swap(arr[size], arr[1]);
             size--;
 
-            heapify(arr, size, 1);
+            heapify(arr, size , 1);
         }
     }
 
