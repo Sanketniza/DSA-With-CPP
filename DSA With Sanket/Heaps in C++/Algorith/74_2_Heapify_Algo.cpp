@@ -52,7 +52,7 @@ class heapify {
 
 int main() {
 
-    int arr[] = {-1 , 54, 53, 55, 52, 50};
+    int arr[] = {-1 , 54, 53, 55, 52, 50}; // -1 is used to make the calculations easier , it is not part of the array , so our indexing is start from 1
     cout << "size of the array is : " << sizeof(arr)/sizeof(arr[0]) << endl;
 
     /* 
@@ -68,6 +68,13 @@ int main() {
      */
     int n = 5; // size of the array
 
+    /*  
+        *formula
+            leaf node = ( n/2 + 1 ) to n;
+            non-leaf node = 1 to (n/2)
+    
+    */
+
     heapify h;
     for(int i = n/2; i > 0; i--) { // start from the last non-leaf node, because the leaf nodes are already heapified
         cout << "i is : " << i << endl;
@@ -80,8 +87,8 @@ int main() {
        ? }
 
        ? then :
-       ? int left = 2*i + 1;
-       ? int right = 2*i + 2;
+       ? int left = 2*i + 1; // indexing is starting from 0
+       ? int right = 2*i + 2; // indexing is starting from 0
 
         ? if(left < n && arr[left] > arr[largest])  // indexing is starting from 0
 
