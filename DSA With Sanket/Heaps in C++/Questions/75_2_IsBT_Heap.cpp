@@ -66,12 +66,16 @@ bool isBSt(Node *root , int index , int cnt) {
 
 bool isMaxOrder(Node *root) {
 
-    if(root -> left == NULL || root -> right == NULL) {
+    if(root -> left == NULL && root -> right == NULL) {
         return true;
     }
 
     if(root -> right == NULL) {
         return root -> data > root -> left -> data;
+    }
+
+    else if(root -> left == NULL) {
+        return root -> data > root -> right -> data;
     }
 
     else {

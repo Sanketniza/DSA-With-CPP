@@ -37,6 +37,45 @@ int NodeCount(Node *root) {
     return 1 + NodeCount(root -> left) + NodeCount(root -> right);
 }
 
+bool isBST(Node *root , int index , int cnt) {
+
+    if(root == NULL) {
+        return true;
+    }
+
+    if(index > cnt) return false;
+
+    else {
+        bool left = isBST(root -> left , 2 * index + 1 , cnt);
+        bool right = isBST(root -> right , 2 * index + 2 , cnt);
+
+        return left && right;
+    }
+
+}
+
+bool isMaxOrder(Node *root) {
+
+    if(root -> left == NULL && root -> right == NULL) return true;
+
+    if(root -> left == NULL) {
+        return root -> data > root -> right -> data;
+    }
+
+    else if(root -> right == NULL) {
+        return root -> data > root -> left -> data;
+    }
+
+    else {
+        bool left = isMaxOrder(root -> left);
+        bool right = isMaxOrder(root -> right);
+
+        return (left && right && (
+            root -> data > root -> left -> data && root -> data > root -> right -> data
+        ));
+    }
+}
+
 int main() {
 
     Node* root = new Node(90);
@@ -56,6 +95,15 @@ int main() {
     int cnt = NodeCount(root);
     cout << "count : " << cnt << endl;
 
+    if(isBST(root , index , cnt) && isMaxOrder(root) ){
+        cout << "all set" << endl;
+        // return true;
+    }
+
+    else {
+        cout << "not set" << endl;
+        // return false;
+    }
 
 
  return 0;
