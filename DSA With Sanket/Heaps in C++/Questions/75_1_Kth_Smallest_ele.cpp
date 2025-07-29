@@ -5,13 +5,14 @@
 
         Given an array arr[] and an integer k where k is smaller than the size of the array, the task is to find the kth smallest element in the given array.
 
-    Follow up: Don't solve it using the inbuilt sort function.
+    Follow up: Don't solve it using the in built sort function.
 
     Examples :
 
     Input: arr[] = [7, 10, 4, 3, 20, 15], k = 3
     Output:  7
     Explanation: 3rd smallest element in the given array is 7.
+
     Input: arr[] = [2, 3, 1, 20, 15], k = 4 
     Output: 15
     Explanation: 4th smallest element in the given array is 15.
@@ -40,20 +41,20 @@ int main() {
         }
     }
 
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+    // for(int i = 0; i < n; i++) {
+    //     cout << arr[i] << " ";
+    // }
 
     cout << endl;
 
-    cout << arr[k-1] << endl;
+    cout << "kth smallest element is: " << arr[k-1] << endl;
 
 
 // todo: solution 2
 //? time complexity is O(nlogk)
 //? space complexity is O(k)
 
-    vector<int> v = {5,1,2,3,77,8,4,5,9,4};
+    vector<int> v = {7, 10, 4, 3, 20, 15};
 
     int l = 3;
     int m = v.size();
@@ -61,18 +62,25 @@ int main() {
     priority_queue<int> q;
 
 // step 1: 
-    for(int i = 0; i <= l; i++) {
-        q.push(i);
-        // q.push(v[i]);
+    for(int i = 0; i <= m; i++) {
+        // q.push(i);
+        q.push(v[i]);
     }
 
 // step 2: 
-    for(int i = k; i < m; i++) {
-        if(v[i] < q.top()) {
-            q.pop();
-            q.push(v[i]);
-        }
+    // for(int i = k; i < m; i++) {
+    //     cout << "top: " << q.top() << endl;
+    //     cout << "v[i]: " << v[i] << endl;
+    //     if(v[i] < q.top()) {
+    //         q.pop();
+    //         q.push(v[i]);
+    //     }
+    // }
+
+    for(int i = 0; i < l; i++) {
+        q.pop();
     }
+
 
 // step 3:
     cout << "Kth smallest element is: " << q.top() << endl;  
