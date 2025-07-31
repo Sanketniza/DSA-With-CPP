@@ -9,22 +9,29 @@ int main() {
 
     int n = arr.size();
 
-    priority_queue<int> q;
+    priority_queue<int , vector<int> , greater<int>> q;
 
     for(int i = 0; i < n; i++) {
+
+        int sum = 0;
+
         for(int j = i; j < n; j++) {
-            int sum = 0;
-            for(int k = i; k <= j; k++) {
-                sum += arr[k];
+            sum += arr[j];
+
+            if(q.size() < k) {
+                q.push(sum);
             }
-            q.push(sum);
+
+            else {
+                if(sum > q.top()) {
+                    q.pop();
+                    q.push(sum);
+                }
+            }
         }
     }
 
-    for(int i = 0; i < n; i++) {
-        cout << q.top() << " ";
-        q.pop();
-    }
+    cout << "kth largest sum is : " << q.top() << " " << endl;
 
 
     return 0;

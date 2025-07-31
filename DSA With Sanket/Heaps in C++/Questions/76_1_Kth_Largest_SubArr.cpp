@@ -70,8 +70,8 @@ int main() {
 	// & time complexity : O(n log k)
 	// & space complexity : O(k)
 
-	 vector<int> arrr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int kk = 3;
+	 vector<int> arrr = {1 , -2 , 3 , 4 , 5};
+    int kk = 2;
 	priority_queue<int, vector<int> , greater<int> > mini;
 	int n = arrr.size();
 
@@ -95,7 +95,7 @@ int main() {
 		}
 	}
 
-	cout <<  mini.top();
+	cout << "kth largest sum is : " <<  mini.top();
 
     return 0;
 }
