@@ -12,25 +12,17 @@ For example,
 
 For 'arr' = [ 1, 2, 3, 1, 2]. you need to return 1.
 Detailed explanation ( Input/output format, Notes, Images )
-Constraints:
-1 <= T <= 5
-1 <= N <= 10000
--10 ^ 3 <= |arr| <= 10 ^ 3
 
-Time Limit: 1 sec
+
 Sample Input 1:
-1
 2 12 2 11 -12 2 -1 2 2 11 12 2 -6 
-Sample Output 1:
-2
+Sample Output 1: 2
 Explanation of Sample Input 1:
 Test case 1:
 For the first test case of sample output 1, as we start traveling the array, ‘2’ has the highest frequency, hence our answer is ‘2’.
 
 Sample Input 2:
-
 4 -5 1
-
 1 -2 1 -2
 Sample Output 2:
 4
