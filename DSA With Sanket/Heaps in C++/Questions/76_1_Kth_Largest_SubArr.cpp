@@ -9,9 +9,10 @@ Please note that a subarray is the sequence of consecutive elements of the array
 
 Detailed explanation ( Input/output format, Notes, Images )
 Sample Input 1 :
-2
+
 3 3
 3 -2 5
+
 2 2
 4 1
 Sample output 1 :
