@@ -99,5 +99,6 @@
     "Codegeex.GenerationPreference": "automatic",
     "Codegeex.SidebarUI.LanguagePreference": "English",
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "notebook.gotoSymbols.showAllSymbols": true
+    "notebook.gotoSymbols.showAllSymbols": true,
+    "codium.codeCompletion.enable": true
 }

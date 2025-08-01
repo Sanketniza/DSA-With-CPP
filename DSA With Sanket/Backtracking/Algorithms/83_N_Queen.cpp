@@ -75,6 +75,7 @@ void solve(int col, vector<vector<int>> &board, vector<vector<int>> &ans, int n)
     }
 }
 
+
 vector<vector<int>> nQueens(int n) {
 
     vector<vector<int>> board(n, vector<int>(n, 0));
