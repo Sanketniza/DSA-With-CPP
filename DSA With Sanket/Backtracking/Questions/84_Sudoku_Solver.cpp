@@ -23,7 +23,7 @@ The output is consists of 9 lines. Each line contains 9 single space-separated i
 Note
 You are not required to print anything, and it has already been taken care of. Just implement the function.
 Sample Input 1
-3 0 6 5 0 8 4 0 0
+ 
 5 2 0 0 0 0 0 0 0
 0 8 7 0 0 0 0 3 1
 0 0 3 0 1 0 0 8 0
@@ -55,6 +55,7 @@ In each 3x3 sub-grids of the grid, each of the digits is occurring exactly once.
 using namespace std;
 
 bool isSafe(vector<vector<int>> &board, int n, int row, int col, int val) {
+
     for (int i = 0; i < n; i++) {
         // Check for row
         if (board[row][i] == val) {
@@ -71,6 +72,7 @@ bool isSafe(vector<vector<int>> &board, int n, int row, int col, int val) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -81,7 +83,9 @@ bool solve(vector<vector<int>> &board) {
         for (int col = 0; col < n; col++) {
 
             if (board[row][col] == 0) {
+
                 for (int val = 1; val <= 9; val++) {
+                    // Check if the value can be placed in the current cell
                     if (isSafe(board, n, row, col, val)) {
                         board[row][col] = val;
 
