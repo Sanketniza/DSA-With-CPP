@@ -92,6 +92,7 @@ int binarySearch(int arr[], int s, int e, int key)
 {
     cout << "The index  of s : " << s << endl;
     cout << "The index  of e : " << e << endl; 
+    
     int start = s;
     int end = e;
     int mid = start + (end - start) / 2;
@@ -122,7 +123,7 @@ int binarySearch(int arr[], int s, int e, int key)
 
 int search(int arr[], int n, int k)
 {
-    int pivot = findPivot(arr, n);
+    int pivot = findPivot(arr, n); // pivot index -> index of smallest element in the array 
 
     cout << "The pivot index is :" << pivot << endl;
     cout << "The pivot element is :" << arr[pivot] << endl;
@@ -144,10 +145,16 @@ int search(int arr[], int n, int k)
 int main()
 {
     // int arr[] = {7, 9, 1, 2, 3};
-    // int arr[] = {7,8,2,4,5,6};
-    int arr[] = {0,1,2,3,4,5,6};
+    int arr[] = {7,8,2,4,5,6};
+    // int arr[] = {0,1,2,3,4,5,6};
     int n = sizeof(arr) / sizeof(arr[0]);
     int k = 5; // Example key to search for
+
+    cout << "The value in arr :  " << endl;
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     int result = search(arr, n, k);
 
@@ -160,6 +167,13 @@ int main()
     {
         cout << "Element not found" << endl;
     } 
+
+    cout << "The value of result is : " << endl;
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
 
     return 0;
 }
