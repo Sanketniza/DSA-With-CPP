@@ -5,11 +5,6 @@
 
 /*
 
-^  First and Last Position of an Element In Sorted Array
-
-^  Average time to solve is 15m
-^  750 upvotes
-^
 
 ~  Problem statement
 ^  You have been given a sorted array/list 'arr' consisting of ‘n’ elements. You are also given an integer ‘k’.
@@ -30,15 +25,13 @@
 ^  If 'arr' = [0, 1, 1, 5] and 'k' = 1, then the first and last occurrence of 1 will be 1(0 - indexed) and 2.
 ^
 ^
-^  Detailed explanation ( Input/output format, Notes, Images )
+
 ^  Sample Input 1: 
 ^  8 (size of arr) 2 (k)
 ^  0 0 1 1 2 2 2 2
-^
-^
+
 ^  Sample output 1:
 ^  4 7
-^
 ^
 ^  Explanation of Sample output 1:
 ^  For this testcase the first occurrence of 2 in at index 4 and last occurrence is at index 7.
