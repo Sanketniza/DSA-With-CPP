@@ -1,3 +1,5 @@
+//^ Lecture No : 14
+// todo : link ;- -   - https://www.naukri.com/code360/problems/square-root_893351?source=youtube&campaign=love_babbar_codestudio2
 
 /*
 ^    Problem statement
@@ -8,12 +10,9 @@
 ^
 ^    Example:
 ^    Input: ‘n’ = 7
-^
 ^    Output: 2
 */
 
-//^ Lecture No : 14
-// todo : link ;- -   - https://www.naukri.com/code360/problems/square-root_893351?source=youtube&campaign=love_babbar_codestudio2
 
 #include <iostream>
 using namespace std;
