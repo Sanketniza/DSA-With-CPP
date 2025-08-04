@@ -1,10 +1,12 @@
 
 //!  Book Allocation Problem:
-//^ lecture No : 15
-// https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2&leftPanelTabValue=SUBMISSION
+//?  lecture No : 15
+// ? https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2&leftPanelTabValue=SUBMISSION
+
+
 /* 
-     problem statement
-^   Ayush is studying for ninjatest which will be held after 'N' days, And to score good marks he has to study 'M' chapters and the ith chapter requires TIME[i] seconds to study. The day in Ayush’s world has 100^100 seconds. There are some rules that are followed by Ayush while studying.
+   
+   Ayush is studying for ninjatest which will be held after 'N' days, And to score good marks he has to study 'M' chapters and the ith chapter requires TIME[i] seconds to study. The day in Ayush’s world has 100^100 seconds. There are some rules that are followed by Ayush while studying.
 ^   
 ^   1. He reads the chapter in a sequential order, i.e. he studies i+1th chapter only after he studies ith chapter.
 ^   
@@ -62,9 +64,10 @@ bool isPossible(int time[], int n, int m, int mid)
             cout << "pageSum in else part is " << pageSum << endl;
         }
     }
+    
     cout << endl;
-    return true;
     cout << "isPossible value is " << true << endl;
+    return true;
 }
 
 // Function to find the minimum number of students required to distribute the books
