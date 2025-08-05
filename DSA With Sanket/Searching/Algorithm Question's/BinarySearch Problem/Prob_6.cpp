@@ -99,6 +99,7 @@ long long BinarySearch(int time[], int n, int m)
             cout << "Updated ans is " << ans << endl;
             cout << "Updated end is " << end << endl;
         }
+        
         else
         {
             start = mid + 1;
