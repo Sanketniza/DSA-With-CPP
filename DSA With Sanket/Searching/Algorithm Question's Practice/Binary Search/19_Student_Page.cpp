@@ -4,8 +4,8 @@ using namespace std;
 
 bool isPossible(int arr[] , int n , int student , int mid) {
 
-    studentCount = 1;
-    pageSum = 0;
+    int studentCount = 1;
+    int pageSum = 0;
 
     for(int i = 0; i < n; i++) {
 
@@ -60,8 +60,9 @@ int main() {
 
     int arr[] = {10,20,30,40};
     int n = 4;
-    int studnet = 2;
+    int student = 2;
 
     int result = Allocation(arr , n , student);
+    cout << "The minimum number of pages allocated to a student is " << result << endl;
  return 0;
 }
