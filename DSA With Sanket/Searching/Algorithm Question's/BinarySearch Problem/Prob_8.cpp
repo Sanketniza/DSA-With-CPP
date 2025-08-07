@@ -82,6 +82,7 @@ int BinarySearch(int arr[], int size, int k)
             ans = mid;
             start = mid + 1;
         }
+        
         else
         {
             end = mid - 1;

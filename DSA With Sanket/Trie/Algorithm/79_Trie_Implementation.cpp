@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 // Assuming the TrieNode class is defined as follows:
 class TrieNode {
 public:
@@ -37,7 +38,7 @@ public:
         }
 
         // Assuming the word contains only lowercase letters
-        int index = word[0] - 'a';
+        int index = word[0] - 'a'; // this is the index of the first character of the word that is in lowercase and that here we are insuring
         TrieNode* child;
 
         // If the first character of the word is present
