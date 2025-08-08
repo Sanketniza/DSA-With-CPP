@@ -20,15 +20,16 @@ int main() {
         }
 
         else {
-
             // for closing bracket
 
             if (!a.empty()) {
+
                 char top = a.top();
 
-                if ((ch == ')' && top == '(') || (ch == '}' && top == '{') || (ch == ']' && top == '[')) {
+                if ( (ch == ')' && top == '(') || (ch == '}' && top == '{') || (ch == ']' && top == '[') ) {
                     a.pop();
                 }
+
                 else {
                     return false;
                 }
