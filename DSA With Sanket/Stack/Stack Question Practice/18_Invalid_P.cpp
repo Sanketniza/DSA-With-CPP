@@ -41,6 +41,8 @@ int main() {
         }
     }
 
+    
+
   if(a.empty())
     {
         cout << "Balanced" << endl;
