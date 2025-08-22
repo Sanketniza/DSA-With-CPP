@@ -17,7 +17,8 @@ class Node {
         void addNode(int data) {
 
             if(data < this -> data) {
-                
+                // here this is the root node
+
                 if(this -> left == NULL) {
                     this -> left = new Node(data);
                 }
@@ -25,6 +26,7 @@ class Node {
                     this -> left -> addNode(data);
                 }
             }
+
             else {
                 if(this -> right == NULL) {
                     this -> right = new Node(data);
@@ -34,9 +36,6 @@ class Node {
                 }
             }
         }
-
-        
-
 };
 
 void printTree(Node *root) {
