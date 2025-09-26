@@ -131,7 +131,7 @@ int main() {
     cout << "size of maze: " << n << "x" << n << endl;
     vector<string> ans = searchMaze(maze, n);
 
-     cout << "Paths to reach the destination: " << endl;
+    cout << "Paths to reach the destination: " << endl;
     for (const string &path : ans) {
         cout << path << " " << endl;
     }
