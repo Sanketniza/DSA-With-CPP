@@ -3,9 +3,10 @@
 using namespace std;
 
 class TrieNode {
+
     public:
         char data;
-        TrieNode* children[26];
+        TrieNode *children[26];
         bool isTerminal;
 
         TrieNode(char ch) {
@@ -16,89 +17,83 @@ class TrieNode {
 
             isTerminal = false;
         }
-
 };
 
 class Trie {
 
     public:
+        TrieNode *root;
 
-    TrieNode *root;
-
-    Trie() {
-        root = new TrieNode('\0');
-    }
-
-    void insertUtil(TrieNode *root, string word) {
-
-        // base case
-        if(word.length() == 0) {
-            root -> isTerminal = true;
-            return;
+        Trie() {
+            root = new TrieNode('\0'); // creating root node with '\0' character (null character)
         }
 
-        // assumption, word will be in lowercase
-        int index = word[0] - 'a';
-        TrieNode *child;
+        void insertUtil(TrieNode *root , string word) {
+            //base case
+            if(word.length() == 0) {
+                root -> isTerminal = true;
+                return;
+            }   
 
-        if(root -> children[index] != NULL) {
-            child = root -> children[index];
+            int index = word[0] - 'a'; // assuming the word contains only lowercase letters
+            TrieNode *child;
+
+            if(root -> children[index] != NULL) {
+                child = root -> children[index];
+            }
+
+            else{
+                child = new TrieNode(word[0]);
+                root -> children[index] = child;
+            }
+
+            insertUtil(child , word.substr(1)); // recursive call
         }
 
-        else {
-            TrieNode *newNode = new TrieNode(word[0]);
-            root -> children[index] = newNode;
-            child = newNode;
+        void insert(string word) {
+            insertUtil(root, word);
         }
 
-        // recursive call
-        insertUtil(child, word.substr(1));
-    }
+        bool searchUtil(TrieNode *root , string word) {
+            
+            // base case
+            if(word.length() == 0) {
+                return root -> isTerminal;
+            }
 
-    void insertWord(string word) {
-        insertUtil(root, word);
-    }
+            int index = word[0] - 'a'; // assuming the word contains only lowercase letters
+            TrieNode *child;
 
-    bool searchUtil(TrieNode *root , string word) {
+            if(root -> children[index] != NULL) {
+                child = root -> children[index];
+            }
 
-        // base case
-        if(word.length() == 0) {
-            return root -> isTerminal;
+            else{
+                return false; // character not present
+            }
+
+            // recursive call
+            searchUtil(child , word.substr(1));
         }
 
-        // assumption, word will be in lowercase
-        int index = word[0] - 'a';
-        TrieNode *child;
-
-        if(root -> children[index] != NULL) {
-            child = root -> children[index];
+        bool search(string word) {
+            searchUtil(root, word);
         }
-
-        else {
-            return false;
-        }
-
-        // recursive call
-        return searchUtil(child, word.substr(1));
-    }
-
-    bool search(string word){
-        return searchUtil(root , word);
-    }
-
-
 };
 
 int main() {
 
     Trie *t = new Trie();
+    t -> insert("abc");
+    t -> insert("ab");
 
-    t -> insertWord("asdf");
+    if(t -> search("abc")) {
+        cout << "Present" << endl;
+    }
 
-    cout << "Trie Search Results : " << t -> search("asdf") << endl;
-
-
-
+    else {
+        cout << "Not Present" << endl;
+    }
 
  return 0;
 }
