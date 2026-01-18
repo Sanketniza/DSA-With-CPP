@@ -64,22 +64,22 @@ void takeInput(Node *&root) {
 
 int main() {
 
-    Node* root = NULL;
+    // Node* root = NULL;
 
-    cout << "Enter the data for the BST: " << endl;
+    // cout << "Enter the data for the BST: " << endl;
 
-    takeInput(root);
+    // takeInput(root);
 
-    // inorder travelling...
+    // // inorder travelling...
     cout << "Inorder travelling .. " << endl;
-    InOrder(root);
     
-
+    
     Node *root = new Node(1);
     root -> left = new Node(3);
     root -> right = new Node(34);
     root -> left -> right = new Node(344);
     root -> left -> left = new Node(321);
     
+    InOrder(root);
  return 0;
 }

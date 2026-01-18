@@ -199,5 +199,10 @@ int main() {
     cout << "After Deletion Postorder Traversal : " ;
     PostOrder(root) ; cout << endl;
 
+    root = deleteNode(root, 7);
+    cout << "After Deletion Level Order Traversal : " << endl;
+    levelOrderTraversal(root); cout << endl;
+
+
  return 0;
 }
