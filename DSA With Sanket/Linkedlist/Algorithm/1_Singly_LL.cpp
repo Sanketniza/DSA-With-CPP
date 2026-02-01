@@ -28,9 +28,9 @@ class Node{
 void insertArHead (Node* &head, int d) {
     
     //todo: allready one node is present 
-     Node *temp = new Node(d); // creating new node with value d 
-     temp -> next = head;  // joining new node with first node 
-     head = temp;
+    Node *temp = new Node(d); // creating new node with value d 
+    temp -> next = head;  // joining new node with first node 
+    head = temp;
 }
 
 void insertArTail (Node* &tail, int d) {
@@ -41,7 +41,7 @@ void insertArTail (Node* &tail, int d) {
 }
 
 void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
-// inset at head or first
+    // inset at head or first
     if (position == 1) {
         insertArHead(head, d);
         return;
@@ -50,7 +50,7 @@ void insertAtPosition (Node *&tail , Node* &head, int position , int d) {
    Node *temp = head;
    int cnt = 1;
 
-    while (cnt < position -1)
+    while (cnt < position - 1)
     {
         temp = temp -> next;
         cnt++;
