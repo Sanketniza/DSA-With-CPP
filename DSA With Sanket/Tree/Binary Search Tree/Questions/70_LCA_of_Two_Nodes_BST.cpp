@@ -90,6 +90,12 @@ bst * lcaOfBST(bst *root , int p , int q) {
         return NULL;
     }
 
+    //            15 <- root data
+    //           /   \
+    //     p-> 10     20
+    //        /  \    /  \
+    //       8    12 16   25 <- q
+
     if(root -> data > p && root -> data > q) {
         return lcaOfBST(root -> left , p , q );
     }
@@ -108,11 +114,11 @@ bst * lcaOfBST_Iterative(bst *root , int p , int q) {
     while (root != NULL) {
 
         if(root -> data > p && root -> data > q) {
-             root = lcaOfBST_Iterative(root -> left , p , q );
+            root = lcaOfBST_Iterative(root -> left , p , q );
         }
 
         else if (root -> data < p && root -> data < q) {
-             root = lcaOfBST_Iterative (root -> right , p , q);
+            root = lcaOfBST_Iterative (root -> right , p , q);
         }
 
         else {
@@ -132,6 +138,12 @@ int main() {
     root -> left -> right = new bst(12);
     root -> right -> left = new bst(16);
     root -> right -> right = new bst(25);
+
+    //            15
+    //           /   \
+    //     p-> 10     20
+    //        /  \    /  \
+    //       8    12 16   25 <- q
 
     int p = 10;
     int q = 25;

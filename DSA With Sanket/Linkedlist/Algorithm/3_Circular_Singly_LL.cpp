@@ -116,7 +116,6 @@ void DeleteNode (Node * &tail , int value) {
 }
 
 int main() { 
-void InsertNode(Node *&tail, int element, int d)
 
     Node *tail = NULL;
 

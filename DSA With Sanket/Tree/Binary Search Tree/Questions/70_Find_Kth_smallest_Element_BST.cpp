@@ -44,8 +44,7 @@ class bst
         }
 };
 
-int kthSmallest(bst<int> *root, int k , int &i)
-{
+int kthSmallest(bst<int> *root, int k , int &i) {
     // base case
     if(root == NULL) {
         return -1;
@@ -73,8 +72,11 @@ int kthSmallest(bst<int> *root, int k , int &i)
 
 }
 
-void solve(bst<int> *root , int k)
-{
+void solve(bst<int> *root , int k) {
+    /* 
+        About static in cpp
+            - 
+    */
     static int count = 0; // static variable to keep track of the count of nodes visited
     static int result = -1;
 
@@ -89,7 +91,7 @@ void solve(bst<int> *root , int k)
 
     if(count == k) {
         result = root -> data;
-        cout << "The " << k << " th smallest element in the BST is: " << result << endl;
+        cout << "The " << k << "th smallest element in the BST is: " << result << endl;
         return;
     }
 
@@ -111,9 +113,9 @@ int main()
 
     // inorder traversal : 5 8 10 11 12 13 15 20
 
-    int k = 4;
+    int k = 3;
     int i = 0;
-    cout << kthSmallest(root, k , i) << endl;
+    cout << k << "th " << "Smallest Ele : " << kthSmallest(root, k , i) << endl;
 
     // second approach
     solve(root , k);
