@@ -7,57 +7,66 @@ class Node {
 
     int data;
     Node *next;
+    Node *prev;
 
     Node(int data) {
         this -> data = data;
         this -> next = NULL;
+        this -> prev = NULL;
     }
 
 };
 
-void insertArHead(Node *&tail , int d , int position) {
-
-    // if no node is present , empty csll
-    if(tail == NULL) {
-        Node *temp = new Node(d);
-        tail = temp;
-        tail -> next = tail;
-    }
-    else {
-
-        int cnt = 1;
-        Node *temp = tail;
-
-        while (temp => data != position) {
-            temp = temp -> next;
-        }
-
-        Node *curr = new Node (d);
-
-    }
-}
-
-void print (Node *tail) {
-
-    if(tail == NULL) {
-        cout << "list is empty" << endl;
-    }
+void print(Node *tail) {
 
     Node *temp = tail;
 
+    if(tail == NULL) {
+        cout << "List is empty" << endl;
+        return;
+    }
+
     do{
-        cout << tail -> data;
-        tail = tail -> next;
+        cout << "<- " << temp -> data << " -> ";
+        temp = temp -> next;
+    }while(tail != temp);
 
-    }while(tail != temp )
+    cout << "Tail" << endl;
 
-    cout << "tail " << endl;
 }
+
+void insertAtHead(Node *&head , int data) {
+
+    if(head == NULL) {
+        Node *temp = new Node(data);
+        head = temp;
+        temp -> next = temp;
+        temp -> prev = temp;
+    }
+
+    else {
+        Node *temp = new Node (data);
+        temp -> next = head;
+        head -> prev = temp;
+        head = temp;
+    }
+
+}
+
+
 
 int main() {
 
-    Node *tail = NULL
+    Node *node1 = new Node(1);
+    Node *head = node1;
+    Node *tail = node1;
 
-    insertArHead(tail , 2 , 0);
+    insertAtHead(head , 2);
+    insertAtHead(head , 3);
+
+    print(head);
+
+
+    
  return 0;
 }

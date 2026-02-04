@@ -1,10 +1,11 @@
 /* 
-!  lecture 45 :- Middle Of Linked List
+        !  lecture 45 :- Middle Of Linked List
 
- link :-https://www.naukri.com/code360/problems/middle-of-linked-list_973250?source=youtube&campaign=Lovebabbarcodestudio_24thJan&leftPanelTabValue=PROBLEM
- link :- https://leetcode.com/problems/middle-of-the-linked-list/
+        ? link :-https://www.naukri.com/code360/problems/middle-of-linked-list_973250?source=youtube&campaign=Lovebabbarcodestudio_24thJan&leftPanelTabValue=PROBLEM
 
-             Middle Of Linked List
+        ? link :- https://leetcode.com/problems/middle-of-the-linked-list/
+
+        # Middle Of Linked List
     
         Problem statement
         Given a singly linked list of 'N' nodes. The objective is to determine the middle node of a singly linked list. However, if the list has an even number of nodes, we return the second middle node.
