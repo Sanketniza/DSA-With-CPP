@@ -76,6 +76,7 @@ void print(Node *head)
         cout << temp->data << " -> ";
         temp = temp->next;
     }
+    cout << "NULL" << endl;
 
     cout << endl;
 }
@@ -98,8 +99,9 @@ int main()
     node4->next = node5;
     node5->next = NULL;
 
+    cout << "Original linked list: ";
     print(head);
-    cout << "head is at :" << head->data << endl
+    cout << "head is at : " << head->data << endl
          << endl;
 
     // reverse the linked list

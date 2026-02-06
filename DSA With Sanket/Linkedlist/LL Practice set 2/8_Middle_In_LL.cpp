@@ -55,7 +55,61 @@ void FindMiddle(Node *&head) {
    cout << "Middle element is : " << temp -> data << endl;
 
    head = temp;
+}
 
+void Reverse(Node *&head) {
+
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *forward = NULL;
+
+    while(curr != NULL) {
+        forward = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = forward;
+    }
+
+    head = prev;
+}
+
+Node *ReverseBet(Node *head , int left , int right) {
+
+    // base condition
+    if(!head || left == right) {
+        return head;
+    }
+
+    // create dummy node and point to head
+    Node *dummy = new Node(0);
+    dummy -> next = head;
+
+    //create PrevLeft node
+    Node *PrevLeft = dummy;
+
+    // point prevLeft before left;
+    for(int i = 1; i < left; i++) {
+        PrevLeft = PrevLeft -> next;
+    }
+
+    //crete more nodes that 
+    Node *curr = PrevLeft -> next;
+    Node *prev = NULL;
+    Node *forward = NULL;
+
+    for(int i = left; i <= right; i++) {
+        prev = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = forward;
+    }
+
+    // last
+    PrevLeft -> next -> next = curr;
+    PrevLeft -> next = prev;
+
+    return dummy -> next;
+    
 }
 
 int main() {
@@ -77,10 +131,18 @@ int main() {
     Node *head = node1;
 
     print(head);
+    cout << head -> data << endl;
 
-    FindMiddle(head);
+    // FindMiddle(head);
+    // print(head);
 
-    print(head);
+    // Reverse(head);
+    // print(head);
+
+    // head , left and right.
+    Node *ans = ReverseBet(head , 2 , 4);
+    print(ans);
+
 
  return 0;
 }
