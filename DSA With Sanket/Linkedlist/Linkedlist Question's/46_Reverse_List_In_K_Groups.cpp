@@ -1,9 +1,9 @@
 
 /* 
-    ? lecture 46 :- Reverse List In K Groups
-    ? link :- https://www.naukri.com/code360/problems/reverse-list-in-k-groups_983644?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbar_codestudio_26thjan&leftPanelTabValue=PROBLEM
-     ? https://www.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
-     ? https://leetcode.com/problems/reverse-nodes-in-k-group/
+    ! lecture 46 :- Reverse List In K Groups
+        ? link :- https://www.naukri.com/code360/problems/reverse-list-in-k-groups_983644?leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbar_codestudio_26thjan&leftPanelTabValue=PROBLEM
+        ? https://www.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
+         ? https://leetcode.com/problems/reverse-nodes-in-k-group/
 
 
     Problem statement
