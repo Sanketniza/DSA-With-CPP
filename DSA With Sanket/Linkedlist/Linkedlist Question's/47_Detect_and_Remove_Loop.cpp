@@ -93,6 +93,8 @@ Node *startingNode(Node *head) {
     }
 
     Node *intersection = FloydCycleDetection(head);
+    cout << "intersection At: " << intersection -> data << endl;
+
 
     Node *slow = head;
 
@@ -145,7 +147,7 @@ void removeLoop(Node *head) {
     }
 
     Node *startOfLoop = startingNode(head);
-    // cout << "sanket " << startOfLoop -> data << endl;
+    cout << "startOfLoop At: " << startOfLoop -> data << endl;
     Node *temp = startOfLoop;
 
     while (temp -> next != startOfLoop) {
