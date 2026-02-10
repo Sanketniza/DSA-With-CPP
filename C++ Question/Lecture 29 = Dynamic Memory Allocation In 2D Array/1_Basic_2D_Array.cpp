@@ -4,35 +4,35 @@ using namespace std;
 int main()
 {
 
-//     int n;
-//     cin >> n;
-//     // ! creating a 2D array with n*n
-//     int **arr = new int *[n];
+    int n;
+    cin >> n;
+    // ! creating a 2D array with n*n
+    int **arr = new int *[n];
 
-//     // creating 2D array
-//     for (int i = 0; i < n; i++)
-//     {
-//         arr[i] = new int[n];
-//     }
+    // creating 2D array
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = new int[n];
+    }
 
-//     // taking input
-//     for (int i = 0; i < n; i++)
-//     {
-//         for (int j = 0; j < n; j++)
-//         {
-//             cin >> arr[i][j];
-//         }
-//     }
+    // taking input
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
 
-//     // printing 2D array
-//     for (int i = 0; i < n; i++)
-//     {
-//         for (int j = 0; j < n; j++)
-//         {
-//             cout << arr[i][j] << " ";
-//         }
-//         cout << endl;
-//     }
+    // printing 2D array
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
 
 //     //?taking input in the form of n*m
 

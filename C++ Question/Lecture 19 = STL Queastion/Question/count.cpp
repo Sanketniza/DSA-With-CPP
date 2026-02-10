@@ -56,10 +56,6 @@ vector<int>solve (vector<int> &v) {
     return v;
 }
 
-vector<int> solve1 (vector<int> &v) {
-
-    
-}
  
 int main() {
 
@@ -71,34 +67,23 @@ int main() {
     for(int i = 0; i < v.size(); i++) {
         // m[v[i]]++;
         m[v[i]] = m[v[i]] + 1;
-
-        
     }
 
     for(auto i : m) {
         cout << i.first << " -> " << i.second << endl;
     }
+    cout << endl;
 
     //Given an array of integers nums, sort the array in increasing order based on the frequency of the values. If multiple values have the same frequency, sort them in decreasing order.
 
     //^ solution 1
 
     vector<int> ans = solve(v);
+    cout << endl;
 
     for(int i = 0; i < ans.size(); i++) {
         cout << ans[i] << " ";
     }
-
-    //^ solution 2
-
-    vector<int> ans1 = solve1(v);
-
-    for(int i = 0; i < ans1.size(); i++) {
-        cout << ans1[i] << " ";
-    }
-
-    
-    
 
  return 0;
 }

@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "vector": "cpp",
-        "iostream": "cpp"
-    },
-    "Codegeex.SidebarUI.LanguagePreference": "English",
-    "Codegeex.Chat.LanguagePreference": "English",
-    "Codegeex.Comment.LanguagePreference": "English"
-}

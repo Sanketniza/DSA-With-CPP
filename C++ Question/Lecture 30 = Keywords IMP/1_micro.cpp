@@ -45,6 +45,3 @@ int main()
     cout << "Minimum of " << a1 << " and " << b1 << " is " << min(a, b);
     return 0;
 }
-
-/* 
- */
