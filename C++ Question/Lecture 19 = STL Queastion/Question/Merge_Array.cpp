@@ -74,7 +74,7 @@ int main()
 
     PrintArray(arr3, n + m);
 
-    stl approach
+   
 
 
 // you have array

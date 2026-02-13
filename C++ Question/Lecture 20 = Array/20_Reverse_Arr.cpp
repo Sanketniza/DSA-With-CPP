@@ -33,6 +33,28 @@ int main() {
     {
         cout << arr[i] << " ";
     }
+
+    int p = 0;
+    int q = size -1 ;
+    int temp;
+
+    while(p < q){
+        temp = arr[p];
+        arr[p] = arr[q];
+        arr[q] = temp;    
+    }
+
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << endl;
+    }
+
+    while (p < q) {
+        swap(arr[p] , arr[q]);
+        p++;
+        q--;
+    }
+
+    reverse(arr , arr + size);
     
 
  return 0;

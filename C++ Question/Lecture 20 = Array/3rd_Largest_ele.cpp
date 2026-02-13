@@ -45,39 +45,42 @@ int solve(vector<int> &arr , int n) {
 
 int main() {
 
-    // Method 1: Using three loops
+    //todo: Method 1: Using three loops
     vector<int> arr = {12, 35, 1, 10, 34, 1 , 18};
     int n = arr.size();
 
+    // Find first lastest element
     int fisrt = INT_MIN;
     for(int i = 0; i < n; i++) {
         if(arr[i] > fisrt) {
             fisrt = arr[i];
         }
     }
+    cout << "First largest element is : " << fisrt << endl;
 
+    // Find second largest element
     int second = INT_MIN;
     for(int i = 0; i < n; i++) {
         if(arr[i] > second && arr[i] < fisrt) {
             second = arr[i];
         }
     }
+    cout << "Second largest element is : " << second << endl;
 
+    // Find third largest element
     int third = INT_MIN;
     for(int i = 0; i < n; i++) {
         if(arr[i] > third && arr[i] < second) {
             third = arr[i];
         }
     }
-
     cout << "Third largest element is : " << third << endl;
 
-    // Method 2: Using sort
+    //todo: Method 2: Using sort
     sort(arr.begin() , arr.end());
     cout << "Third largest element is : " << arr[n - 3] << endl;
 
-    // Method 3: Using priority queue
-
+    //todo: Method 3: Using priority queue
     priority_queue<int , vector<int> , greater<int>> pq;
     for(int i = 0; i < n; i++) {
         pq.push(arr[i]);
@@ -85,11 +88,9 @@ int main() {
             pq.pop();
         }
     }
-
     cout << "Third largest element is : " << pq.top() << endl;
 
-    // Method 4: Using 
-
+    //todo: Method 4: Using 
     int x = solve(arr , n);
     cout << "Third largest element is : " << x << endl;
 

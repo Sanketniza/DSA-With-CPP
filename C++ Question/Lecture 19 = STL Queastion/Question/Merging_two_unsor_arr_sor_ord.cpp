@@ -37,23 +37,22 @@ vector<int> sort(vector<int> arr1, vector<int> arr2, vector<int> res) {
     return res;
 
 
-     /* // Initialize res with the size of arr1 and arr2
+     /* 
+        // Initialize res with the size of arr1 and arr2
         res.resize(arr1.size() + arr2.size());
 
         Merge arr1 and arr2 into res
         for (int i = 0; i < arr1.size(); i++) {
             res[i] = arr1[i];
         }
+            
         for (int i = 0; i < arr2.size(); i++) {
             res[arr1.size() + i] = arr2[i];
         }
-        
-        
-       
-        
-        
-        // Sort the merged vector
-        sort(res.begin(), res.end()); */
+
+         Sort the merged vector
+        sort(res.begin(), res.end()); 
+    */
 }
 
 int main() {
@@ -63,8 +62,6 @@ int main() {
     vector<int>res;
 
     vector<int> arr3 = sort(arr1 , arr2, res);
-
-    
 
  return 0;
 } 
